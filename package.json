@@ -1,0 +1,39 @@
+{
+  "name": "delicious-reverie",
+  "version": "6.0.0",
+  "description": "blog of developer & bookworm benjamin read",
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/11ty/deliciousreverie.git"
+  },
+  "author": {
+    "name": "Benjamin Read",
+    "email": "endymion1818@gmail.com",
+    "url": "https://deliciousreverie.co.uk/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/11ty/deliciousreverie/issues"
+  },
+  "homepage": "https://github.com/11ty/deliciousreverie#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "@11ty/eleventy-plugin-rss": "^1.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
+    "luxon": "^2.3.0",
+    "markdown-it": "^12.3.2",
+    "markdown-it-anchor": "^8.4.1",
+    "slinkity": "^0.5.2"
+  },
+  "dependencies": {
+    "svelte": "^3.46.4"
+  }
+}

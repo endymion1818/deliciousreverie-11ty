@@ -1,0 +1,21 @@
+{
+  "title": "Delicious Reverie",
+  "url": "https://deliciousreverie.co.uk/",
+  "language": "en-GB",
+  "description": "blog of developer & bookworm benjamin read",
+  "feed": {
+    "subtitle": "blog of developer & bookworm benjamin read",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://deliciousreverie.co.uk/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://deliciousreverie.co.uk/feed/feed.json"
+  },
+  "author": {
+    "name": "Your Name Here",
+    "email": "youremailaddress@example.com",
+    "url": "https://deliciousreverie.co.uk/about/"
+  }
+}
