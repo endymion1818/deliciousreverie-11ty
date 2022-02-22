@@ -8,6 +8,11 @@
   --white: #fff;
 }
 
+@font-face {
+  font-family: 'Lovechild';
+  src: url('../img/Lovechild-Regular.woff2');
+}
+
 /* Global stylesheet */
 * {
   box-sizing: border-box;
@@ -20,6 +25,13 @@ body {
   font-family: -apple-system, system-ui, sans-serif;
   color: var(--darkgray);
   background-color: var(--white);
+}
+h1,
+h2,
+h3,
+h4,
+.title {
+  font-family: 'Lovechild';
 }
 p:last-child {
   margin-bottom: 0;

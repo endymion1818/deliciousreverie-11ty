@@ -17,7 +17,7 @@ In my day job I get to analyse a lot of websites. I often get the opportunity to
 
 Sometimes the performance review shocks me a little.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">As much as I hate to say it, we really need to start naming &amp; shaming devs who do this. I think it&#39;s massively hurting our credibility. <a href="https://t.co/f1nNswmhgE">pic.twitter.com/f1nNswmhgE</a></p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874593109052723201">June 13, 2017</a></blockquote> 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">As much as I hate to say it, we really need to start naming &amp; shaming devs who do this. I think it&#39;s massively hurting our credibility. <a href="https://t.co/f1nNswmhgE">pic.twitter.com/f1nNswmhgE</a></p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874593109052723201">June 13, 2017</a></blockquote>
 
 This site, in case you aren't able to see the image in the above tweet, has a load time of 41.56 seconds, makes 77 HTTP requests,  and is 21MB in size. All this despite it's simple nature as a brochure site with nothing special except text and a few images. The only animation is a page transition which seems to have been implemented to mask the poor performance of the site.
 
@@ -47,7 +47,7 @@ I'm hoping this could be a way of motivating people who should know better to do
 
 What I'm also hoping to suggest is that we as an industry reward good performance. I reached out to a number of organisations that I thought might be interested in following this up, including Awwards, an organisation that celebrates beautiful and interesting website UIs.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I&#39;m wondering if <a href="https://twitter.com/AWWWARDS">@AWWWARDS</a>, <a href="https://twitter.com/webawards">@webawards</a> or <a href="https://twitter.com/WebGuildSeal">@WebGuildSeal</a> would ever get involved to promote / reward good performance practice <a href="https://twitter.com/hashtag/perfmatters?src=hash">#perfmatters</a></p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874657130367913984">June 13, 2017</a></blockquote> 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I&#39;m wondering if <a href="https://twitter.com/AWWWARDS">@AWWWARDS</a>, <a href="https://twitter.com/webawards">@webawards</a> or <a href="https://twitter.com/WebGuildSeal">@WebGuildSeal</a> would ever get involved to promote / reward good performance practice <a href="https://twitter.com/hashtag/perfmatters?src=hash">#perfmatters</a></p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874657130367913984">June 13, 2017</a></blockquote>
 
 And Awwards replied!
 
@@ -61,7 +61,7 @@ Like I said, I tend to work in a sector of the web industry that is pretty stuck
 
 But there are things we can do within our industry to promote better practices, to raise the bar for web development by educating ourselves, our PMs and our business owners to promote better performance practices:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Main things I would say: educate dev teams &amp; clients. Read <a href="https://twitter.com/ResponsibleRWD">@ResponsibleRWD</a> &amp; act on it wherever possible. Use <a href="https://t.co/288vNrRuYJ">https://t.co/288vNrRuYJ</a>.</p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874617990653890560">June 13, 2017</a></blockquote> 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Main things I would say: educate dev teams &amp; clients. Read <a href="https://twitter.com/ResponsibleRWD">@ResponsibleRWD</a> &amp; act on it wherever possible. Use <a href="https://t.co/288vNrRuYJ">https://t.co/288vNrRuYJ</a>.</p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874617990653890560">June 13, 2017</a></blockquote>
 
 I haven't acted on this league table idea. But I am gathering a catalogue of the worst sites I find, and may publish it at some point.
 
@@ -80,6 +80,4 @@ I really think that this tool can be a good way of promoting performance best pr
 
 [> Test My Site With Google](https://testmysite.withgoogle.com/intl/en-gb)
 
-
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 

@@ -1,3 +1,9 @@
+<script context="module">
+  export const frontMatter = {
+    hydrate: "eager",
+  };
+</script>
+
 <script>
 	let count = 0;
 
