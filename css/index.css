@@ -156,6 +156,15 @@ a[href].post-tag:hover,
 a[href].post-tag:focus {
   background-color: var(--lightgray);
 }
+
+/* post list */
+.postlist {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.postlist-item {
+  margin-bottom: 4rem;
+}
 .postlist-item > .post-tag {
   align-self: center;
 }
@@ -185,4 +194,24 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+.container {
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+blockquote > span {
+  font-size: 2rem;
+}
+.list-inline {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.list-inline > li > a {
+  display: block;
+  padding: 1rem;
 }

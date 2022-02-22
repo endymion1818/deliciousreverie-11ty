@@ -12,23 +12,44 @@
   </head>
   <body>
     <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-
-      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
-      {%- for entry in collections.all | eleventyNavigation %}
-        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-      {%- endfor %}
-      </ul>
+      <div class="container">
+        <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+        <p class="title">{{ metadata.description }}</p>
+        <nav>
+          <ul class="list-inline">
+          {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-
-      {{ content | safe }}
+      <div class="container">
+        {{ content | safe }}
+      </div>
     </main>
 
-    <footer></footer>
-
-    <!-- Current page: {{ page.url | url }} -->
+    <footer>
+      <div class="container">
+        <blockquote>
+          <span class="title">“Wisest are they who know they do not know.”</span>
+          <attr>
+            &mdash; Jostein Gaarder
+          </attr>
+        </blockquote>
+        <h2>About This Site</h2>
+        <p><a href="{{ '/' | url }}">Delicious Reverie</a> is the blog of developer & bookworm benjamin read. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+      <h3>Where you can find me:</h3>
+        <ul class="list-inline">
+          <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+          <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+          <li><a href="https://github.com/endymion1818/">github</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+    </footer>
   </body>
 </html>

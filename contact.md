@@ -4,6 +4,9 @@ date: "2012-05-07T16:12:46+01:00"
 draft: false
 title: Contact
 type: page
+eleventyNavigation:
+  key: Contact
+  order: 5
 ---
 
 ### I'd like to hear from you!
