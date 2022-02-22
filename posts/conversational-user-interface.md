@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - design
 date: "2016-04-21T15:21:21+01:00"

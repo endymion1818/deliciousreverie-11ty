@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: Predictions for GatsbyConf 2021
 date: "2021-02-19T01:21:21+01:00"
 description: "It's no secret that NextJS is knocked the socks off Gatsby last year in terms of developer adoption. I think the frameworks will keep learning from each other (read: steal features), and it's a good thing for both frameworks. Here's my take on what could be announced at Gatsby's forthcoming conference."

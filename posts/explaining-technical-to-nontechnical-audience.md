@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "Explaining technical things to nontechnical thinkers"
 description: "A significant part of our jobs as developers is explaining technical things to people who don't have the same technical knowledge. How do we help someone to make a decision that involves technical understanding?"
 draft: false

@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
   - development
 date: "2020-04-09T11:21:21+01:00"

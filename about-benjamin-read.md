@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 date: "2012-05-07T16:12:46+01:00"
 draft: false
 title: About Benjamin Read
@@ -37,7 +38,7 @@ Even though I often use JavaScript to template my HTML and css-in-js to create m
 Accessibility and performance continue to be a chief concern of mine. I don't think this will ever change.
 
 [> Posts about CSS](/tags/css/ "All posts about CSS on Deliciousreverie.co.uk")&nbsp;
-[> Posts about accessibility](/tags/accessibility/ "All posts about accesibility on Deliciousreverie.co.uk") &nbsp;  
+[> Posts about accessibility](/tags/accessibility/ "All posts about accesibility on Deliciousreverie.co.uk") &nbsp;
 [> Posts about performance](/tags/performance/ "All posts about performance")&nbsp;
 
 ## Core Skills

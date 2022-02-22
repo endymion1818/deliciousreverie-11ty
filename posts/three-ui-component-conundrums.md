@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: Three UI Component Conundrums
 date: "2020-10-30T15:21:21+01:00"
 description: "I really like using React with Styled Components for building effective user interfaces. However I have recently come across three conundrums to solve."

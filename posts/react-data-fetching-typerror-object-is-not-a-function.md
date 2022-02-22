@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "React: data fetching results in type error: object is not a function"
 categories:
   - development

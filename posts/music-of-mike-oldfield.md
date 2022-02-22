@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 date: "2017-07-09T02:21:21+01:00"
@@ -59,7 +60,7 @@ Primarily, it seems this album was "one for the fans" - Mike was rewarding the p
 
 I must be honest, it took me years to understand and appreciate these albums.
 
-I think my first mistake was believing that I had to enjoy the original Tubular Bells in order to do so. I didn't - and still don't - enjoy the one single album that people generally remember Mike for! 
+I think my first mistake was believing that I had to enjoy the original Tubular Bells in order to do so. I didn't - and still don't - enjoy the one single album that people generally remember Mike for!
 
 Yes it was a groundbreaking album that displayed a certain genius. But for me, it doesn't resonate for some reason.
 

@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - project coordination
 date: "2015-03-17T15:21:21+01:00"

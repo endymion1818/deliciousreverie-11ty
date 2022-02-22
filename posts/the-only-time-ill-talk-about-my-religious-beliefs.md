@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 date: "2016-05-16T15:21:21+01:00"
@@ -24,7 +25,7 @@ In which case, this post is for you.
 
 One thing I wanted to say is that I hope I'll always respect you, your choices and your opinions. Although I have deeply held beliefs, I don't believe they're right for everyone. Everyone has the freedom to choose what they want to believe. I am confident that, like me, you have reached the conclusions you have based on your own convictions, and on the evidence presented to you.
 
-The good thing about being human is that none of us have a monopoly on the truth. I fully appreciate that I could be wrong. So could any of us. 
+The good thing about being human is that none of us have a monopoly on the truth. I fully appreciate that I could be wrong. So could any of us.
 
 Therefore, I believe it would be grossly disrespectful to force my beliefs on you or to perhaps embarrass you for what you hold dear.
 

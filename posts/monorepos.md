@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: monorepos.
 date: "2021-06-04T15:21:21+01:00"
 description: "I've recently been introduced to the use of monorepos to manage projects and have a few thoughts on the idea."

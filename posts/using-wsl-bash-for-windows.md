@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 date: "2016-11-01T15:21:21+01:00"
@@ -22,11 +23,11 @@ I was pleased that I was able to install WSL without a hitch [using this guide o
 
 Problems arose because the build process my new employer had established required using a command-line php script which was a wrapper for [WP-CLI, the command-line interface for Wordpress](http://wp-cli.org "Command line interface for Wordpress"). This script ran through a few steps that would be essential to me getting up and running and developing new sites:
 
-1) Download Wordpress Core  
-2) Add build plugins and remove existing dummy content  
-3) Create a `wp-config` file  
-4) Connect to MySQL, add and configure a database  
-5) Download plugins and themes from a private Git repository  
+1) Download Wordpress Core
+2) Add build plugins and remove existing dummy content
+3) Create a `wp-config` file
+4) Connect to MySQL, add and configure a database
+5) Download plugins and themes from a private Git repository
 
 As you can see, this required a _number_ of connecting services, which were not already installed on either Windows, or WSL. I made the decision that I would install these first inside WSL, and see if that would be more useable. I figured that it would be more difficult to configure everything I needed using the more unfamiliar Windows Command line.
 

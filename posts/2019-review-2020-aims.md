@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 date: "2020-01-11T15:21:21+01:00"
@@ -60,7 +61,7 @@ I'd love to think that by the end of 2020 I will be able to write a Terraform sc
 
 ### 4. Writing
 
-One thing that has surprised me is that I really love writing about web development. This way I can help others by utilising another skill I think I have: being able to write moderately well. 
+One thing that has surprised me is that I really love writing about web development. This way I can help others by utilising another skill I think I have: being able to write moderately well.
 
 My relationship with Net magazine is very strong, and I'd love to see if I can write a bit more of the kinds of articles that have been well received by their audience so far. This might be more difficult to achieve though because of the lack of personal time I currently have.
 

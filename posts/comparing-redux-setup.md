@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: Comparing two redux setups
 date: "2020-08-03T14:21:21+01:00"
 description: I recently came across two different examples of setup that used Redux to manage state in a sample app. They were so different that I thought it was worth delving a little deeper into why, and how we can write Redux code so it's a good fit for our needs.

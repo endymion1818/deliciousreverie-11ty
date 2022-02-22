@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 date: "2015-02-06T15:21:21+01:00"

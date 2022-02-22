@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 date: "2017-07-09T08:21:21+01:00"
@@ -16,7 +17,7 @@ title: Using CSS Grid In Production Today
 
 I'm really, really excited about CSS Grid. This new technology, which allows developers to finally build a structured document layout natively without using a hack, was released in most major browsers in about March of this year.
 
-I've been closely following the work of Jen Simmons and Rachel Andrew on this subject, and have attended other talks about the subject. But now I want to join the chorus and say with a definite certainty: yes, you can use CSS Grid in production today. 
+I've been closely following the work of Jen Simmons and Rachel Andrew on this subject, and have attended other talks about the subject. But now I want to join the chorus and say with a definite certainty: yes, you can use CSS Grid in production today.
 
 I already have.
 
@@ -84,7 +85,7 @@ First, I declare the flexbox layout:
       flex-basis: 47%;
     }
   }
-} 
+}
 ```
 Please note: this is 22 lines of code that I hope I will be able to remove from the project at some point. If not, it isn't doing any harm where it's not used.
 
@@ -98,13 +99,13 @@ Now, below that I use an `@supports` rule to scope the grid layouts:
       display: grid;
       grid-template-columns: repeat(2, 50fr);
       grid-gap: 15px;
-      
+
       > * {
         margin: 0;
       }
     }
   }
-} 
+}
 ```
 This is only 11 lines of code (not counting the lack of a `<div class="row">` etc, and doesn't use hacks like negative margins. Much better.
 

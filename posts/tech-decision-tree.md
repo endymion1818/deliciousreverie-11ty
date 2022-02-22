@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "What should I use to build my new project?"
 categories:
   - development

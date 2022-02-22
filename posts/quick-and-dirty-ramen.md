@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: 'A recipe for quick and dirty ramen'
 description: "I've been slowly perfecting a recipe for ramen that I can quickly make at home for a quick meal. If you too like that sort of thing ... here's my hopefully simple recipe!"
 featuredImage: "../assets/ramen.JPG"
@@ -36,7 +37,7 @@ Put the noodle into a bowl. Pour in the boiled water. Whilst they're getting rea
 
 You could fry the other ingredients (except the spring onion) together beforehand, but that's just a little nicer if you have time. Otherwise, throw them into the hot water.
 
-Once all the ingredients are in, add the spring onion. 
+Once all the ingredients are in, add the spring onion.
 
 If the water has cooled down or the noodles haven't absorbed water enough, put the bowl in a microwave for a minute or so.
 

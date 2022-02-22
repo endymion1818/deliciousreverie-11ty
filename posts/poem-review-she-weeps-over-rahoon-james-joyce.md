@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 date: "2016-07-07T15:21:21+01:00"
@@ -22,20 +23,20 @@ Yet, until very recently, I had totally missed out on this shorter poem:
 
 ### She Weeps Over Rahoon
 
-_Rain on Rahoon falls softly, softly falling,_  
-_Where my dark lover lies._  
-_Sad is his voice that calls me, sadly calling,_  
-_At grey moonrise._  
+_Rain on Rahoon falls softly, softly falling,_
+_Where my dark lover lies._
+_Sad is his voice that calls me, sadly calling,_
+_At grey moonrise._
 
-_Love, hear thou_  
-_How soft, how sad his voice is ever calling,_  
-_Ever unanswered, and the dark rain falling,_  
-_Then as now._  
+_Love, hear thou_
+_How soft, how sad his voice is ever calling,_
+_Ever unanswered, and the dark rain falling,_
+_Then as now._
 
-_Dark too our hearts, O love, shall lie and cold_  
-_As his sad heart has lain_  
-_Under the moongrey nettles, the black mould_  
-_And muttering rain._  
+_Dark too our hearts, O love, shall lie and cold_
+_As his sad heart has lain_
+_Under the moongrey nettles, the black mould_
+_And muttering rain._
 
 
 There is some biographical background to this poem, which is that Joyce's lover was visiting the grave of a previous love, which inspired Joyce to write the poem. Doesn't it evoke some of the poignant sadness of that occasion, as well as some of the other sad fates of unmentioned Irish men?

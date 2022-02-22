@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "Talk: accessibility and you"
 date: "2021-01-26T15:21:21+01:00"
 description: "Over a year ago I was invited to give a talk at London dev meetup JS Roundabout on the subject of accessibility. I recently discovered the talk has been put online ... "

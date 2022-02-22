@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "Publishing both JS and non-JS sites"
 date: "2020-09-18T14:21:21+01:00"
 description: "It's always bothered me that the majority of internet users spend a lot of money downloading and running JavaScript, yet I enjoy building things with JavaScript, and want to provide an enhanced experience using JS ... without sacrificing their needs to do so. Now, there's an easier way to do both."

@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "The search service landscape"
 description: "Search is a massive growth market but there is only one market leader and many inadequate contenders. Here's why I think we should be building more search providers to expand the market."
 draft: false
@@ -33,8 +34,8 @@ Search is an emerging market and not nearly as well developed as the CMS market.
 
 Algolia is the shining beacon here. It is clear from their implementation that they saw a gap in the market and have exploited it masterfully. They've also got the most unbelievable marketing department, so good that you might be pursuaded to believe there are no contenders for the throne (which is almost true ...)
 
-**Pros:** Lovely analytics dashboard, delightful SDK  
-**Cons:** Closed source platform that can get really expensive ... just mention "single sign-on" and watch the dollar signs roll...  
+**Pros:** Lovely analytics dashboard, delightful SDK
+**Cons:** Closed source platform that can get really expensive ... just mention "single sign-on" and watch the dollar signs roll...
 **Link**: https://www.algolia.com
 
 ### 2. Cludo
@@ -43,24 +44,24 @@ Cludo are an up and coming SaaS platform not unlike Algolia, with a nice dashboa
 
 UPDATE: Cludo team have told me they _do_ have a data push API, so you don't need to use their site crawler. More info: https://docs.cludo.com/#data-indexing_push
 
-**Pros:** Good contender for the market  
-**Cons:** No SDK.  
+**Pros:** Good contender for the market
+**Cons:** No SDK.
 **Link:** https://www.cludo.com
 
 ### 3. SwiftType
 
 SwiftType have recently been bought out by Elastic, and is now called "Elastic Site Search". Again, a good tool with two strong products: app search and site search. But again this product falls into the trap of only allowing content in via web scraper.
 
-**Pros:** Backing of Elastic, a leader in the landscape  
-**Cons:** No content uploads API. No SDK.  
+**Pros:** Backing of Elastic, a leader in the landscape
+**Cons:** No content uploads API. No SDK.
 **Link:** https://swiftype.com
 
 ### 4. Meili
 
 Meili is an outlier in this space, and an entirely new product that isn't built on any existing technologies (most of the other platforms rely on Elastic under the hood). Meili is an open-source, self-hosted solution (I hope they'll offer it as a Saas in the future too), written in Rust. It is in active development, and possibly pre-alpha as I write this. There's no dashboard which seems a shame, but there is a good set of SDKs and [integration guides on their GitHub repo](https://github.com/meilisearch/integration-guides).
 
-**Pros:** Self hosted, fast as heck. Upload content via API  
-**Cons:** No analytics dashboard  
+**Pros:** Self hosted, fast as heck. Upload content via API
+**Cons:** No analytics dashboard
 **Link:** https://www.meilisearch.com
 
 ### 5. TypeSense
@@ -73,8 +74,8 @@ The interesting thing about this is it's written in C++, so it's likely to be pr
 
 Shoutout to Christopher Geary for letting me know about this one.
 
-**Pros:** Self hosted and cloud option  
-**Cons:** No analytics dashboard  
+**Pros:** Self hosted and cloud option
+**Cons:** No analytics dashboard
 **Link:** https://typesense.org
 
 ## Conclusion

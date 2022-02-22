@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - sysadmin
 date: "2018-02-10T15:21:21+01:00"

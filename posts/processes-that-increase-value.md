@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - project coordination
 - design
@@ -42,7 +43,7 @@ It goes without saying, I'm sure you'll agree, that an overrunning project costs
 
 ### 5. Deliver websites to budget
 
-Seems obvious again, but I wanted to have it clearly documented that we don't just accept it when a project steps over the budget threshold but instead seek to find weak spots in our process and stem the breach.  
+Seems obvious again, but I wanted to have it clearly documented that we don't just accept it when a project steps over the budget threshold but instead seek to find weak spots in our process and stem the breach.
 
 ### 6. Clear communication
 

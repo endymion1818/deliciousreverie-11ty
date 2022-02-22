@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - community
 date: "2018-12-13T11:21:21+01:00"

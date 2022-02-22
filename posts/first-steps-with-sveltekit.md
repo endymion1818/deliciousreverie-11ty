@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: First steps with Sveltekit
 date: "2021-05-27T15:21:21+01:00"
 description: "SvelteKit is great for one reason: performance. And it's this above everything else (except accessibility) that I'm excited about."

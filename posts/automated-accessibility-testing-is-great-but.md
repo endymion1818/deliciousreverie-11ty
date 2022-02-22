@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: "Automated accessibility testing is great, but ..."
 date: "2021-01-20T15:21:21+01:00"
 description: "We recently had a situation using jest-axe in tests, where the landmarks feature wasn't work as expected. This helped me verify why we shouldn't rely solely on automated tools, never mind how good they are."

@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 - development
@@ -11,7 +12,7 @@ title: "Creating my homepage animation"
 ---
 **I made the original animation for this site when I was using Hugo, but it's taken some time to refactor to React. Here's the story of how I achieved that.**
 
-I wanted this site to be pretty minimal, but a few nice little touches can really make a website stand out. That's why I made the animation here on the homepage. You have to scroll up & down slowly to see it ... 
+I wanted this site to be pretty minimal, but a few nice little touches can really make a website stand out. That's why I made the animation here on the homepage. You have to scroll up & down slowly to see it ...
 
 ## First steps
 
@@ -50,7 +51,7 @@ This is only 35 lines, and without any libraries, it's much faster and better fo
 
 ## Rebuild to React
 
-When I switched to React I was conscious that my JavaScript bundle had increased quite a lot, and I wanted to try to make compensation for that by implementing some other performance gains before I started getting fancy. 
+When I switched to React I was conscious that my JavaScript bundle had increased quite a lot, and I wanted to try to make compensation for that by implementing some other performance gains before I started getting fancy.
 
 It took some time to get this to work in React. Building this honestly got me to question whether React is "just javascript" ...
 
@@ -76,7 +77,7 @@ It was also easier to use a pre-built hook, `react-use-scroll-position`, rather 
 
 ## TypeScript implementation
 
-I'm using this one on my homepage now, but with TypeScript: 
+I'm using this one on my homepage now, but with TypeScript:
 
 ```javascript
 const Rabbits = () => {
@@ -95,17 +96,17 @@ function getScrollPercent() {
 
   const useScrollHeightToChangeOpacity = (
     domElement:HTMLDivElement,
-    inHeight:number, 
+    inHeight:number,
     outHeight:number
   ) => {
     if (getScrollPercent() > inHeight &&  getScrollPercent() < outHeight){
       domElement.style.opacity = '0.8'
-    } else { 
+    } else {
       domElement.style.opacity = '0'
     }
   }
 
-  const treeSummer = useRef(null) 
+  const treeSummer = useRef(null)
   const rabbitOne = useRef(null)
   const rabbitTwo = useRef(null)
   const rabbitThree = useRef(null)
@@ -124,7 +125,7 @@ function getScrollPercent() {
       useScrollHeightToChangeOpacity(rabbitSix.current!, 85, 90)
       useScrollHeightToChangeOpacity(rabbitSeven.current!, 90, 95)
     }, [getScrollPercent]);
-  
+
   return (
       ...
   )
@@ -147,5 +148,5 @@ If you have to ask why I chose this particular scene, it's because it reminds me
 
 Originally, I planned ot have different animations on other pages too, like a bird or butterfly crossing the viewport, and a little girl sitting on a tree swing. I'm still thinking about whether or not to implement those, since the SVGs are quite large and it might not be good for my bundle size.
 
-However I do really like how much character it lends to the site. 
+However I do really like how much character it lends to the site.
 

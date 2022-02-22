@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 date: "2020-02-25T11:21:21+01:00"
@@ -30,7 +31,7 @@ To start let's create a new app. If you have a recent version of Node.js already
 ```
 npx create-react-app netmag-javascript-testing
 ```
-Now open the folder in your code editor. 
+Now open the folder in your code editor.
 
 Create-react-app is great because you can already run yarn test and see that one test is already passing. This command will also keep watching for file changes, so you can see straight away whether or not the tests you write are passing.
 
@@ -74,7 +75,7 @@ The second argument are your tests. The `describe()` function will run all of 
 
 ## Cleanups
 
-Let's introduce helper function called `beforeEach()`. We need to use this because each time we do something with the component, we want a fresh copy without the props we previously had passed to it still existing in the component. Or we might need to re-render the component. `beforeEach()` does that for us, and we can pass it the cleanup function: 
+Let's introduce helper function called `beforeEach()`. We need to use this because each time we do something with the component, we want a fresh copy without the props we previously had passed to it still existing in the component. Or we might need to re-render the component. `beforeEach()` does that for us, and we can pass it the cleanup function:
 ```
 import { render, cleanup } from '@testing-library/react'
 
@@ -210,11 +211,11 @@ First, we should add a test id onto the button so that we can find it in the r
 ```
 return (
 
-    <ToggleButton 
+    <ToggleButton
 
-      data-testid="mode-toggle" 
+      data-testid="mode-toggle"
 
-      lightMode={mode} 
+      lightMode={mode}
 
       onClick={toggleMode}
 
@@ -230,11 +231,11 @@ Did you notice we added the new attribute `data-testid` to the button? Here's 
 
 First, import a new function, `fireEvent` from the testing library:
 ```
-import { cleanup, 
+import { cleanup,
 
-          fireEvent, 
+          fireEvent,
 
-          render 
+          render
 
 } from '@testing-library/react'
 ```
@@ -303,7 +304,7 @@ If you're looking for some courses to help you get started, the one by Kent C Do
 
 https://testingjavascript.com/
 
-I also enjoyed this one on Level Up Tutorials, it's the one that got me started writing tests for my code: 
+I also enjoyed this one on Level Up Tutorials, it's the one that got me started writing tests for my code:
 
 https://www.leveluptutorials.com/tutorials/react-testing-for-beginners
 

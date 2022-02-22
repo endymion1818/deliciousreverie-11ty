@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 date: "2017-12-07T15:21:21+01:00"
@@ -118,17 +119,17 @@ The benefits of investigation and conveying acceptance criteria are:
 Our acceptance criteria for this story was as follows:
 
 ---
-Display Staff information:  
-* Staff Name (static data, link to staff info, and display photo on hover, congregation).  
-* Team (static data, use for geographic division to meet Branch recommendation).  
-* 1st trade / 2nd trade.  
-* Date last attended.  
+Display Staff information:
+* Staff Name (static data, link to staff info, and display photo on hover, congregation).
+* Team (static data, use for geographic division to meet Branch recommendation).
+* 1st trade / 2nd trade.
+* Date last attended.
 * Date last invited (should this be Last Invitations or Invitation
 
- Records – displaying status of date/accepted or date/declined or date/unable-contact or keep-on-hold)  
-* Task name/skill level (sort by skill level)  
-(All column headings to be static information.)  
-* Allow selection of staff based on skill and training requirements   
+ Records – displaying status of date/accepted or date/declined or date/unable-contact or keep-on-hold)
+* Task name/skill level (sort by skill level)
+(All column headings to be static information.)
+* Allow selection of staff based on skill and training requirements
 
 ---
 
@@ -141,17 +142,17 @@ The process details how the user will achieve the task outlined in the story.
 Here's the process for this particular story we've been looking at:
 
 ---
-Process:  
-Search all Staff  
-* First Name  
-* Last Name  
-Email all selected staff to invite to project,   
-* Staff reply by link to a tick box calendar  
-* Overseer reviews replies  
-* Display staff for specific task name (sort by skill level)  
-* Define if selected for training.  
-* Define dates like to invite (calendar)  
-* select staff based on skill and training requirements    
+Process:
+Search all Staff
+* First Name
+* Last Name
+Email all selected staff to invite to project,
+* Staff reply by link to a tick box calendar
+* Overseer reviews replies
+* Display staff for specific task name (sort by skill level)
+* Define if selected for training.
+* Define dates like to invite (calendar)
+* select staff based on skill and training requirements
 
 ---
 
@@ -169,9 +170,9 @@ So instead of estimating time, we can estimate difficulty by using points. The d
 
 We used a simple system for points:
 
-1 - easy  
-2 - challenging  
-3 - difficult  
+1 - easy
+2 - challenging
+3 - difficult
 
 We decided that each developer's backlog should contain no more than 10 points worth of work. This keeps them focused on the task at hand, and allows you to re-allocate work to other developers based on their availability and workload.
 

@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 date: "2017-05-18T15:21:21+01:00"
@@ -13,7 +14,7 @@ tags:
 title: Continuous Deployment with Netlify and Hugo
 ---
 
-**Over the past few days, I've moved tech stack entirely for deliciousreverie.co.uk, from reseller hosting using PHP to cloud hosting on AWS by Netlify, and using continuous deployment. This post details some of the hazards and benefits I encountered.** 
+**Over the past few days, I've moved tech stack entirely for deliciousreverie.co.uk, from reseller hosting using PHP to cloud hosting on AWS by Netlify, and using continuous deployment. This post details some of the hazards and benefits I encountered.**
 
 Since I created this blog, I've always been a very proud user of Perch CMS and have recently upgraded to Perch 3, which brought loads of enhancements as well as an improved interface. So why the switch?
 
@@ -60,7 +61,7 @@ So I ran `hugo` again, added the commit, and waited ... and waited. Quite a long
 
 ## HTTPS
 
-I initially had trouble setting up by DNS with Cloudflare and applying Netlify's HTTPs certificate. It turns out, after having talked to Netlify, that they don't have IPv6 yet. Cloudflare adds an AAAA record to your DNS which messes up the HTTPS somehow. 
+I initially had trouble setting up by DNS with Cloudflare and applying Netlify's HTTPs certificate. It turns out, after having talked to Netlify, that they don't have IPv6 yet. Cloudflare adds an AAAA record to your DNS which messes up the HTTPS somehow.
 
 Once I'd disabled Cloudflare's CDN, I reapplied the certificate and everything worked fine, and I was able to secure my content.
 

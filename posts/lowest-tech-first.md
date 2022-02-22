@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: Lowest tech first
 date: "2021-06-23T10:21:21+01:00"
 description: "Should I use CSS or JavaScript to perform this task? If you're asking yourself this question, I have an answer for you: use the lowest technology available to you which can complete the task."

@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 date: "2021-09-18T14:21:21+01:00"
 description: "This post is a little bit of introspection for me. I've recently been given a bit of time to think about certain things, and I'd like a make a note of them for my own personal growth."
 draft: false
@@ -36,7 +37,7 @@ However, somewhere in the past 10 years I've stopped doing that.
 
 I think I finally decided that although those times in the past might have had some advantages, there were no doubt many hardships and disadvantages that caused a huge amount of suffering. Generally much poorer and less available healthcare. Rampant racism and sexism. Even perhaps a sort of brutality that our current age doesn't demonstrate so readily.
 
-But also, I stopped reading. I've simply had no time available to do so. 
+But also, I stopped reading. I've simply had no time available to do so.
 
 For both of these reasons, I stopped imagining myself in those past times. But the result of that is that I've felt more adrift.
 

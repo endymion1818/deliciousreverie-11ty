@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 - personal

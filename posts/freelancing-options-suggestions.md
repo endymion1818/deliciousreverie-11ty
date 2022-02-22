@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 date: "2020-09-07T14:21:21+01:00"
 title: "Freelancing: options and suggestions"
 description: "Many of us dream someday of freelancing and living a ... less restrictive? ... lifestyle. But is it truly the best option? I freelanced for 7 years before the Credit Crunch killed my business. Looking back, here are a few of the questions I've been asked about freelancing."

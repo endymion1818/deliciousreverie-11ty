@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - development
 date: "2018-06-08T15:21:21+01:00"
@@ -19,7 +20,7 @@ When I think of content authors, I'm specifically thinking about non-technical i
 
 I am sure this is one reason WordPress has gained the community it has:- it's easy to use, and makes the content author feel informed and empowered without them feeling like the software is getting in the way.
 
-The challenge for me has become to find some software - preferably open-source, definitely JavaScript - that can be a suitable environment for these kind of authors. 
+The challenge for me has become to find some software - preferably open-source, definitely JavaScript - that can be a suitable environment for these kind of authors.
 
 And I think Strapi could be a very good fit indeed.
 
@@ -47,13 +48,13 @@ This allows us a key feature that I've seen being particularly useful in larger 
 
 The thing that I felt conflicted most about WordPress was that it gave too much control to authors. The ability to add plugins and change the site's appearance made it a minefield for a developer.
 
-But WordPress made a deliberate choice to do that. WordPress' aim is to "democratise publishing" so that anyone can have a blog or personal website. 
+But WordPress made a deliberate choice to do that. WordPress' aim is to "democratise publishing" so that anyone can have a blog or personal website.
 
 There's always a balance to be struck here: too restrictive and authors will go elsewhere, too open and you end up with a mess of a site that can cost thousands to fix.
 
 Strapi has a plugin ecosystem, which I hope will grow. Through their marketplace (which you can't miss, it's heavily promoted within the backend), you can add analytics tracking and other functionality, or purchase plugins which extend Strapi.
 
-This allows content authors and business owners to feel more in control of their project. Having these plugins means they're not totally dependent on others when it comes to extending their Strapi site. 
+This allows content authors and business owners to feel more in control of their project. Having these plugins means they're not totally dependent on others when it comes to extending their Strapi site.
 
 It makes authors feel that the site belongs to _them_ and not their developer.
 
@@ -73,7 +74,7 @@ API authorship can be done in 2 ways with Strapi. Either in the GUI or in the co
 
 Independently-minded content authors can define or destroy their own content fields, and entire _types_ as they wish, in a GUI that gives them adequate feedback about what's happening.
 
-``` 
+```
 Pic of Strapi backend
 ```
 Conversely, APIs can be set by the developer in a JavaScript object, without having to interact with the GUI at all.

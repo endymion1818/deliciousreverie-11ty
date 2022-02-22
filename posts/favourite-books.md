@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 date: "2020-06-27T15:21:21+01:00"
 title: Some of my favourite books
 description: "I was asked to list some of my favourite books recently, so I compiled the following list, which is very loose and still might be missing some of my favourites!"

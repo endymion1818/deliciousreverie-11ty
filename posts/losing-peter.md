@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 categories:
 - personal
 date: "2017-09-14T14:21:21+01:00"
@@ -44,7 +45,7 @@ Instead, was it an absence of anything that he might have otherwise been occupie
 
 Peter's gone. But I wonder regularly, if not daily, if I could have done anything to change his mind. I didn't speak to him about my faith after he expressed contentment with his Catholic heritage. Would that have made any difference? I didn't breach many personal subjects with him. I didn't even keep in touch. Was that neglectful of me?
 
-I wsh I could talk to him again, if only just to ask him, "Why did you choose that path?", to try to understand what it was that made him take his life. 
+I wsh I could talk to him again, if only just to ask him, "Why did you choose that path?", to try to understand what it was that made him take his life.
 
 My father thinks that individuals tend to be more compassionate after a bereavement. That the harrowing experience of losing someone makes you see our temporary situation for what it is, and are more appreciative of friendships and relationships we have because of that.
 

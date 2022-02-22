@@ -1,4 +1,5 @@
 ---
+layout: layouts/post.njk
 title: The JavaScript CMS Landscape
 date: "2020-11-23T15:21:21+01:00"
 description: "I've been keenly interested in a specific subset of CMSes since about 2 years ago, when it became clear that Zopa would soon need to invest in one, and that I would be involved in choosing something that would be a good fit for the company. This post is a roundup of some of the great products available, and is the result of some of the research and proofs-of-concept I have made."
@@ -27,8 +28,8 @@ Ghost seems like the grandaddy of JavaScript CMSes. Their version 3, which was l
 
 Ghost was built out of dissatisfaction with the WordPress technology stagnation if I remember correctly, but it's grown far past that to become a slick, comfortable and beautiful interface for building simple blogs.
 
-**Pros:** Wonderful editing experience  
-**Cons:** Not very extendable in terms of custom fields and content types  
+**Pros:** Wonderful editing experience
+**Cons:** Not very extendable in terms of custom fields and content types
 **Link:** https://ghost.org
 
 ## 2. Strapi
@@ -37,8 +38,8 @@ I've watched Strapi go from an early Alpha state to a mature product with an int
 
 I was particularly pleased that they continue to improve on their Gatsby integrations, but there's one thing that I hope they're able to resolve in the short term: transforming data in their Gatsby examples is done on the frontend, when it can be done in the Node process.
 
-**Pros:** Very adaptable and customizable  
-**Cons:** You only get 3 roles on the free tier (unless your OSS or a student), their GatsbyJS examples don't demonstrate how to transform data on the server  
+**Pros:** Very adaptable and customizable
+**Cons:** You only get 3 roles on the free tier (unless your OSS or a student), their GatsbyJS examples don't demonstrate how to transform data on the server
 **Link:** https://strapi.io
 
 ## 3: Webiny
@@ -47,16 +48,16 @@ Webiny is a lot more than a CMS, in fact, the CMS aspect is just one of the plug
 
 If you're interested in serverless architecture, definitely give Webiny a look.
 
-**Pros:** Serverless, so expect a lot of free hosting. A great way to learn the serverless architecture paradigm  
-**Cons:** Recommends use of gatsby-source-graphql plugin, which doesn't have access to nodes at build time. As a result, data transforming must be done on the frontend :-(  
+**Pros:** Serverless, so expect a lot of free hosting. A great way to learn the serverless architecture paradigm
+**Cons:** Recommends use of gatsby-source-graphql plugin, which doesn't have access to nodes at build time. As a result, data transforming must be done on the frontend :-(
 **Link:** https://webiny.com
 
 ## 4: Keystone
 
 I haven't spent any time with Keystone, but Wes Bos hails it's solid role-based access and easy deployment features. I'll update this post when I've had a chance to play with it.
 
-**Pros:** Role based access, easy deployment  
-**Cons:** // TODO: try this app and update this blog post  
+**Pros:** Role based access, easy deployment
+**Cons:** // TODO: try this app and update this blog post
 **Link:** https://www.keystonejs.com
 
 ## 5. Apostrophe
@@ -65,16 +66,16 @@ Apostrophe only just fits onto this list because it's a full-stack CMS with a He
 
 The marketing talks about "in-context editing", but I'm not sure this refers to headless mode or not (edit: it's not) ... if it is, this could be a killer feature.
 
-**Pros:** // TODO: try this app and update this blog post  
-**Cons:** // TODO: try this app and update this blog post  
+**Pros:** // TODO: try this app and update this blog post
+**Cons:** // TODO: try this app and update this blog post
 **Link:** https://apostrophecms.com
 
 ## 6. Payload
 
 I heard about this newcomer on the scene only a few days ago, but the value proposition made sense to me. The UI is very minimal, on the basis that you'll want to customize it significantly. Their strongest feature is that there are hooks for every action, so you can extend the functionality very easily, and the initial codebase you see is _extremely_ minimal.
 
-**Pros:** // TODO: try this app and update this blog post  
-**Cons:** // TODO: try this app and update this blog post  
+**Pros:** // TODO: try this app and update this blog post
+**Cons:** // TODO: try this app and update this blog post
 **Link:** https://payloadcms.com
 
 ## Conclusion
