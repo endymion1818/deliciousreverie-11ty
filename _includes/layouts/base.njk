@@ -25,6 +25,7 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
   </head>
   <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
     <header>
       <div class="container">
         <div class="title home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></div>
@@ -41,7 +42,7 @@
       </div>
     </header>
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <main{% if templateClass %} class="main {{ templateClass }}"{% endif %}>
       {% if page.url === '/' %}
       <div class="container intro">
         <h2>Thanks for popping round!</h2>

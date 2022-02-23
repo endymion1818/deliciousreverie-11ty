@@ -174,6 +174,17 @@ a[href].post-tag:hover,
 a[href].post-tag:focus {
   background-color: var(--lightgray);
 }
+#skiplinks {
+  display: block;
+  position: absolute;
+  top: -2.2rem;
+  left: 0;
+  padding: 1rem;
+  color: var(--white);
+}
+#skiplinks:focus-visible {
+  top: 0;
+}
 
 /* post list */
 .postlist {
