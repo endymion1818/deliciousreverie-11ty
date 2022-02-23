@@ -132,6 +132,24 @@ code {
 .highlight-line-remove {
   background-color: #902f2f;
 }
+/* common */
+.container {
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.list-inline {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.list-inline > li > a {
+  display: block;
+  padding: 1rem;
+}
 
 /* Tags */
 .post-tag {
@@ -197,39 +215,59 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link:visited {
   color: #aaa;
 }
-.container {
-  max-width: 36em;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* header */
+header {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 4rem 0 1rem;
 }
+header h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+header h1 a[href] {
+  text-decoration: none;
+  color: var(--feature);
+}
+header h1 a[href]:visited {
+  color: var(--feature);
+}
+header h1 a:hover {
+  text-decoration: underline;
+}
+header p {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+header nav a[href] {
+  color: var(--white);
+}
+header nav a[href]:visited {
+  color: var(--lightgray);
+}
+/* main */
+main {
+  background-color: var(--feature);
+}
+
+/* footer */
 blockquote > span {
   font-size: 2rem;
 }
-.list-inline {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  padding-inline-start: 0;
-}
-.list-inline > li > a {
-  display: block;
-  padding: 1rem;
-}
-footer > .footer-top {
+.footer-top {
   background-color: var(--accent);
   color: var(--white);
   padding: 4rem 0;
 }
-footer > .footer-bottom {
+.footer-bottom {
   background-color: var(--darkgray);
   color: var(--white);
   padding: 4rem 0;
 }
-footer > .footer-bottom a {
+.footer-bottom a {
   color: var(--white);
 }
-footer > .footer-bottom a:visited {
+.footer-bottom a:visited {
   color: var(--gray);
 }
