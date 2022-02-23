@@ -19,6 +19,19 @@
       content="{{ description or metadata.description }}"
     />
     <meta name="twitter:image" content="{{ '/img/sharecard-default.png' | url }}" />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "{{ title or metadata.title }}",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "${datePublished}",
+        "image": "{{ '/img/sharecard-default.png' | url }}"
+      }
+    </script>
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
@@ -69,7 +82,7 @@
         <div class="footer-bottom">
           <div class="container">
             <h2>About This Site</h2>
-            <p><a href="{{ '/' | url }}">Delicious Reverie</a> is the blog of developer & bookworm benjamin read. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+            <p><a href="{{ '/' | url }}">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
           <h3>Where you can find me:</h3>
             <ul class="list-inline">
               <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
