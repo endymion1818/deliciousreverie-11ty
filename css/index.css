@@ -200,6 +200,10 @@ a[href].post-tag:focus {
 .postlist-item > h2 {
   font-size: 2rem;
 }
+.postlist a[href]:hover,
+.postlist a[href]:focus {
+  background-color: var(--white);
+}
 
 /* Warning */
 .warning {
