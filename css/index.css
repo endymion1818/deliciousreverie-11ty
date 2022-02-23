@@ -6,6 +6,8 @@
   --navy: #17050F;
   --blue: #082840;
   --white: #fff;
+  --feature: #f7ebc1;
+  --accent: #331f33;
 }
 
 @font-face {
@@ -214,4 +216,20 @@ blockquote > span {
 .list-inline > li > a {
   display: block;
   padding: 1rem;
+}
+footer > .footer-top {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 4rem 0;
+}
+footer > .footer-bottom {
+  background-color: var(--darkgray);
+  color: var(--white);
+  padding: 4rem 0;
+}
+footer > .footer-bottom a {
+  color: var(--white);
+}
+footer > .footer-bottom a:visited {
+  color: var(--gray);
 }
