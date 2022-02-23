@@ -45,7 +45,7 @@ On a recent project I decided to investigate whether this approach could be uili
 
 Atoms I designated as constants which could receive props. For example, a paragraph that had a prop for the text colour.
 
-![reusable components 1](/images/reusable-components-react-1.png)
+![reusable components 1](/img/reusable-components-react-1.png)
 
 ### Molecules
 
@@ -53,7 +53,7 @@ Molecules consist of stateless functional components, often comprising of severa
 
 In the example below, we have a "popout" section, which has a custom MainContainer element that's only used in this Molecule. It can accept multiple props and can wrap other components.
 
-![reusable components 2](/images/reusable-components-react-2.png)
+![reusable components 2](/img/reusable-components-react-2.png)
 
 
 ### Organisms
@@ -65,7 +65,7 @@ As we get to organisms, we start to see larger elements, bringing in several Mol
 
 Templates are layouts for pages that are programmatically created from other data sources, such as the one I made below for a side project about my favourite musician:
 
-![reusable components 3](/images/reusable-components-react-3.png)
+![reusable components 3](/img/reusable-components-react-3.png)
 ## Atomic at Zopa
 
 Coincidentally, Gerard Brull, a colleague of mine at Zopa.com who works out of our office in Barcelona had also come across this idea. We discussed it as a team and decided to try to implement it in a future iteration of our shared component library.

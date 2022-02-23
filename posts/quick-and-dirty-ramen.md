@@ -29,7 +29,7 @@ So this is a very quick and loose recipe, please don't stick to it, I'm sure it 
 - Rice noodles
 - Boiled water
 
-![A bowl of ramen made with my recipe](/images/ramen.jpg)
+![A bowl of ramen made with my recipe](/img/ramen.jpg)
 
 ## Method
 

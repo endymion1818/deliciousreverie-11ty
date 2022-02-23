@@ -41,7 +41,7 @@ But on Ubuntu (of which Pop is a derivative), it serves both as an app launcher 
 
 For my mental model this is absolute genius. I've got a pretty visual mind so seeing all my work spaces tiled out like this is really helpful in giving me some context.
 
-![Super key depressed showing all windows zoomed out and all apps currently open](/images/pop-super-key.jpg "The POP OS Super key is ... well ... super!")
+![Super key depressed showing all windows zoomed out and all apps currently open](/img/pop-super-key.jpg "The POP OS Super key is ... well ... super!")
 
 ##### I am reminded to make a lightbox popout for images like this :-(
 

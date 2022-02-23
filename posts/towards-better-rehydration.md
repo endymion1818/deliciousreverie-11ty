@@ -83,7 +83,7 @@ So no, splitting traffic isn't a good option. It may be fine to do that on small
 
 What we need is something _in-between_ these options. Something that can build HTML statically (or on the server), and _partially rehydrate_ elements on the client where that is needed.
 
-![Partial rehydration demonstrated](/images/partial-rehydration.png "a mostly HTML web page with interactive elements in the header and carousel using JavaScript")
+![Partial rehydration demonstrated](/img/partial-rehydration.png "a mostly HTML web page with interactive elements in the header and carousel using JavaScript")
 
 This isn't a new idea. The core React team were hoping that concurrent mode would allow you to do this. However, building up a DOM tree is pretty difficult to achieve asynchronously.
 

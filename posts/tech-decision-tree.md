@@ -18,7 +18,7 @@ I came up with this chart. It's not a complete list of technologies, and it's at
 
 Making decisions about technology is difficult. I hope that this resource eases your pain even if just a little!
 
-[![Tech decision tree](/images/tech-decision-tree-thumb.png "decision tree graphic. Click for a larger view")](/images/tech-decision-tree.png).
+[![Tech decision tree](/img/tech-decision-tree-thumb.png "decision tree graphic. Click for a larger view")](/img/tech-decision-tree.png).
 
 ## Backend
 

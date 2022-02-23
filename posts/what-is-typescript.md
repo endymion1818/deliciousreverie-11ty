@@ -15,7 +15,7 @@ categories:
 JavaScript is a _dynamic_ language.
 Here’s an example using the browser’s console:
 
-![Type coercion in progress](/images/type-coercion.png)
+![Type coercion in progress](/img/type-coercion.png)
 
 I assigned the var a to a number , the number 1, then I assigned the next var, b, to a string, 'two' ... and then I added them together.
 
@@ -31,10 +31,10 @@ TypeScript can also be useful when using certain code editors.
 
 For example, I've typed something that doesn't exist in the data structure here, and my compiler can warn me about it, meaning I don't have to see an error in the browser, then switch back to my code editor:
 
-![Type is incorrect](/images/typescript-wrong.png)
+![Type is incorrect](/img/typescript-wrong.png)
 
 I can also get useful tools like this, so I have confidence even when I'm typing, that my code is going to be correct.
 
-![Type is correct](/images/typescript-correct.png)
+![Type is correct](/img/typescript-correct.png)
 
 These two features are great timesavers, and claw back a lot of time you might have spent setting up TypeScript and debugging issues you might have as a result.

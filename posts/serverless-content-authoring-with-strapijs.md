@@ -64,7 +64,7 @@ One last hurdle remained, which was to query the API from GatsbyJS. To start wit
 
 That was it, I now had a fully functional API hosted for free on Heroku. I could start the app (Heroku's free tier means that you app will sleep until its needed), run Gatsbyjs, and get my data using the gatsby-source-strapi plugin.
 
-![Strapi's interface.](/images/strapi-interface.png "The Strapi content editor")
+![Strapi's interface.](/img/strapi-interface.png "The Strapi content editor")
 
 ## Strapi - Ready for Production?
 

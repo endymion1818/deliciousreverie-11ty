@@ -82,7 +82,7 @@ Now run this command: `npm install --save gatsby-source-wordpress`
 
 Now open the `gatsby-config.js` file. There will already be some basic setup Gatsby gives us by default. We're going to add to that to configure our plugin here.
 
-![using wordpress headless](/images/using-wordpress-headless-cms-1.png)
+![using wordpress headless](/img/using-wordpress-headless-cms-1.png)
 
 **Did it work?**
 
@@ -107,7 +107,7 @@ If that isn't what you're getting, check your WordPress site isn't on a subdomai
 
 Now we can go to http://localhost:8000/ and see our Gatsby site!
 
-![The Gatsby default starter screen.](/images/netmag-wpheadless-1-gatsby-starter.png "Gatsby works")
+![The Gatsby default starter screen.](/img/netmag-wpheadless-1-gatsby-starter.png "Gatsby works")
 
 **Can We Query our Data?**
 
@@ -139,7 +139,7 @@ This might look a bit like JSON, but it's not. It's a new query language that I 
 
 What did you get when you pressed CTRL + Enter in GraphiQL? You hopefully will have seen your WordPress posts on the right site of the screen, something like this:
 
-![Graphical GraphQL interface showing our posts that we have just queried.](/images/netmag-wpheadless-2-graphql-query.png "GraphQL interface")
+![Graphical GraphQL interface showing our posts that we have just queried.](/img/netmag-wpheadless-2-graphql-query.png "GraphQL interface")
 
 We are actually going to use this query in our next step, so keep it handy! You might want to see what other data you can get with GraphiQL whilst you're here. If you want to do that, try moving the cursor around and typing either CTRL + Space and / or CTRL + Enter. That will reveal other groups of content.
 
@@ -167,7 +167,7 @@ This uses a different GraphQL query to get data about the specific post it's bee
 
 If you want to quickly see a list of all your posts, you can type `http://localhost:8000/a` into your browser's address bar. This will take you to a development 404 page, which lists all of your posts. Click on one to visit it!
 
-![Gatsby development 404 page showing all of our WordPress posts.](/images/netmag-wpheadless-3-gatsby-development-404.png "Gatsby JS logo")
+![Gatsby development 404 page showing all of our WordPress posts.](/img/netmag-wpheadless-3-gatsby-development-404.png "Gatsby JS logo")
 
 ## Next Steps
 
@@ -190,7 +190,7 @@ Static Sites can be hosted entirely on CDN services like Netlify (https://www.ne
 
 I prefer Gatsby (https://www.gatsbyjs.org/) because of its' healthy plugin ecosystem, adaptable approach to data and because it uses React, my favourite JavaScript framework. In fact, I didn't _get_ why so many people loved React until I started working with Gatsby.
 
-![Static site generator Gatsby is a really useful tool built on JavaScript and React.](/images/netmag-wpheadless-4-gatsbyjs.png "Gatsby JS logo")
+![Static site generator Gatsby is a really useful tool built on JavaScript and React.](/img/netmag-wpheadless-4-gatsbyjs.png "Gatsby JS logo")
 </small>
 
 ---

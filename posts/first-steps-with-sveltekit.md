@@ -20,7 +20,7 @@ These days, if you're going to build a site with React, you either go with the s
 
 However Svelte ... isn't just a framework. It's a compiler too. This facilitates much smaller bundle sizes:
 
-![Here's a comparison of some common JS frameworks](/images/moviano-jsframeworkcomparison.png "Chart showing popular JS frameworks as of today: React is hugely popular, but also much larger in size than others. Svelte has the smallest bundle size.")
+![Here's a comparison of some common JS frameworks](/img/moviano-jsframeworkcomparison.png "Chart showing popular JS frameworks as of today: React is hugely popular, but also much larger in size than others. Svelte has the smallest bundle size.")
 
 React is 42.2kb including react-dom. By comparison, Preact is 4kb. By contrast, Svelte is 1.6kb. That blows my mind.
 
