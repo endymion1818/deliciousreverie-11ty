@@ -31,7 +31,7 @@ Material Theme — because I love dark backgrounds, I find it helps me to concen
 ##### GitGutter
 This plugin allows you to see what lines have been changed since your last git commit. Really handy if you can't remember what you've done, or your working with a colleague who doesn't use git (it happens!).
 
-###Grunt — for repetitive task running
+#### Grunt — for repetitive task running
 I'm feeling a bit of pressure to move to Gulp for task running, but I have a well established workflow for Grunt which I don't want to rebuild at the moment ... so I'm going to stick with what I have!
 
 I've included my current Gruntfile setup [in a gist](https://gist.github.com/endymion1818/e92d40bb91373559936b "grunt file gist")

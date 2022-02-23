@@ -25,8 +25,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, system-ui, sans-serif;
-  color: var(--darkgray);
-  background-color: var(--white);
 }
 h1,
 h2,
@@ -47,9 +45,6 @@ p,
 .tmpl-post li {
   line-height: 1.45;
 }
-a[href] {
-  color: var(--blue);
-}
 a[href]:visited {
   color: var(--navy);
 }
@@ -66,6 +61,9 @@ header:after {
   content: "";
   display: table;
   clear: both;
+}
+.intro {
+  padding-bottom: 3rem;
 }
 table {
   margin: 1em 0;
@@ -188,6 +186,9 @@ a[href].post-tag:focus {
 .postlist-item > .post-tag {
   align-self: center;
 }
+.postlist-item > h2 {
+  font-size: 2rem;
+}
 
 /* Warning */
 .warning {
@@ -221,19 +222,23 @@ header {
   color: var(--white);
   padding: 4rem 0 1rem;
 }
-header h1 {
+header .title {
   font-size: 4rem;
   margin: 0;
 }
-header h1 a[href] {
+header .title a[href] {
   text-decoration: none;
   color: var(--feature);
 }
-header h1 a[href]:visited {
+header .title a[href]:visited {
   color: var(--feature);
 }
-header h1 a:hover {
+header .title a:hover {
   text-decoration: underline;
+}
+header .subtitle {
+  font-size: 2rem;
+  font-family: 'Lovechild';
 }
 header p {
   margin: 0;
@@ -249,6 +254,11 @@ header nav a[href]:visited {
 /* main */
 main {
   background-color: var(--feature);
+  color: var(--darkgray);
+  padding-top: 2rem;
+}
+main a {
+  color: var(--darkgray);
 }
 
 /* footer */
