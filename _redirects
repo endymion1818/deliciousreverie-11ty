@@ -1,0 +1,2 @@
+/post/*  /posts/:splat 301
+/post  /posts 301
