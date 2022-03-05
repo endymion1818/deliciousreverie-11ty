@@ -257,6 +257,9 @@ header p {
   font-size: 2rem;
   line-height: 2rem;
 }
+header nav {
+  overflow-y: scroll;
+}
 header nav a[href] {
   color: var(--white);
 }
