@@ -36,7 +36,7 @@ But now there are rumblings of change.
 
 Brad Frost published this post a few weeks ago, in many ways defining the role of Frontend Designer, someone who is adept at code—but also has a keen eye for design. Brad's GIF says this way better than any words do:
 
-![Two seperate circles - labeled design and development - being overlapped by a third circle labelled 'frontend design'](/resources/frontend-design.gif)
+![Two seperate circles - labeled design and development - being overlapped by a third circle labelled 'frontend design'](/img/frontend-design.gif)
 
 This is where I find I have a niche.
 
