@@ -18,7 +18,7 @@ title: On Being An Advocate
 
 I studied Carl Jung a bit in college, and always found psychology an absorbing and fascinating field. I was particularly drawn to the practice of counselling, and pursued that for a while before realising that's not what I really wanted to achieve in life.
 
-The website [Sixteen Personalities](http://www.16personalities.com/ "INFJ Personality Types") has a scarily accurate test which identifies your type based on the theory that there are 16 main personality types.
+The website [Sixteen Personalities](https://www.16personalities.com/ "INFJ Personality Types") has a scarily accurate test which identifies your type based on the theory that there are 16 main personality types.
 
 In my test, it was revealed that I am an INFJ personality type — identified on this website as "the Advocate". So here's a little bit more about him.
 

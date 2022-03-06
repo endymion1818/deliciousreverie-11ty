@@ -15,7 +15,7 @@ title: 'A Journey With Dylan: Halfway Through'
 
 **A Few weeks ago, I wrote a post about how I was taking a journey through the studio albums of Bob Dylan, starting with his first eponymous album, and discovering new albums and tracks along the way which resonated with me. I'm now about half way through the catalogue, and have encountered a few surprises.**
 
-([Here's the previous post,](http://deliciousreverie.co.uk/blog/post.php?s=2016-12-02-a-journey-with-dylan "A Journey with Dylan: Blog post on Delicious Reverie") in case you haven't read it.)
+([Here's the previous post,](https://deliciousreverie.co.uk/blog/post.php?s=2016-12-02-a-journey-with-dylan "A Journey with Dylan: Blog post on Delicious Reverie") in case you haven't read it.)
 
 I wrote a few weeks ago that Dylan is an artist that demands constant re-assessment from his fans. And indeed, some of the assumptions and opinions which I had, and which I'd heard, about his back catalogue have proved ... interesting, if not completely false.
 

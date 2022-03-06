@@ -82,7 +82,7 @@ Now, every time we call GetApiData in this file, and that calls Axios, it'll use
 The last thing we want to set up in regard to our API is the domain. This would be a parameter that is passed via our configuration, or part of our environment variables. But we're not testing our environment variables, so we should mock that domain too:
 
 ```javascript
-const domain = "http://fakeapi.com/";
+const domain = "https://fakeapi.com/";
 ```
 
 ### 2. Mock the console

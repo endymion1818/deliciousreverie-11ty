@@ -22,7 +22,7 @@ After the short keynote and meeting a few sponsors, I sat down to listen to the 
 
 ###Moove: Building An Innovative Agency
 
-The full transcript is [on the Mooove website](http://www.mooveagency.com/8-insights-how-to-build-innovative-digital-agency/ "Moove: How To Build an Innovative Digital Agency"), but what I really appreciated about their story was that Ilona and Adrian had a solid project management approach from the beginning. This allowed them to innovate on their approach to web design, which means they were able to challenge conventions more, to the point they're now giving back to the Wordpress community and releasing their own plugins.
+The full transcript is [on the Mooove website](https://www.mooveagency.com/8-insights-how-to-build-innovative-digital-agency/ "Moove: How To Build an Innovative Digital Agency"), but what I really appreciated about their story was that Ilona and Adrian had a solid project management approach from the beginning. This allowed them to innovate on their approach to web design, which means they were able to challenge conventions more, to the point they're now giving back to the Wordpress community and releasing their own plugins.
 
 Takeaway:
 <blockquote>
@@ -43,22 +43,22 @@ Takeaways: I'm still not sure about using this technology myself, would love to 
 
 ###Hacked Off: Dealing with a Hacked Wordpress Site
 
-[Tim Nash](http://timnash.co.uk "Tim Nash's personal website") gave this lively and hilarious presentation. Tim hilighted that Wordpress _is_ secure, but once you add your theme, a plugin, risks start creeping in. The good and bad thing about PHP is that it's very easy to do *anything*, including hacking a site, which he demonstrated. It took less than 2 minutes.
+[Tim Nash](https://timnash.co.uk "Tim Nash's personal website") gave this lively and hilarious presentation. Tim hilighted that Wordpress _is_ secure, but once you add your theme, a plugin, risks start creeping in. The good and bad thing about PHP is that it's very easy to do *anything*, including hacking a site, which he demonstrated. It took less than 2 minutes.
 
 Tim had 6 points for how to recover:
 
 1. Isolate — remove site from the server
-2. Identify — find out what went wrong. Look for 1 file that has a later time stamp by using `wp-core verify checksums` if you have [wp-cli](http://wp-cli.org "Wordpress Command Line Interface") installed.
+2. Identify — find out what went wrong. Look for 1 file that has a later time stamp by using `wp-core verify checksums` if you have [wp-cli](https://wp-cli.org "Wordpress Command Line Interface") installed.
 3. Restore — from your daily backups. You do have daily backups, don't you?
 4. Check — change all passphrases (phrases - not words) and verify site works
 5. Remove from blacklists. All of them. (_This takes an awful lot of effort, as I know from experience._)
 6. Prevention — keep your site up to date. *Update core frequently* Update to a more recent version of PHP.
 
-Takeaways: I've already started using [WP Scan](http://wpscan.org "WP Scan website") and yes, I'm taking more regular backups too ...
+Takeaways: I've already started using [WP Scan](https://wpscan.org "WP Scan website") and yes, I'm taking more regular backups too ...
 
 ###A World Without Bugs
 
-[Mike Selander gave this presentation](http://mikeselander.com/presentations/world-without-bugs/#/1 "A World Without Bugs"), which hilighted that bugs creep in from the very start, with the foundation of a project. If there's not a solid foundation, the building can come crashing down before you realise it.
+[Mike Selander gave this presentation](https://mikeselander.com/presentations/world-without-bugs/#/1 "A World Without Bugs"), which hilighted that bugs creep in from the very start, with the foundation of a project. If there's not a solid foundation, the building can come crashing down before you realise it.
 
 We can begin with standardising how we write code, with a guiding document on how to style, performance tuning and test.
 
@@ -109,7 +109,7 @@ The lego set is similar to our pattern library:- its a focused, consistent versi
 
 Tammy also released this builder for the Underscores theme, which allows you to preselect framework styles for your project, and roll your own:
 
-[components.underscores.me](http://components.underscores.me "Underscores Components")
+[components.underscores.me](https://components.underscores.me "Underscores Components")
 
 ###Roundup
 

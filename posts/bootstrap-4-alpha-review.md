@@ -44,7 +44,7 @@ There's been a lot more talk about hamburgers, and how they don't convert so wel
 
 I'm going to try to use the hamburger to contain more "discoverable" content in future, stuff that's put there for regular visitors. This makes learning the site more fun as you get to know it, without penalising first-time or infrequent visitors who just need to finish their journey really fast.
 
-See Luke Wroblewski's article [Obvious Always Wins](http://www.lukew.com/ff/entry.asp?1945 "LukeW: Obvious Always Wins").
+See Luke Wroblewski's article [Obvious Always Wins](https://www.lukew.com/ff/entry.asp?1945 "LukeW: Obvious Always Wins").
 
 ### Get it: Cards
 

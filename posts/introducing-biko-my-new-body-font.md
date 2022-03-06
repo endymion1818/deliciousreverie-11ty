@@ -39,11 +39,11 @@ I also think that these organisations are getting too big to be safe. We were de
 
 If they have this much control, what can they do to transform the web into a proprietary platform, instead of an open platform that can be used any way.
 
-And if [Tim Berners Lee](http://webfoundation.org) and [Aral Balkan](https://ind.ie/blog/internet-as-a-commons/) are worried, I think we all should be.
+And if [Tim Berners Lee](https://webfoundation.org) and [Aral Balkan](https://ind.ie/blog/internet-as-a-commons/) are worried, I think we all should be.
 
 ## About Biko
 I came across Biko quite by accident whilst searching through type specimens, and loved its hints of  "Jazz Age", somewhat international flavour, and it's versatility. Although I'm using it as a body font, I think the light and Black weights could look lovely in the right application.
 
 Funnily enough it was the name of the typeface that caught my eye too:— when I was being home schooled by my mother, we had a study project about Steve Biko and watched the film "Cry Freedom" about his battle for justice in apartheid era South Africa.
 
-I'm pleased to support fellow London artist [Marco Ugolini](http://www.jesuismonreve.org/biko-font/) by using this typeface in my work.
+I'm pleased to support fellow London artist [Marco Ugolini](https://www.jesuismonreve.org/biko-font/) by using this typeface in my work.

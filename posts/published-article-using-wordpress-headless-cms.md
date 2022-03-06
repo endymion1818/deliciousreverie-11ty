@@ -93,11 +93,11 @@ If the last few lines looks something like this, you're probably OK:
 ```
 You can now view gatsby-starter-default in the browser.
 
-  http://localhost:8000/
+  https://localhost:8000/
 
 View GraphiQL, an in-browser IDE, to explore your site's data and schema
 
-  http://localhost:8000/___graphql
+  https://localhost:8000/___graphql
 
 Note that the development build is not optimized.
 To create a production build, use gatsby build
@@ -105,7 +105,7 @@ To create a production build, use gatsby build
 
 If that isn't what you're getting, check your WordPress site isn't on a subdomain, and that it's definitely using HTTPS or HTTP, and you have the same in your settings.
 
-Now we can go to http://localhost:8000/ and see our Gatsby site!
+Now we can go to https://localhost:8000/ and see our Gatsby site!
 
 ![The Gatsby default starter screen.](/img/netmag-wpheadless-1-gatsby-starter.png "Gatsby works")
 
@@ -113,7 +113,7 @@ Now we can go to http://localhost:8000/ and see our Gatsby site!
 
 You may have noticed that there is no WordPress content here. This is because we haven't told Gatsby what to do with it yet. Before we do that, let's just check we have actually got our content available to GatsbyTo do that, visit this url:
 
-http://localhost:8000/___graphql
+https://localhost:8000/___graphql
 
 This built-in tool is called GraphiQL, and is another secret power of Gatsby.
 
@@ -165,7 +165,7 @@ Inside the /src/ folder, create a folder called templates, and a file inside tha
 
 This uses a different GraphQL query to get data about the specific post it's been fed by the `gatsby-node.js` file, then uses React to render that out into the browser.
 
-If you want to quickly see a list of all your posts, you can type `http://localhost:8000/a` into your browser's address bar. This will take you to a development 404 page, which lists all of your posts. Click on one to visit it!
+If you want to quickly see a list of all your posts, you can type `https://localhost:8000/a` into your browser's address bar. This will take you to a development 404 page, which lists all of your posts. Click on one to visit it!
 
 ![Gatsby development 404 page showing all of our WordPress posts.](/img/netmag-wpheadless-3-gatsby-development-404.png "Gatsby JS logo")
 

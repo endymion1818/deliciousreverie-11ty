@@ -109,7 +109,7 @@ Now, below that I use an `@supports` rule to scope the grid layouts:
 ```
 This is only 11 lines of code (not counting the lack of a `<div class="row">` etc, and doesn't use hacks like negative margins. Much better.
 
-This works in 97% of browsers _today_, [even Internet Explorer](http://caniuse.com/#search=flexbox).
+This works in 97% of browsers _today_, [even Internet Explorer](https://caniuse.com/#search=flexbox).
 
 Now, in both layouts, you get 2 columns of content, each item on a row has the same height, and they can expand to the content that you put into them.
 

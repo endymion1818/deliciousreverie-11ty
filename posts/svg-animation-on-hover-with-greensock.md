@@ -27,7 +27,7 @@ GreenSock also works really well with ScrollMagic to make rich interactive exper
 
 For a recent project, I wanted to add some hover effects to a UI element that made it seem as if it was almost a fluid change of state. The element was contained in an SVG shape with 2 layers, the background and the graphic.
 
-<svg class="connectcircle connectcircle--data" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="400"
+<svg class="connectcircle connectcircle--data" version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="400"
      viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
 <path class="semicircle" fill="#d7d7d7" d="M621.3,592.6c-49.1,45.9-112.9,71.1-179.8,71.1c-145.4,0-263.6-118.3-263.6-263.6
     c0-145.4,118.3-263.6,263.6-263.6c72.5,0,142.7,30.5,192.5,83.8l21.1,22.6l96.5-96.5l-20-21.1c-76.4-80.6-179.5-125-290.1-125
@@ -85,7 +85,7 @@ connectCircles.staggerTo($(this).find(".cloud, .microphone, .handset"), 0.3, {
         };
 ```
 
-<p data-height="265" data-theme-id="0" data-slug-hash="dWQevw" data-default-tab="html,result" data-user="endymion1818" data-embed-version="2" data-pen-title="greensock hover group svg — one timeline" class="codepen">See the Pen <a href="http://codepen.io/endymion1818/pen/dWQevw/">greensock hover group svg — one timeline</a> by Ben Read (<a href="http://codepen.io/endymion1818">@endymion1818</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="dWQevw" data-default-tab="html,result" data-user="endymion1818" data-embed-version="2" data-pen-title="greensock hover group svg — one timeline" class="codepen">See the Pen <a href="https://codepen.io/endymion1818/pen/dWQevw/">greensock hover group svg — one timeline</a> by Ben Read (<a href="https://codepen.io/endymion1818">@endymion1818</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 To resolve this issue, I split the functions into seperate timelines that allowed them to run seperately:
@@ -115,7 +115,7 @@ connectCircles.staggerTo($(this).find(".cloud, .microphone, .handset"), 0.3, {
 That way, when we run the animation, the two timelines run independently from each other:
 
 
-<p data-height="265" data-theme-id="0" data-slug-hash="xgEYqG" data-default-tab="js,result" data-user="endymion1818" data-embed-version="2" data-pen-title="greensock hover group svgs" class="codepen">See the Pen <a href="http://codepen.io/endymion1818/pen/xgEYqG/">greensock hover group svgs</a> by Ben Read (<a href="http://codepen.io/endymion1818">@endymion1818</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="xgEYqG" data-default-tab="js,result" data-user="endymion1818" data-embed-version="2" data-pen-title="greensock hover group svgs" class="codepen">See the Pen <a href="https://codepen.io/endymion1818/pen/xgEYqG/">greensock hover group svgs</a> by Ben Read (<a href="https://codepen.io/endymion1818">@endymion1818</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Getting the timing right in animations is one of the hardest things, and takes the longest amount of time. It took me quite a bit of experiementation and asking for feedback to arrive at the duration of each transition so that it appeared that the effects were interacting with each other in a natural way.

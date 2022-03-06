@@ -18,7 +18,7 @@ title: Switching to BEM Syntax for CSS
 
 I was a little suspicious of using BEM syntax for describing my CSS, I guess I didn't see the need for it and didn't have to work with other developers that much. But once I saw how it was being used on a project, I must say I was beginning to warm to the idea.
 
-If you take a look at the code on the [FutureLearn website](http://futurelearn.com), I find I can much more easily scan the code and identify the different elements that appear -- and more importantly, I can clearly follow the hierarchy of elements that are used on the site. Now, this hierarchy is critically important and something that can be very valuable to your projects.
+If you take a look at the code on the [FutureLearn website](https://futurelearn.com), I find I can much more easily scan the code and identify the different elements that appear -- and more importantly, I can clearly follow the hierarchy of elements that are used on the site. Now, this hierarchy is critically important and something that can be very valuable to your projects.
 
 ### Wait, doesn't SASS nesting give us hierarchy?
 
@@ -103,4 +103,4 @@ For that reason, I don’t typically specify things like column widths inside Bl
 
 Using BEM syntax makes logical sense, it’s not a huge thing to learn, and helps me keep my code clean and easy to follow by other developers. It doesn’t require any extra build tools but has increased my productivity quite a bit.
 
-More info: [getbem.com](http://getbem.com/introduction/)
+More info: [getbem.com](https://getbem.com/introduction/)

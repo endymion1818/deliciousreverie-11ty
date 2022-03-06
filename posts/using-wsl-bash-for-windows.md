@@ -19,9 +19,9 @@ title: Using WSL (BASH for Windows)
 
 ### The Problem
 
-I was pleased that I was able to install WSL without a hitch [using this guide on how-to geek](http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/ "how to install and use the linux bash shell on Windows 10 from How To Geek"),  but that's where it stopped being easy for me.
+I was pleased that I was able to install WSL without a hitch [using this guide on how-to geek](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/ "how to install and use the linux bash shell on Windows 10 from How To Geek"),  but that's where it stopped being easy for me.
 
-Problems arose because the build process my new employer had established required using a command-line php script which was a wrapper for [WP-CLI, the command-line interface for Wordpress](http://wp-cli.org "Command line interface for Wordpress"). This script ran through a few steps that would be essential to me getting up and running and developing new sites:
+Problems arose because the build process my new employer had established required using a command-line php script which was a wrapper for [WP-CLI, the command-line interface for Wordpress](https://wp-cli.org "Command line interface for Wordpress"). This script ran through a few steps that would be essential to me getting up and running and developing new sites:
 
 1) Download Wordpress Core
 2) Add build plugins and remove existing dummy content
@@ -41,11 +41,11 @@ $ chown -R www-data /var/www/html/
 
 ### AMP (Apache, MySQL and PHP)
 
-This was the most difficult step out of all of them. I discovered quickly that my regular tools of choice ([MAMP](https://www.mamp.info "Mac Apache Mysql and PHP application for Windows and Mac") or [WAMP](http://www.wampserver.com/en/ "WAMP Server")) meant that MYSQL was a Windows executable, and so not useable in bash. My heart sorta sank at this point. However, configuring my own AMP stack is something that I had wanted to do so ...
+This was the most difficult step out of all of them. I discovered quickly that my regular tools of choice ([MAMP](https://www.mamp.info "Mac Apache Mysql and PHP application for Windows and Mac") or [WAMP](https://www.wampserver.com/en/ "WAMP Server")) meant that MYSQL was a Windows executable, and so not useable in bash. My heart sorta sank at this point. However, configuring my own AMP stack is something that I had wanted to do so ...
 
 I quickly found this excellent tutorial on [Linux Mint community forum](https://community.linuxmint.com/tutorial/view/486 "Linux Mint Community Forum Tutorial: Installing LAMP on Linux Mint") which takes you step-by-step through nearly everything I needed to download and install the AMP stack.
 
-One major hitch that occurred was when I did get my website up and running, but all links on the site were 404ing. Turns out that I needed to configure `MOD_REWRITE` on Apache. [This tutorial on Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04 "Digital Ocean: How to set up Mod Rewrite for Apache") and [this question on Stack Overflow](http://stackoverflow.com/questions/23665064/project-links-do-not-work-on-wamp-server  "Project Links do not work on WAMP server") helped immensely.
+One major hitch that occurred was when I did get my website up and running, but all links on the site were 404ing. Turns out that I needed to configure `MOD_REWRITE` on Apache. [This tutorial on Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04 "Digital Ocean: How to set up Mod Rewrite for Apache") and [this question on Stack Overflow](https://stackoverflow.com/questions/23665064/project-links-do-not-work-on-wamp-server  "Project Links do not work on WAMP server") helped immensely.
 
 Once I had gone through all this and changed a few things, I found that links still weren't working. Then, I noticed that Wordpress was telling me that it couldn't write to `.htaccess`, and gave me a snippet to paste there. Voilá, working websites.
 
@@ -67,7 +67,7 @@ Why?
 
 The principle reason was that there is a barrier between WSL and the Windows environment. It's not always perceptible, but it's there.
 
-The main thing is that the file system is still in flux. I found that the Linux filesystem [aforementioned tutorial on How-To Geek](http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/ "Using WSL on How To Geek") has moved location in latest builds of WSL, and I couldn't locate it. This means that opening files in my text editor (Sublime Text or Atom) was an impossibility.
+The main thing is that the file system is still in flux. I found that the Linux filesystem [aforementioned tutorial on How-To Geek](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/ "Using WSL on How To Geek") has moved location in latest builds of WSL, and I couldn't locate it. This means that opening files in my text editor (Sublime Text or Atom) was an impossibility.
 
 Even if I had pursued it, I found out that there are [incompatibilities in the filesystem](https://blogs.msdn.microsoft.com/wsl/2016/06/15/wsl-file-system-support/ "WSL File System Support at Windows Developers") which could mean that files might not be compatible after opening. Some have reported that files become invisible in WSL after being opened using a Windows application.
 

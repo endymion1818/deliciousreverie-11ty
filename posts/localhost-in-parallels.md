@@ -15,7 +15,7 @@ title: Accessing Localhost in Parallels
 
 When you start a Node web server using it's HTTP interface you will by default run on a specific host that resolves to  `127.0.0.1`, your localhost. This isn't shared by your Windows OS although I don't know if there's a way to forward through to there from MacOS.
 
-So typing in `http://localhost:8000` was never going to work. After much googling I found [this post on the Parallels forum](https://forum.parallels.com/threads/accessing-localhost.258362/) that referenced Angular's cli tool an demonstrated that you could pass a flag to change the host IP.
+So typing in `https://localhost:8000` was never going to work. After much googling I found [this post on the Parallels forum](https://forum.parallels.com/threads/accessing-localhost.258362/) that referenced Angular's cli tool an demonstrated that you could pass a flag to change the host IP.
 
 I thought to myself that the Angular CLI probably uses the same common code (Node's HTTP interface) and tried that in my app:
 
@@ -30,5 +30,5 @@ Following that thread down, I found this IP address mentioned by one of the Para
 So in future, if you're running a NodeJS server on their mac and wants to view the site on Windows using Parallels, first spin up your server with the `--host=0.0.0.0` (that's four dots and four zeros) and visit the following address in the browser on Windows:
 
 ```bash
-http://10.211.55.2:8000 // or whatever your port is.
+https://10.211.55.2:8000 // or whatever your port is.
 ```

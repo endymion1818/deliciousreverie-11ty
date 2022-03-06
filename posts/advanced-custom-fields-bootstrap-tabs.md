@@ -13,7 +13,7 @@ tags:
 title: Advanced Custom Fields and Bootstrap Tabs
 ---
 
-**I'm not a huge fan of Advanced Custom Fields, but there was a requirement to use it in a recent project that had Bootstrap as a basis for the UI. The challenge for me was to get Bootstrap [nav-tabs](http://getbootstrap.com/components/#nav-tabs "Bootstrap nav-tabs component") to play nice with an [ACF repeater field](http://www.advancedcustomfields.com/resources/querying-the-database-for-repeater-sub-field-values/ "Repeater sub-field on Advanced Custom Fields website").**
+**I'm not a huge fan of Advanced Custom Fields, but there was a requirement to use it in a recent project that had Bootstrap as a basis for the UI. The challenge for me was to get Bootstrap [nav-tabs](https://getbootstrap.com/components/#nav-tabs "Bootstrap nav-tabs component") to play nice with an [ACF repeater field](https://www.advancedcustomfields.com/img/querying-the-database-for-repeater-sub-field-values/ "Repeater sub-field on Advanced Custom Fields website").**
 
 I started with the basic HTML markup for Bootstrap's Nav Tabs:
 

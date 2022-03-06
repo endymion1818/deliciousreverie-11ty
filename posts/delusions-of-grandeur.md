@@ -17,7 +17,7 @@ title: On Having Delusions of Grandeur
 
 As developers, we find no comfort in the thought that we'll never know enough about the languages we use, the frameworks we work in, the libraries we utilise and the platforms that underpin our whole industry. It's impossible to absorb and retain all of this information.
 
-What really shook me up was discovering the [W3C Validator tool](http://validator.w3.org/ "Link to W3C Markup Validation Tool"), and finding out what I've being doing wrong all this time. I've started to retroactively go through my sites and fix the errors that were revealed, but it still smarts that I've been ignoring these standards for far too long.
+What really shook me up was discovering the [W3C Validator tool](https://validator.w3.org/ "Link to W3C Markup Validation Tool"), and finding out what I've being doing wrong all this time. I've started to retroactively go through my sites and fix the errors that were revealed, but it still smarts that I've been ignoring these standards for far too long.
 
 It doesn't help either that I wasn't even aware of them.
 

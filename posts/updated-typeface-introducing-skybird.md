@@ -12,9 +12,9 @@ tags:
 title: 'Updated Typeface: Introducing Skybird'
 ---
 
-**So a few weeks' ago I discovered a very small but excellently designed typeface from a Phitra Design called [Skybird](http://phitradesign-fonts.com/#skybird "Phitra Design - Skybird").** I decided almost at once that I would use it on deliciousreverie, and replace the old typeface, Vollkorn from Google Fonts.
+**So a few weeks' ago I discovered a very small but excellently designed typeface from a Phitra Design called [Skybird](https://phitradesign-fonts.com/#skybird "Phitra Design - Skybird").** I decided almost at once that I would use it on deliciousreverie, and replace the old typeface, Vollkorn from Google Fonts.
 
-Straight away I felt that I identified with the typeface—it really spoke to my aesthetic: rustic, Victorian, with a hint of Edith Holden's [Country Diary](http://www.countrydiary.co.uk/ "Country Diary of an Edwardian Lady"). I must admit to becoming more confident in this aesthetic recently. Even though it's not perhaps what's in vogue right now, I would much rather choose something for my personal site that represents me, and is a little bit more offbeat.
+Straight away I felt that I identified with the typeface—it really spoke to my aesthetic: rustic, Victorian, with a hint of Edith Holden's [Country Diary](https://www.countrydiary.co.uk/ "Country Diary of an Edwardian Lady"). I must admit to becoming more confident in this aesthetic recently. Even though it's not perhaps what's in vogue right now, I would much rather choose something for my personal site that represents me, and is a little bit more offbeat.
 I love Skybird very much, I'm sure it's going to be popping up on other sites I design, as long as I can justify it.
 
 ### Switching from Vollkorn.
@@ -29,6 +29,6 @@ I also test my sites with Pingdom's Tools, which gave some further insights:
 
 The grand total of 3 requests demonstrates that it's very possible today to design and build lightweight sites that still look good and are much more easily accessible by people in areas where there's not so good internet connections (read: anywhere but the western world!).
 
-If you're looking for some excellently crafted, unusual fonts, please check out [Phitra Design](http://phitradesign-fonts.com/ "Phitra Design fonts home"), there are some lovely alternatives to the overused classics on this site.
+If you're looking for some excellently crafted, unusual fonts, please check out [Phitra Design](https://phitradesign-fonts.com/ "Phitra Design fonts home"), there are some lovely alternatives to the overused classics on this site.
 
 **UPDATE:** Some of my friends mentioned today that Skybird as a body font doesn't work so well, and were having trouble reading my posts. I'm grateful that they called me out on that, and as a result I now have PT Sans (from Google fonts) as the body copy. The performance rating is down to 89%, which isn't quite as good as it was before, but there has to be a trade off between legibility and performance.

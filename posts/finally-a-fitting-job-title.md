@@ -36,7 +36,7 @@ But now there are rumblings of change.
 
 Brad Frost published this post a few weeks ago, in many ways defining the role of Frontend Designer, someone who is adept at code—but also has a keen eye for design. Brad's GIF says this way better than any words do:
 
-![Two seperate circles - labeled design and development - being overlapped by a third circle labelled 'frontend design'](/resources/frontend-design.gif)
+![Two seperate circles - labeled design and development - being overlapped by a third circle labelled 'frontend design'](/img/frontend-design.gif)
 
 This is where I find I have a niche.
 
@@ -58,5 +58,5 @@ Is it finally time for the web to grow up, to strike out on it's own, to lift of
 
 ### UPDATE
 
-So, talking this over with a few of my esteemed colleagues, it seems [this title isn't as new as I thought](http://rachelnabors.com/2010/11/whats-a-front-end-designerdeveloper/ "Rachel Nabors: What's a Front End Designer / Developer") — thanks Lee.
+So, talking this over with a few of my esteemed colleagues, it seems [this title isn't as new as I thought](https://rachelnabors.com/2010/11/whats-a-front-end-designerdeveloper/ "Rachel Nabors: What's a Front End Designer / Developer") — thanks Lee.
 I also must emphasis that I'm not trying to minimise the roles that UX Designers / Web Designers and others who go by different job titles .. this one just seems to fit for me. Thanks for calling me out on that one, Dean.

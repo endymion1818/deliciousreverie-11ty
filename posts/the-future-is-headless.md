@@ -36,7 +36,7 @@ But there are _many_ other advantages to serverside developers and organisations
 
 ### What it will ask of us
 
-With any technology change, we have to learn new skillsets. It takes time. But with such clear advantages, and the two biggest CMSes already developing headless systems ([Drupal](https://groups.drupal.org/headless-drupal "Drupal Headless community group") and [Wordpress](http://v2.wp-api.org/ "Wordpress API documentation")) it might be time to start that road.
+With any technology change, we have to learn new skillsets. It takes time. But with such clear advantages, and the two biggest CMSes already developing headless systems ([Drupal](https://groups.drupal.org/headless-drupal "Drupal Headless community group") and [Wordpress](https://v2.wp-api.org/ "Wordpress API documentation")) it might be time to start that road.
 
 Instead of frontend developers having to also know PHP, we will need to concentrate on how to use JSON data via REST. With a frontend framework such as Angular or Backbone, this becomes ... easier.
 
@@ -46,7 +46,7 @@ Sit through this video, if it blows your mind like it did mine, then we have an 
 
 <blockquote>
 <h1>“... in the technology industry, where revolutionary ideas drive the next big growth areas, you need to be a bit uncomfortable to stay relevant.”</h1>
-<attr>—Larry Page, [Alphabet](http://abc.xyz/ "Alphabet (formerly Google) home page")</attr>
+<attr>—Larry Page, [Alphabet](https://abc.xyz/ "Alphabet (formerly Google) home page")</attr>
 </blockquote>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GX9z5M9mz30" frameborder="0" allowfullscreen></iframe>
