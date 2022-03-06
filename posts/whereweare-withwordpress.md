@@ -30,13 +30,13 @@ But it's almost too easy. Want a CMS? Use Wordpress. No thought required. I thin
 
 Because it's so popular it's a constant target. I monitor & maintain over 30 Wordpress sites and get reports every minute about attempted access from bots designed to target weak points in the framework.
 
-But a patch is never as good as avoiding the problem in the first place. If you want to scare yourself silly on this subject, [read this post](http://www.ranum.com/security/computer_security/editorials/dumb/index.html "The Six Dumbest Ideas in Computer Security").
+But a patch is never as good as avoiding the problem in the first place. If you want to scare yourself silly on this subject, [read this post](https://www.ranum.com/security/computer_security/editorials/dumb/index.html "The Six Dumbest Ideas in Computer Security").
 
 #### Problem 2: Performance
 
 Has anyone got Wordpress to grade 'A' on ySlow? [Matt Hill responded](https://twitter.com/matthillco/status/568031045699932160 "Mat Hill's tweet about Wordpress speeds") that it might be possible with a cache plugin ... but it's not an easy thing to achieve, of this I'm certain.
 
-The problem with this is that site performance is having more and more impact on SEO. This is the next frontier for development after responsive images. It's awful that the [average site size is now 2MB](http://www.webperformancetoday.com/2013/06/05/web-page-growth-2010-2013/ "Blog post on Web Performance Today about the size of web pages."). This can really hurt users-and not those with edge use cases.
+The problem with this is that site performance is having more and more impact on SEO. This is the next frontier for development after responsive images. It's awful that the [average site size is now 2MB](https://www.webperformancetoday.com/2013/06/05/web-page-growth-2010-2013/ "Blog post on Web Performance Today about the size of web pages."). This can really hurt users-and not those with edge use cases.
 
 #### Problem 3: Content
 
@@ -52,7 +52,7 @@ When is the last time you updated your wordpress installation? How many of these
 
 I don't know!
 
-And yet, not updating [could lead to your worst nightmare](http://blog.sucuri.net/2014/09/slider-revolution-plugin-critical-vulnerability-being-exploited.html "A plugin vulnerability that led to many sites being hacked."). This quickly becomes an eternity of procrastination. But by not making a decision, you have made a decision: wait for something bad to happen before you fix it.
+And yet, not updating [could lead to your worst nightmare](https://blog.sucuri.net/2014/09/slider-revolution-plugin-critical-vulnerability-being-exploited.html "A plugin vulnerability that led to many sites being hacked."). This quickly becomes an eternity of procrastination. But by not making a decision, you have made a decision: wait for something bad to happen before you fix it.
 
 I'm not a big fan of this.
 
@@ -62,7 +62,7 @@ Yes it might require more brain power to think about these things at the start o
 
 We've decided to keep 3 different CMS systems in mind for our future projects. We're keeping Wordpress for quick, small projects.
 
-Then, we're using [Perch or Perch Runway](http://grabaperch.com "Perch website") for other sites, and we're looking into using [Kirby](http://getkirby.com/ "Kirby website") as a 3rd option, just to vary the DNA of our projects. After all, if every Wordpress site becomes compromised [like Drupal was](http://www.bbc.co.uk/news/technology-29846539 "BBC News: Millions of websites hit by Drupal hack attack"), it'll be good to know we don't have quite as much work to do.
+Then, we're using [Perch or Perch Runway](https://grabaperch.com "Perch website") for other sites, and we're looking into using [Kirby](https://getkirby.com/ "Kirby website") as a 3rd option, just to vary the DNA of our projects. After all, if every Wordpress site becomes compromised [like Drupal was](https://www.bbc.co.uk/news/technology-29846539 "BBC News: Millions of websites hit by Drupal hack attack"), it'll be good to know we don't have quite as much work to do.
 
 So, Wordpress is still a valuable part of what my company do ... but it's not ubiquitous, and it certainly does not need to be the only tool in your toolbox.
 

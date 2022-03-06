@@ -26,7 +26,7 @@ Oh wow ... I can't believe I added this lol. I spent only as much time with K8s 
 
 ### 3. Serverless!
 
-Serverless still really makes sense to me. I spend a bit of time during furlough following along with [Seed's excellent tutorial at serverless-stack](http://serverless-stack.com), and messing around with the serverless application framework [Webiny](http://webiny.com), which were great eye openers.
+Serverless still really makes sense to me. I spend a bit of time during furlough following along with [Seed's excellent tutorial at serverless-stack](https://serverless-stack.com), and messing around with the serverless application framework [Webiny](https://webiny.com), which were great eye openers.
 
 _"I'd love to think that by the end of 2020 I will be able to write a Terraform script and get a system comprised of a few key pieces not only up and running but fully deployed, monitored and testable too."_
 

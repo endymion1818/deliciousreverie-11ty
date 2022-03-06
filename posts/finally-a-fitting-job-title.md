@@ -58,5 +58,5 @@ Is it finally time for the web to grow up, to strike out on it's own, to lift of
 
 ### UPDATE
 
-So, talking this over with a few of my esteemed colleagues, it seems [this title isn't as new as I thought](http://rachelnabors.com/2010/11/whats-a-front-end-designerdeveloper/ "Rachel Nabors: What's a Front End Designer / Developer") — thanks Lee.
+So, talking this over with a few of my esteemed colleagues, it seems [this title isn't as new as I thought](https://rachelnabors.com/2010/11/whats-a-front-end-designerdeveloper/ "Rachel Nabors: What's a Front End Designer / Developer") — thanks Lee.
 I also must emphasis that I'm not trying to minimise the roles that UX Designers / Web Designers and others who go by different job titles .. this one just seems to fit for me. Thanks for calling me out on that one, Dean.

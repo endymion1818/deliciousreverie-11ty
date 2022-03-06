@@ -15,7 +15,7 @@ title: First Steps with Flexbox
 
 The flex box module has had a long gestation period, and there are 2 main specs of the module, so when researching methods of using it you have to be careful to find recent enough posts which outline the latest spec.
 
-As always, [CSS Tricks](http://css-tricks.com/snippets/css/a-guide-to-flexbox/) was particularly useful, along with [Stack Overflow](http://stackoverflow.com/questions/tagged/flexbox) in getting familiar with the syntax and methods.
+As always, [CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) was particularly useful, along with [Stack Overflow](https://stackoverflow.com/questions/tagged/flexbox) in getting familiar with the syntax and methods.
 
 ### The Problem
 
@@ -94,6 +94,6 @@ We added this attribute under a `media-query` of `(min-width: 992px)` so that th
 
 This exercise has proved to be a great solution to an ongoing problem in web development.
 
-After using it on this project I really don't want to go back, which is a shame because there are [still some caveats with Safari (Both Mac OS X and iOS)](http://codepen.io/endymion1818/pen/xbPRWd "Flexbox safari test on CodePen").
+After using it on this project I really don't want to go back, which is a shame because there are [still some caveats with Safari (Both Mac OS X and iOS)](https://codepen.io/endymion1818/pen/xbPRWd "Flexbox safari test on CodePen").
 
 In fact, this blog has a stylesheet for Flexbox which I'm hoping to implement soon with a fallback for Safari (without browser sniffing).

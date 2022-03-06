@@ -48,11 +48,11 @@ The `htaccess` file also adds support for `mod_deflate` too, so gZipping can be 
 
 Template files are virtually non-existant in this theme, outside of the Wordpress standard pages `index`, `page`, `post`, `front-page`. I have included a template for a `sitemap` page.
 
-More templates will follow when I have the time, possibly [using the existing starter templates](http://getbootstrap.com/getting-started/#examples "example pages constructed with Bootstrap") or when I've worked on a project that contains some particularly useful, challenging or interesting templates.
+More templates will follow when I have the time, possibly [using the existing starter templates](https://getbootstrap.com/getting-started/#examples "example pages constructed with Bootstrap") or when I've worked on a project that contains some particularly useful, challenging or interesting templates.
 
 ### Updates
 
-This project will be updated and maintained regularly. I'm particularly interested by [the roadmap to Bootstrap 4](http://blog.getbootstrap.com/2014/10/29/bootstrap-3-3-0-released/ "Bootstrap blog post containing info about Bootstrap 4"), and can't wait to incorporate it here (although I personally might wait until 4.1 before I use it in production).
+This project will be updated and maintained regularly. I'm particularly interested by [the roadmap to Bootstrap 4](https://blog.getbootstrap.com/2014/10/29/bootstrap-3-3-0-released/ "Bootstrap blog post containing info about Bootstrap 4"), and can't wait to incorporate it here (although I personally might wait until 4.1 before I use it in production).
 
 ### There you have it.
 

@@ -13,7 +13,7 @@ tags:
 title: Improving Performance on Deliciousreverie.co.uk
 ---
 
-**I can't possibly think I could get away with [a post about performance](http://deliciousreverie.co.uk/post/why-performance-matters "Why Performance Matters on deliciousreverie.co.uk") when my own site wasn't as spot-on as I could get. So I've been spending a bit of time investigating how to reduce my load times. This is what I found out and how I implemented it.**
+**I can't possibly think I could get away with [a post about performance](https://deliciousreverie.co.uk/post/why-performance-matters "Why Performance Matters on deliciousreverie.co.uk") when my own site wasn't as spot-on as I could get. So I've been spending a bit of time investigating how to reduce my load times. This is what I found out and how I implemented it.**
 
 I built this site in December 2014 when I was on paternity leave. Now that my little bairn is finally sleeping through the night I can look at my code again through significantly less zombified eyes. I found a few things I'd like to improve on, namely:
 
@@ -24,7 +24,7 @@ I built this site in December 2014 when I was on paternity leave. Now that my li
 Let's break down each of these and see what can be done to improve them.
 
 ### Reducing unused DOM elements
-When I built this site, I originally envisioned a main (central) content area, with sidebars of supplementary content. But at the time, I was beginning to realise [that normal people don't understand sidebars](http://deliciousreverie.co.uk/blog/post.php?s=2015-03-23-normal-people-dont-understand-sidebars "Normal People Don't Understand Sidebars on deliciousreverie.co.uk").
+When I built this site, I originally envisioned a main (central) content area, with sidebars of supplementary content. But at the time, I was beginning to realise [that normal people don't understand sidebars](https://deliciousreverie.co.uk/blog/post.php?s=2015-03-23-normal-people-dont-understand-sidebars "Normal People Don't Understand Sidebars on deliciousreverie.co.uk").
 
 I have since decided to just focus on delivering good content in a branded experience. That's the core of what I wanted to achieve here.
 

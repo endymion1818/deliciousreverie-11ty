@@ -39,7 +39,7 @@ The Contractor Guidelines document sets out some principles for contractors. It 
 
 It's possibly the worst feeling in the world when a project has gone live and you realise you missed that key security feature, or forgot to activate this piece of functionality. It's even worse to get a call from the client several weeks down the line asking for analytics data ... then realising you forgot to add the code snippet.
 
-This Prelaunch Checklist, from an original by friend and colleague [Adam Maltpress](http://maltpress.co.uk/ "Blog of developer Adam Maltpress") can be used as a template for your projects.
+This Prelaunch Checklist, from an original by friend and colleague [Adam Maltpress](https://maltpress.co.uk/ "Blog of developer Adam Maltpress") can be used as a template for your projects.
 
 [GitHb Link to Prelaunch Checklist](https://github.com/endymion1818/team-documentation/blob/master/prelaunch-checklist.md "Prelaunch Checklist on Github.")
 

@@ -17,7 +17,7 @@ title: Atomic Development
 
 **Structuring components in a reusable, discoverable way has been a challenge for some recent projects I've worked on. I've seen different approaches used, but now I think I've found a method that's basically intuitive, avoids duplication of effort and facilitates easy discovery of components.**
 
-I didn't come up with this approach. [Brad Frost published the book "Atomic Design" 2 years ago](http://bradfrost.com/blog/post/atomic-web-design/), and I was fascinated with his idea, that you break down your components to the smallest reusable unit, then build them up again piece by piece. Just as living organisms are made up of atoms, then molecules, then larger entities until you get the complete creature.
+I didn't come up with this approach. [Brad Frost published the book "Atomic Design" 2 years ago](https://bradfrost.com/blog/post/atomic-web-design/), and I was fascinated with his idea, that you break down your components to the smallest reusable unit, then build them up again piece by piece. Just as living organisms are made up of atoms, then molecules, then larger entities until you get the complete creature.
 
 I tried this approach on a recent React project, and want to outline some of it's benefits. It's important to note that I don't believe it's 100% the best approach, since I don't think there is one. What I do want to show is where it's useful, where it isn't, and hopefully what those limitations are.
 

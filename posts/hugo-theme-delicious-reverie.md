@@ -37,7 +37,7 @@ So you can just run `npm install` and then `grunt` and you'll have regenerated t
 
 Two things haven't made it into this theme that are present on my website:
 
-1. Skybird typeface. [Philip Trautmann](http://phitradesign-fonts.com) kindly let me use this unique typeface that I feel reflects my personality very well. Before that I used Vollkorn from Google Fonts, so I replaced that font to avoid licencing issues. Although I really recommend you check out Philip's work.
+1. Skybird typeface. [Philip Trautmann](https://phitradesign-fonts.com) kindly let me use this unique typeface that I feel reflects my personality very well. Before that I used Vollkorn from Google Fonts, so I replaced that font to avoid licencing issues. Although I really recommend you check out Philip's work.
 
 2. Homepage animation. The homepage animation uses a ton of JavaScript, including the free version of GreenSock animation library and ScrollMagic. The vector art is also ... umm ... not a small payload ... and I worried that some wouldn't know how to remove this code, causing them performance issues.
 

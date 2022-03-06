@@ -41,7 +41,7 @@ But after the project went live, I tracked user flows and kept in touch with the
 
 Being motivated to refine the site after the go live taught me so much about how a website is a living document that can change to fit the changing needs of its users.
 
-[freebabylon5.com](http://freebabylon5.com "freebabylon5.com")
+[freebabylon5.com](https://freebabylon5.com "freebabylon5.com")
 
 ### The Internet - Built on Free
 

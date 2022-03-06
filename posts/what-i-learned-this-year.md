@@ -61,7 +61,7 @@ When I could see from a design a case for animating something, I would seek a wa
 
 Here's a recent site, that was designed buy our in-house team, but with some added animations:
 
-[http://blazeoven.co.uk/client/obk/](http://blazeoven.co.uk/client/obk/ "OBK Development site")
+[https://blazeoven.co.uk/client/obk/](https://blazeoven.co.uk/client/obk/ "OBK Development site")
 
 ### Other stuff
 

@@ -24,7 +24,7 @@ This assumption ignores the fact that users could be on slower mobile networks. 
 
 Mobile device users are unique in that they have a choice ... they have apps on their devices which might be able to perform a similar task to what they're trying to achieve on your website.
 
-A good example of this is a booking system. Does your website load — and respond — quickly enough for them? That window of opportunity [is now measured in milliseconds](http://www.nytimes.com/2012/03/01/technology/impatient-web-users-flee-slow-loading-sites.html?_r=0 "New York Times article citing Google engineers' speed tests"), not seconds. Will they decide to use a booking system they already have on their device instead? Will they use a search, throwing up all kinds of alternative possibilities for an entertaining evening out.
+A good example of this is a booking system. Does your website load — and respond — quickly enough for them? That window of opportunity [is now measured in milliseconds](https://www.nytimes.com/2012/03/01/technology/impatient-web-users-flee-slow-loading-sites.html?_r=0 "New York Times article citing Google engineers' speed tests"), not seconds. Will they decide to use a booking system they already have on their device instead? Will they use a search, throwing up all kinds of alternative possibilities for an entertaining evening out.
 
 This 'user abandonment' doesn't just impact on your site, on solely your service. It has wider implications.
 

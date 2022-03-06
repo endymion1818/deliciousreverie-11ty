@@ -16,7 +16,7 @@ title: Code really is Poetry
 
 **I'm not sure if you remember the early days of the web. I can. I remember when my friend and I would sit at home, bored of talking about _Babylon 5_ (yes, really) and yet not wanting to part company again.**
 
-"Let's try to get on the internet!" I would excitedly yelp, and plug in the 14.4k modem, dial into Apple's [eWorld](http://en.wikipedia.org/wiki/EWorld "eworld on Wikipedia") online community, and download an early version of Mosaic or Netscape.
+"Let's try to get on the internet!" I would excitedly yelp, and plug in the 14.4k modem, dial into Apple's [eWorld](https://en.wikipedia.org/wiki/EWorld "eworld on Wikipedia") online community, and download an early version of Mosaic or Netscape.
 
 It never worked.
 
@@ -32,7 +32,7 @@ I'm not sure if you'll remember also that many of the first users of the web wer
 
 For them, the internet represented freedom ... absolute freedom to be published no matter the quality of their writing, no matter the popularity or availability (or distinct lack thereof) of willing publishers. A writer could reach an audience of millions just by learning to write a few lines of code.
 
-But code was pretty hard to grapple with. One poem titled "The Poet Writes HTML" published in Cardiff's [The Yellow Crane](http://www.poetrymagazines.org.uk/magazine/index.asp?id=72 "Link to the Yellow Crane information page") told how the author felt he was getting further and further away from writing because of the time he spent learning to code. For many years, that account alone turned me away from technology altogether.
+But code was pretty hard to grapple with. One poem titled "The Poet Writes HTML" published in Cardiff's [The Yellow Crane](https://www.poetrymagazines.org.uk/magazine/index.asp?id=72 "Link to the Yellow Crane information page") told how the author felt he was getting further and further away from writing because of the time he spent learning to code. For many years, that account alone turned me away from technology altogether.
 
 But when I came back ... that was when a new revelation hit me.
 

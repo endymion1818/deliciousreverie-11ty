@@ -15,7 +15,7 @@ title: Why We Need the Web Guild
 
 **As the scope of our market is being altered dramatically, we are also facing challenges to the way our industry operates. How can we meet these challenges? How can we do so in a way that still enables us to not only function on a professional level, but to continue to grow and adapt to changes outside our current sphere of influence?**
 
-[_this post was originally published by me on Medium_](http://medium.com/@endymion1818/why-we-need-the-web-g… "Why We Need The Web Guild on Medium")
+[_this post was originally published by me on Medium_](https://medium.com/@endymion1818/why-we-need-the-web-g… "Why We Need The Web Guild on Medium")
 
 As young teenagers, my brother and I were furiously independent idealists for whom compromise was a byword for failure. We valued our individuality and strove to actively alienate ourselves from our peer group. Looking back, I think it was something to do with finding ourselves relocated to Wales from the North East, and desperately wanting to go back to County Durham, which we idealised.
 

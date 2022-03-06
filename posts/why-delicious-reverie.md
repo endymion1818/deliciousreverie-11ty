@@ -17,7 +17,7 @@ title: Why 'Delicious Reverie'?
 
 ### Why not benread.com?
 
-Yeah. Check it out: [http://benread.com](http://benread.com "Blog of the other Ben Read"). That's not me. That's the other guy, named Ben Read, who happens to be a web developer. I'm sure he's a lot better at it than me.
+Yeah. Check it out: [https://benread.com](https://benread.com "Blog of the other Ben Read"). That's not me. That's the other guy, named Ben Read, who happens to be a web developer. I'm sure he's a lot better at it than me.
 
 Hilariously enough, I was contacted by a headhunting organisation recently who thought I was him; and I thankfully realised and straightened him out before things got really interesting.
 

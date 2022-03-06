@@ -23,9 +23,9 @@ But the web is still a unique animal. If we're truly going to design for the web
 
 ![atomic design : a book by Brad Frost](/img/screen-shot-2015-12-18-at-08.19.57.png)
 
-##### [http://atomicdesign.bradfrost.com](http://atomicdesign.bradfrost.com "Link to Brad's website where he's writing the book")
+##### [https://atomicdesign.bradfrost.com](https://atomicdesign.bradfrost.com "Link to Brad's website where he's writing the book")
 
-Atomic design really helps at this level: it helps us design repeatable elements that can be coded and re-used on different parts of our site. I don't intend to re-hash Atomic principles here, but take a look around, [perhaps at this post](http://blog.invisionapp.com/atomic-design-principles/ "Using Atomic Design at InVision"), or [read a pertinent excerpt from the book](http://atomicdesign.bradfrost.com/chapter-2/#atomic-design-is-for-user-interfaces "atomic design is for user interfaces"), to see what I mean.
+Atomic design really helps at this level: it helps us design repeatable elements that can be coded and re-used on different parts of our site. I don't intend to re-hash Atomic principles here, but take a look around, [perhaps at this post](https://blog.invisionapp.com/atomic-design-principles/ "Using Atomic Design at InVision"), or [read a pertinent excerpt from the book](https://atomicdesign.bradfrost.com/chapter-2/#atomic-design-is-for-user-interfaces "atomic design is for user interfaces"), to see what I mean.
 
 This is going to really help us when it comes to building things out in code, especially if it's someone else building it.
 

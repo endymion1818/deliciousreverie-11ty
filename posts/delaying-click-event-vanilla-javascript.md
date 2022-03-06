@@ -28,7 +28,7 @@ It took me a while to come up with the strategy for this. I started looking at `
 
 After I had fiddled for a while, I ran up against a brick wall. For some reason, my JS event listener wasn't working properly.
 
-So I turned to StackOverflow and posed the question, which helped immensely, and validated what I was already trying to do. [The thread is here if you'd like to read it](http://stackoverflow.com/questions/36125391/vanilla-js-delay-click-event-to-add-animation/36126631 "vanilla JS: delay click event").
+So I turned to StackOverflow and posed the question, which helped immensely, and validated what I was already trying to do. [The thread is here if you'd like to read it](https://stackoverflow.com/questions/36125391/vanilla-js-delay-click-event-to-add-animation/36126631 "vanilla JS: delay click event").
 
 #### Step 1
 
@@ -89,6 +89,6 @@ Well, click on a link and see it working!!
 
 It was great to be able to work this out, and the Stack Overflow community once again proved to be a fantastic resource.
 
-I must also credit Rachel Nabors for inspiring me, since I first saw this being used [on her website](http://rachelnabors.com/ "Rachel Nabors' portfolio site").
+I must also credit Rachel Nabors for inspiring me, since I first saw this being used [on her website](https://rachelnabors.com/ "Rachel Nabors' portfolio site").
 
 Here's the full code in a Gist if you'd like to adapt it for your site:

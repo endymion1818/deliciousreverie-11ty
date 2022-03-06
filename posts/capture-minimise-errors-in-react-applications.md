@@ -138,7 +138,7 @@ Now each time an error occurs, the data will be sent to Sentry, and you can even
 
 Are you ready to see what we've been doing? To do that, we need to build our application, and serve it somewhere - ideally your local computer. This step involves installing a local javaScript web server to your computer.
 
-First, in your terminal, run `npm install --global sentry`. Next, from your project directory, run `npm build`. This builds the production-ready app. Now we can serve this folder locally by running `serve -s build`. Opening up a browser and typing **http://localhost:5000** and you should be able to see our beautiful error message!
+First, in your terminal, run `npm install --global sentry`. Next, from your project directory, run `npm build`. This builds the production-ready app. Now we can serve this folder locally by running `serve -s build`. Opening up a browser and typing **https://localhost:5000** and you should be able to see our beautiful error message!
 
 Congratulations! You are no longer in the dark about your JavaScript errors. Now you can increase the usefulness of your app and improve your stability by not only providing a fallback state for your app, but also by reporting and squashing all of your remaining bugs.
 

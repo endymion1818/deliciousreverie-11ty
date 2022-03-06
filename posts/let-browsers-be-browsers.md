@@ -23,7 +23,7 @@ There's been a huge demand for people who can work with Frontend frameworks espe
 
 But now the industry seems to be eating is tail & saying this is bad practice because what if users don't have Javascript enabled on their browser (for whatever reason)... and I agree with them.
 
-I'm a bit confused / frustrated with these mixed messages — I really agree with recent posts from [Jeremy Keith](https://adactio.com/journal/9963 "Where to Start? on Adactio.com") and [Aaron Gustaffson](http://alistapart.com/article/interaction-is-an-enhancement "Interaction is an Enhancement on A List Apart") but don't know the best route to take to
+I'm a bit confused / frustrated with these mixed messages — I really agree with recent posts from [Jeremy Keith](https://adactio.com/journal/9963 "Where to Start? on Adactio.com") and [Aaron Gustaffson](https://alistapart.com/article/interaction-is-an-enhancement "Interaction is an Enhancement on A List Apart") but don't know the best route to take to
 
 a) stay ahead of the game
 
@@ -37,7 +37,7 @@ Although there were a few developers who argued that when developing apps, you h
 
 This is one thing that I've been afraid of, since it takes a lot of time to learn frameworks ... and I have a young baby to take care of!
 
-Rachel Andrew mentioned a use case that I don't think we consider enough: "I travel a lot, end up on terrible wifi. At least once per trip I find myself unable to use a site because bits of their JavaScript haven't made it." This is also what motivated [Scott Jehl to write his book "Responsible Responsive Design"](http://abookapart.com/products/responsible-responsive-design "Responsible Responsive Design on A Book Apart").
+Rachel Andrew mentioned a use case that I don't think we consider enough: "I travel a lot, end up on terrible wifi. At least once per trip I find myself unable to use a site because bits of their JavaScript haven't made it." This is also what motivated [Scott Jehl to write his book "Responsible Responsive Design"](https://abookapart.com/products/responsible-responsive-design "Responsible Responsive Design on A Book Apart").
 
 ### Browsers Are Browsers
 

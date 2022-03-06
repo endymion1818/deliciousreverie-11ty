@@ -37,7 +37,7 @@ In reality this means that if you change something in a shared library, you have
 
 We have a common shared UI library which is in active development, as most shared UI libraries tend to be. Each time we touch anything to do with these, it takes up to an hour for all of the CI checks to complete, and there can be timeout issues depending on the availability of the pipeline.
 
-[Lerna](http://lerna.js.org), an alternative, older monorepo management tool, has a concept of [independent projects](https://github.com/lerna/lerna#independent-mode), which works similarly to if you have separate repositories. But that does negate some of the streamlining that shared projects have.
+[Lerna](https://lerna.js.org), an alternative, older monorepo management tool, has a concept of [independent projects](https://github.com/lerna/lerna#independent-mode), which works similarly to if you have separate repositories. But that does negate some of the streamlining that shared projects have.
 
 ## Verdict
 

@@ -27,8 +27,8 @@ I don't believe it is. I've seen the world wide web morph from AOL and eWorld to
 
 ### This Website
 
-- Typeface for titles: Skybird by [PhitraDesign](http://phitradesign-fonts.com/)
-- CMS: [Gatsby](http://gatsbyjs.org)
+- Typeface for titles: Skybird by [PhitraDesign](https://phitradesign-fonts.com/)
+- CMS: [Gatsby](https://gatsbyjs.org)
 - Hosting: [Netlify](https://www.netlify.com)
 
 ### My Projects
@@ -46,22 +46,22 @@ I don't believe it is. I've seen the world wide web morph from AOL and eWorld to
 - [TypeScript](https://www.typescriptlang.org)
 - [Testing Library](https://testing-library.com/react/)
 - [Sentry](https://sentry.io/welcome/)
-- [CircleCI](http://circleci.com)
-- [Netlify](http://netlify.com)
+- [CircleCI](https://circleci.com)
+- [Netlify](https://netlify.com)
 - [Spotify](https://www.spotify.com/uk/) (yeah, of course it's a _tool_)
 
 ### Literature
-- [Hokku: Writing Through the Seasons](http://github.com)
-- [From Swerve of Shore to Bend of Bay: A Finnegan's Wake blog](http://peterchrisp.blogspot.com)
+- [Hokku: Writing Through the Seasons](https://github.com)
+- [From Swerve of Shore to Bend of Bay: A Finnegan's Wake blog](https://peterchrisp.blogspot.com)
 - [Wordsworth Trust](https://wordsworth.org.uk)
-- [John Keats Online](http://john-keats.com)
+- [John Keats Online](https://john-keats.com)
 
 ### Popular Culture
-- [Babylon 5](http://freebabylon5.com)
-- [Farscape](http://www.farscapeworld.com)
-- [Firefly](http://browncoats.com)
+- [Babylon 5](https://freebabylon5.com)
+- [Farscape](https://www.farscapeworld.com)
+- [Firefly](https://browncoats.com)
 - [The Expanse](https://theexpanselives.com)
 
 ### Keeps Me Sane
-- [Mike Oldfield](http://mikeoldfieldofficial.com)
+- [Mike Oldfield](https://mikeoldfieldofficial.com)
 - [JW.org](https://www.jw.org)

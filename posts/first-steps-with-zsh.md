@@ -46,13 +46,13 @@ This reference, in purple in the screenshot:
 Is the commit hash. I use this to track my commits through the day, and can easily scan up & down my commit history to see what changes are made, when.
 
 ###A Note about Tools
-To get this functionality, I'm using a tool called [Oh My zsh](http://ohmyz.sh "Oh My ZSH website"), a tool which has hundreds of themes  , of which I'm using this one: https://github.com/calebmeyer/cpm-zsh-theme, which you have to install manually (instructions are on the readme file).
+To get this functionality, I'm using a tool called [Oh My zsh](https://ohmyz.sh "Oh My ZSH website"), a tool which has hundreds of themes  , of which I'm using this one: https://github.com/calebmeyer/cpm-zsh-theme, which you have to install manually (instructions are on the readme file).
 
 I also enabled a few extra plugins for git functionality by adding this to the .zshrc file: `plugins=(git git-extras git-remote-branch)`
 
 I would never have become this confident were it not for this course on Udemy: https://thoughtbot.com/upcase/videos/git-workflow. Check it out! There's lots more in the course, including some snippets you can run so that you can use git even more effectively.
 
 ###Confidence in Progress
-I'm still working on using the command line effectively. I've recently decided to start using webp images in my website builds ... there's a command-line tool that [converts jpg files to webp](https://developers.google.com/speed/webp/docs/cwebp "webp processor command line tool from Google") and a script here that allows you batch process all images in a directory: http://stackoverflow.com/questions/26565191/batch-process-png-to-webp
+I'm still working on using the command line effectively. I've recently decided to start using webp images in my website builds ... there's a command-line tool that [converts jpg files to webp](https://developers.google.com/speed/webp/docs/cwebp "webp processor command line tool from Google") and a script here that allows you batch process all images in a directory: https://stackoverflow.com/questions/26565191/batch-process-png-to-webp
 
 So, if you're not confident with the command line, there are many useful, time saving things you can do. Perhaps now is the time to give it a go?
