@@ -4,7 +4,6 @@
   --gray: #C0C0C0;
   --stronggray: #333;
   --navy: #17050F;
-  --blue: #082840;
   --white: #fff;
   --feature: #f7ebc1;
   --accent: #331f33;
@@ -16,7 +15,6 @@
     --gray: #424242;
     --stronggray: #e0e0e0;
     --navy: #755165;
-    --blue: #186dad;
     --white: #000;
     --feature: #333;
     --accent: #b85d12;
@@ -27,14 +25,20 @@ input#dark:checked ~ * {
     --gray: #424242;
     --stronggray: #e0e0e0;
     --navy: #755165;
-    --blue: #186dad;
     --white: #000;
     --feature: #333;
     --accent: #b85d12;
 }
-#themeswitcher {
-  display: flex;
-  justify-content: flex-end;
+.themeswitcher {
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+body {
+  background-color: var(--stronggray);
+  color: var(--gray);
+}
+* {
+  transition: background-color 0.5s ease;
 }
 
 @font-face {
