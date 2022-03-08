@@ -8,15 +8,7 @@
   --feature: #f7ebc1;
   --accent: #331f33;
 }
-input#dark:checked ~ * {
-    --weakgray: #333;
-    --gray: #424242;
-    --stronggray: #e0e0e0;
-    --navy: #755165;
-    --white: #000;
-    --feature: #333;
-    --accent: #b85d12;
-}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --weakgray: #333;
@@ -27,6 +19,24 @@ input#dark:checked ~ * {
     --feature: #333;
     --accent: #b85d12;
     }
+}
+input#dark:checked ~ * {
+    --weakgray: #333;
+    --gray: #424242;
+    --stronggray: #e0e0e0;
+    --navy: #755165;
+    --white: #000;
+    --feature: #333;
+    --accent: #b85d12;
+}
+input#light:checked ~ * {
+  --weakgray: #e0e0e0;
+  --gray: #C0C0C0;
+  --stronggray: #333;
+  --navy: #17050F;
+  --white: #fff;
+  --feature: #f7ebc1;
+  --accent: #331f33;
 }
 .themeswitcher {
   padding: 0.5rem;
