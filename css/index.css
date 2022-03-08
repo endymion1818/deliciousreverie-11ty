@@ -33,6 +33,10 @@ input#dark:checked ~ * {
   padding: 0.5rem;
   margin: 1rem 0;
 }
+p.themeswitcher {
+  display: inline-block;
+}
+
 body {
   background-color: var(--stronggray);
   color: var(--gray);

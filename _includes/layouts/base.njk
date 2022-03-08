@@ -40,11 +40,12 @@
   </head>
   <body>
     <a id="skiplinks" href="#main">Skip to main content</a>
-    <label class="themeswitcher" for="dark">Light theme</label>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
     <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
-    <label  class="themeswitcher" for="dark">Dark theme</label>
+    <label  class="themeswitcher" for="dark">Dark</label>
     <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
-    <span class="themeswitcher">(Sorry, this doesn't persist yet!)</span>
+    <p class="themeswitcher">(Sorry, this doesn't persist yet!)</p>
     <header>
       <div class="container">
         <div class="title home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></div>
