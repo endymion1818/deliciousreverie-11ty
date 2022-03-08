@@ -1,8 +1,8 @@
 /* Colors */
 :root {
-  --lightgray: #e0e0e0;
+  --weakgray: #e0e0e0;
   --gray: #C0C0C0;
-  --darkgray: #333;
+  --stronggray: #333;
   --navy: #17050F;
   --blue: #082840;
   --white: #fff;
@@ -12,15 +12,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --lightgray: #e0e0e0;
-    --gray: #C0C0C0;
-    --darkgray: #333;
-    --navy: #17050F;
-    --blue: #082840;
-    --white: #fff;
-    --feature: #f7ebc1;
-    --accent: #331f33;
-  }
+  --weakgray: #e0e0e0;
+  --gray: #C0C0C0;
+  --stronggray: #333;
+  --navy: #17050F;
+  --blue: #082840;
+  --white: #fff;
+  --feature: #f7ebc1;
+  --accent: #331f33;
+}
 }
 
 @font-face {
@@ -170,7 +170,7 @@ code {
   margin-left: 0.6666666666667em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
-  color: var(--darkgray);
+  color: var(--stronggray);
   border: 1px solid var(--gray);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
@@ -182,7 +182,7 @@ a[href].post-tag:visited {
 }
 a[href].post-tag:hover,
 a[href].post-tag:focus {
-  background-color: var(--lightgray);
+  background-color: var(--weakgray);
 }
 #skiplinks {
   display: block;
@@ -271,22 +271,22 @@ header p {
   line-height: 2rem;
 }
 header nav {
-  overflow-y: auto;
+  overflow-x: auto;
 }
 header nav a[href] {
   color: var(--white);
 }
 header nav a[href]:visited {
-  color: var(--lightgray);
+  color: var(--weakgray);
 }
 /* main */
 main {
   background-color: var(--feature);
-  color: var(--darkgray);
+  color: var(--stronggray);
   padding-top: 2rem;
 }
 main a {
-  color: var(--darkgray);
+  color: var(--stronggray);
 }
 
 /* footer */
@@ -299,7 +299,7 @@ blockquote > span {
   padding: 4rem 0;
 }
 .footer-bottom {
-  background-color: var(--darkgray);
+  background-color: var(--stronggray);
   color: var(--white);
   padding: 4rem 0;
 }
