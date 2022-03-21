@@ -4,6 +4,9 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
+
+{% component 'Counter.svelte', hydrate='eager' %}
+
 {% set maxPosts = collections.posts.length | min(5) %}
 <h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
 

@@ -2558,10 +2558,10 @@ slash@^1.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
   integrity sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=
 
-slinkity@0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/slinkity/-/slinkity-0.6.1.tgz#80e1d3904c764ad2cb9faf8182492235ef3788b2"
-  integrity sha512-Vf9PCrnWdl53tILlU7aI0OCUBmyi8yQE8X2CB5r3QeOytNS5edeUMbUPJ5X9QVwp2NXefRH1WkecZ8easb5GyQ==
+slinkity@^0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/slinkity/-/slinkity-0.6.4.tgz#78a92eb44755d4b4f6b797c03832999a1028bb78"
+  integrity sha512-64ARtlDHHgCOWxRtnndGwDdrBf4Zf2SMk0ZKvs8ooXXzZReFoedd1gL9YEnUNkwdz/1VjZrabvYh7m8B5DTnAA==
   dependencies:
     chalk "4.1.2"
     commander "^5.1.0"
