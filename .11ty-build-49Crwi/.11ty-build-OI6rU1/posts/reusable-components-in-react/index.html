@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: Reusable Components with Atomic Design</title>
+    <meta name="description" content="Structuring components in a reusable, discoverable way is a challenge across teams with diverse requirements. It can be difficult for developers unfamiliar with your library. Id like to introduce the idea of Atomic Development using React and styled-components.">
+    <meta property="og:site_name" content="Published Article: Reusable Components with Atomic Design">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Structuring components in a reusable, discoverable way is a challenge across teams with diverse requirements. It can be difficult for developers unfamiliar with your library. Id like to introduce the idea of Atomic Development using React and styled-components.">
+    <meta property="og:title" content="Published Article: Reusable Components with Atomic Design" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: Reusable Components with Atomic Design" />
+    <meta
+      name="twitter:description"
+      content="Structuring components in a reusable, discoverable way is a challenge across teams with diverse requirements. It can be difficult for developers unfamiliar with your library. Id like to introduce the idea of Atomic Development using React and styled-components."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: Reusable Components with Atomic Design",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-01-09T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: Reusable Components with Atomic Design</h1>
+
+<time datetime="2019-01-09">09 Jan 2019</time><a href="/tags/react/" class="post-tag">react</a><a href="/tags/atomic-design/" class="post-tag">atomic design</a><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/published-articles/" class="post-tag">published articles</a>
+
+<p><strong>Structuring components in a reusable, discoverable way is a challenge across teams with diverse requirements. It can be difficult for developers unfamiliar with your library. They need to learn quickly how adopt, use and discover, features it has. How do you help them do that without over-burdening your components with too much documentation? I'd like to introduce the idea of Atomic Development using React and styled-components.</strong></p>
+<p>Atomic Design is an approach to development that Brad Frost came up with a few years ago. He's published an excellent book about it which you can buy, or read online at <a href="https://atomicdesign.bradfrost.com/">https://atomicdesign.bradfrost.com/</a></p>
+<p>This post originally appeared in Net Magazine issue 314 under the title &quot;Put Atomic Design into Practice&quot;</p>
+<h2 id="the-atomic-design-approach" tabindex="-1">The Atomic Design Approach <a class="direct-link" href="#the-atomic-design-approach" aria-hidden="true">#</a></h2>
+<p>Brad Frost's book outlined a way to structure the design of a project based on building things up from the smallest component part.</p>
+<p>For example, this could be an input field. Input fields should never be used on their own. Instead, you would make sure for accessibility you have a label associated with it. In our analogy, the input field would be the Atom, and the atom and label together would be a Molecule.</p>
+<p>You could keep building upwards in this way so that you eventually had a fully designed page using not only Atoms and Molecules, but also Organisms (for example, a complete form) and a Template which contained your complete form, and perhaps other Molecules.</p>
+<h2 id="atomic-development" tabindex="-1">Atomic Development <a class="direct-link" href="#atomic-development" aria-hidden="true">#</a></h2>
+<p>On a recent project I decided to investigate whether this approach could be uilised in development. In my React project I typically use Styled Components to write my CSS styles. I therefore structured my project like this:</p>
+<pre><code>- components/
+  - Atoms
+  - Molecules/
+  - Organisms/
+  - Templates/
+</code></pre>
+<h3 id="atoms" tabindex="-1">Atoms <a class="direct-link" href="#atoms" aria-hidden="true">#</a></h3>
+<p>Atoms I designated as constants which could receive props. For example, a paragraph that had a prop for the text colour.</p>
+<p><img src="/img/reusable-components-react-1.png" alt="reusable components 1"></p>
+<h3 id="molecules" tabindex="-1">Molecules <a class="direct-link" href="#molecules" aria-hidden="true">#</a></h3>
+<p>Molecules consist of stateless functional components, often comprising of several Atomic elements and can contain some custom Atoms that relate to that specific Molecule.</p>
+<p>In the example below, we have a &quot;popout&quot; section, which has a custom MainContainer element that's only used in this Molecule. It can accept multiple props and can wrap other components.</p>
+<p><img src="/img/reusable-components-react-2.png" alt="reusable components 2"></p>
+<h3 id="organisms" tabindex="-1">Organisms <a class="direct-link" href="#organisms" aria-hidden="true">#</a></h3>
+<p>As we get to organisms, we start to see larger elements, bringing in several Molecules and atoms, often with components that render on the frontend as well as server, and data that might come in from an external source.</p>
+<h3 id="templates" tabindex="-1">Templates <a class="direct-link" href="#templates" aria-hidden="true">#</a></h3>
+<p>Templates are layouts for pages that are programmatically created from other data sources, such as the one I made below for a side project about my favourite musician:</p>
+<p><img src="/img/reusable-components-react-3.png" alt="reusable components 3"></p>
+<h2 id="atomic-at-zopa" tabindex="-1">Atomic at Zopa <a class="direct-link" href="#atomic-at-zopa" aria-hidden="true">#</a></h2>
+<p>Coincidentally, Gerard Brull, a colleague of mine at <a href="http://Zopa.com">Zopa.com</a> who works out of our office in Barcelona had also come across this idea. We discussed it as a team and decided to try to implement it in a future iteration of our shared component library.<br>
+We hope that it will help our team collaboration and assist the onboarding experience for newer developers that join us.</p>
+<hr>
+<h2 id="modularised-application-development" tabindex="-1">Modularised Application Development <a class="direct-link" href="#modularised-application-development" aria-hidden="true">#</a></h2>
+<p>At Zopa we build apps and services that start small but often scale up to millions of users. Organizing our code in a way that's easy to maintain is something we must therefore take into careful consideration before we begin development.</p>
+<p>Senior Developer Alexis Mangin has shared his experience of what could be the best approach when it comes to scalable applications which could have many component parts:</p>
+<p>&quot;Categorizing files based on what they represent is an easy way of partitioning your project and has became a popular practice with developers who use patterns such as MVC. In our experience, that’s okay when you work on small applications, but it can have a tremendous effect on the team’s velocity as the application grows. One way to avoid poor-planning headaches is to structure your codebase around the concept of modules, each with its own responsibility. Creating a module means you will group a set of related components, methods and assets together, providing a public interface to be used by other modules.&quot;</p>
+<p><a href="https://medium.com/@alexmngn/why-react-developers-should-modularize-their-applications-d26d381854c1">Please see this post for the full article.</a></p>
+
+<hr>
+<ul><li>Next: <a href="/posts/not-proud/">I&#39;m Not Proud</a></li><li>Previous: <a href="/posts/2018-review-2019-aims/">2018 Review / 2019 Aims</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

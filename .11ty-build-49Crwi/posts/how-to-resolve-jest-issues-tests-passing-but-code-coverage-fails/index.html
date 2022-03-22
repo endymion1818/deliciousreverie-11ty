@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to resolve Jest issues: tests passing, but code coverage fails!</title>
+    <meta name="description" content="Today I&#39;m continuing with my trend of making silly mistakes so you don&#39;t have to. The subject today is asynchronous tests in Jest. I&#39;ve spent too much time on this one, and I don&#39;t want you to have the same trouble!">
+    <meta property="og:site_name" content="How to resolve Jest issues: tests passing, but code coverage fails!">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Today I&#39;m continuing with my trend of making silly mistakes so you don&#39;t have to. The subject today is asynchronous tests in Jest. I&#39;ve spent too much time on this one, and I don&#39;t want you to have the same trouble!">
+    <meta property="og:title" content="How to resolve Jest issues: tests passing, but code coverage fails!" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="How to resolve Jest issues: tests passing, but code coverage fails!" />
+    <meta
+      name="twitter:description"
+      content="Today I&#39;m continuing with my trend of making silly mistakes so you don&#39;t have to. The subject today is asynchronous tests in Jest. I&#39;ve spent too much time on this one, and I don&#39;t want you to have the same trouble!"
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "How to resolve Jest issues: tests passing, but code coverage fails!",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2021-08-02T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>How to resolve Jest issues: tests passing, but code coverage fails!</h1>
+
+<time datetime="2021-08-02">02 Aug 2021</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/jest/" class="post-tag">jest</a><a href="/tags/react-testing-library/" class="post-tag">react testing library</a>
+
+<p>Today I'm continuing with my trend of making silly mistakes so you don't have to.</p>
+<p>The subject today is asynchronous tests in Jest. I've spent waay too much time on this one, and I don't want you to have the same trouble.</p>
+<p>I'm testing whether a page renders or not. The page takes some time to contact an API and therefore to render, so I've used the <code>waitFor</code> helper in Jest to assert what should happen.</p>
+<p>As I've mentioned the test setup is slightly immaterial, however I'm writing this rather quickly before the kids get hungry.</p>
+<p>Here's the test using <code>waitFor</code>:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"renders the page"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">render</span><span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>ThemeProvider theme<span class="token operator">=</span><span class="token punctuation">{</span>defaultTheme<span class="token punctuation">}</span><span class="token operator">></span><br>      <span class="token operator">&lt;</span>MockedProvider mocks<span class="token operator">=</span><span class="token punctuation">{</span>mocks<span class="token punctuation">}</span> addTypename<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token operator">></span><br>        <span class="token operator">&lt;</span>IndexPage <span class="token operator">/</span><span class="token operator">></span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>MockedProvider<span class="token operator">></span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>ThemeProvider<span class="token operator">></span><br>  <span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">expect</span><span class="token punctuation">(</span>screen<span class="token punctuation">.</span><span class="token function">getByText</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">messages</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Anything wrong with this test? No?</p>
+<p>Look again. The documentation in fact plainly says this at the top of the page:</p>
+<blockquote>
+<p>The async methods return Promises, so be sure to use await or .then when calling them.</p>
+</blockquote>
+<p>Source: <a href="https://testing-library.com/docs/dom-testing-library/api-async/">https://testing-library.com/docs/dom-testing-library/api-async/</a></p>
+<p>What this doesn't do is show up in your tests. It'll look like they've passed!</p>
+<p>The only reason I came across it was because when I use <code>--codeCoverage</code> to make sure I've covered all of my code with tests, it shows up as uncovered lines. But also, you'll notice there is an obscure message in the terminal about this too:</p>
+<blockquote>
+<p><code>ReferenceError: You are trying to access a property or method of the Jest environment after it has been torn down.</code></p>
+</blockquote>
+<p>Basically the assertion cannot be verified because it's no longer there, the <code>render</code> phase has passed. Although why this results in passing tests is anybody's guess. (Please let me know in the comments if you know!).</p>
+<p>Here's an example of a working test:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"renders the page"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">render</span><span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>ThemeProvider theme<span class="token operator">=</span><span class="token punctuation">{</span>defaultTheme<span class="token punctuation">}</span><span class="token operator">></span><br>      <span class="token operator">&lt;</span>MockedProvider mocks<span class="token operator">=</span><span class="token punctuation">{</span>mocks<span class="token punctuation">}</span> addTypename<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token operator">></span><br>        <span class="token operator">&lt;</span>IndexPage <span class="token operator">/</span><span class="token operator">></span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>MockedProvider<span class="token operator">></span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>ThemeProvider<span class="token operator">></span><br>  <span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">await</span> <span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">expect</span><span class="token punctuation">(</span>screen<span class="token punctuation">.</span><span class="token function">getByText</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">messages</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>There you go, I've wasted hours of my precious life so you (hopefully!) don't have to!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/introspection-comparing-glorifying-the-past/">Introspection: comparing myself to others, glorifying the past</a></li><li>Previous: <a href="/posts/tech-decision-tree/">What should I use to build my new project?</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

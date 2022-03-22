@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Website Forms Work</title>
+    <meta name="description" content="&#39;Form Follows Function&#39; goes the saying, but with HTML forms, it&#39;s the other way round. At least in terms of what happens when you fill out a form, and then click the button to &#39;send&#39;: a function processes the form. What happens during this process? Why is it necessary? What are some of the options for serverless form handling?">
+    <meta property="og:site_name" content="How Website Forms Work">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="&#39;Form Follows Function&#39; goes the saying, but with HTML forms, it&#39;s the other way round. At least in terms of what happens when you fill out a form, and then click the button to &#39;send&#39;: a function processes the form. What happens during this process? Why is it necessary? What are some of the options for serverless form handling?">
+    <meta property="og:title" content="How Website Forms Work" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="How Website Forms Work" />
+    <meta
+      name="twitter:description"
+      content="&#39;Form Follows Function&#39; goes the saying, but with HTML forms, it&#39;s the other way round. At least in terms of what happens when you fill out a form, and then click the button to &#39;send&#39;: a function processes the form. What happens during this process? Why is it necessary? What are some of the options for serverless form handling?"
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "How Website Forms Work",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-07-06T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>How Website Forms Work</h1>
+
+<time datetime="2018-07-06">06 Jul 2018</time><a href="/tags/understanding-the-web/" class="post-tag">understanding the web</a><a href="/tags/php/" class="post-tag">php</a><a href="/tags/serverless/" class="post-tag">serverless</a>
+
+<p>HTML Forms are one of the most fundamental elements in the web builder's toolbox. It would be a rare website that doesn't use this element to complete any of the most basic tasks someone might want to achieve. But there's a lot that goes on behind the scenes. Here's a bit more of an in-depth look at what happens when you click 'Send' on a form, and why you need some server-side code (somewhere) to handle that process.</p>
+<p>First of all, we need a short history lesson about the form HTML element.</p>
+<h2 id="the-origin-of-forms" tabindex="-1">The Origin of Forms <a class="direct-link" href="#the-origin-of-forms" aria-hidden="true">#</a></h2>
+<p>The <code>&lt;form&gt;</code> element was originally intended to be used to post content directly to web pages. So a person visiting a web page could modify what they found there, adding to it, removing parts or all of it entirely.</p>
+<p>This feature never made it out of the lab. But it was a pretty neat, if not idealistic, concept. Imagine how different things would be if anyone could change your website. This kind of idea was eventually tried out by a few intrepid individuals, notably Wikipedia, who were allowed to edit pages without any checks or balances. Unfortunately it led to widespread abuse. The sites were often either shut down or restricted after a short period of time.</p>
+<p>But the basic need still remained: <em>as a website visitor I want to send my email address so that the website owner can contact me</em> is the core one. There are many others: making a purchase, submitting a comment for display on the website, purchase an item, and more.</p>
+<p>People realised that they needed some method of collecting the data people had entered on their forms. They needed to validate it, making sure fields were filled out and not left blank, that they used a number where that was expected, a date when that was required etc. Then they needed to send that to an email address or other consumer so the person could be responded to, their comment displayed (or not), their order fulfilled, or whatever.</p>
+<p>That requirement led to the necessity for server-side code.</p>
+<h2 id="server-side-form-validation" tabindex="-1">Server Side Form Validation <a class="direct-link" href="#server-side-form-validation" aria-hidden="true">#</a></h2>
+<p>One of the earliest and most popular languages to tackle this issue was PHP. You could include some server-side code right there on the page. Now when someone clicked &quot;send&quot; or &quot;submit&quot;, the PHP would collect the data, format it as an email, then send it.</p>
+<p>It did this by the form's <code>method</code> and <code>action</code> attributes. The <code>method</code> was usually a <code>POST</code> request, a new entry to be added. The <code>action</code> attribute could be set as a URL, either the page you were on, or another page, that when sent could be triggered.</p>
+<p>Then the PHP would receive that into the global <code>$_POST</code> variable, where it could be processed.</p>
+<p>Now people could not only read messages from the website as if the person had merely sent them an email, but they could check the form had been filled out properly too. You didn't have to send it to an email address though. You could accept a payment, submit a comment for approval via a CMS, or connect with a CRM to collect and analyse leads.</p>
+<p>But these all required server-side code. Some application or at least a single function that would start running when the form action was triggered by someone pressing &quot;submit&quot;.</p>
+<p>Great! Unless you have no server-side code.</p>
+<h2 id="jamstack-caveat" tabindex="-1">JAMStack Caveat <a class="direct-link" href="#jamstack-caveat" aria-hidden="true">#</a></h2>
+<p>Going &quot;Serverless&quot;, using the &quot;JAMStack&quot; means, in effect, going back to the roots of the web. We are approaching websites once more as we did before we had server-side code.</p>
+<p>Though this has huge benefits, there are new (and perhaps old) issues to overcome. The primary one being, &quot;how do we validate, process and send form data?&quot;</p>
+<h2 id="processing-forms-using-client-side-code" tabindex="-1">Processing Forms Using Client-Side Code <a class="direct-link" href="#processing-forms-using-client-side-code" aria-hidden="true">#</a></h2>
+<p>Some people realised that once you submit code to your server, you can gain access to that server remotely and do nefarious things to it. This was entirely dependent on how well people had written their server code, but there were often flaws to be found and exploited.</p>
+<p>This resulted in website owners starting to validate code on the client using JavaScript before the form data was submitted. Now form submissions could be more sanitised before they got to the server, and also feedback for the person filling out the form could be much faster. You could tell them it wasn't valid as they were typing, instead of waiting until after they clicked &quot;send&quot;.</p>
+<p>You might think we can therefore use client-side JavaScript to submit form data. But the trouble with client-side code is that <em>it is all public</em>. And therefore it can be manipulated by someone to perform actions you don't want to happen. For instance, someone could change the URL, and they might get lucky, hitting another API endpoint that exposes a vulnerability. Or they could modify the form data to contain malicious code that takes control of your computer via your email client.</p>
+<p>That would be bad.</p>
+<p>So we still need some way of submitting code via a <em>private</em> resource. Something that isn't visible or accessible by everyone.</p>
+<h2 id="form-submission-without-a-server" tabindex="-1">Form Submission Without a Server <a class="direct-link" href="#form-submission-without-a-server" aria-hidden="true">#</a></h2>
+<p>We currently have a few options when it comes to serverless form processing:</p>
+<ol>
+<li>
+<pre><code> Use a 3rd party service
+</code></pre>
+</li>
+<li>
+<pre><code> Use a 3rd party function
+</code></pre>
+</li>
+</ol>
+<p>It's all about how much <em>control</em> you want, <em>budget</em> constraints you have and what you need to achieve.</p>
+<h3 id="popular-3rd-party-services" tabindex="-1">Popular 3rd Party Services <a class="direct-link" href="#popular-3rd-party-services" aria-hidden="true">#</a></h3>
+<p>Even before the advent of serverless, there were 3rd parties that offered form processing as a service. These are usually paid-for, often use their own form code (with varying standards), often with a version you can modify via their parameters or CSS rules.</p>
+<p>Wufoo is probably the oldest of these. But there's also Typeform, Mailchimp and others. If you use Netlify, you can use their Forms system, for which implementation is extremely easy.</p>
+<p>However there are often restrictions with these services. Some plans begin to get expensive quickly. Other features you may require, for example, sending a receipt confirmation to the sender, are impossible, or are branded with the providers' details.</p>
+<p>Another option is to write your own function.</p>
+<h3 id="3rd-party-functions" tabindex="-1">3rd Party Functions <a class="direct-link" href="#3rd-party-functions" aria-hidden="true">#</a></h3>
+<p>With the advent of Serverless, you can now submit your form to a URL that contains a form processor running in isolation from any other code, inside its own &quot;container&quot;, or virtual server instance.</p>
+<p>Amazon Web Services have their popular version called Lambda. Microsoft has Azure. There's also Heroku, owned by Salesforce. All of these provide an environment of server side code of your choice (PHP, Node, Go etc, with different release versions). This means you can write your own form processor, specify your environment language and any variables you want to utilise, and then deploy it.</p>
+<p>This allows you complete control over everything you might want to do with your form. An added bonus is that it is run independently of the website (so no application load time for your users), and can be modified independently at any time.</p>
+<p>In this case the form <code>method</code> will still be <code>POST</code>, but the <code>action</code> parameter will be the URL of the serverless function.</p>
+<p>Often these services are low-cost, meaning you only pay for the server time you actually use. Processing time is often sandboxed to 1 minute (probably much more than enough to interfere with this use case), and there is no server infrastructure to worry about.</p>
+<p>An extra benefit is that if form submissions become extra busy, with concurrent POST requests,  the function container will be duplicated enough times to meet demand. Automatically.</p>
+<p>It's out of scope for this article how to write a serverless function. However, it's just a normal piece of code that you might want to implement anywhere.</p>
+<h2 id="form-the-future" tabindex="-1">Form The Future <a class="direct-link" href="#form-the-future" aria-hidden="true">#</a></h2>
+<p>Form have had a long history on the web. Now we're approaching things from a serverless perspective, we can address the needs of people who use our websites in a much more robust way by abstracting away what holds them back from interacting with our site.</p>
+<p>At the same time, it doesn't harm those who might have the advantage of a speedy network connection, and won't notice the difference.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/php-to-javascript-how-i-switched-stacks/">From PHP to JavaScript: How I Switched Stacks</a></li><li>Previous: <a href="/posts/strapi-content-author-friendly-api/">Content-Author friendly APIs with Strapi</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don&#39;t fear the JAMStack</title>
+    <meta name="description" content="WordPress has long been the de facto publishing platform for the web. But many developers are hearing more about the JAMStack. Here&#39;s why I switched, and my take on where I think things are going to go from here.">
+    <meta property="og:site_name" content="Don&#39;t fear the JAMStack">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="WordPress has long been the de facto publishing platform for the web. But many developers are hearing more about the JAMStack. Here&#39;s why I switched, and my take on where I think things are going to go from here.">
+    <meta property="og:title" content="Don&#39;t fear the JAMStack" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Don&#39;t fear the JAMStack" />
+    <meta
+      name="twitter:description"
+      content="WordPress has long been the de facto publishing platform for the web. But many developers are hearing more about the JAMStack. Here&#39;s why I switched, and my take on where I think things are going to go from here."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Don&#39;t fear the JAMStack",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-09-03T11:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Don&#39;t fear the JAMStack</h1>
+
+<time datetime="2020-09-03">03 Sep 2020</time><a href="/tags/wordpress/" class="post-tag">wordpress</a><a href="/tags/jamstack/" class="post-tag">jamstack</a>
+
+<p><strong>WordPress has long been the de facto publishing platform for the web. But many developers are hearing more about the JAMStack. Here's why I switched, and my take on where I think things are going to go from here.</strong></p>
+<p>I would like to acknowledge and address some recent efforts of those in WordPress circles to be vocal against the new approaches to publishing that have arisen in recent years, most significantly these 2 that I've seen:</p>
+<ul>
+<li><a href="https://thenewstack.io/wordpress-co-founder-matt-mullenweg-is-not-a-fan-of-jamstack/">&quot;WordPress Co-Founder Matt Mullenweg Is Not a Fan of JAMstack&quot;</a></li>
+<li><a href="https://twitter.com/photomatt/status/1301419020827074560?s=21">Tweet: &quot;Switching back to WordPress after a year on Hugo&quot;</a></li>
+</ul>
+<p>First of all, I must acknowledge a debt of gratitude to WordPress. The efforts the team have made to democratise publishing over the past 20 years have been hugely successful, and I still am really happy that there's a solution out there that people with little technical knowledge can utilise. No other publishing platform has done that, and even now its real competitors cannot achieve this because they are closed silos.</p>
+<p>However, a democracy can never consist of one. A lot has happened in recent years which has preceded a sea change for a lot of developers to the JAMStack, a myriad of alternative separate technologies – one that still <em>includes</em> WordPress, but which is radically different from the approach it has taken.</p>
+<h2 id="progression" tabindex="-1">Progression <a class="direct-link" href="#progression" aria-hidden="true">#</a></h2>
+<p>For me, this change happened when I realised I was struggling to progress as a developer, or even to find enjoyable work, where I could produce things I could be proud of. And that in order to move forward, I needed to move away from that platform. I found 3 things that were damaging my development career:</p>
+<ol>
+<li>
+<p>The WordPress API is often inconsistent. <code>get_the_content()</code> vs <code>the_content()</code>, <code>WP_Post</code> vs <code>WP_Term</code>, differing returns (sometimes <em>void</em>, sometimes not) for different <code>get_*()</code> functions ... trying to find my way around this API could never help someone cultivate good development habits, or understand how an API <em>should</em> work.</p>
+</li>
+<li>
+<p>WordPress hasn't moved on from PHP 5. This means learning newer aspects of the language has been impossible and left me unprepared to work on other platforms. I could only get another job working with WordPress, which meant I was unlikely to ever move out of the cottage industry that provides.</p>
+</li>
+<li>
+<p>WordPress development practices haven't moved with the times. I worked for a short time on a Laravel project, and I was dumbfounded by things I had to learn, like build pipelines, database migrations, object oriented language principles, and even how to use a package manager.</p>
+</li>
+</ol>
+<p>In short, I was faced with a decision: either continue to develop solely with WordPress for the rest of my career, or make the jump. I had already seen a large number of developers grow dissatisfied because of these issues, and similarly move off the platform.</p>
+<p>I decided to do the same just around the time that Gutenberg was being released.</p>
+<h2 id="gutenberg" tabindex="-1">Gutenberg <a class="direct-link" href="#gutenberg" aria-hidden="true">#</a></h2>
+<p>Whilst the new editor interface, Gutenberg, was a big step forward for users of the platform, it's no secret that it alienated a lot of developers.</p>
+<p>Largely this was because of the ease with which page layouts could be created without developer input, bypassing the finesse and structure that a developers' input brings to a website. Now it's even easier for individuals to create blogs under their own steam.</p>
+<p>I am overall pleased with this idea because it pulls the rug out from under a lot of cheap, low quality &quot;web design&quot; agencies that have built their empires on the free platform for many years. I've worked for a range of these companies and I personally would be happy to see them pivot or be made extinct.</p>
+<p>But that also means there's a lot less work for a developer to do ... so not only has WordPress been keeping developers in a cottage industry, it is also forcing people <em>out</em> of that industry at an increasing rate.</p>
+<p>When I looked to the horizon, my colleagues and I could see a world where WordPress was once again the de facto standard for small customers who needed a quick platform, and where agencies turn to using alternatives.</p>
+<p>I needed to skill up quickly.</p>
+<h2 id="voting-pebbles" tabindex="-1">Voting Pebbles <a class="direct-link" href="#voting-pebbles" aria-hidden="true">#</a></h2>
+<p>There's still room for WordPress in the new landscape of the JAMStack world. The WP GraphQL plugin is great for sourcing content. But yes, there are a lot more alternatives that have the economies of scale and financial power to pivot much more quickly than WordPress has.</p>
+<p>A lot of progress has been made towards finding a better editor experience ... but we haven't quite solved it yet. I think projects like TinaCMS from Forestry are going to be the next iteration, and have the potential to bring an even better editing experience to users than WordPress can provide.</p>
+<p>In the meantime, developers like me will continue to push the JAMStack agenda. Why? Because we have been pushed out of our cottage industry, and we need to continue to work, and to enjoy our work. And because we do have a lot of buying power for our clients, stakeholders and family and friends whom we build for.</p>
+<p>WordPress is no longer my favourite option. But it is still an option.</p>
+<p>You started the avalanche, and it's too late for the pebbles to vote.</p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/60loeoblu0M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>(Wow there really <em>is</em> a Babylon 5 quote for every occasion.)</p>
+<p><small>with thanks to the TND community, specifically Frank Taillandier for the title!</small></p>
+
+<hr>
+<ul><li>Next: <a href="/posts/freelancing-options-suggestions/">Freelancing: options and suggestions</a></li><li>Previous: <a href="/posts/search-service-landscape/">The search service landscape</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: Building an Accordion Component with React Hooks</title>
+    <meta name="description" content="I wrote this post for Net Magazine issue 320. I wanted to showcase how I have begun using React Hooks, and hilight some best practices to follow for better accessibility.">
+    <meta property="og:site_name" content="Published Article: Building an Accordion Component with React Hooks">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I wrote this post for Net Magazine issue 320. I wanted to showcase how I have begun using React Hooks, and hilight some best practices to follow for better accessibility.">
+    <meta property="og:title" content="Published Article: Building an Accordion Component with React Hooks" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: Building an Accordion Component with React Hooks" />
+    <meta
+      name="twitter:description"
+      content="I wrote this post for Net Magazine issue 320. I wanted to showcase how I have begun using React Hooks, and hilight some best practices to follow for better accessibility."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: Building an Accordion Component with React Hooks",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-06-25T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: Building an Accordion Component with React Hooks</h1>
+
+<time datetime="2019-06-25">25 Jun 2019</time><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/published-articles/" class="post-tag">published articles</a><a href="/tags/javascript/" class="post-tag">javascript</a>
+
+<p>In this article, we takes a deep dive into creating an accordion module for React that renders on the server, and that works in Internet Explorer 11.</p>
+<p>On a recent project I was involved in creating this Accordion component with a few key requirements:</p>
+<ul>
+<li>It should provide collapsible section functionality for our users, a significant portion of whom are still on Internet Explorer 11</li>
+<li>It should be as accessible as possible, especially for assistive technology users</li>
+<li>It should show content even if the user hasn't been able to download JavaScript, or has it turned off</li>
+<li>It can be used multiple times on a page</li>
+</ul>
+<p>Let's get started!</p>
+<h2 id="basic-setup" tabindex="-1">Basic Setup <a class="direct-link" href="#basic-setup" aria-hidden="true">#</a></h2>
+<p>Here's the basic layout for the module:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><br><span class="token keyword">const</span> <span class="token function-variable function">Accordion</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>li<span class="token operator">></span><br>      <span class="token operator">&lt;</span>h3<span class="token operator">></span><br>        <span class="token operator">&lt;</span>button<span class="token operator">></span><br>          <span class="token punctuation">{</span>question<span class="token punctuation">}</span><br>        <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span><br>      <span class="token operator">&lt;</span>div<span class="token operator">></span><br>      <span class="token punctuation">{</span>answer<span class="token punctuation">}</span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><br>  <span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><span class="token keyword">export</span> <span class="token keyword">default</span> Accordion<br></code></pre>
+<p>This will render a basic section and can accept our content labelled <code>question</code> and <code>answer</code>. Outside the accordion, I will define an unordered list, <code>&lt;ul&gt;</code>, to wrap around the items.</p>
+<p>The elements used here are one of the suggestions made by Sara Souiedan in her blog post &quot;How do you mark up an accordion?&quot;. It's well worth a read because it dives deep into the semantic meaning of these elements.</p>
+<p>You can find her excellent article here: <a href="https://www.sarasoueidan.com/blog/accordion-markup/">https://www.sarasoueidan.com/blog/accordion-markup/</a></p>
+<h2 id="ie-support-not-needed-use-lessdetailsgreater" tabindex="-1">IE Support Not Needed? Use <code>&lt;details&gt;</code> <a class="direct-link" href="#ie-support-not-needed-use-lessdetailsgreater" aria-hidden="true">#</a></h2>
+<p>On Sara's blog post above, using the <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements here for more semantic markup is discussed. This is a HTML-native accordion element!</p>
+<p>If you don't need to support Internet Explorer 11, use these and skip most of this tutorial: you'll see that the accordion collapses and opens <em>without any css or javascript</em>.</p>
+<h2 id="functionality" tabindex="-1">Functionality <a class="direct-link" href="#functionality" aria-hidden="true">#</a></h2>
+<p>Next, I'm going to import our first hook. Hooks allow us to write React lifecyle methods without <code>class</code>es. This means our code can be more functional, or at least not a mix of OO and functional programming.</p>
+<p>First, I need to import the <code>useState</code> hook along with React from the React library:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span></code></pre>
+<p>Next, I set my state items. There are 2 because <code>setContentVisible</code> will be a function to update <code>isContentVisible</code>.</p>
+<pre class="language-javascript"><code class="language-javascript">  <span class="token keyword">let</span> <span class="token punctuation">[</span>isContentVisible<span class="token punctuation">,</span> setContentVisible<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span></code></pre>
+<p>I'm setting a default of <code>true</code> here because I'm using server-side-rendering, so that users without JavaScript (and search engines) can see this content. Now I can use this state directly on my button:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setContentVisible</span><span class="token punctuation">(</span>isContentVisible <span class="token operator">=</span> <span class="token operator">!</span>isContentVisible<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span><br><span class="token punctuation">{</span>question<span class="token punctuation">}</span><br><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span></code></pre>
+<p>Doesn't this look a lot more straightforward than writing a function before the <code>render</code> method?</p>
+<h2 id="screen-reader-assistance" tabindex="-1">Screen Reader Assistance <a class="direct-link" href="#screen-reader-assistance" aria-hidden="true">#</a></h2>
+<p>Next, I'm going to add some aria roles to the accordion to indicate to users when the component's content area is visible or not:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>li<span class="token operator">></span><br>      <span class="token operator">&lt;</span>h3<span class="token operator">></span><br>        <span class="token operator">&lt;</span>button<br>            onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setContentVisible</span><span class="token punctuation">(</span>isContentVisible <span class="token operator">=</span> <span class="token operator">!</span>isContentVisible<span class="token punctuation">)</span><span class="token punctuation">}</span><br>            aria<span class="token operator">-</span>controls<span class="token operator">=</span><span class="token string">"accordion-1"</span><br>            aria<span class="token operator">-</span>expanded<span class="token operator">=</span><span class="token punctuation">{</span>isContentVisible<span class="token punctuation">}</span><br>        <span class="token operator">></span><br>          <span class="token punctuation">{</span>question<span class="token punctuation">}</span><br>        <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span><br>      <span class="token operator">&lt;</span>div<span class="token operator">></span><br>      <span class="token operator">&lt;</span>ContentContainer<br>          aria<span class="token operator">-</span>hidden<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">!</span>isContentVisible<span class="token punctuation">}</span><br>          id<span class="token operator">=</span><span class="token string">"accordion-1"</span><br>        <span class="token operator">/</span><span class="token operator">></span><br>      <span class="token punctuation">{</span>answer<span class="token punctuation">}</span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><br>    <span class="token punctuation">)</span></code></pre>
+<p>This gives the screen reader ability to hear which section is open or closed, and the ability to open or close the accordion.</p>
+<p>But that <code>id</code> isn't going to cut it for more than one use on a page.</p>
+<p>To do that, we need to set a unique id of the accordion item so we can show the relationship between the control and content elements.</p>
+<pre class="language-javascript"><code class="language-javascript">  <span class="token keyword">const</span> elementId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0x10000</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">)</span><br>    <span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><br>    <span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<p>Once I've replaced <code>id=&quot;accordion-1&quot;</code> with <code>id={elementId}</code> I should have a fairly unique ID that links up the content and the button.</p>
+<div class="boxout">
+<h2 id="the-slings-and-arrows-of-outrageous-smooth-scrolling" tabindex="-1">The Slings &amp; Arrows of Outrageous Smooth Scrolling <a class="direct-link" href="#the-slings-and-arrows-of-outrageous-smooth-scrolling" aria-hidden="true">#</a></h2>
+<p>One of the requirements you might have with an accordion of this kind is that when the accordion opens / closes, the user is scrolled to the content area or the title.</p>
+<p>You can define a separate <code>toggleElement</code> function to get the ID of the current element, and scroll to the content area.</p>
+<pre class="language-javascript"><code class="language-javascript">  <span class="token keyword">const</span> domElementTop <span class="token operator">=</span> elementId<span class="token punctuation">.</span>offsetTop <span class="token operator">-</span> <span class="token number">150</span><br>  <span class="token keyword">const</span> <span class="token function-variable function">toggleVisibility</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">top</span><span class="token operator">:</span> domElementTop<span class="token punctuation">,</span> <span class="token literal-property property">behavior</span><span class="token operator">:</span> <span class="token string">"smooth"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>There's an IE11 caveat with this though. IE calculates <code>scrollTo</code> differently, with a px value instead of a string or ID. You can use <code>scrollTop</code> instead, but this doesn't allow you to have smooth scrolling behaviour which is a nicer effect for users. If you want to support IE11 with smooth scrolling, you can use <code>smoothscroll-polyfill</code> and call that before <code>window.scrollTo</code>.</p>
+<p>There's a bug in iOS Safari too! If you want to support Safari on iOS (particularly some iPad versions) it's advisable to set a timeout when you start scrolling:</p>
+<pre class="language-javascript"><code class="language-javascript">    window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token comment">// call the polyfill (to support IE11)</span><br>      smoothscroll<span class="token punctuation">.</span><span class="token function">polyfill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>      window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">top</span><span class="token operator">:</span> domElementTop<span class="token punctuation">,</span> <span class="token literal-property property">behavior</span><span class="token operator">:</span> <span class="token string">'smooth'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span></code></pre>
+</div>
+<h2 id="showing-and-hiding-content" tabindex="-1">Showing &amp; Hiding Content <a class="direct-link" href="#showing-and-hiding-content" aria-hidden="true">#</a></h2>
+<p>The last item we need to take care of is showing / hiding the content area. Now, we could do it this way:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>isContentVisible <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>div<br>       aria<span class="token operator">-</span>hidden<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">!</span>isContentVisible<span class="token punctuation">}</span><br>       id<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">content-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>AccordionIdentifier<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><br>    <span class="token operator">></span><br>      <span class="token punctuation">{</span>answer<span class="token punctuation">}</span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br><span class="token punctuation">)</span><span class="token punctuation">}</span><br></code></pre>
+<p>Note the use of the double-ampersand. If the <code>isContentVisible</code> is true, the following block (inside brackets) will show.</p>
+<p>You can also do the show/hide with a class attributes, using the <code>display</code> property to show &amp; hide them using CSS.</p>
+<p>Lastly, I want to make sure that when my user has got the JavaScript bundle and the page has been <strong>rehydrated</strong> (see box, &quot;What is Rehydration&quot;), the content is collapsed, ready for them to interact with. I can do that with the <code>useEffect</code> hook, but I need to make sure I call <code>useEffect</code> only once, similar to how <code>componentDidMount</code> was used.</p>
+<p>First, import that from React the same way as the <code>useState</code> hook:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span></code></pre>
+<p>Then reverse the value of <code>setContentVisible</code>:</p>
+<pre class="language-javascript"><code class="language-javascript">  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">setContentVisible</span><span class="token punctuation">(</span>isContentVisible <span class="token operator">=</span> <span class="token operator">!</span>isContentVisible<span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>Did you see the extra square brackets (<code>[]</code>) at the end? By passing an empty array to the <code>useEffect</code> hook we can call it only once. If we didn't do that, the <code>state</code> would be updated every time the component updated in some way.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h2>
+<p>I think using React Hooks is a simpler and tidier workflow that helps our code to be quicker to understand and more flexible. There are some significant changes to the way we use React, but understanding the differences in my opinion is only going to improve the way you write your code.</p>
+<p>You can find this example on Code Sandbox: <a href="https://codesandbox.io/s/wqnmql8l78">https://codesandbox.io/s/wqnmql8l78</a></p>
+<div class="boxout">
+<h2 id="boxout:-what-is-rehydration" tabindex="-1">BOXOUT: What is Rehydration? <a class="direct-link" href="#boxout:-what-is-rehydration" aria-hidden="true">#</a></h2>
+<p>Think of a carton of orange juice. You'll often see on the side of the packet &quot;from concentrate&quot; or &quot;rehydrated&quot;.</p>
+<p>This means they've extracted the water from the juice to condense it. In this way it can be transported more easily, in greater quantities. The water is added back in at the destination.</p>
+<p>Rehydration in JavaScript can be compared with this method. With some frameworks, notably GatsbyJS, our page is built in HTML and rendered in the browser. Then, once the JavaScript is loaded, it replaces the HTML with it's JavaScript version of the page.</p>
+<p>The advantage is a fully interactive application that is better for SEO and for users.</p>
+<p>There are still some key puzzles to solve with rehydration. I'm looking forward to seeing a time when only parts of a page that need interactivity are rehydrated, instead of having to replace the entire page. But it's a great way of making faster and more resilient interactive experiences.</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="boxout:-mvt-object-oriented-or-functional-programming" tabindex="-1">BOXOUT: MVT, Object-Oriented or Functional Programming? <a class="direct-link" href="#boxout:-mvt-object-oriented-or-functional-programming" aria-hidden="true">#</a></h2>
+<p>Managing the code of large applications where several people are contributing over the course of longer periods of time tends to be difficult. In fact any sufficiently complicated system tends to break down over time.</p>
+<p>To combat this tendency in code, people have tried several different approaches. The ones I'm familiar with are MVC, OO (object-oriented) and Functional.</p>
+<p>As far as I know, Angular 1 introduced the MVC principle to the frontend. It tried to keep separate the views (or templates), models (interpretations of data) and controllers (the functional parts) separate.</p>
+<p>This proved in many cases to be a burden on the overall code that was sent down to the client. A few later frameworks experimented with Object Oriented programming, which works great for languages like Ruby and PHP, and can be successfully implemented with JavaScript too.</p>
+<p>However, JavaScript doesn't really work in an object-oriented way under the hood. The <code>class</code> keyword was a wrapper around some of the prototypes of the language.</p>
+<p>In an effort to work <em>with</em> the language instead of imposing an artificial structure on top of it, functional programming has been growing in popularity in recent years.</p>
+</div>
+
+<hr>
+<ul><li>Next: <a href="/posts/normalizing-data-using-reduce/">Normalizing data using array.prototype.reduce</a></li><li>Previous: <a href="/posts/developers-guide-professional-development/">A Developer&#39;s Guide to Professional Development</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

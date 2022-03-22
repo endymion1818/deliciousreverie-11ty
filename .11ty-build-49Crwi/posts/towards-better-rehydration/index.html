@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Towards better hydration</title>
+    <meta name="description" content="I came across a tool recently that I&#39;m really excited about ... it&#39;s something that I think can solve one of the most pressing concerns in JavaScript development: rehydration.">
+    <meta property="og:site_name" content="Towards better hydration">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I came across a tool recently that I&#39;m really excited about ... it&#39;s something that I think can solve one of the most pressing concerns in JavaScript development: rehydration.">
+    <meta property="og:title" content="Towards better hydration" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Towards better hydration" />
+    <meta
+      name="twitter:description"
+      content="I came across a tool recently that I&#39;m really excited about ... it&#39;s something that I think can solve one of the most pressing concerns in JavaScript development: rehydration."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Towards better hydration",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2021-05-08T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Towards better hydration</h1>
+
+<time datetime="2021-05-08">08 May 2021</time><a href="/tags/horizon-thinking/" class="post-tag">horizon thinking</a>
+
+<p><strong>I came across a tool recently that I'm really excited about ... it's something that I think can solve one of the most pressing concerns in JavaScript development: rehydration.</strong></p>
+<p>Imagine how orange juice is transported: the water is removed to reduce the quantity, and water is added back - &quot;rehydrated&quot; - at the destination.</p>
+<p>A similar thing happens with a subset of modern JavaScript frameworks: they build static HTML pages (either when the application is built or on the server) send that down to the browser. Then they send and parse a JavaScript bundle that <em>also</em> contains the layout of the page, except this one is interactive (hence &quot;rehydrated&quot;). It's that JavaScript generated representation of the HTML you see when you visit the site.</p>
+<p>These frameworks have really caught on because they allow for the greatest expressiveness possible without splitting concerns: they allow developers to write components instead of separate HTML, CSS and JavaScript.</p>
+<p>But I think there is a fundamental problem with this idea that I think needs to be solved before we can scale our applications for the next generation of frontend architecture.</p>
+<p>I have just come across a tool that makes me think we're much closer to finding a suitable answer to this significant issue.</p>
+<h2 id="the-issue" tabindex="-1">The issue <a class="direct-link" href="#the-issue" aria-hidden="true">#</a></h2>
+<p>JavaScript is inextricably tied to the other building blocks of the web: html and css. There's one single line of code that has allowed more and more control to be given to JavaScript:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> root <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>If you've spent any time with JavaScript, you'll recognise that this is where it takes over the DOM, rendering pages in JavaScript instead of native HTML, facilitating our single page applications.</p>
+<p>But this creates a few issues:</p>
+<ol>
+<li>Nobody can see the page until the JavaScript is parsed and that version of the page renders (even if we're using static or server rendering),</li>
+<li>Bundle sizes grow larger and larger dependent on the requirements of the application, meaning that the JS pages take longer dependent on the bundle size (and therefore the complexity of the project),</li>
+<li>We also create performance issues such as time to interactive delays, or poor interactivity for people on lower-powered devices, because JavaScript runtime takes more processing power (not to mention battery energy) than plain old HTML.</li>
+</ol>
+<p>There have been three main ideas around how to solve this up until now:</p>
+<h2 id="solution-1:-static-all-the-way-..." tabindex="-1">Solution 1: Static all the way ... <a class="direct-link" href="#solution-1:-static-all-the-way-..." aria-hidden="true">#</a></h2>
+<p>The first answer to this problem is static-site generation: use JS to compile in the pipeline, and serve only static HTML to the browser. Certain static-site generators (like Hugo, Jekyll, Eleventy etc), excel at this.</p>
+<p>The advantage of this approach is that HTML is still the fastest and best way to serve up content.</p>
+<p>However, when you want to add any dynamic functionality, you need to load on a separate JavaScript framework, like Vue, Alpine or React. Some static site generators bundle this functionality on, some just focus on statically generating pages.</p>
+<p>I think the problem still remains: the static site and the javascript are <em>separate entities</em>, and it could sometimes be challenging to keep them in sync.</p>
+<h2 id="solution-2:-rehydrate-all-the-things" tabindex="-1">Solution 2: Rehydrate all the things <a class="direct-link" href="#solution-2:-rehydrate-all-the-things" aria-hidden="true">#</a></h2>
+<p>In sharp contrast to the static generators above, Next, Nuxt, Gatsby, SvelteKit and others send down HTML and then <em>rehydrate</em> the entire page in JavaScript.</p>
+<p>This has some cool advantages, such as literally no overhead when making components dynamic or interactive, because, at the end of the day, the whole page is already rendered in JavaScript.</p>
+<p>But ... and this is a big but! ... it's expensive.</p>
+<p>Every page has both HTML and JavaScript counterparts. This means bundle sizes are larger and browsers are working harder to process JavaScript for scroll position, routing and even CSS styles.</p>
+<h2 id="solution-3:-splitting-traffic" tabindex="-1">Solution 3: Splitting traffic <a class="direct-link" href="#solution-3:-splitting-traffic" aria-hidden="true">#</a></h2>
+<p>I've been trying to figure out how we negate these problems, because until we do, we face an impasse which prevents us from scaling our applications as we want — and from reaching broader audiences.</p>
+<p>(Remember, the next billion web users come from countries where conditions are a lot less ... guaranteed).</p>
+<p>My attempt at this idea is what I currently do on my website: I allow people the <em>option</em> to visit a statically-rendered HTML and CSS site, or to visit a JavaScript SPA rendered with Preact.</p>
+<p>There's a variation on this one which I've been thinking about on and off for a while: using an edge handler (such as those Cloudflare or Cloudfront provide, short running standalone functions) to split traffic (or transform websites even before they get to the viewer) based on some sort of browser preference setting. With this idea, we could route people based on one of these three settings:</p>
+<ol>
+<li>device has low battery</li>
+<li>device has a poor network connection</li>
+<li>user has enabled a setting preferring less JavaScript</li>
+</ol>
+<p>The trouble with each of these in turn is that (1) battery status can be used to track people against their wishes, (2) the state of the network isn't typically known until the site has finished downloading, and (3) this one gets awfully muddy awfully quickly: <em>all</em> JavaScript? That would be like saying turn off the browsers' ability to drop cookies: loads of services normal people use every day would be useless.</p>
+<p>So no, splitting traffic isn't a good option. It may be fine to do that on small blogs like this one, but it's not a viable option for sites when some complex functionality is required .. or even some simple functionality: my HTML-only site doesn't have animations or a search tool.</p>
+<h2 id="a-solution" tabindex="-1">A solution <a class="direct-link" href="#a-solution" aria-hidden="true">#</a></h2>
+<p>What we need is something <em>in-between</em> these options. Something that can build HTML statically (or on the server), and <em>partially rehydrate</em> elements on the client where that is needed.</p>
+<p><img src="/img/partial-rehydration.png" alt="Partial rehydration demonstrated" title="a mostly HTML web page with interactive elements in the header and carousel using JavaScript"></p>
+<p>This isn't a new idea. The core React team were hoping that concurrent mode would allow you to do this. However, building up a DOM tree is pretty difficult to achieve asynchronously.</p>
+<p>Massive steps towards this idea have been made by NextJS with server rendering (building pages on demand), and with SvelteKit's optional rendering (which allows individual pages to be statically rendered as HTML or JS) ... but it's still happening on a per-page basis, meaning that for those pages: there's either no possibility of interactivity, or there's a JavaScript overhead. Sometimes both.</p>
+<p>This idea of partial rehydration, or &quot;Islands architecture&quot; by Jason Miller (creator of, among other things, Preact), is something I had really hoped we'd get to at some point.</p>
+<p>And now it seems we are here. The below talk at Svelte Summit 2021 blew my mind:</p>
+<div class="responsive-iframe-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/fnr9XWvjJHw?start=10490" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>Astro is the first tool I've come across that has this ambition: to facilitate importing and selectively hydrating components in your page as you require them.</p>
+<p>And Astro goes further: we can share state across components, or potentially use different modern frameworks (react, svelte, Angular, you name it!) as we want, and we can request JavaScript to only load when the component is in the viewport.</p>
+<p>This has the potential to solve all of these problems:</p>
+<ul>
+<li>No more &quot;uncanny valley&quot; of pages being visible but not being interactive</li>
+<li>No large bundles being loaded upfront</li>
+<li>We could even give the user control over whether they want to load certain components</li>
+</ul>
+<p>Astro is in early alpha, and seemingly in stealth mode too! I'm so eager to get building with this tool now, but it seems I'm going to have to wait a while before the team are ready to open it to a public beta offering.</p>
+<p>This could be a really powerful tool, and fundamentally improve the way we build for the web. How exciting would that be!</p>
+<p>PS. <a href="https://astro.build"><em>slightly</em> more detail here on Astro's website</a></p>
+<p>PPS. <a href="https://css-tricks.com/astro/">Of <em>course</em> Chris Coiyer has already written a post on CSS Tricks about Astro</a></p>
+
+<hr>
+<ul><li>Next: <a href="/posts/first-steps-with-sveltekit/">First steps with Sveltekit</a></li><li>Previous: <a href="/posts/should-i-use-ternary-or-logicaland-in-react/">Should I use ternary or the logical and operator?</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

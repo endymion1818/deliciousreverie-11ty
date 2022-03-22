@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: Unit Test your React apps</title>
+    <meta name="description" content="Want production-ready code without going to production first? This article shows how it&#39;s possible with React Testing Library. This article was originally published in Net Magazine.">
+    <meta property="og:site_name" content="Published Article: Unit Test your React apps">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Want production-ready code without going to production first? This article shows how it&#39;s possible with React Testing Library. This article was originally published in Net Magazine.">
+    <meta property="og:title" content="Published Article: Unit Test your React apps" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: Unit Test your React apps" />
+    <meta
+      name="twitter:description"
+      content="Want production-ready code without going to production first? This article shows how it&#39;s possible with React Testing Library. This article was originally published in Net Magazine."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: Unit Test your React apps",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-02-25T11:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: Unit Test your React apps</h1>
+
+<time datetime="2020-02-25">25 Feb 2020</time><a href="/tags/performance/" class="post-tag">performance</a><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/published-articles/" class="post-tag">published articles</a>
+
+<p><strong>Do you really know what your code does what it is supposed to do? Have you tested it in the browser? What if you haven't, or you can't test everything, and it breaks in production?</strong></p>
+<p>A testing library is a group of utilties that developers use to write individual tests on our application components. Some of the principle parts of a test are:</p>
+<ul>
+<li>Description: describe what the test is about</li>
+<li>Use / Render: uses the component in an environment where it can be tested</li>
+<li>Mocking: create pretend functions, so that you can check your assumptions</li>
+</ul>
+<p>In this article I'm going to show some examples from React Testing Library to help you get started with this valuable way of improving the robustness of your code output.</p>
+<h2 id="getting-started-with-react-testing-library" tabindex="-1">Getting Started with React Testing Library <a class="direct-link" href="#getting-started-with-react-testing-library" aria-hidden="true">#</a></h2>
+<p>I'm going to use create-react-app for this demo, because it already comes preconfigured with the testing library. If you're using Gatsby or a custom setup, there might be some configuration you need to run through before you start using the testing library.</p>
+<p>To start let's create a new app. If you have a recent version of Node.js already, you can run the following command without installing anything else globally:</p>
+<pre><code>npx create-react-app netmag-javascript-testing
+</code></pre>
+<p>Now open the folder in your code editor.</p>
+<p>Create-react-app is great because you can already run yarn test and see that one test is already passing. This command will also keep watching for file changes, so you can see straight away whether or not the tests you write are passing.</p>
+<p>Let's start writing some tests!</p>
+<h2 id="what-to-test" tabindex="-1">What to Test <a class="direct-link" href="#what-to-test" aria-hidden="true">#</a></h2>
+<p>Imagine we have a simple component, say a button with some state. What are some of the things that need testing in a component like this?</p>
+<ol>
+<li>The appearance of the component</li>
+</ol>
+<p>We don't want anything to change unexpectedly after we've written our component. So we're going to write a <em>snapshot</em> test to capture how it renders. Then, if anything changes we will see it quickly, without a manual or visual test. This is great for components that consist of many smaller components: you can see quickly when (and where) it's appearance has been affected.</p>
+<ol>
+<li>The different <em>branches</em> that render</li>
+</ol>
+<p>Because we could have 2 or more different outputs, we need to test that it's rendering all of them correctly, not just one. So we need to simulate a click event and have another snapshot test for the way it renders after this <em>branch</em> of code has been run.</p>
+<ol>
+<li>That functions get called as expected</li>
+</ol>
+<p>We want to ensure that the code we wrote to call another function works as we assume it will. But since that function is an <em>external dependency</em>, we don't want to test that here. Our tests should encapsulate only the functionality we want them to.</p>
+<h2 id="writing-our-first-test" tabindex="-1">Writing our First Test <a class="direct-link" href="#writing-our-first-test" aria-hidden="true">#</a></h2>
+<p>Let's write our first test. Create a new file called <strong>MyComponent.unit.test.js</strong> in the same folder as the component. By adding <strong>test.js</strong> at the end, it'll be automatically picked by the testing library. The contents of that file are below:</p>
+<pre><code>import React from 'react'
+
+import { render } from '@testing-library/react'
+
+import MyComponent from './MyComponent'
+
+describe('the &lt;MyComponent /&gt;', () =&gt; {
+
+    // tests go here
+
+})
+</code></pre>
+<p>The first thing I want to draw your attention to is the describe() function, which takes 2 arguments: the first is a string that you can use to better <em>describe</em> as a string of text what your test is going to be doing. In our case we've said simply that it should render. This is very useful when someone else looks at your code, or you have to remember what you did at a later stage. Writing good &quot;describe&quot; statements is a form of code documentation, and another good reason for writing tests!</p>
+<p>The second argument are your tests. The <code>describe()</code> function will run all of these tests one after the other.</p>
+<h2 id="cleanups" tabindex="-1">Cleanups <a class="direct-link" href="#cleanups" aria-hidden="true">#</a></h2>
+<p>Let's introduce helper function called <code>beforeEach()</code>. We need to use this because each time we do something with the component, we want a fresh copy without the props we previously had passed to it still existing in the component. Or we might need to re-render the component. <code>beforeEach()</code> does that for us, and we can pass it the cleanup function:</p>
+<pre><code>import { render, cleanup } from '@testing-library/react'
+
+...
+
+describe('the component should render', () =&gt; {
+
+  beforeEach(cleanup)
+
+ }
+</code></pre>
+<h2 id="writing-a-snapshot-test" tabindex="-1">Writing a Snapshot Test <a class="direct-link" href="#writing-a-snapshot-test" aria-hidden="true">#</a></h2>
+<p>In this step, we're going to &quot;mount&quot; our component (or render it).</p>
+<pre><code>describe('the component should render', () =&gt; {
+
+  beforeEach(cleanup)
+
+  it('renders with basic props', () =&gt; {
+
+    render(&lt;MyComponent /&gt;)
+
+  })
+
+}
+</code></pre>
+<p>This render gives us access to all of the rendered properties of the compiled component. It might be good to drop this into a <code>console.log()</code> so you can see more clearly what it does.</p>
+<p>If you do, you'll see that there's a few useful properties we can take advantage of here. I'm going to make an assertion (make a testable declaration) and test it by extracting the container. The container &quot;contains&quot; the DOM nodes (all of the HTML) associated with the component.</p>
+<pre><code>it('renders with basic props', () =&gt; {
+
+    const { container } = render(&lt;MyComponent /&gt;)
+
+})
+</code></pre>
+<p>Now we have access to the container, how do I tell that it's rendered according to my assertion? By adding a <em>snapshot</em> test.</p>
+<p>A <em>snapshot</em> is like a photograph. It takes a snapshot of our component at a specific point in time. Then, whenever we make alterations to the code, we can see if it still matches the original snapshot. If it does, we can be confident that nothing has changed in the component.</p>
+<p>However, if it doesn't we might have uncovered an issue that originated in another component, one that we might not have spotted previously:</p>
+<pre><code>  it('renders with basic props', () =&gt; {
+
+    const { container } = render(&lt;MyComponent /&gt;
+
+    expect(container).toMatchSnapshot()
+
+  )
+</code></pre>
+<h2 id="testing-properties" tabindex="-1">Testing Properties <a class="direct-link" href="#testing-properties" aria-hidden="true">#</a></h2>
+<p>Props, or properties, of a component can be tested with snapshots too. Testing the different props you provide to your component will give you greater coverage and confidence ... you never know when a requirement is going to mean your component's props are refactored and the final output will change:</p>
+<p>Add this object to the top of your file:</p>
+<pre><code>const lightProperties = {
+
+    backgroundColour: 'white',
+
+    textColour: 'darkblue'
+
+}
+</code></pre>
+<p>We define the properties in an object and then use the spread operator (three dots followed by the object name, <code>...lightproperties</code>) in this way because we can only pass one argument in when we render in this way. It's also useful to see what properties you're passing in isolation:</p>
+<pre><code>    it('renders with basic props', () =&gt; {
+
+        const { container } = render(&lt;MyComponent /&gt;
+
+      )
+
+     expect(container).toMatchSnapshot()
+
+    })
+
+    it('renders with the light version props', () =&gt; {
+
+        const { container } = render(
+
+            &lt;MyComponent { ...lightProperties } /&gt;
+
+        )
+
+        expect(container).toMatchSnapshot()
+
+    })
+</code></pre>
+<h2 id="testing-changes-in-the-ui" tabindex="-1">Testing Changes in the UI <a class="direct-link" href="#testing-changes-in-the-ui" aria-hidden="true">#</a></h2>
+<p>Imagine that our component has a button, and you want to make sure that something happens when the button is clicked.</p>
+<p>You might think that you want to test the state of the application, for example, you might be tempted to test that the state has updated. However, that's not the object of these tests.</p>
+<p>This introduces us to an important concept in using a testing library: we're not here to test the state, or the way our component works. We're here to test how people are going to <em>use</em> the component, and that it meets their expectations.</p>
+<p>So whether or not the state has updated is immaterial; what we want to test is what the <em>outcome</em> of that button press is.</p>
+<p>Let's imagine we're testing the outcome of a function that changes the UI from dark mode to light mode. Here's the component:</p>
+<pre><code>const modeToggle = () =&gt; {
+
+    const [mode, setMode] = useState['light']
+
+   const toggleTheme = () =&gt; {
+
+     if (theme === 'light') {
+
+       setTheme('dark')
+
+     } else {
+
+       setTheme('light')
+
+     }
+
+   }
+
+    return (
+
+        &lt;ToggleButton data-testid=&quot;mode-toggle&quot; lightMode={mode} onClick={toggleMode}&gt;
+
+          Toggle mode
+
+        &lt;/ToggleButton&gt;
+
+    )
+
+}
+</code></pre>
+<p>First, we should add a test id onto the button so that we can find it in the render phase:</p>
+<pre><code>return (
+
+    &lt;ToggleButton
+
+      data-testid=&quot;mode-toggle&quot;
+
+      lightMode={mode}
+
+      onClick={toggleMode}
+
+     &gt;
+
+      Toggle mode
+
+    &lt;/ToggleButton&gt;
+
+)
+</code></pre>
+<p>Did you notice we added the new attribute <code>data-testid</code> to the button? Here's how you might test that.</p>
+<p>First, import a new function, <code>fireEvent</code> from the testing library:</p>
+<pre><code>import { cleanup,
+
+          fireEvent,
+
+          render
+
+} from '@testing-library/react'
+</code></pre>
+<p>Now we can use that function to test that there are changes in the UI, and that those changes are consistent:</p>
+<pre><code>it('renders with basic props', () =&gt; {
+
+    const { container } = render(&lt;ToggleButton /&gt;
+
+  )
+
+ expect(container).toMatchSnapshot()
+
+})
+
+it('renders the light UI on click', () =&gt; {
+
+    const { container, getByTestId } = render(&lt;ToggleButton /&gt;)
+
+    fireEvent.click(getByTestId('mode-toggle'))
+
+    expect(container).toMatchSnapshot()
+
+})
+</code></pre>
+<p>This is great, we don't have to manually go to the site and look around, then click the button and look around a second time, which you might admit, you'll likely forget or miss something! Now we can have confidence that, given the same input, we can expect the same output in our component.</p>
+<h3 id="a-note-about-test-ids" tabindex="-1">A Note about Test IDs <a class="direct-link" href="#a-note-about-test-ids" aria-hidden="true">#</a></h3>
+<p>Personally, I dislike using data-testid to find something in the DOM. After all, the object of tests is to mimic what the user is doing, and to test what happens when they do. data-testid feels like a bit of a cheat -- although data-testids will likely come in handy for your QA Engineer (see the box &quot;The Role of Quality Assurance Engineers&quot;).</p>
+<p>Instead we could use getByText() and pass in the text of our button. That would be a lot more behaviour specific.</p>
+<h2 id="mocking-and-spying" tabindex="-1">Mocking and Spying <a class="direct-link" href="#mocking-and-spying" aria-hidden="true">#</a></h2>
+<p>Sometimes we need to test a call to a function, but that function is outside the scope of the test. For example, I have a separate module that contains a function that calculates the value of pi to a certain number of decimals.</p>
+<p>I don't need to test what the result of that module is. I need to test that my function does as expected. For more information about why this is, please see the box &quot;unit and integration tests&quot;. In this case, we could &quot;mock&quot; that function:</p>
+<pre><code>const getPiValue = jest.fn()
+
+it('calls the function on click', () =&gt; {
+
+    const { container, getByTestId } = render(&lt;ToggleButton /&gt;)
+
+    fireEvent.click(getByTestId('mode-toggle'))
+
+    expect(getPiValue).toHaveBeenCalledTimes(1)
+
+  )
+
+})
+</code></pre>
+<p><code>toHaveBeenCalledTimes()</code> is one of the many helper functions in the testing library that allow us to test the output of functions. This allows us not only to scope our tests only to the module we want to test, but also allow us to &quot;spy&quot; on, or see what our function does when it calls that function.</p>
+<h2 id="start-testing-your-react-applications-today" tabindex="-1">Start Testing your React Applications Today <a class="direct-link" href="#start-testing-your-react-applications-today" aria-hidden="true">#</a></h2>
+<p>Writing tests can seem a little daunting to start with. I hope this tutorial has given you a little more confidence to try it. Since I started writing tests for my applications, I really can't go back: I can rest easier, knowing I'm leaving behind a much better legacy for those who will use my work in the future.</p>
+<p>For more ideas about how to test your components take a look at one of the links below:</p>
+<ul>
+<li><a href="https://react-testing-examples.com">https://react-testing-examples.com</a></li>
+<li><a href="https://testing-library.com/docs/react-testing-library/intro">https://testing-library.com/docs/react-testing-library/intro</a></li>
+</ul>
+<p>If you're looking for some courses to help you get started, the one by Kent C Dodds (who wrote and maintains React Testing Library) is popular:</p>
+<p><a href="https://testingjavascript.com/">https://testingjavascript.com/</a></p>
+<p>I also enjoyed this one on Level Up Tutorials, it's the one that got me started writing tests for my code:</p>
+<p><a href="https://www.leveluptutorials.com/tutorials/react-testing-for-beginners">https://www.leveluptutorials.com/tutorials/react-testing-for-beginners</a></p>
+<div class="boxout">
+<h2 id="boxout:-unit-and-integration-tests" tabindex="-1">Boxout: Unit and Integration Tests <a class="direct-link" href="#boxout:-unit-and-integration-tests" aria-hidden="true">#</a></h2>
+<p>There are generally two types of tests we talk about in the context of code tests:</p>
+<h3 id="unit-testing" tabindex="-1">Unit Testing <a class="direct-link" href="#unit-testing" aria-hidden="true">#</a></h3>
+<p>This is to test the <em>units</em> of code, or each module <em>in isolation</em>. They shouldn't call other modules in your project, instead you should mock these modules so that the unit test is able to run.</p>
+<h3 id="integration-testing" tabindex="-1">Integration Testing <a class="direct-link" href="#integration-testing" aria-hidden="true">#</a></h3>
+<p>When two or more modules are used in conjunction, then it's a good practice to write an <em>integration test</em>. These test how modules work together. Well written integration tests can identify issues when you're using modules as part of a larger piece of work.</p>
+<p>These are the two kinds of tests that developers are usually responsible for writing. There are other kinds of tests that QA Engineers write (see the box &quot;The Role of Quality Assurance Engineers&quot;).</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="boxout:-what-is-test-driven-development" tabindex="-1">Boxout: What is Test Driven Development? <a class="direct-link" href="#boxout:-what-is-test-driven-development" aria-hidden="true">#</a></h2>
+<p>TDD, or test-driven development, is a testing discipline that forces you to think about edge cases when you're in the process of development.</p>
+<p>You start out with a hypothesis that forms the basis for your tests. This could be something like &quot;it renders a button&quot;, &quot;it renders a button using the dark mode ui on click&quot;, then you go ahead and write your tests.</p>
+<p>Only after you have at least 3 robust tests that you can use to verify what your component's behaviour should be, then you start coding the actual component.</p>
+<p>I like this concept because it forces you to think about the structure of your component from completely different angles. You're not trying to preserve the code you already wrote, so you can find different ideas more easily.</p>
+<p>Be careful though: you can write tests that will pass under any circumstances! For this reason, three or more tests are often required that allow you to &quot;triangulate&quot;, or effectively define the functionality of your component, before you can start building it.</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="boxout:-the-role-of-quality-assurance-engineers" tabindex="-1">Boxout: The Role of Quality Assurance Engineers <a class="direct-link" href="#boxout:-the-role-of-quality-assurance-engineers" aria-hidden="true">#</a></h2>
+<p>Quality Assurance engineers are the secret superpower of web development. A good QA Engineer and a strong QA process can save development time, reduce issues in production, and have been known to save the reputation of entire development teams ... and the companies they work for!</p>
+<p>QA Engineers have totally different mindset to developers: Developers naturally build against assumptions about how something should work, and can only test these assumptions. QAs on the other hand, challenge these assumptions, using every trick they can think of to try to break the code in some way.</p>
+<p>This ensures that your customers aren't acting as your QAs, causing you to lose money and good will in a very public manner.</p>
+<p>A dedicated Quality Assurance engineer will write an automated tests suite that check the expected functionality of the built application, predominantly on a staging domain, and end-to-end tests that check users can carry out goals that you expect them to achieve.</p>
+</div>
+
+<hr>
+<ul><li>Next: <a href="/posts/typecheck-source-only/">How to scope Typecheck to your project folder</a></li><li>Previous: <a href="/posts/quick-and-dirty-ramen/">A recipe for quick and dirty ramen</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

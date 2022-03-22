@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessing Localhost in Parallels</title>
+    <meta name="description" content="When you start a Node web server using it&#39;s HTTP interface you will by default run on a specific host that resolves to  `127.0.0.1`, your localhost. Here&#39;s how to access your NodeJS server on Mac in Windows using Parallels.">
+    <meta property="og:site_name" content="Accessing Localhost in Parallels">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="When you start a Node web server using it&#39;s HTTP interface you will by default run on a specific host that resolves to  `127.0.0.1`, your localhost. Here&#39;s how to access your NodeJS server on Mac in Windows using Parallels.">
+    <meta property="og:title" content="Accessing Localhost in Parallels" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Accessing Localhost in Parallels" />
+    <meta
+      name="twitter:description"
+      content="When you start a Node web server using it&#39;s HTTP interface you will by default run on a specific host that resolves to  `127.0.0.1`, your localhost. Here&#39;s how to access your NodeJS server on Mac in Windows using Parallels."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Accessing Localhost in Parallels",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-02-06T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Accessing Localhost in Parallels</h1>
+
+<time datetime="2019-02-06">06 Feb 2019</time><a href="/tags/tools-and-processes/" class="post-tag">tools and processes</a>
+
+<p><strong>I just obtained a licence for Parallels for my work computer, and it was a doddle to set up. I didn't realise before now that Parallels will also download and install Windows 10 for you as part of the installer. This was a smooth move. But, when I went to preview my site in IE11 ... nothing happened.</strong></p>
+<p>When you start a Node web server using it's HTTP interface you will by default run on a specific host that resolves to  <code>127.0.0.1</code>, your localhost. This isn't shared by your Windows OS although I don't know if there's a way to forward through to there from MacOS.</p>
+<p>So typing in <code>https://localhost:8000</code> was never going to work. After much googling I found <a href="https://forum.parallels.com/threads/accessing-localhost.258362/">this post on the Parallels forum</a> that referenced Angular's cli tool an demonstrated that you could pass a flag to change the host IP.</p>
+<p>I thought to myself that the Angular CLI probably uses the same common code (Node's HTTP interface) and tried that in my app:</p>
+<pre class="language-bash"><code class="language-bash">gatsby serve --host<span class="token operator">=</span><span class="token number">0.0</span>.0.0</code></pre>
+<p>This little trick mentioned in the forum means that the server will allow access on any port, not just on localhost. So now I had to find out what port Parallels would accept.</p>
+<p>Following that thread down, I found this IP address mentioned by one of the Parallels developers: <code>10.211.55.2</code>. Aha, that worked.</p>
+<p>So in future, if you're running a NodeJS server on their mac and wants to view the site on Windows using Parallels, first spin up your server with the <code>--host=0.0.0.0</code> (that's four dots and four zeros) and visit the following address in the browser on Windows:</p>
+<pre class="language-bash"><code class="language-bash">https://10.211.55.2:8000 // or whatever your port is.</code></pre>
+
+<hr>
+<ul><li>Next: <a href="/posts/both-sides-now/">Both Sides, Now</a></li><li>Previous: <a href="/posts/not-proud/">I&#39;m Not Proud</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

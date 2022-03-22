@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordCamp London 2016 Writeup</title>
+    <meta name="description" content="Wordcamp London 2016 was a great chance to make new friends and learn some excellent insights about running a successful agency, wordpress security and the necessity of backups, and some other stuff I&#39;ve already started to use on a daily basis. Here&#39;s my roundup.">
+    <meta property="og:site_name" content="WordCamp London 2016 Writeup">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Wordcamp London 2016 was a great chance to make new friends and learn some excellent insights about running a successful agency, wordpress security and the necessity of backups, and some other stuff I&#39;ve already started to use on a daily basis. Here&#39;s my roundup.">
+    <meta property="og:title" content="WordCamp London 2016 Writeup" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="WordCamp London 2016 Writeup" />
+    <meta
+      name="twitter:description"
+      content="Wordcamp London 2016 was a great chance to make new friends and learn some excellent insights about running a successful agency, wordpress security and the necessity of backups, and some other stuff I&#39;ve already started to use on a daily basis. Here&#39;s my roundup."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "WordCamp London 2016 Writeup",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2016-04-28T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>WordCamp London 2016 Writeup</h1>
+
+<time datetime="2016-04-28">28 Apr 2016</time><a href="/tags/conference-writeup/" class="post-tag">conference writeup</a>
+
+<p><strong>Wordcamp London 2016 was a great chance to make new friends and learn some excellent insights about running a successful agency, wordpress security and the necessity of backups, and some other stuff I've already started to use on a daily basis. Here's my roundup.</strong></p>
+<p>This year was my first WordCamp meet up, so felt a bit weird as I didn't know anybody who was going. But right from the beginning I was met by friendly smiles and easy conversation, as well as great diversity.</p>
+<p>After the short keynote and meeting a few sponsors, I sat down to listen to the first talk I chose to attend:</p>
+<p>###Moove: Building An Innovative Agency</p>
+<p>The full transcript is <a href="https://www.mooveagency.com/8-insights-how-to-build-innovative-digital-agency/" title="Moove: How To Build an Innovative Digital Agency">on the Mooove website</a>, but what I really appreciated about their story was that Ilona and Adrian had a solid project management approach from the beginning. This allowed them to innovate on their approach to web design, which means they were able to challenge conventions more, to the point they're now giving back to the Wordpress community and releasing their own plugins.</p>
+<p>Takeaway:</p>
+<blockquote>
+#"Your portfolio will always get you your next project"
+</blockquote>
+<p>I loved how each of their case studies was a microsite, enabling them to showcase projects in a truly innovative way.</p>
+<p>All the way along, they have never stopped innovating and kept their standards high.</p>
+<p>###Transients</p>
+<p>This very technical talk by Julian Porter discussed how to use <a href="https://codex.wordpress.org/Transients_API" title="Transients API on wordpress.org">Transients</a> in a database cache to reduce load times. Julian especially recommended this method for storing what was coming in from other external services, such as social media as this resulted in the highest performance gain.</p>
+<p>When using we have to make sure to check with <code>false</code>, otherwise <code>get_transient</code> request will keep looping if there's nothing there.</p>
+<p>Takeaways: I'm still not sure about using this technology myself, would love to give it a try.</p>
+<p>###Hacked Off: Dealing with a Hacked Wordpress Site</p>
+<p><a href="https://timnash.co.uk" title="Tim Nash's personal website">Tim Nash</a> gave this lively and hilarious presentation. Tim hilighted that Wordpress <em>is</em> secure, but once you add your theme, a plugin, risks start creeping in. The good and bad thing about PHP is that it's very easy to do <em>anything</em>, including hacking a site, which he demonstrated. It took less than 2 minutes.</p>
+<p>Tim had 6 points for how to recover:</p>
+<ol>
+<li>Isolate — remove site from the server</li>
+<li>Identify — find out what went wrong. Look for 1 file that has a later time stamp by using <code>wp-core verify checksums</code> if you have <a href="https://wp-cli.org" title="Wordpress Command Line Interface">wp-cli</a> installed.</li>
+<li>Restore — from your daily backups. You do have daily backups, don't you?</li>
+<li>Check — change all passphrases (phrases - not words) and verify site works</li>
+<li>Remove from blacklists. All of them. (<em>This takes an awful lot of effort, as I know from experience.</em>)</li>
+<li>Prevention — keep your site up to date. <em>Update core frequently</em> Update to a more recent version of PHP.</li>
+</ol>
+<p>Takeaways: I've already started using <a href="https://wpscan.org" title="WP Scan website">WP Scan</a> and yes, I'm taking more regular backups too ...</p>
+<p>###A World Without Bugs</p>
+<p><a href="https://mikeselander.com/presentations/world-without-bugs/#/1" title="A World Without Bugs">Mike Selander gave this presentation</a>, which hilighted that bugs creep in from the very start, with the foundation of a project. If there's not a solid foundation, the building can come crashing down before you realise it.</p>
+<p>We can begin with standardising how we write code, with a guiding document on how to style, performance tuning and test.</p>
+<p>Takeaway: Mike said that because he has a consistent approach for building websites, he is very familiar with his code base. This means that he can quickly identify issues, and then roll out improvements to other sites built with this framework.</p>
+<p>###Debugging with Chrome Dev Tools</p>
+<p><a href="https://slidr.io/katiefenn/chrome-devtools-inside-out-wordcamp-london-2016#1" title="Debugging in Chrome Dev Tools">Katie Fenn's talk</a> took us through how to use <code>debugger;</code> instead of <code>console.log()</code> to pause the state of our JS mid-flow, so that we could interact with vars and see what functions are currently running.</p>
+<blockquote>
+#"Let's solve the problem and not make it any worse by guessing"
+— Gene Katz
+</blockquote>
+<p>With this command, you can also set conditions, so only pause if a condition is met. Very useful.</p>
+<p>###Guilt Free Coding</p>
+<p>I loved Jason Agnew's honest and humorous approach to guilt free coding, which gave me some insights into team working as well as tips for improving how I write approach a project.</p>
+<p>I guess there are two types of developers: the &quot;fast and loose&quot; guys who get the job done very quickly, but perhaps the code isn't as high quality as it could be, it isn't annotated, and it's harder for others to follow.</p>
+<p>Then there are another type, who are perhaps painfully slow, but do things properly so the project can be maintained long-term.</p>
+<p>Jason said that he got upset with another dev who would always refactor his code ... but after a while he realised this was so the dev felt he could save himself time long term, he wouldn't have to keep trying to make sense of &quot;messier&quot; code.</p>
+<p>However, the key thought was that if you're going to do that refactor, it would be best to discuss it with the originator first, otherwise communication could break down quite easily.</p>
+<p>Takeaway:<br>
+<strong>Prior<br>
+Preparation<br>
+Prevents<br>
+Poor<br>
+Performance</strong></p>
+<p>###Design Patterns</p>
+<p><a href="https://speakerdeck.com/tammielis/design-patterns" title="Design Patterns slides">Tammie Lister</a> took us through several projects to identify their patterns. She deconstructs sites so that she's able to see the base elements, and how they are used.</p>
+<p>I loved Tammie's analogy of a Lego set. If you buy a lego set, you're not buying a pirate ship, you're buying the <em>potential</em> for a pirate ship, but also myriad other things you could also build.</p>
+<p>The lego set is similar to our pattern library:- its a focused, consistent version of the site that can be used in so many different ways.</p>
+<blockquote>
+#"we define our design in a single location and use a system to cascade it down to all platforms. We call it our Single Source of Truth"
+— Salesforce Living Design Systems
+</blockquote>
+<p>Tammy also released this builder for the Underscores theme, which allows you to preselect framework styles for your project, and roll your own:</p>
+<p><a href="https://components.underscores.me" title="Underscores Components">components.underscores.me</a></p>
+<p>###Roundup</p>
+<p>As you can see, there was loads of good stuff, I've already started using WP-cli, WP Scan and several other methods and ideas—and I only attended 1/3 of the talks that were held.</p>
+<p>I'm going to be making this a regular event in my calendar, I think :-)</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/the-only-time-ill-talk-about-my-religious-beliefs/">The Only Time I&#39;ll Talk About My Religious Beliefs</a></li><li>Previous: <a href="/posts/updated-typeface-introducing-skybird/">Updated Typeface: Introducing Skybird</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

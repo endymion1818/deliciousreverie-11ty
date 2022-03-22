@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Questions, Better Answers</title>
+    <meta name="description" content="Proposing a solution that isn&#39;t a good fit for a project can be dangerious. It can be implemented without real thought, which can cause major frustration or even abandonment of a project. Instead I&#39;m trying to think more about the question, instead of jumping to conclusions.">
+    <meta property="og:site_name" content="More Questions, Better Answers">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Proposing a solution that isn&#39;t a good fit for a project can be dangerious. It can be implemented without real thought, which can cause major frustration or even abandonment of a project. Instead I&#39;m trying to think more about the question, instead of jumping to conclusions.">
+    <meta property="og:title" content="More Questions, Better Answers" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="More Questions, Better Answers" />
+    <meta
+      name="twitter:description"
+      content="Proposing a solution that isn&#39;t a good fit for a project can be dangerious. It can be implemented without real thought, which can cause major frustration or even abandonment of a project. Instead I&#39;m trying to think more about the question, instead of jumping to conclusions."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "More Questions, Better Answers",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-06-08T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>More Questions, Better Answers</h1>
+
+<time datetime="2018-06-08">08 Jun 2018</time><a href="/tags/approaches/" class="post-tag">approaches</a><a href="/tags/core-skills/" class="post-tag">core skills</a>
+
+<p><strong>Working with a large FinTech organisation has taught me a lot about the potential loopholes and considerations around certain technical decisions that I have been asked to contribute to.</strong></p>
+<p>One of the decisions that we have considered recently is how to deliver content into the new website we are building.</p>
+<p>Historically, this organisation have used CMSes only on the perhipery of the project; that is, the marketing team has a blog tht uses a popular CMS platform, other content is delivered via APIs. But the main site is plain HTML, with content embedded directly into HTML pages managed by a Ruby application.</p>
+<p>Initially, I pushed for a CMS, thinking it would be a great idea. However, I didn't stop to think about the question more deeply. An experienced technical lead said that a CMS &quot;didn't solve problems we already have&quot; and that it would introduce unneeded complexity into the project.</p>
+<p>I found this comment very interesting. Particularly because the world I've previously been surrounded with has been dominated by the need for a CMS to manage content.</p>
+<p>With my current organisation, a very tech savvy company where about one quarter of the workforce are developers, was there a real need for a CMS?</p>
+<p>Given this comment, I was prompted to think: what problem <em>was</em> I trying to solve with my recommendation?</p>
+<h2 id="undo-the-answer" tabindex="-1">Undo the Answer <a class="direct-link" href="#undo-the-answer" aria-hidden="true">#</a></h2>
+<p>The charachter 无 (pronounced wú in Chinese or mu in Japanese) means more than just the negative, so writes author Dan Simmons. It's apparently more like a desire to &quot;undo&quot; what's already been said, or the absence of the object it refers to.</p>
+<p>I've been trying to &quot;undo the answer&quot; in reorganising my mind to think more carefully and understand the questions I come up with.</p>
+<p>In reality, it's quite easy to propose an answer that might fit. The answer you propose <em>could</em> be the correct one, particularly if you've encountered a similar question in the past.</p>
+<p>But often this approach is flawed, and cracks in the process turn quickly to great gulfs which cause frustration and abandonment further along in the project.</p>
+<p>So what was I trying to solve? I ultimately decided it was two: separation of concerns, and with that the absence of a single source of truth.</p>
+<h3 id="separation-of-concerns" tabindex="-1">Separation of Concerns <a class="direct-link" href="#separation-of-concerns" aria-hidden="true">#</a></h3>
+<p>By embedding our content in the markup, we were directly mixing content and page structure. This had already become complicated when we were tasked with extracting text from the website so that it could be re-written to match our new tone of voice.</p>
+<p>The agency wanted to be supplied with CSVs containing each page content. I got two thirds of the way into building a content scraper before realising that the markup was so unique, and the CSV so prescriptive, that that solution just wasn't going to be practical.</p>
+<p>Once again, solutions-based thinking hits a brick wall.</p>
+<h3 id="single-source-of-truth" tabindex="-1">Single Source of Truth <a class="direct-link" href="#single-source-of-truth" aria-hidden="true">#</a></h3>
+<p>React excels at maintaining a single source of truth for your code. The uptake of React as a framework has increased because it extols this approach.</p>
+<p>Whereas before you had HTML markup that could be altered by both your server-side code and client-side JavaScript, as well as CSS that could be altered by your JavaScript.</p>
+<p>What React does is bring those 3 elements into JavaScript itself. Now you have a clearer picture of what's going on because you are only working with one source of truth.</p>
+<p>However, content should stay firmly out of this equation wherever possible. The reason for that is how it's being manipulated.</p>
+<p>Content authors still have the need to work with the content, even after the deadline for &quot;final copy&quot; has passed. However, it's likely most of them won't know HTML, let alone JavaScript, and won't want to learn. It's not their job after all.</p>
+<p>To match the design and UX requirements of a project we need to split forms into different screens, present content in different <code>&lt;div&gt;</code>s, and use interactive elements such as tabs, accordions and content sliders.</p>
+<p>We might want to serve different re-useable templates for different pages too.</p>
+<p>My solution of employing a CMS to do enable this was hitting on the idea, however inexpertly. So I framed it differently.</p>
+<p>Now, because I outlined the problems we're having accuratey, and a solution which doesn't add complexity (in fact it could reduce it), we're pursuing this route.</p>
+<h2 id="unask-the-answer-not-the-question" tabindex="-1">Unask the Answer, Not The Question <a class="direct-link" href="#unask-the-answer-not-the-question" aria-hidden="true">#</a></h2>
+<blockquote>
+<p>&quot;Never fear running out of answers, only running out of questions&quot;<br>
+— J Straczynski</p>
+</blockquote>
+<p>I've decided that asking questions isn't to be feared or looked down upon, however silly the question may seem at the time. It's proposing the wrong solution ignorantly that leads to trouble.</p>
+<p>I'm going to make more effort to think about questions more carefully. It's intent, background, even the thought process that prompted it.</p>
+<p>In that way, when it does come to solutions, I can make a more informed decision or recommendation about what could be a much more appropriate solution.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/strapi-content-author-friendly-api/">Content-Author friendly APIs with Strapi</a></li><li>Previous: <a href="/posts/talk-how-were-using-wordpress-as-a-headless-cms/">Talk: How Were Using WordPress as a Headless CMS</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

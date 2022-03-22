@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishing both JS and non-JS sites</title>
+    <meta name="description" content="It&#39;s always bothered me that the majority of internet users spend a lot of money downloading and running JavaScript, yet I enjoy building things with JavaScript, and want to provide an enhanced experience using JS ... without sacrificing their needs to do so. Now, there&#39;s an easier way to do both.">
+    <meta property="og:site_name" content="Publishing both JS and non-JS sites">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="It&#39;s always bothered me that the majority of internet users spend a lot of money downloading and running JavaScript, yet I enjoy building things with JavaScript, and want to provide an enhanced experience using JS ... without sacrificing their needs to do so. Now, there&#39;s an easier way to do both.">
+    <meta property="og:title" content="Publishing both JS and non-JS sites" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Publishing both JS and non-JS sites" />
+    <meta
+      name="twitter:description"
+      content="It&#39;s always bothered me that the majority of internet users spend a lot of money downloading and running JavaScript, yet I enjoy building things with JavaScript, and want to provide an enhanced experience using JS ... without sacrificing their needs to do so. Now, there&#39;s an easier way to do both."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Publishing both JS and non-JS sites",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-09-18T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Publishing both JS and non-JS sites</h1>
+
+<time datetime="2020-09-18">18 Sep 2020</time><a href="/tags/performance/" class="post-tag">performance</a><a href="/tags/javascript/" class="post-tag">javascript</a>
+
+<p><strong>It's always bothered me that the majority of internet users spend a lot of money downloading and running JavaScript, yet I enjoy building things with JavaScript, and want to provide an enhanced experience using JS without sacrificing their needs to do so. Here's one way we can have the best of both worlds.</strong></p>
+<p>I'm not going to argue JS vs no JS use here, I don't think it's even an argument. In my opinion we need to provide the best experience we can for <em>all</em> of our users, and that includes both those on slow connections and those on fast ones.</p>
+<p>Now, there's an easier way to do both.</p>
+<h2 id="why-this-site" tabindex="-1">Why this site? <a class="direct-link" href="#why-this-site" aria-hidden="true">#</a></h2>
+<p>I don't really need any JavaScript on this site. But I used GatsbyJS to build it, which by generates HTML but then overlays that with a React app (I already switched from React to Preact for better performance benefits). I had a site search and an animation, which wasn't part of the core experience but were nice enhancements.</p>
+<p>So I decided that I should by default provide an experience which was friendlier to those with CPU or battery restrictions, and then have another domain which had the fancy stuff.</p>
+<h2 id="setup-using-gatsby-plugins" tabindex="-1">Setup using Gatsby Plugins <a class="direct-link" href="#setup-using-gatsby-plugins" aria-hidden="true">#</a></h2>
+<p>I used two plugins to render an HTML &amp; CSS site with Gatsby: <code>gatsby-plugin-no-javascript</code> and <code>gatsby-plugin-no-javascript-utils</code>. The first builds the site as normal, but then unlinks the JavaScript, so that all you get is the HTML version of the site that Gatsby already builds. The second allows you to do some other finessing so that you can disable inline styles and remove sourcemaps too.</p>
+<p>After installing and configuring these plugins, the next step was to setup an environment variable:</p>
+<p>In a file called <strong>.env</strong> in the root of the project, I added:</p>
+<pre><code>JS_DISABLED=false
+</code></pre>
+<p>then in my <strong>gatsby-config.js</strong> I access this variable by adding the following to the top of the file:</p>
+<pre><code>require(&quot;dotenv&quot;).config()
+</code></pre>
+<p>However, I wanted to keep everything else about the configurations the same. Since the export in this file is a single JavaScript object, I could compose it up from separate elements. I could have one array for the plugins, another array for my noJS plugins, like this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> defaultPlugins <span class="token operator">=</span> <span class="token punctuation">[</span><br>  <span class="token comment">// everything else</span><br><span class="token punctuation">]</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> noJsPlugins <span class="token operator">=</span> <span class="token punctuation">[</span><br>  <span class="token operator">...</span>defaultPlugins<span class="token punctuation">,</span><br>  <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gatsby-plugin-no-javascript</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>  <span class="token punctuation">{</span><br>    <span class="token literal-property property">resolve</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gatsby-plugin-no-javascript-utils</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>    <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>      <span class="token literal-property property">removeGeneratorTag</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span><br>      <span class="token literal-property property">noInlineStyles</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<p>And now combine them into one object, conditionally choosing which array of plugins to choose, and export it as a module:</p>
+<pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">siteMetadata</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">pathPrefix</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">title</span><span class="token operator">:</span> siteTitle<span class="token punctuation">,</span><br>    <span class="token literal-property property">siteUrl</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://deliciousreverie.co.uk</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>    <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blog of developer &amp; bookworm benjamin read</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">plugins</span><span class="token operator">:</span><br>    process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">JS_DISABLED</span> <span class="token operator">===</span> <span class="token string">"true"</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token operator">...</span>noJsPlugins<span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span>defaultPlugins<span class="token punctuation">]</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="setting-up-on-netlify" tabindex="-1">Setting up on Netlify <a class="direct-link" href="#setting-up-on-netlify" aria-hidden="true">#</a></h2>
+<p>Netlify is very smart. I only needed to do a few things: I initiated a new site and chose the same base repo. I had to make sure I was using Netlify's DNS so that I could use my subdomain with the new site. Then I set the environment variables on both sites, merged the code and it was live!</p>
+<h2 id="updating-the-ui" tabindex="-1">Updating the UI <a class="direct-link" href="#updating-the-ui" aria-hidden="true">#</a></h2>
+<p>When I checked the noJS version of my site, the search bar was still visible, although it didn't work. So I had to stop it from showing on the noJS version.</p>
+<p>I tried using <code>process.env.JS_DISABLED</code> in the JSX, but Gatsby separates environment variables. If I wanted to access this variable on the frontend, I could rename it GATSBY_JS_DISABLED, but I thought of another way of doing it that proved just as effective...</p>
+<pre><code>{typeof window !== 'undefined' &amp;&amp; &lt;SearchForm /&gt;}
+</code></pre>
+<p>Now, the JSX that gets built on the server doesn't render the searchform because there's no Window object. <a href="https://joshwcomeau.com/react/the-perils-of-rehydration/">Josh W Comeau has a more robust way of handling this use case on his blog post</a></p>
+<p>I used this again to display a message in the footer to let users know which version of the site they are on:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span><br>  <span class="token keyword">typeof</span> window <span class="token operator">===</span> <span class="token string">"undefined"</span> <span class="token operator">?</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>p<span class="token operator">></span><br>      You're currently on the <span class="token operator">&lt;</span>i<span class="token operator">></span>javascript disabled<span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">></span> version <span class="token keyword">of</span> the site<span class="token punctuation">.</span> To<br>      enable the site search and some pretty animations<span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">" "</span><span class="token punctuation">}</span><br>      <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"https://jsenabled.deliciousreverie.co.uk"</span><span class="token operator">></span><br>        view the javascript enabled react app<br>      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><br>      <span class="token punctuation">.</span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><br>  <span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>p<span class="token operator">></span><br>      You're currently on the <span class="token operator">&lt;</span>i<span class="token operator">></span>javascript enabled<span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">></span> version <span class="token keyword">of</span> the site<span class="token punctuation">.</span> <span class="token keyword">if</span><br>      you need to conserve your battery or <span class="token constant">CPU</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">" "</span><span class="token punctuation">}</span><br>      <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"https://deliciousreverie.co.uk"</span><span class="token operator">></span>view the <span class="token constant">HTML</span> <span class="token operator">&amp;</span> <span class="token constant">CSS</span> only site<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><br>      <span class="token punctuation">.</span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><br>  <span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>I used this method because I wanted to <em>toggle between</em> elements that were inside a single parent element.</p>
+<h2 id="discouraging-search-engines" tabindex="-1">Discouraging search engines <a class="direct-link" href="#discouraging-search-engines" aria-hidden="true">#</a></h2>
+<p>Finally, I needed to discourage robots from indexing the JS enabled version of the site: the last thing I need is duplicate content warnings or to hurt my own SEO.</p>
+<p>I could have used the same trick I've already used above to add this meta tag to the <em>Layout</em> file, but I opted instead to use Netlify's postprocessing tool to add it to the appropriate site:</p>
+<pre><code>&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot; /&gt;
+</code></pre>
+<p>I thought this would be more robust since the first pass robots make is done without JavaScript enabled, so it needed to be added to the pre-rendered HTML that's under the React app.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h2>
+<p>What's stopping us building everything like this? It didn't take long to set up, and with some UI tweaks I got the best of both worlds: a fancy site with all the whistles and bangs of a JavaScript app, and a barebones (but still pretty) site that doesn't cost the earth to run.</p>
+<h2 id="post-script:-&quot;this-should-be-done-by-browser-hosting-platform-a-serverless-function&quot;" tabindex="-1">Post-Script: &quot;This should be done by [browser, hosting platform, a serverless function]&quot; <a class="direct-link" href="#post-script:-&quot;this-should-be-done-by-browser-hosting-platform-a-serverless-function&quot;" aria-hidden="true">#</a></h2>
+<p>One of the things I hear often is that we developers shouldn't be responsible for this kind of thing, that it should be the responsibility of some other part of the infrastructure of the web to handle request loads, but I don't think that's the case.</p>
+<p>Here's a few reasons I don't think it can be the responsibility any of those things:</p>
+<h3 id="browser" tabindex="-1">Browser? <a class="direct-link" href="#browser" aria-hidden="true">#</a></h3>
+<p>Browsers start fetching small packets of information, then scale up until they've expended the bandwidth. It's only once they reach that point that they can tell what the users' connection is like. This is probably too late to decide what to send down the wire.</p>
+<h3 id="hosting-platform" tabindex="-1">Hosting platform? <a class="direct-link" href="#hosting-platform" aria-hidden="true">#</a></h3>
+<p>Hosting platforms don't have the information required to know in detail what the users' connection is like. At best this is an approximation. Could we implement an API so that we can get that data? Maybe, but take a look at what happened with the Battery status API. We don't want to go there again.</p>
+<h3 id="serverless-function" tabindex="-1">Serverless function? <a class="direct-link" href="#serverless-function" aria-hidden="true">#</a></h3>
+<p>Hmm ... maybe ... but see above. Potentially an edge function could do it ... though I don't know enough about this to see how.</p>
+<h3 id="nobody" tabindex="-1">Nobody? <a class="direct-link" href="#nobody" aria-hidden="true">#</a></h3>
+<p>Erm no. Someone has to take responsibility here, and it's not the user. Since we've exhausted all other options, I think that we must rise to the challenge and provide people the online experience ... not that they <em>need</em>, but that they <em>deserve</em>.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/tools-production-ready-code/">Tools for Production Ready Code</a></li><li>Previous: <a href="/posts/freelancing-options-suggestions/">Freelancing: options and suggestions</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

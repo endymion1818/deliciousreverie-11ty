@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Steps with zsh</title>
+    <meta name="description" content="I&#39;m one of those guys (coming from a design background) that was terrified of the command line. Literally, terrified. I knew enough that simple commands could irreparably break my computer, and that scared me. But gradually, I&#39;ve begun to use more command line tools, and recently discovered ways to make my workflow easier by using zsh terminal commands.">
+    <meta property="og:site_name" content="First Steps with zsh">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;m one of those guys (coming from a design background) that was terrified of the command line. Literally, terrified. I knew enough that simple commands could irreparably break my computer, and that scared me. But gradually, I&#39;ve begun to use more command line tools, and recently discovered ways to make my workflow easier by using zsh terminal commands.">
+    <meta property="og:title" content="First Steps with zsh" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="First Steps with zsh" />
+    <meta
+      name="twitter:description"
+      content="I&#39;m one of those guys (coming from a design background) that was terrified of the command line. Literally, terrified. I knew enough that simple commands could irreparably break my computer, and that scared me. But gradually, I&#39;ve begun to use more command line tools, and recently discovered ways to make my workflow easier by using zsh terminal commands."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "First Steps with zsh",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2016-08-24T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>First Steps with zsh</h1>
+
+<time datetime="2016-08-24">24 Aug 2016</time><a href="/tags/command-line/" class="post-tag">command line</a>
+
+<p><strong>I'm one of those guys (coming from a design background) that was terrified of the command line. Literally, terrified. I knew enough that simple commands could irreparably break my computer, and that scared me. But gradually, I've begun to use more command line tools, and recently discovered ways to make my workflow easier by using zsh terminal commands.</strong></p>
+<p>I started using the terminal because of the benefits of build tools. I use Grunt in everyday production of my websites now, to minify &amp; concat my JS and SASS files, and sometimes to minify images and SVGs. If it hadn't been for these benefits, I doubt I would have ever used the terminal in the way I do now.</p>
+<p>###GIT in its Native Environment<br>
+I recently ditched my 2 git graphical user interface programs (Github and Git Kraken) in favour of using the terminal. I liked how I could have more control over my commits this way, and not have the extra overhead of another program open whilst I'm trying to work (I have a very minimalist approach to working, as far as that's possible).</p>
+<p>Git on the command line is fantastically useful, and I've never been more comfortable stashing, switching branches and doing all kinds of fancy things ... but I always wanted my terminal to do something more.</p>
+<p>I find the following things really useful:</p>
+<p><code>[8:45|</code></p>
+<p>This is the time I ran the command. So if I'm working through a project I can see exactly what time something was done ... this gets useful if you're tracking how long a certain task has taken, especially if your time is billable.</p>
+<p><code>~/S/ech-ech</code></p>
+<p>The next bit shows the current path in an abbreviated form. For example, the <code>/S/</code> refers to the &quot;Sites&quot; directory.</p>
+<p>Following that is the git information I was telling you about:</p>
+<p><code>git:(master)</code></p>
+<p>This shows that the current directory is a git project, and that the current branch is one called master.</p>
+<p>This reference, in purple in the screenshot:</p>
+<p><code> 0dd6b659</code></p>
+<p>Is the commit hash. I use this to track my commits through the day, and can easily scan up &amp; down my commit history to see what changes are made, when.</p>
+<p>###A Note about Tools<br>
+To get this functionality, I'm using a tool called <a href="https://ohmyz.sh" title="Oh My ZSH website">Oh My zsh</a>, a tool which has hundreds of themes  , of which I'm using this one: <a href="https://github.com/calebmeyer/cpm-zsh-theme">https://github.com/calebmeyer/cpm-zsh-theme</a>, which you have to install manually (instructions are on the readme file).</p>
+<p>I also enabled a few extra plugins for git functionality by adding this to the .zshrc file: <code>plugins=(git git-extras git-remote-branch)</code></p>
+<p>I would never have become this confident were it not for this course on Udemy: <a href="https://thoughtbot.com/upcase/videos/git-workflow">https://thoughtbot.com/upcase/videos/git-workflow</a>. Check it out! There's lots more in the course, including some snippets you can run so that you can use git even more effectively.</p>
+<p>###Confidence in Progress<br>
+I'm still working on using the command line effectively. I've recently decided to start using webp images in my website builds ... there's a command-line tool that <a href="https://developers.google.com/speed/webp/docs/cwebp" title="webp processor command line tool from Google">converts jpg files to webp</a> and a script here that allows you batch process all images in a directory: <a href="https://stackoverflow.com/questions/26565191/batch-process-png-to-webp">https://stackoverflow.com/questions/26565191/batch-process-png-to-webp</a></p>
+<p>So, if you're not confident with the command line, there are many useful, time saving things you can do. Perhaps now is the time to give it a go?</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/switching-to-bem-syntax-for-css/">Switching to BEM Syntax for CSS</a></li><li>Previous: <a href="/posts/why-we-need-the-web-guild/">Why We Need the Web Guild</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

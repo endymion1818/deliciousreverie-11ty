@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: Capture and Minimise Errors in your React Applications</title>
+    <meta name="description" content="If we we&#39;ve spent any time developing, specifically with JavaScript, we&#39;ve seen the White Screen of Death. Nothing renders to the screen, and the only way of investigating the issue we caused is by opening the console and looking at the stack trace.">
+    <meta property="og:site_name" content="Published Article: Capture and Minimise Errors in your React Applications">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="If we we&#39;ve spent any time developing, specifically with JavaScript, we&#39;ve seen the White Screen of Death. Nothing renders to the screen, and the only way of investigating the issue we caused is by opening the console and looking at the stack trace.">
+    <meta property="og:title" content="Published Article: Capture and Minimise Errors in your React Applications" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: Capture and Minimise Errors in your React Applications" />
+    <meta
+      name="twitter:description"
+      content="If we we&#39;ve spent any time developing, specifically with JavaScript, we&#39;ve seen the White Screen of Death. Nothing renders to the screen, and the only way of investigating the issue we caused is by opening the console and looking at the stack trace."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: Capture and Minimise Errors in your React Applications",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-03-15T11:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: Capture and Minimise Errors in your React Applications</h1>
+
+<time datetime="2019-03-15">15 Mar 2019</time><a href="/tags/react/" class="post-tag">react</a><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/published-articles/" class="post-tag">published articles</a>
+
+<p>We've all done it. Whether it's by forgetting to close a function, misspelling a variable or just plain old doing it wrong...</p>
+<p>If we we've spent any time developing, specifically with JavaScript, we've seen the White Screen of Death. Nothing renders to the screen, and the only way of investigating the issue we caused is by opening the console and looking at the stack trace.</p>
+<p>But what if that error occurs in production? On someone elses' machine? If this is happening (chances are it is) you might be losing a large segment of potential customers (How many? Nobody knows!), not to mention the fact that you have absolutely no visibility about the nature of the error, so debugging and fixing it becomes very difficult.</p>
+<p>In this tutorial we're going to dive into React's <code>ErrorBoundary</code> API to see how it can be used effectively to (1) stop the app from crashing, (2) provide a fallback, and (3) capture data for analysis later.</p>
+<p>This article was originally published in Net Magazine issue 316.</p>
+<h2 id="let's-get-started!" tabindex="-1">Let's Get Started! <a class="direct-link" href="#let's-get-started!" aria-hidden="true">#</a></h2>
+<p>To save this tutorial from being too long, I've included the code for the above on GitHub at <a href="https://github.com/endymion1818/netmag-react-error-reporting">https://github.com/endymion1818/netmag-react-error-reporting</a>. It's a basic create-react-app setup with axios hooked up to get some data from the Star Wars API. However, there's a deliberately placed issue in the <code>render()</code> method that's causing the app to crash.</p>
+<p>To see this code in action, download or clone the repo. Open this directory in your terminal and install dependencies by running <code>npm i</code>.</p>
+<p>You can run the app in development mode by typing <code>npm start</code>. It's time to take a closer look at what's happening here.</p>
+<h2 id="error-boundary-api" tabindex="-1">Error Boundary API <a class="direct-link" href="#error-boundary-api" aria-hidden="true">#</a></h2>
+<p>The <code>ErrorBoundary</code> API allows us to create a component that wraps around our whole app, an individual component or both. Then, if anything in that component fails, we can define an error message - or a replacement UI component - to appear instead of our broken one.</p>
+<p>We're going to create a new file, <code>FormErrorBoundary.js</code> and add some code there. This does the following:</p>
+<ol>
+<li>Defines some <code>state</code> so that we can decide what to do if there is an exception</li>
+<li>Use a built-in React function to set state if there is an error</li>
+<li>Send the error message somewhere we can examine and track it</li>
+</ol>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">ErrorBoundary</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span><br>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">hasError</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">static</span> <span class="token function">getDerivedStateFromError</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">hasError</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br>  <span class="token function">componentDidCatch</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> errorInfo</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token punctuation">}</span><br>  <span class="token comment">// continued below ...</span><br></code></pre>
+<p>Next, let's provide our fallback UI component:</p>
+<pre class="language-javascript"><code class="language-javascript"><br>  <span class="token comment">// ... continued from above</span><br><br>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> <span class="token punctuation">{</span> children <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<br><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>hasError<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> <span class="token punctuation">(</span><br>        <span class="token operator">&lt;</span>div<span class="token operator">></span><br>          <span class="token operator">&lt;</span>h2<span class="token operator">></span>Something went wrong <span class="token keyword">with</span> our app<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><br>          <span class="token operator">&lt;</span>p<span class="token operator">></span>We<span class="token string">'re aware of the problem and we'</span>re working hard to fix it<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><br>          <span class="token operator">&lt;</span>p<span class="token operator">></span>In the meantime<span class="token punctuation">,</span> you can reach us by phone or email<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><br>        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>      <span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">return</span> children<br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br></code></pre>
+<p>Now let's import that into our form, and wrap it around the rest of the component:<br>
+<code>import ErrorBoundary from './ErrorBoundary'</code><br>
+Now if an exception occurs in that component, the visitor will see this message instead. You can trigger it on your machine easily by leaving a tag unclosed or doing something else you know would ordinarily break your app.</p>
+<p>But, how do we capture what has caused our error so we can fix it?</p>
+<h2 id="grab-bag-and-tag" tabindex="-1">Grab, Bag and Tag <a class="direct-link" href="#grab-bag-and-tag" aria-hidden="true">#</a></h2>
+<p>This is where a logging service comes in. Now, inside the <code>componentDidCatch()</code> method of our ErrorBoundary component, we can send the exception data to a 3rd party service.</p>
+<p>For Enterprise level applications, I've enjoyed using Splunk. Splunk is built for more than error reporting and I've seen people use it as a conversion metric tool as well. Splunk's strength is in the vast volumes of data it can collect. It also allows you to visualise your data in charts so you can track trends and analyse data more easily.</p>
+<p>However, for smaller applications Splunk might be a bit overkill. I've recently been introduced to Sentry, which offers a simpler set of tools that allow you to collect, categorise, monitor and track your issues.</p>
+<p><a href="https://sentry.io/for/javascript/">Sentry</a> has a free tier for developers and is really easy to get started with.</p>
+<h2 id="error-reporting-with-sentry" tabindex="-1">Error Reporting with Sentry <a class="direct-link" href="#error-reporting-with-sentry" aria-hidden="true">#</a></h2>
+<p>Now, let's assume that - even though you've tested your app thoroughly - you suspect there are errors happening in production. Or perhaps you want to find out for certain if there are any.</p>
+<p>Let's add Sentry to this project.</p>
+<pre class="language-javascript"><code class="language-javascript">npm install @sentry<span class="token operator">/</span>browser</code></pre>
+<p>This gets the Sentry package which we can now import into our ErrorBoundary, and initialise with our credentials to enable Sentry to recieve our errors:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Sentry <span class="token keyword">from</span> <span class="token string">"@sentry/browser"</span><br><br>Sentry<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  <span class="token literal-property property">dsn</span><span class="token operator">:</span> <span class="token string">"your-dsn-here"</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>Update the <code>componentDidCatch()</code> function with the following:</p>
+<pre class="language-javascript"><code class="language-javascript">  <span class="token function">componentDidCatch</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> errorInfo</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    Sentry<span class="token punctuation">.</span><span class="token function">withScope</span><span class="token punctuation">(</span><span class="token parameter">scope</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>errorInfo<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>        scope<span class="token punctuation">.</span><span class="token function">setExtra</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> errorInfo<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><br>      <span class="token punctuation">}</span><span class="token punctuation">)</span><br>      Sentry<span class="token punctuation">.</span><span class="token function">captureException</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>Now each time an error occurs, the data will be sent to Sentry, and you can even recieve an email alert!</p>
+<h2 id="let's-see-it-in-action!" tabindex="-1">Let's see it In Action! <a class="direct-link" href="#let's-see-it-in-action!" aria-hidden="true">#</a></h2>
+<p>Are you ready to see what we've been doing? To do that, we need to build our application, and serve it somewhere - ideally your local computer. This step involves installing a local javaScript web server to your computer.</p>
+<p>First, in your terminal, run <code>npm install --global sentry</code>. Next, from your project directory, run <code>npm build</code>. This builds the production-ready app. Now we can serve this folder locally by running <code>serve -s build</code>. Opening up a browser and typing <strong><a href="https://localhost:5000">https://localhost:5000</a></strong> and you should be able to see our beautiful error message!</p>
+<p>Congratulations! You are no longer in the dark about your JavaScript errors. Now you can increase the usefulness of your app and improve your stability by not only providing a fallback state for your app, but also by reporting and squashing all of your remaining bugs.</p>
+<hr>
+<h2 id="react-testing-caveats" tabindex="-1">React Testing Caveats <a class="direct-link" href="#react-testing-caveats" aria-hidden="true">#</a></h2>
+<p>Catching and reporting errors in the way described in this article does have one caveat: the <code>ErrorBoundary</code> API is only capable of capturing errors that happen in your app. So errors could occur before your app is loaded that aren't captured.</p>
+<p>Sentry specifically mentions this in their document, stating that their error reporting tool should be initialised as soon as possible in your application.</p>
+<p>On some projects this is harder to achieve than others without some serious hacking about. On projects with server-side-rendering I've been able to write the script into Helmet. That way, the error can be captured by using the <code>window.onerror</code> browser API instead of React's built-in API that we're discussing in the article:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Sentry <span class="token keyword">from</span> <span class="token string">"@sentry/browser"</span><br><span class="token comment">// ...</span><br><span class="token operator">&lt;</span>Helmet<br>	    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"><br>        {<br>           Sentry.init({<br>  				dsn: "your-dsn-here"<br>			})<br>            window.onerror = Sentry.withScope(scope => {<br>      			Object.keys(errorInfo).forEach(key => {<br>        			scope.setExtra(key, errorInfo[key])<br>      			})<br>      			Sentry.captureException(error)<br>    		})<br>        }<br>    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><br><span class="token operator">/</span><span class="token operator">></span></code></pre>
+<p>--</p>
+<h2 id="beware-of-non-standard-error-reporting" tabindex="-1">Beware of Non-Standard Error Reporting <a class="direct-link" href="#beware-of-non-standard-error-reporting" aria-hidden="true">#</a></h2>
+<p>It may not surprise you to know that the way browsers report errors differs across different rendering engines and implementations. Sometimes, the errorObject object isn't defined, so you'll likely get some errors that aren't that helpful. Most will show you a really helpful level of detail, down to the exact line of code where the error occurred. But don't expect the same level of reporting from every browser. This doesn't mean Internet Explorer either. Safari only recently introduced some better error reporting practices. There's a comprehensive table on Sentry's blog to identify the inconsistencies, as well as implementing a workaround: <a href="https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html#browser-compatibility">https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html#browser-compatibility</a></p>
+<hr>
+<h2 id="errors-or-exceptions" tabindex="-1">Errors or Exceptions? <a class="direct-link" href="#errors-or-exceptions" aria-hidden="true">#</a></h2>
+<p>You may have heard situations whre your application fail termed <code>Exceptions</code> instead of errors. The reason for that is that they're not errors insofar as a problem with the language but instead exceptional results from the way that language has been used. This means the problem has originated with something that is not driven by by pure logic ... that means you or I. Therefore they are <strong>exceptional</strong> results from the way you have applied the language.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/netmag-using-context/">Published Article: Better Performance with the React Context API</a></li><li>Previous: <a href="/posts/both-sides-now/">Both Sides, Now</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

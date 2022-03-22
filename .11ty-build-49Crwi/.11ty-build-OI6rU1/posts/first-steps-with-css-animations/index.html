@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Steps with CSS Animations</title>
+    <meta name="description" content="CSS Animations are quickly complimenting if not replacing Javascript for generating a little bit of on-page whizz (that&#39;s the technical term). This is the first time I&#39;ve delved into the syntax for CSS Animations that I hope can replace the tired carousels resident on many websites. Here&#39;s how I implemented it.">
+    <meta property="og:site_name" content="First Steps with CSS Animations">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="CSS Animations are quickly complimenting if not replacing Javascript for generating a little bit of on-page whizz (that&#39;s the technical term). This is the first time I&#39;ve delved into the syntax for CSS Animations that I hope can replace the tired carousels resident on many websites. Here&#39;s how I implemented it.">
+    <meta property="og:title" content="First Steps with CSS Animations" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="First Steps with CSS Animations" />
+    <meta
+      name="twitter:description"
+      content="CSS Animations are quickly complimenting if not replacing Javascript for generating a little bit of on-page whizz (that&#39;s the technical term). This is the first time I&#39;ve delved into the syntax for CSS Animations that I hope can replace the tired carousels resident on many websites. Here&#39;s how I implemented it."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "First Steps with CSS Animations",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-04-14T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>First Steps with CSS Animations</h1>
+
+<time datetime="2015-04-14">14 Apr 2015</time><a href="/tags/css/" class="post-tag">css</a>
+
+<p><strong>CSS Animations are quickly complimenting if not replacing Javascript for generating a little bit of on-page whizz (that's the technical term). This is the first time I've delved into the syntax for CSS Animations that I hope can replace the tired carousels resident on many websites. Here's how I implemented it.</strong></p>
+<p>First of all, I've stuck to using CSS for this project although I'm using SASS for this site. The reason is that I wanted to get familiar with the CSS syntax first. I don't want to chain myself to SASS because it's one step removed from what the browser renders. Anyway, that's a story for another day.</p>
+<h3 id="step-1:-scope-the-animation" tabindex="-1">Step 1: Scope the Animation <a class="direct-link" href="#step-1:-scope-the-animation" aria-hidden="true">#</a></h3>
+<p>Being a small marketing agency we're still formulating the best way to approach website builds. So this project came to me with a visual design but no scope. The designs showed what was required, that the circular images would change to reveal text on flat background.</p>
+<p>What they weren't so good at displaying is the end state of the animation. Would it roll around again? The plan was originally for a Javascript carousel here, so I could make some assumptions about the functionality based on that.</p>
+<h3 id="step-2:-the-html" tabindex="-1">Step 2: The HTML <a class="direct-link" href="#step-2:-the-html" aria-hidden="true">#</a></h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>services.php<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-sm-3 home-circle<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>one<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bottom<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>five<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/img/property1.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>services.php<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-sm-3 home-circle<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>two<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bottom<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>six<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/img/property2.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>services.php<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-sm-3 home-circle<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>three<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bottom<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>seven<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/img/property3.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>services.php<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-sm-3 home-circle<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>four<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bottom<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>eight<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/img/property4.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>This took me a few attempts to work out. I try to avoid using <code>position:absolute</code> wherever possible, so in this case I used a <code>background-image</code> on the parent <code>div</code> with an <code>img</code> inside.</p>
+<h3 id="step-3:-declaring-the-first-animation" tabindex="-1">Step 3: Declaring the First Animation <a class="direct-link" href="#step-3:-declaring-the-first-animation" aria-hidden="true">#</a></h3>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@-webkit-keyframes</span> fadeOut</span> <span class="token punctuation">{</span> <span class="token selector">from</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">to</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@-moz-keyframes</span> fadeOut</span> <span class="token punctuation">{</span> <span class="token selector">from</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">to</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@keyframes</span> fadeOut</span> <span class="token punctuation">{</span> <span class="token selector">from</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">to</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@-webkit-keyframes</span> fadeIn</span> <span class="token punctuation">{</span> <span class="token selector">from</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">to</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@-moz-keyframes</span> fadeIn</span> <span class="token punctuation">{</span> <span class="token selector">from</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">to</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@keyframes</span> fadeIn</span> <span class="token punctuation">{</span> <span class="token selector">from</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">to</span> <span class="token punctuation">{</span> <span class="token property">opacity</span><span class="token punctuation">:</span>1<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><br><br><span class="token selector">.home-banner .container a .col-sm-3</span> <span class="token punctuation">{</span><br>   <span class="token property">opacity</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span><br>   <span class="token property">-webkit-animation</span><span class="token punctuation">:</span>fadeIn ease-in 1<span class="token punctuation">;</span><br>   <span class="token property">-moz-animation</span><span class="token punctuation">:</span>fadeIn ease-in 1<span class="token punctuation">;</span><br>   <span class="token property">animation</span><span class="token punctuation">:</span>fadeIn ease-in 1<span class="token punctuation">;</span><br><br>   <span class="token property">-webkit-animation-fill-mode</span><span class="token punctuation">:</span>forwards<span class="token punctuation">;</span><br>   <span class="token property">-moz-animation-fill-mode</span><span class="token punctuation">:</span>forwards<span class="token punctuation">;</span><br>   <span class="token property">animation-fill-mode</span><span class="token punctuation">:</span>forwards<span class="token punctuation">;</span><br><br>   <span class="token property">-webkit-animation-duration</span><span class="token punctuation">:</span>1s<span class="token punctuation">;</span><br>   <span class="token property">-moz-animation-duration</span><span class="token punctuation">:</span>1s<span class="token punctuation">;</span><br>   <span class="token property">animation-duration</span><span class="token punctuation">:</span>1s<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>Because I'm a visually-minded person, I decided to break my CSS into two parts and to declare the animations in areas that would help me logically follow what was displaying on the site, even if it would be slightly less efficient. I'm sure that as I get more used to the syntax I'll change this practice to be as efficient as possible (and to use SASS).</p>
+<h3 id="step-4:-timing" tabindex="-1">Step 4: Timing <a class="direct-link" href="#step-4:-timing" aria-hidden="true">#</a></h3>
+<p>I've heard it said a few times that timing is the hardest thing to get right in an animation. It was quite difficult to work out the gaps that their should be between each animation state, and took quite a few goes before it appeared to flow smoothly, almost as if there was a short increase in speed in the middle two animations, although this is just a perception.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.home-banner #one</span> <span class="token punctuation">{</span><br>  <span class="token property">background</span><span class="token punctuation">:</span><span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'/assets/img/propcons.svg'</span><span class="token punctuation">)</span></span> center no-repeat<span class="token punctuation">;</span><br>  <span class="token property">background-size</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><br>  <span class="token property">-webkit-animation-delay</span><span class="token punctuation">:</span> 0.4s<span class="token punctuation">;</span><br>  <span class="token property">-moz-animation-delay</span><span class="token punctuation">:</span> 0.4s<span class="token punctuation">;</span><br>  <span class="token property">animation-delay</span><span class="token punctuation">:</span> 0.4s<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.home-banner #two</span> <span class="token punctuation">{</span><br>  <span class="token property">background</span><span class="token punctuation">:</span><span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'/assets/img/charsurv.svg'</span><span class="token punctuation">)</span></span> center no-repeat<span class="token punctuation">;</span><br>  <span class="token property">background-size</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><br>  <span class="token property">-webkit-animation-delay</span><span class="token punctuation">:</span> 0.8s<span class="token punctuation">;</span><br>  <span class="token property">-moz-animation-delay</span><span class="token punctuation">:</span> 0.8s<span class="token punctuation">;</span><br>  <span class="token property">animation-delay</span><span class="token punctuation">:</span> 0.8s<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>What I was very conscious of was that the delay between the first animation (the property images) appearing, and the second (the text overlays) needed to be a) slow enough so the client felt they had good value out of the images we had provided and b) fast enough that visitors would see the second transition before they scrolled further down the page.</p>
+<p>So we settled on .6 seconds, which seemed to be the optimum delay we could achieve without investing in further research.</p>
+<p>Here's the result (sorry for the high compression - wanted to keep a smaller file size as possible!</p>
+<p><img src="/img/wdb.gif" alt="Animation demo"></p>
+<h3 id="browser-caveats" tabindex="-1">Browser Caveats <a class="direct-link" href="#browser-caveats" aria-hidden="true">#</a></h3>
+<p>What we noticed going through the testing phase was that certain aspects of the animation spec are still under development. Some things like <code>animation-reverse</code> aren't supported in Vivaldi or Mobile Chrome (tested on iOS 8). But we felt that since the animation still works to a fair degree, it would be reasonable to keep using it.</p>
+<h3 id="css-animations-the-way-forward" tabindex="-1">CSS Animations - The Way Forward <a class="direct-link" href="#css-animations-the-way-forward" aria-hidden="true">#</a></h3>
+<p>I got a huge amount of satisfaction trying out the CSS Animation spec. This isn't only due to my lack of JavaScript skills (which are steadily improving) but also my desire to build high quality websites that are as lightweight as possible.</p>
+<p>The outcome was so well recieved by our team involved that it's opened our designers and other stakeholders eyes to the options available to them:- they now have many, many more options at their fingertips instead of only the aged and worn carousel default.</p>
+<p>This demonstrated for me that even though it is often difficult to step out of our comfort zone, but the rewards of doing so are often great.</p>
+<p>I'd love to know how you would improve on this code, or if you've used CSS Animations in a way that has challenged you recently.</p>
+<p><a href="https://twitter.com/muzzlehatch_" title="Benjamin Read on Twitter">Get in touch with me on Twitter</a> if you have!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/studiosounds-crossroads/">#StudioSounds: Crossroads Playlist</a></li><li>Previous: <a href="/posts/developers-and-time/">Understanding Developers and Time</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

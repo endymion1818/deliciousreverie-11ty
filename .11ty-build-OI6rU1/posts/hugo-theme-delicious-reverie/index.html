@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo theme - Delicious Reverie</title>
+    <meta name="description" content="Recently someone reached out to ask if they could use my theme that I use on deliciousreverie.co.uk on their site. So I&#39;ve decided to release this theme to the public, albeit with a few changes.">
+    <meta property="og:site_name" content="Hugo theme - Delicious Reverie">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Recently someone reached out to ask if they could use my theme that I use on deliciousreverie.co.uk on their site. So I&#39;ve decided to release this theme to the public, albeit with a few changes.">
+    <meta property="og:title" content="Hugo theme - Delicious Reverie" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Hugo theme - Delicious Reverie" />
+    <meta
+      name="twitter:description"
+      content="Recently someone reached out to ask if they could use my theme that I use on deliciousreverie.co.uk on their site. So I&#39;ve decided to release this theme to the public, albeit with a few changes."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Hugo theme - Delicious Reverie",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-02-10T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Hugo theme - Delicious Reverie</h1>
+
+<time datetime="2018-02-10">10 Feb 2018</time><a href="/tags/theme-authoring/" class="post-tag">theme authoring</a><a href="/tags/go/" class="post-tag">go</a>
+
+<p><strong>Recently someone reached out to ask if they could use my theme that I use on <a href="http://deliciousreverie.co.uk">deliciousreverie.co.uk</a> on their site. So I've decided to release this theme to the public, albeit with a few changes.</strong></p>
+<p>When you're a committed family man, coding outside work is something that of necessity, has to be done in a hurry. Yet it's often the work I most look forward to.</p>
+<p>I coded this theme in an awful hurry, but it's served my site well over the past year or more that I've been using it. I started off by examining how the Bootstrap 3 theme output and re-used some of its layout partials when building this theme, in order to save myself some time.</p>
+<p>The focus of this theme is it's brevity when it comes to CSS and JavaScript. I wanted to make something that was super fast, especially since this was a static site to be hosted on Netlify, and I wanted to see how quickly I could get it to load. I read Scott Jehl's excellent book &quot;Responsible Responsive Design&quot;, and wanted to implement some of the ideas to reduce time to first byte, first paint time and time to interactivity.</p>
+<p>My initial aim was to have only one request: the HTML file, and to inline the CSS and JavaScript. But other things were needed in order not to compromise too much on appearance, so I added a background image, and a WOFF2 font file.</p>
+<p>Oh yes, and a Favicon.</p>
+<p>As a result, It's very minimal indeed, with less than 300 lines of CSS when compiled. The only JavaScript is for the page transitions. It's gone through a few iterations and modular additions over the past 3 years, and I was pleased to hear that someone else liked it and wanted to use it!</p>
+<h2 id="using-deliciousreverie-theme" tabindex="-1">Using deliciousreverie theme <a class="direct-link" href="#using-deliciousreverie-theme" aria-hidden="true">#</a></h2>
+<p><a href="https://github.com/endymion1818/gohugo-theme-deliciousreverie">Here's the code repo</a>. I used Grunt taskrunner, which is what I used for ages before picking up Gulp and Webpack. I still enjoy using it.</p>
+<p>So you can just run <code>npm install</code> and then <code>grunt</code> and you'll have regenerated the CSS and JS. Although if you just want to use the theme, you don't even need to do that.</p>
+<h2 id="what's-been-left-out" tabindex="-1">What's Been Left Out <a class="direct-link" href="#what's-been-left-out" aria-hidden="true">#</a></h2>
+<p>Two things haven't made it into this theme that are present on my website:</p>
+<ol>
+<li>
+<p>Skybird typeface. <a href="https://phitradesign-fonts.com">Philip Trautmann</a> kindly let me use this unique typeface that I feel reflects my personality very well. Before that I used Vollkorn from Google Fonts, so I replaced that font to avoid licencing issues. Although I really recommend you check out Philip's work.</p>
+</li>
+<li>
+<p>Homepage animation. The homepage animation uses a ton of JavaScript, including the free version of GreenSock animation library and ScrollMagic. The vector art is also ... umm ... not a small payload ... and I worried that some wouldn't know how to remove this code, causing them performance issues.</p>
+</li>
+</ol>
+<h2 id="hope-you-like-it-:-d" tabindex="-1">Hope you like it :-D <a class="direct-link" href="#hope-you-like-it-:-d" aria-hidden="true">#</a></h2>
+<p>That's all I have to say really, except feel free to clone, download, modify, and use this code. I hope you enjoy doing so!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/using-popos-for-work/">Using Pop!_OS for Work</a></li><li>Previous: <a href="/posts/planning-projects-a-guide-to-user-journeys/">Planning Projects — a guide to user journeys</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

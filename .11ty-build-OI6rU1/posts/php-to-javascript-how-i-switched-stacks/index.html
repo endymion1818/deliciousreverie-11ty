@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From PHP to JavaScript: How I Switched Stacks</title>
+    <meta name="description" content="The last 6 months has been a bit of a whirlwind for me. I have gone from working with agencies and using a mix of technologies, to JavaScript development in a fintech organisation. This has been largely due to my work with GatsbyJS and Serverless.">
+    <meta property="og:site_name" content="From PHP to JavaScript: How I Switched Stacks">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="The last 6 months has been a bit of a whirlwind for me. I have gone from working with agencies and using a mix of technologies, to JavaScript development in a fintech organisation. This has been largely due to my work with GatsbyJS and Serverless.">
+    <meta property="og:title" content="From PHP to JavaScript: How I Switched Stacks" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="From PHP to JavaScript: How I Switched Stacks" />
+    <meta
+      name="twitter:description"
+      content="The last 6 months has been a bit of a whirlwind for me. I have gone from working with agencies and using a mix of technologies, to JavaScript development in a fintech organisation. This has been largely due to my work with GatsbyJS and Serverless."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "From PHP to JavaScript: How I Switched Stacks",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-08-08T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>From PHP to JavaScript: How I Switched Stacks</h1>
+
+<time datetime="2018-08-08">08 Aug 2018</time><a href="/tags/zopa/" class="post-tag">zopa</a><a href="/tags/indigotree/" class="post-tag">indigotree</a><a href="/tags/gatsbyjs/" class="post-tag">gatsbyjs</a><a href="/tags/serverless/" class="post-tag">serverless</a>
+
+<p>I've been working in web development for the past 8 years or so. Traditionally, I have worked at agencies, creating sites that have been designed in Photoshop, and built afterwards with a CMS integration such as Perch, WordPress, or similar, with occasional forays into Laravel.</p>
+<p>During that time I've had the opportunity to work with JavaScript too. But understanding the language well seemed a bit beyond my grasp. One of the reasons for this was, I think, that I was trying to juggle several languages at once. I spent a lot of time understanding design patterns in PHP. Then, after I interviewed at Google, I decided to focus more deeply on CSS and HTML. And with these PHP projects, a lot was done in that language, leaving JavaScript as a vehicle for presentational enhancement only.</p>
+<p>But then, because of concerns about WordPress' future, Indigo Tree, the agency I was working for, invested time for its developers into finding a possible alternative to that popular platform. Lead developer Chris Geary saw an opportunity here. Instead of trying to replace WordPress with another platform in a 1:1 comparison, he realised we could deliver serverless sites using some cutting-edge tools that were emerging.</p>
+<h2 id="investigating-serverless" tabindex="-1">Investigating Serverless <a class="direct-link" href="#investigating-serverless" aria-hidden="true">#</a></h2>
+<p>This approach had the advantage of allowing a transition: the agency could keep selling and building WordPress sites (they'd been doing this for 10 years and were comfortable with it), but these sites would have a separate front-end using the headless CMS strategy. It also allowed them a marketing opportunity: headless was a buzzword, they could position themselves as a thought leader and gain reputation from that.</p>
+<p>So began my journey to serverless. I was introduced to Netlify, and promptly moved my sites from PHP to static, which allowed me to see the benefits of continuous integration, and saving myself a monthly hosting fee in the process.</p>
+<p>I experimented with Jekyll and Hugo, but I didn't see a future for me in either of these languages (Ruby and Go, respectively).</p>
+<p>Then Chris started talking about Gatsbyjs. So I built a Gatsby site, <a href="http://FreeBabylon5.com">FreeBabylon5.com</a>. As mentioned, I hadn't done a huge amount of heavy lifting in JavaScript before. I'd only toyed with React. I had no idea what I was doing and that felt awesome.</p>
+<p>As I learned Gatsbyjs I noticed a typo in the docs and submitted an issue. I was invited to fix the issue myself and submit a pull request. I had never done anything like this before! Cloning an open-source project, branching off so I could fix the issue, pushing up my code and submitting a Pull Request ... wow. With this new knowledge I felt like I was finally able to give back to some of the amazing tools I'd so often used in the past.</p>
+<h2 id="documenting-the-experience" tabindex="-1">Documenting the Experience <a class="direct-link" href="#documenting-the-experience" aria-hidden="true">#</a></h2>
+<p>My personal view is that I should document everything I learn, in the hopes that someone else might be able to benefit from my experience. So I started writing about my explorations here on delicious reverie.</p>
+<p>To my amazement the creators of Gatsbyjs read my post and asked me to publish it on the Gatsbyjs blog. This gave me more confidence to progress further along this path, invest in my own learning towards JavaScript and using Gatsbyjs for more projects.</p>
+<p>Around the same time, my colleagues and I became more concerned for developers using WordPress. It seemed that many of them could soon be pushed out of that platform for reasons I'll explain in another post. We wanted to help them identify another route that would also encourage best practices in web development.</p>
+<p>So I submitted a talk outline for WordCamp London, which is usually attended by 400-500 developers. I also approached print magazine Net on the same subject. Both the talk and the article were accepted. I soon found myself on the main stage at the conference delivering a 40-minute talk, and saw my material published in the print magazine.</p>
+<p>I get so terrified about pushing myself forward in these ways, especially because I was new at all of this. But I felt I had something that could potentially help some other people. That motivated me to overcome my abject fear.</p>
+<h2 id="zopa's-serverless-initiative" tabindex="-1">Zopa's Serverless Initiative <a class="direct-link" href="#zopa's-serverless-initiative" aria-hidden="true">#</a></h2>
+<p>Around this time peer-to-peer lender Zopa were looking to replace a Ruby app with a static website. So they approached me directly and called me for several weeks until I finally had time to hear what they were trying to say.</p>
+<p>Zopa had already identified Gatsbyjs as their tool of choice because they had lots of in-house JavaScript and React expertise. They had partnered with an agency to design and build the site, and wanted me on board to help develop it  because of my experience with the framework. I'll be able to tell you more about the site when it launches, but it's been a great experience working with some excellent and incredibly smart people both at the agency and at Zopa.</p>
+<p>I've had to learn a lot in a short space of time, but Zopa have been supportive and patient with my learning experience. In return, I've been able to help identify where Gatsby's APIs can be used to great effect instead of a custom solution that renders content on the frontend. I've been able to help other developers explore the GraphQL syntax and use Gatsbyjs's built-in IDE to query the data structure. And I've helped identify where opportunities to use functions hosted on other platforms enable us improve performance.</p>
+<p>What I've most enjoyed is seeing those &quot;wow&quot; moments as developers really <em>get</em> GatsbyJS, and how, because of it's approach to data, it's not just a static site generator, it's much more than that.</p>
+<p>So now, instead of working with agencies on predominantly PHP projects I'm a JavaScript dev working in central London. The deadlines are just as tight, the pressure to deliver can sometimes be much more, and learning a complicated custom-built infrastructure has been a challenge. But I've really enjoyed experiencing things from this side of the fence.</p>
+<p>I'm continuing to work with internal teams at Zopa to give them the opportunity to contribute to the project. I'm really hoping I can do more with GatsbyJS as a contributor. And I'm glad to say that in spite of missing the close-knit community of developers I've been around up until now, I'm happier being focused on JavaScript than I've ever been.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/serverless-content-authoring-with-strapijs/">Serverless Content Authoring with StrapiJs</a></li><li>Previous: <a href="/posts/published-article-using-wordpress-headless-cms/">Published Article: Using WordPress as a Headless CMS</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deserializing Data in GatsbyJS</title>
+    <meta name="description" content="One of the great strengths in static site generator Gatsbyjs is the node API but it can present a few issues in certain circumstances when content is stored as escaped HTML, such as in WordPress posts and pages. Here&#39;s how we recently dealt with this issue when using react-helmet.">
+    <meta property="og:site_name" content="Deserializing Data in GatsbyJS">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="One of the great strengths in static site generator Gatsbyjs is the node API but it can present a few issues in certain circumstances when content is stored as escaped HTML, such as in WordPress posts and pages. Here&#39;s how we recently dealt with this issue when using react-helmet.">
+    <meta property="og:title" content="Deserializing Data in GatsbyJS" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Deserializing Data in GatsbyJS" />
+    <meta
+      name="twitter:description"
+      content="One of the great strengths in static site generator Gatsbyjs is the node API but it can present a few issues in certain circumstances when content is stored as escaped HTML, such as in WordPress posts and pages. Here&#39;s how we recently dealt with this issue when using react-helmet."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Deserializing Data in GatsbyJS",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-03-17T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Deserializing Data in GatsbyJS</h1>
+
+<time datetime="2018-03-17">17 Mar 2018</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/gatsbyjs/" class="post-tag">gatsbyjs</a><a href="/tags/react/" class="post-tag">react</a><a href="/tags/wordpress/" class="post-tag">wordpress</a><a href="/tags/headless/" class="post-tag">headless</a>
+
+<p><strong>One of the great strengths in static site generator Gatsbyjs is it's node API. This API gives Gatsby flexibility by allowing data to be transformed from myriad sources into a format that can easily be rendered as HTML: JSON. However, this can present a few issues when content is stored as escaped HTML, such as in WordPress posts and pages. Here's how a colleague and I worked around a tricky problem we discovered when working with content pulled in from WordPress.</strong></p>
+<p>I recently built a GatsbyJS site that stored content in Markdown and used NetlifyCMS to allow content authors to work directly with the site in editing and adding content. Using Markdown with NetlifyCMS was an interim solution. We needed to build a site in only a few days, but knew that requirements would at some point grow substantially, at which point we wanted to switch to a WordPress backend.</p>
+<p>When I switched to WordPress it took me only a few hours to implement 95% of the work, most of which was spent generating the existing content as WordPress pages. I modified my <code>gatsby-node.js</code> file and my page template, but I came unstuck when using Helmet to generate page titles.</p>
+<h2 id="the-issue" tabindex="-1">The Issue <a class="direct-link" href="#the-issue" aria-hidden="true">#</a></h2>
+<p>Using the existing data structure I was able to generate a page layout that looked like this:</p>
+<p>This results in the result we expected, the content rendered as HTML inside the respective tags.</p>
+<p>However, the post.title is stored as escaped HTML, so when you try to pop the <code>post.title</code> into the meta tag using Helmet, like this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>Helmet title<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>post<span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<p>you get whatever markup is stored. This is fine in most cases ... however, in WordPress land you'll quite often find people using things like <code>&lt;br&gt;</code> tags to adapt their layouts a little, or in my case, using a dash. When rendered as a meta tag, that looked like this:</p>
+<pre class="language-javascript"><code class="language-javascript">mytitle \<span class="token operator">&amp;</span>#<span class="token number">8221</span><span class="token punctuation">;</span> contains a dash</code></pre>
+<p>Not great for presentation, or SEO.</p>
+<h2 id="the-workaround." tabindex="-1">The Workaround. <a class="direct-link" href="#the-workaround." aria-hidden="true">#</a></h2>
+<p>There wasn't a simple way around this issue that my colleague <a href="https://twitter.com/Mosh1e">David Hewitt</a> or I could find.</p>
+<p>We knew we needed to parse the element so that it returned as HTML again, but there wasn't an easy way to do this in Gatsbyjs. We knew we could use the DOM parser to achieve these results but here there was no document, hence no DOM.</p>
+<p>In the end we turned to the xmldom package on NPM, and pulled the <code>DOMParser</code> method in, decoding the string and then grabbing the textcontent.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><br><span class="token keyword">import</span> Helmet <span class="token keyword">from</span> <span class="token string">'react-helmet'</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> DOMParser <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'xmldom'</span><br><br><span class="token keyword">class</span> <span class="token class-name">pageTemplate</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span><br>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br><br>    <span class="token keyword">const</span> post <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>data<span class="token punctuation">.</span>wordpressPage<span class="token punctuation">;</span><br>    <span class="token keyword">const</span> siteTitle <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>data<span class="token punctuation">.</span>site<span class="token punctuation">.</span>siteMetadata<span class="token punctuation">.</span>title<span class="token punctuation">;</span><br><br>    <span class="token keyword">const</span> dom <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DOMParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parseFromString</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;div></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>data<span class="token punctuation">.</span>wordpressPage<span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/div></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">const</span> decodedString <span class="token operator">=</span> dom<span class="token punctuation">.</span>childNodes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent<span class="token punctuation">;</span><br><br>      <span class="token keyword">return</span> <span class="token punctuation">(</span><br>      <span class="token operator">&lt;</span>div<span class="token operator">></span><br>        <span class="token operator">&lt;</span>Helmet title<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>decodedString<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> | </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>siteTitle<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><br><span class="token operator">...</span></code></pre>
+<h2 id="showing-gatsby's-strengths" tabindex="-1">Showing Gatsby's Strengths <a class="direct-link" href="#showing-gatsby's-strengths" aria-hidden="true">#</a></h2>
+<p>Although we encountered an issue here, in a lot of ways it has hilighted to me the strengths of GatsbyJS, not what you might perceive as weaknesses.</p>
+<p>In the first instance, the issue originated from WordPress which stores escaped HTML instead of JSON, MarkDown or any other format. I can see the benefits to this (being able to add <code>&lt;br&gt;</code> tags to titles etc) but it does present some unique challenges—and not just to GatsbyJS.</p>
+<p>This has also hilighted one of the fantastic strengths of GatsbyJS:- that I could pull in a package from NPM and use it in my build process. This opens up a world of possibility and makes GatsbyJS a lot more customizeable than I had thought previously.</p>
+<p>And the other strength is that it still took me only a few hours to switch from using MarkDown files to a WordPress backend, such is the strength of the node API and the <code>gatsby-source-wordpress</code> in the way that it transforms data so that there was no difference between the two builds.</p>
+<p><a href="https://github.com/gatsbyjs/gatsby/issues/4543">I've filed an issue on GatsbyJS on the repo</a>, but there are a few issues around how to write a normalizer to deal with this. For instance, in most cases we do want to use the escaped HTML, so that the Title field is rendered in the component. It's only when using Helmet that we want the string deserialized.</p>
+<p>So I'm not sure how to proceed with this .. at least there's a workaround for now, and I'm sure as a community we can address this issue so that we can drop the external dependency or build it into the existing processes in some way.</p>
+<h2 id="update:-use-createnodefield-api" tabindex="-1">UPDATE: use CreateNodeField API <a class="direct-link" href="#update:-use-createnodefield-api" aria-hidden="true">#</a></h2>
+<p>So the way I rendered the title using the xmldom library was the best I could do at the time ... however, since I've learned more about Gatsby's API, I can now understand why transforming the title on the frontend isn't the best idea.</p>
+<ol>
+<li>
+<p>it's not performant. Users have to download that library before they see a rendered title. This has an impact on how fast people can see the rendered site ... Gatsby is all about performance, so this is a bad idea</p>
+</li>
+<li>
+<p>rendering on the frontend can cause issues. Sometimes rehydration doesn't work properly when you're doing heavy manipulation on the frontend ... that's why we have backends, after all.</p>
+</li>
+</ol>
+<p>Here's a better way to do it:</p>
+<p>In your <strong>gatsby-node.js</strong> file</p>
+<pre><code>import { decode } from 'he'
+</code></pre>
+<p>Then in the <code>onCreateNode</code> function:</p>
+<pre><code>createNodeField({
+  node,
+  name: 'renderedTitle',
+  value: decode(node.title.rendered)
+})
+</code></pre>
+
+<hr>
+<ul><li>Next: <a href="/posts/talk-how-were-using-wordpress-as-a-headless-cms/">Talk: How Were Using WordPress as a Headless CMS</a></li><li>Previous: <a href="/posts/using-popos-for-work/">Using Pop!_OS for Work</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

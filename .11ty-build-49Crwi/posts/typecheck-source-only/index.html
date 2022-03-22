@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to scope Typecheck to your project folder</title>
+    <meta name="description" content="Typecheck should only run against the code you write for your project, but I found it&#39;s not that obvious to configure that...">
+    <meta property="og:site_name" content="How to scope Typecheck to your project folder">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Typecheck should only run against the code you write for your project, but I found it&#39;s not that obvious to configure that...">
+    <meta property="og:title" content="How to scope Typecheck to your project folder" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="How to scope Typecheck to your project folder" />
+    <meta
+      name="twitter:description"
+      content="Typecheck should only run against the code you write for your project, but I found it&#39;s not that obvious to configure that..."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "How to scope Typecheck to your project folder",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-03-31T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>How to scope Typecheck to your project folder</h1>
+
+<time datetime="2020-03-31">31 Mar 2020</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/typescript/" class="post-tag">typescript</a>
+
+<p>I configured a command so that I can run a type check on my project, but the results always include stuff in the <code>node_modules</code> folder. It took me a lot of investigation and asking around before I figured out how to scope tsc to only the <strong>./src/</strong> folder?</p>
+<p>in package.json:</p>
+<pre><code>&quot;scripts: {
+  &quot;typecheck&quot;: &quot;tsc --noEmit&quot;
+}
+</code></pre>
+<p>With this configuration, he compiler should pick up config from tsconfig.json, which looks like this:</p>
+<pre><code>{
+  &quot;compilerOptions&quot;: {
+  ...
+  },
+  &quot;include&quot;: [&quot;src/**/*&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;**/*.test.*&quot;]
+</code></pre>
+<p>But I still get results from <strong>node_modules</strong> when I run the command. It took me ages to figure it out, but for anyone else coming across this one, I managed to find that submitting an empty array to types did it:</p>
+<pre><code>&quot;compilerOptions&quot;: {
+    &quot;types&quot;: []
+}
+</code></pre>
+<p>You should now be able to run <code>yarn typecheck</code> and see results that don't include everybody elses code!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/website-longevity/">On website longevity</a></li><li>Previous: <a href="/posts/netmag-unit-test/">Published Article: Unit Test your React apps</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

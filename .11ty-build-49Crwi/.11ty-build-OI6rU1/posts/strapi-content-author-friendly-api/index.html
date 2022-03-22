@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content-Author friendly APIs with Strapi</title>
+    <meta name="description" content="I&#39;ve worked in a few different capacities around the web, and can see the value of interfaces that those writing content for the web feel comfortable using. I&#39;m also becoming more comfortable with JavaScript, and want to find alternatives to the PHP tools I&#39;ve been using. On that journey, I discovered Strapi.">
+    <meta property="og:site_name" content="Content-Author friendly APIs with Strapi">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;ve worked in a few different capacities around the web, and can see the value of interfaces that those writing content for the web feel comfortable using. I&#39;m also becoming more comfortable with JavaScript, and want to find alternatives to the PHP tools I&#39;ve been using. On that journey, I discovered Strapi.">
+    <meta property="og:title" content="Content-Author friendly APIs with Strapi" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Content-Author friendly APIs with Strapi" />
+    <meta
+      name="twitter:description"
+      content="I&#39;ve worked in a few different capacities around the web, and can see the value of interfaces that those writing content for the web feel comfortable using. I&#39;m also becoming more comfortable with JavaScript, and want to find alternatives to the PHP tools I&#39;ve been using. On that journey, I discovered Strapi."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Content-Author friendly APIs with Strapi",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-06-08T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Content-Author friendly APIs with Strapi</h1>
+
+<time datetime="2018-06-08">08 Jun 2018</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/tools/" class="post-tag">tools</a><a href="/tags/apis/" class="post-tag">apis</a>
+
+<p><strong>I've worked in a few different capacities around the web, and can see the value of interfaces that those writing content for the web feel comfortable using. I'm also becoming more comfortable with JavaScript, and want to find alternatives to the PHP tools I've been using. On that journey, I discovered Strapi.</strong></p>
+<p>When I think of content authors, I'm specifically thinking about non-technical individuals who don't want to get involved in writing HTML. For these people, making or editing a Markdown file might be a disagreeable process. This is simply because they need to be in an envinronment that allows them to focus on their current task — writing an article, updating page content, publishing a job advert - without distraction. Or at least, with minimal distraction.</p>
+<p>I am sure this is one reason WordPress has gained the community it has:- it's easy to use, and makes the content author feel informed and empowered without them feeling like the software is getting in the way.</p>
+<p>The challenge for me has become to find some software - preferably open-source, definitely JavaScript - that can be a suitable environment for these kind of authors.</p>
+<p>And I think Strapi could be a very good fit indeed.</p>
+<h2 id="how-strapi-works-for-content-authors" tabindex="-1">How Strapi Works for Content Authors <a class="direct-link" href="#how-strapi-works-for-content-authors" aria-hidden="true">#</a></h2>
+<p>The 3 main requirements I had when analysing this project for a content authors' perspective were:</p>
+<ul>
+<li>easy to write &amp; edit posts</li>
+<li>easy to restrict and enable access and authorship</li>
+<li>content authors feel in control</li>
+</ul>
+<p>I'm going to cover these in more detail below.</p>
+<h3 id="writing-and-editing-posts" tabindex="-1">Writing and Editing Posts <a class="direct-link" href="#writing-and-editing-posts" aria-hidden="true">#</a></h3>
+<p>Logging in and authoring content in Strapi works very much like any other content platform. There's a left sidebar which you can use to navigate different types of content, and fields that you fill out that are clearly labeled, functional and give suitable feedback when you're filling them out, or saving posts, or just navigating around.</p>
+<h3 id="author-roles-and-permissions" tabindex="-1">Author Roles and Permissions <a class="direct-link" href="#author-roles-and-permissions" aria-hidden="true">#</a></h3>
+<p>New authors can be defined by administrators, and access can be given to specific areas of the API.</p>
+<p>This allows us a key feature that I've seen being particularly useful in larger applications: authors can write articles that can be reviewed before publication.</p>
+<h3 id="authors-feel-in-control" tabindex="-1">Authors Feel In Control <a class="direct-link" href="#authors-feel-in-control" aria-hidden="true">#</a></h3>
+<p>The thing that I felt conflicted most about WordPress was that it gave too much control to authors. The ability to add plugins and change the site's appearance made it a minefield for a developer.</p>
+<p>But WordPress made a deliberate choice to do that. WordPress' aim is to &quot;democratise publishing&quot; so that anyone can have a blog or personal website.</p>
+<p>There's always a balance to be struck here: too restrictive and authors will go elsewhere, too open and you end up with a mess of a site that can cost thousands to fix.</p>
+<p>Strapi has a plugin ecosystem, which I hope will grow. Through their marketplace (which you can't miss, it's heavily promoted within the backend), you can add analytics tracking and other functionality, or purchase plugins which extend Strapi.</p>
+<p>This allows content authors and business owners to feel more in control of their project. Having these plugins means they're not totally dependent on others when it comes to extending their Strapi site.</p>
+<p>It makes authors feel that the site belongs to <em>them</em> and not their developer.</p>
+<p>But, of course, it has to work for developers as well...</p>
+<h2 id="how-strapi-works-for-developers" tabindex="-1">How Strapi Works For Developers <a class="direct-link" href="#how-strapi-works-for-developers" aria-hidden="true">#</a></h2>
+<p>For Strapi to work for those with a development background, I am looking for the following:</p>
+<ul>
+<li>easy API authorship</li>
+<li>extensible code</li>
+<li>ease of entry for newer developers</li>
+</ul>
+<h3 id="api-authorship" tabindex="-1">API Authorship <a class="direct-link" href="#api-authorship" aria-hidden="true">#</a></h3>
+<p>API authorship can be done in 2 ways with Strapi. Either in the GUI or in the command line. This, I think, is a master stroke.</p>
+<p>Independently-minded content authors can define or destroy their own content fields, and entire <em>types</em> as they wish, in a GUI that gives them adequate feedback about what's happening.</p>
+<pre><code>Pic of Strapi backend
+</code></pre>
+<p>Conversely, APIs can be set by the developer in a JavaScript object, without having to interact with the GUI at all.</p>
+<pre><code>A Strapi API definition
+</code></pre>
+<p>This is really great. By not forcing us down a single route, Strapi gets the best of both worlds.</p>
+<h3 id="extensible-code" tabindex="-1">Extensible Code <a class="direct-link" href="#extensible-code" aria-hidden="true">#</a></h3>
+<p>Calling to the strengths of a robust language that's well known, developers can modify Strapi to their hearts content, as long as they don't want to update the core. And if they do, they can also turn to authoring a plugin, and hook in to  Strapi in a way that separates our concerns out and allows us to write code in isolation.</p>
+<p>As I cautioned above, this could lead to Strapi being mis-used, and result in bloated or insecure code. However, Strapi's major advantage in this is that it is an API first, and a content authoring platform second.</p>
+<p>So whatever plugin authors do, they can never arbitratily affect the frontend of the website. Even if some malicious — or simply bad - code enters Strapi, rendering it unuseable, that needn't affect the frontend of the site at all, especially if it's a static site.</p>
+<h3 id="good-for-newer-developers" tabindex="-1">Good For Newer Developers <a class="direct-link" href="#good-for-newer-developers" aria-hidden="true">#</a></h3>
+<p>Ultimately, developers are going to be the ones selling this product. We're the ones who hear about this new stuff and set expectations to decision makers about whether or not to use it.</p>
+<p>So it has to be accessible to a broad base, including (in my view) newer developers.</p>
+<p>I particularly frame this for newer developers not just to widen the catchment of a product but because it gives me a window into some other areas not directly related to the code: the helpfulness of the documentation, and a sense of community surrounding the project.</p>
+<p>It seems like a lot of effort has been made by the Strapi team to get clearly written and easy-to-follow documentation into the places where it can be found:- not just on the website and GitHub repo, but on 3rd party sites, like Medium, too.</p>
+<p>However, I have had difficulty with the documentation because it often refers to older versions of Strapi which are no longer maintained. I found this to be a bit of a minefield when I tried to initially use the Docker image that's available, and found the interface took me to the now-depracated Strapi Studio to create my APIs.</p>
+<p>I then deployed to Heroku using the Strapi 1-click deploy, and spent literally days trying to either modify the API or clone the site locally. Admittedly, this was less to do with Strapi than complications with using Heroku. However, it was a roadblock that delayed my using Strapi in production until I can fix that.</p>
+<p>To be fair, the community is very responsive and after joining the Slack channel I got answers to my questions very quickly.</p>
+<h2 id="strapi-a-project-i-hope-will-grow" tabindex="-1">Strapi - A Project I hope will grow <a class="direct-link" href="#strapi-a-project-i-hope-will-grow" aria-hidden="true">#</a></h2>
+<p>Overall, I really believe the Strapi authors have done it right. It meets the needs of content authors and developers really well. Although the docs leave a little to be desired, the project itself is making good progress.</p>
+<p>Personally, I can't wait to see what the future of Strapi means for content creation on the web.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/how-website-forms-work/">How Website Forms Work</a></li><li>Previous: <a href="/posts/more-questions-better-answers/">More Questions, Better Answers</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

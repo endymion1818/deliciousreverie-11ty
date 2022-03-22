@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Custom Fields and Bootstrap Tabs</title>
+    <meta name="description" content="I&#39;m not a huge fan of Advanced Custom Fields, but there was a requirement to use it in a recent project that had Bootstrap as a basis for the UI. The challenge for me was to get Bootstrap `nav-tabs` to play nice with an ACF repeater field.">
+    <meta property="og:site_name" content="Advanced Custom Fields and Bootstrap Tabs">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;m not a huge fan of Advanced Custom Fields, but there was a requirement to use it in a recent project that had Bootstrap as a basis for the UI. The challenge for me was to get Bootstrap `nav-tabs` to play nice with an ACF repeater field.">
+    <meta property="og:title" content="Advanced Custom Fields and Bootstrap Tabs" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Advanced Custom Fields and Bootstrap Tabs" />
+    <meta
+      name="twitter:description"
+      content="I&#39;m not a huge fan of Advanced Custom Fields, but there was a requirement to use it in a recent project that had Bootstrap as a basis for the UI. The challenge for me was to get Bootstrap `nav-tabs` to play nice with an ACF repeater field."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Advanced Custom Fields and Bootstrap Tabs",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-06-02T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Advanced Custom Fields and Bootstrap Tabs</h1>
+
+<time datetime="2015-06-02">02 Jun 2015</time><a href="/tags/wordpress/" class="post-tag">wordpress</a><a href="/tags/advanced-custom-fields/" class="post-tag">advanced custom fields</a>
+
+<p><strong>I'm not a huge fan of Advanced Custom Fields, but there was a requirement to use it in a recent project that had Bootstrap as a basis for the UI. The challenge for me was to get Bootstrap <a href="https://getbootstrap.com/components/#nav-tabs" title="Bootstrap nav-tabs component">nav-tabs</a> to play nice with an <a href="https://www.advancedcustomfields.com/img/querying-the-database-for-repeater-sub-field-values/" title="Repeater sub-field on Advanced Custom Fields website">ACF repeater field</a>.</strong></p>
+<p>I started with the basic HTML markup for Bootstrap's Nav Tabs:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav nav-tabs<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabone<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>TabOne<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabtwo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>TabTwo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabthree<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>TabThree<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab-pane active<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabone<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>     Some content in tab one<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab-pane active<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabtwo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>     Some content in tab two<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab-pane active<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabthree<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>     Some content in tab three<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>In the Field Groups settings, I created a Repeater (this is a paid-for add on to the standard Advanced Custom Fields) called &quot;tab Panes&quot;, with 2 sub-fields, &quot;Tab Title&quot; and &quot;Tab Contents&quot;.</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span><br><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> Check <span class="token keyword">for</span> <span class="token keyword">parent</span> repeater row <span class="token operator">--</span><span class="token operator">></span><br><span class="token operator">&lt;</span><span class="token operator">?</span>php <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">have_rows</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tab_panes'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token delimiter important">?></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav nav-tabs<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tablist<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token comment">// Step 1: Loop through rows, first displaying tab titles in a list</span><br>   <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token function">have_rows</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tab_panes'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name return-type">the_row</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token delimiter important">?></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><br>        <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#tabone<span class="token punctuation">"</span></span><br>        <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><br>        <span class="token attr-name">data-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><br>        <span class="token punctuation">></span></span><br>      <span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">the_sub_field</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tab_title'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>    <span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">endwhile</span><span class="token punctuation">;</span> <span class="token comment">// end of (have_rows('tab_panes') ):</span><span class="token delimiter important">?></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">endif</span><span class="token punctuation">;</span> <span class="token comment">// end of (have_rows('tab_panes') ): </span><span class="token delimiter important">?></span></span></code></pre>
+<p>The PHP above displays the tabs. The code below, very similarly, displays the tab panes:</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">have_rows</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tab_panes'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token delimiter important">?></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token php language-php"><span class="token delimiter important">&lt;?</span>php<span class="token comment">// number rows </span><span class="token delimiter important">?></span></span><br>  <span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token comment">// Step 2: Loop through rows, now displaying tab contents</span><br>   <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token function">have_rows</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tab_panes'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name return-type">the_row</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token comment">// Display each item as a list </span><span class="token delimiter important">?></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tab-pane active<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabone<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>          <span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">the_sub_field</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'tab_contents'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>      <span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">endwhile</span><span class="token punctuation">;</span> <span class="token comment">// (have_rows('tab_panes') ):</span><span class="token delimiter important">?></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">endif</span><span class="token punctuation">;</span> <span class="token comment">// (have_rows('tab_panes') ): </span><span class="token delimiter important">?></span></span></code></pre>
+<p>By looping through the same repeater, we can get all the tabs out of the database, no problem. But we still have two problems: 1) linking the tab to the pane 2) Assigning the class of &quot;active&quot; so the Javascript is able to add and remove the CSS to reveal / hide the appropriate pane.</p>
+<p>###1) Linking to the Pane</p>
+<p>There are a number of ways to do this. I could ask the user to input a number to uniquely identify the tab pane. But that would add extra work to the users flow, and they might easily find themselves out of their depth. I want to make this as easy as possible for the user.</p>
+<p>On the other hand, Wordpress has a very useful function called Sanitize HTML, which we input the value of the title, take out spaces and capitals, and use this as the link:</p>
+<pre class="language-php"><code class="language-php">&lt;a href="#<span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token function">sanitize_html_class</span><span class="token punctuation">(</span> <span class="token function">the_sub_field</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'tab_title'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span>"</code></pre>
+<p>###2) Assigning the 'Active' Class</p>
+<p>So now we need to get a class of 'active' <em>only on</em> the first tab. The Bootstrap Javascript will do the rest for us. How do we do that?</p>
+<p>I added this code just inside the <code>while</code> loop, inside the <code>ul</code> tag:</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token variable">$row</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// number rows </span><span class="token delimiter important">?></span></span></code></pre>
+<p>This php is a counter. So we can identify the first instance and assign an <code>if</code> statement to it.</p>
+<pre class="language-php"><code class="language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">echo</span> <span class="token string single-quoted-string">'active'</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token delimiter important">?></span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>The final thing to do, is to keep the counter running, but adding this jsut before the <code>endwhile</code>.</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token variable">$row</span><span class="token operator">++</span><span class="token punctuation">;</span> <span class="token keyword">endwhile</span><span class="token punctuation">;</span> <span class="token comment">// (have_rows('tab_panes') ):</span><span class="token delimiter important">?></span></span></code></pre>
+<p>Once you've added these to the tab panes in a similar way, you'll be up and running with Boostrap Tabs.</p>
+<p>Below is a Github Gist, with the complete code for reference. <a href="https://gist.github.com/endymion1818/478d86025f41c8060888" title="Github GIST for Advanced Custom Fields bootstrap tabs">Link to this (if you can't see the iFrame)</a>.</p>
+<script src="https://gist.github.com/endymion1818/478d86025f41c8060888.js"></script>
+
+<hr>
+<ul><li>Next: <a href="/posts/wordpress-bootstrap-starter-theme/">I Built A Wordpress Bootstrap starter theme</a></li><li>Previous: <a href="/posts/why-agile-is-so-hard/">Why Agile is So Hard</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

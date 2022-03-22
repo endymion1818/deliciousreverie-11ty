@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordpress theming with Backbone.js</title>
+    <meta name="description" content="You&#39;ll notice that there&#39;s not a huge amount of posts about JavaScript on my site. That&#39;s not an accident, I&#39;m really only beginning to gain my feet with the language. Despite this I took the plunge and decided to build a Wordpress theme that uses Backbone.js to render the posts in a list. Here&#39;s a bit about the project.">
+    <meta property="og:site_name" content="Wordpress theming with Backbone.js">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="You&#39;ll notice that there&#39;s not a huge amount of posts about JavaScript on my site. That&#39;s not an accident, I&#39;m really only beginning to gain my feet with the language. Despite this I took the plunge and decided to build a Wordpress theme that uses Backbone.js to render the posts in a list. Here&#39;s a bit about the project.">
+    <meta property="og:title" content="Wordpress theming with Backbone.js" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Wordpress theming with Backbone.js" />
+    <meta
+      name="twitter:description"
+      content="You&#39;ll notice that there&#39;s not a huge amount of posts about JavaScript on my site. That&#39;s not an accident, I&#39;m really only beginning to gain my feet with the language. Despite this I took the plunge and decided to build a Wordpress theme that uses Backbone.js to render the posts in a list. Here&#39;s a bit about the project."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Wordpress theming with Backbone.js",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2016-01-06T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Wordpress theming with Backbone.js</h1>
+
+<time datetime="2016-01-06">06 Jan 2016</time><a href="/tags/php/" class="post-tag">php</a><a href="/tags/wordpress/" class="post-tag">wordpress</a><a href="/tags/javascript/" class="post-tag">javascript</a>
+
+<p><strong>You'll notice that there's not a huge amount of posts about JavaScript on my site. That's not an accident, I'm really only beginning to gain my feet with the language. Despite this I took the plunge and decided to build a Wordpress theme that uses Backbone.js to render the posts in a list. Here's a bit about the project.</strong></p>
+<p>Backbone.js is one of the most stable of the Javascript frameworks, which is one of the reasons I chose to focus on it. I wanted to start with a stable framework that would allow me to get to grips with it properly, and that I didn't have to worry about a huge amount of refactoring when the next version came out. But it's also one of the smallest frameworks. Even with recommended dependencies jQuery and Underscore it's still faster than some of the larger frameworks out there. This appeals to my sense of what users are most in need of from us as developers.</p>
+<p>###Where I succeeded</p>
+<p>I'm going to talk as little as I can about the tools here. I'm exhausted at having to learn someone else's toolset to enable me to accomplish my work. I'm just going to say that it's good practice to break down your files into small blocks of code, this will really help you when it comes to debugging and maintenance of your code later on. So here's my JavaScript project folder setup:</p>
+<pre><code>-src
+|
+--js
+|
+---1underscore.js
+---2backbone.js
+---3models.js
+---4views.js
+---5collection.js
+---6router.js
+</code></pre>
+<p><em>note:</em> I'm loading jQuery in separately from a CDN.</p>
+<p>Structuring my project folder this way allows me to load the JS in the correct order. Now, when they get parsed by your task runner they'll be in the correct order to run.</p>
+<p>After a few false starts I had gotten the post feed into my view, and it is outputting as I wanted. This felt like such a victory! I can now see all of my posts and click through ... but this simple bit of functionality is currently far from finished.</p>
+<h4 id="where-i-have-yet-to-succeed" tabindex="-1">Where I have yet to succeed <a class="direct-link" href="#where-i-have-yet-to-succeed" aria-hidden="true">#</a></h4>
+<ol>
+<li><strong>Documentation is patchy</strong>. I started off by being able to retrieve the basic JSON feed from <code>/wp-json/</code>, but couldn't find out why I can't see the posts. After some digging, I found out that the JSON endpoints haven't been implemented in Wordpress core yet. <a href="https://wordpress.org/plugins/rest-api/" title="Wordpress REST API plugin">We still need to use the plugin</a>. In fact, I enjoy what I do because I can research things easily on Stack Exchange. But there's not many people using Backbone with Wordpress, and I was distinctly on my own trying to find this out.</li>
+<li><strong>No links.</strong> If you click on one of the links in the list view, Wordpress takes over and you will be shown the posts' PHP page. This is because I have yet to wrap my head around how routing works.</li>
+</ol>
+<p>These are some of the things I can't do yet. It really bothers me but until I find some time or it becomes a necessity, I can't justify more time on this project.</p>
+<p><a href="https://github.com/endymion1818/questingtheair" title="My Backbone.js Wordpress theme on Github.com">Here's the theme if you want to pick over my code.</a></p>
+<blockquote>
+<h1>I have not failed. I've just found 10,000 ways that won't work.</h1>
+<attr>Thomas Edison</attr>
+<blockquote>
+
+<hr>
+<ul><li>Next: <a href="/posts/using-the-srcset-attribute-on-images/">Using the Srcset attribute on images</a></li><li>Previous: <a href="/posts/do-we-need-industry-regulation/">Do We Need Industry Regulation?</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

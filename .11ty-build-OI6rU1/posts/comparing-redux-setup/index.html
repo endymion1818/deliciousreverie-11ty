@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparing two redux setups</title>
+    <meta name="description" content="I recently came across two different examples of setup that used Redux to manage state in a sample app. They were so different that I thought it was worth delving a little deeper into why, and how we can write Redux code so it&#39;s a good fit for our needs.">
+    <meta property="og:site_name" content="Comparing two redux setups">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I recently came across two different examples of setup that used Redux to manage state in a sample app. They were so different that I thought it was worth delving a little deeper into why, and how we can write Redux code so it&#39;s a good fit for our needs.">
+    <meta property="og:title" content="Comparing two redux setups" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Comparing two redux setups" />
+    <meta
+      name="twitter:description"
+      content="I recently came across two different examples of setup that used Redux to manage state in a sample app. They were so different that I thought it was worth delving a little deeper into why, and how we can write Redux code so it&#39;s a good fit for our needs."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Comparing two redux setups",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-08-03T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Comparing two redux setups</h1>
+
+<time datetime="2020-08-03">03 Aug 2020</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/react/" class="post-tag">react</a><a href="/tags/redux/" class="post-tag">redux</a>
+
+<p>I recently came across two different examples of setup that used Redux to manage state in a sample app. They were so different that I thought it was worth delving a little deeper into why, and how we can write Redux code so it's a good fit for our needs.</p>
+<h2 id="minimum-viable-redux" tabindex="-1">Minimum Viable Redux <a class="direct-link" href="#minimum-viable-redux" aria-hidden="true">#</a></h2>
+<p>Redux used to be pretty much the only way of managing state in React without &quot;prop drilling&quot; or mutating state (which means changing it so that the original state is lost) as you go. There are a bunch of different options now, but Redux is still in common use. However that use doesn't always have a common pattern. Take this example I found on a JSFiddle by Caner Dagli:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Provider<span class="token punctuation">,</span> connect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-redux"</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore<span class="token punctuation">,</span> applyMiddleware <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"redux"</span><span class="token punctuation">;</span><br><span class="token keyword">import</span> thunk <span class="token keyword">from</span> <span class="token string">"redux-thunk"</span><span class="token punctuation">;</span><br><br><span class="token keyword">function</span> <span class="token function">fetchPostsRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"FETCH_REQUEST"</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">fetchPostsSuccess</span><span class="token punctuation">(</span><span class="token parameter">payload</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"FETCH_SUCCESS"</span><span class="token punctuation">,</span><br>    payload<span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">fetchPostsError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"FETCH_ERROR"</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">const</span> <span class="token function-variable function">reducer</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">case</span> <span class="token string">"FETCH_REQUEST"</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> state<span class="token punctuation">;</span><br>    <span class="token keyword">case</span> <span class="token string">"FETCH_SUCCESS"</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> <span class="token literal-property property">posts</span><span class="token operator">:</span> action<span class="token punctuation">.</span>payload <span class="token punctuation">}</span><span class="token punctuation">;</span><br>    <span class="token keyword">default</span><span class="token operator">:</span><br>      <span class="token keyword">return</span> state<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><br><span class="token keyword">function</span> <span class="token function">fetchPostsWithRedux</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token parameter">dispatch</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchPostsRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">return</span> <span class="token function">fetchPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>response<span class="token punctuation">,</span> json<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchPostsSuccess</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchPostsError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">fetchPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token constant">URL</span> <span class="token operator">=</span> <span class="token string">"https://jsonplaceholder.typicode.com/posts"</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"GET"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token operator">=></span><br>    Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>response<span class="token punctuation">,</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br>  <span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span><br>  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">fetchPostsWithRedux</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token punctuation">(</span><br>      <span class="token operator">&lt;</span>ul<span class="token operator">></span><br>        <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>posts <span class="token operator">&amp;&amp;</span><br>          <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>posts<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>            <span class="token keyword">return</span> <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token punctuation">{</span>post<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span><span class="token punctuation">;</span><br>          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><br>      <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">function</span> <span class="token function">mapStateToProps</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">posts</span><span class="token operator">:</span> state<span class="token punctuation">.</span>posts<span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">let</span> Container <span class="token operator">=</span> <span class="token function">connect</span><span class="token punctuation">(</span>mapStateToProps<span class="token punctuation">,</span> <span class="token punctuation">{</span> fetchPostsWithRedux <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>reducer<span class="token punctuation">,</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>thunk<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><br>  <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">></span><br>    <span class="token operator">&lt;</span>Container <span class="token operator">/</span><span class="token operator">></span><br>  <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">></span><span class="token punctuation">,</span><br>  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"container"</span><span class="token punctuation">)</span><br><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>I really think this example is great, it shows us how to write the most basic boilerplate code for a Redux store and how you might use it for a simple use case, one data type and a single action.</p>
+<p>So does Redux require a lot of boilerplate code? Not in this example. However, if you want to be able to scale it to use different data types (think posts and users and tags and pages ...), the above code isn't going to scale.</p>
+<h2 id="redux-at-scale" tabindex="-1">Redux at scale <a class="direct-link" href="#redux-at-scale" aria-hidden="true">#</a></h2>
+<p>Take a look at this example, it's a GatsbyJS starter but I hope you can still find your way around the code: <a href="https://github.com/Evaluates2/Gatsby-Starter-TypeScript-Redux-TDD-BDD">https://github.com/Evaluates2/Gatsby-Starter-TypeScript-Redux-TDD-BDD</a></p>
+<p>If you peek inside the <strong>/src/</strong> folder, you'll see another folder, <strong>/state/</strong>, with another 4 folders, <strong>/actions/</strong>, <strong>/middlewares/</strong>, <strong>/reducers/</strong> and <strong>/types/</strong>.</p>
+<p>Just look inside the <strong>/actions/</strong> folder and you'll see four files. Two are tests, but there's an action for each data type (login and todos respectively). Similarly, there's a reduce for each data type, middleware for each type ... etc.</p>
+<p>This code is built for extensibility. By compartmentalising code like this I can see that I will be able to add another type (like lists or pages or transactions) without having to make fundamental changes to how this project is set up. Smiliarly, if something changed in my todos, I can see more easily where I need to go to change something so that the app still renders in the way I expect it to.</p>
+<p>I liked this example because it shows us a totally different way of writing Redux code. It helps us see the separate concerns we need to care about (reducers, actions, middleware even) if we are going to write a robust application that will be able to serve many product iterations over a longer period of time without major refactors.</p>
+<p>I think these two approaches also teach us that Redux is a powerful suite of tools that help us manage state in our applications — and that it can be used in different ways depending on your desired approach.</p>
+<p>But they also tell us something about software development: the fastest approach is great for some small project you're only going to touch once. But architecting an application that will withstand the test of time is a different game altogether.</p>
+<p>That's the great thing about the way Redux is built: it doesn't get in the way of writing new code ... providing we start out in the right way!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/explaining-technical-to-nontechnical-audience/">Explaining technical things to nontechnical thinkers</a></li><li>Previous: <a href="/posts/dynamic-client-routes-in-gatsbyjs/">Dynamic client side routes in GatsbyJS</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

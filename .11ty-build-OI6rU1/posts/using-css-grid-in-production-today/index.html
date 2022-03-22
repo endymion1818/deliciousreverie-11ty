@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using CSS Grid In Production Today</title>
+    <meta name="description" content="For me, as well as a lot of others, CSS Grid is the most exciting thing to happen since CSS3 ... possibly even CSS2. But many fear using it in production. This post tackles one common use case where a Flexbox fallback provides support for Internet Explorer and Edge.">
+    <meta property="og:site_name" content="Using CSS Grid In Production Today">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="For me, as well as a lot of others, CSS Grid is the most exciting thing to happen since CSS3 ... possibly even CSS2. But many fear using it in production. This post tackles one common use case where a Flexbox fallback provides support for Internet Explorer and Edge.">
+    <meta property="og:title" content="Using CSS Grid In Production Today" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Using CSS Grid In Production Today" />
+    <meta
+      name="twitter:description"
+      content="For me, as well as a lot of others, CSS Grid is the most exciting thing to happen since CSS3 ... possibly even CSS2. But many fear using it in production. This post tackles one common use case where a Flexbox fallback provides support for Internet Explorer and Edge."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Using CSS Grid In Production Today",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2017-07-09T08:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Using CSS Grid In Production Today</h1>
+
+<time datetime="2017-07-09">09 Jul 2017</time><a href="/tags/css/" class="post-tag">css</a><a href="/tags/new-technology/" class="post-tag">new technology</a>
+
+<p><strong>For me, as well as a lot of others, CSS Grid is the most exciting thing to happen since CSS3 ... possibly even CSS2. But many fear using it in production. This post tackles one common use case where a Flexbox fallback provides support for Internet Explorer and Edge.</strong></p>
+<p>I'm really, really excited about CSS Grid. This new technology, which allows developers to finally build a structured document layout natively without using a hack, was released in most major browsers in about March of this year.</p>
+<p>I've been closely following the work of Jen Simmons and Rachel Andrew on this subject, and have attended other talks about the subject. But now I want to join the chorus and say with a definite certainty: yes, you can use CSS Grid in production today.</p>
+<p>I already have.</p>
+<h2 id="why-css-grid" tabindex="-1">Why CSS Grid? <a class="direct-link" href="#why-css-grid" aria-hidden="true">#</a></h2>
+<p>I imagine that many of us are quite happy with the tools we currently use to lay out our web pages. I too was pretty confident using either Bootstrap's grid, Susy, or something I custom-built, to lay out my document using floats.</p>
+<p>I don't need to say here what's already been said, and which you've probably heard, about floats being a hack. Suffice to say, that this approach leads to increased maintenance cost over the lifetime of a project and contributes to poor performance of a website.</p>
+<p>But floats are also a hack, just like tables were before that. CSS Grid is the hero the web needs.</p>
+<h2 id="but-...-it's-not-supported!" tabindex="-1">But ... It's Not Supported! <a class="direct-link" href="#but-...-it's-not-supported!" aria-hidden="true">#</a></h2>
+<p>Like Rachel Andrew said in her recent blog post <a href="https://rachelandrew.co.uk/archives/2017/07/04/is-it-really-safe-to-start-using-css-grid-layout/">(link here)</a> around 70% of browsers have support for Grid. That's most of the web. You might want to check your own analytics to see what you need to support for your project, however I believe I have come up with a workable solution for when you need to support IE11.</p>
+<h2 id="the-scenario" tabindex="-1">The Scenario <a class="direct-link" href="#the-scenario" aria-hidden="true">#</a></h2>
+<p>I often find myself with this UI layout in my projects: 2 repeating columns of content, inside which are elements, usually designed with dummy content of the same height. This <em>never</em> works in production with floats. Sooner or later I get gaps like great big ugly missing teeth everywhere.</p>
+<p>The way I've traditionally coped with this is very convoluted:</p>
+<pre class="language-php"><code class="language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token variable">$count</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$items</span> <span class="token keyword">as</span> <span class="token variable">$item</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token delimiter important">?></span></span><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$count</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span> <span class="token delimiter important">?></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token punctuation">}</span> <span class="token delimiter important">?></span></span><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token variable">$count</span><span class="token operator">++</span><span class="token punctuation">;</span> <span class="token keyword">endforeach</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>row</span><span class="token punctuation">></span></span></code></pre>
+<p>Phew!</p>
+<p>This assumes that 1) Your frontend developer is authorised to, and competent at, writing server-side code, 2) you don't mond doing a lot of counting, 3) you don't mind spurious markup everywhere.</p>
+<p>This approach is messy, but it works.</p>
+<h2 id="supporting-97percent-of-the-web" tabindex="-1">Supporting 97% of the Web <a class="direct-link" href="#supporting-97percent-of-the-web" aria-hidden="true">#</a></h2>
+<p>Here's the alternative. The Codepen embed below shows how I can support IE11, Edge, and older versions of some browsers, by using <code>flexbox</code> instead of grid.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="mwGxOP" data-default-tab="result" data-user="endymion1818" data-embed-version="2" data-pen-title="grid-fallbacks" class="codepen">See the Pen <a href="https://codepen.io/endymion1818/pen/mwGxOP/">grid-fallbacks</a> by Ben Read (<a href="https://codepen.io/endymion1818">@endymion1818</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<p>First, I declare the flexbox layout:</p>
+<pre class="language-scss"><code class="language-scss"><span class="token atrule"><span class="token rule">@media</span><span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">.container </span><span class="token punctuation">{</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>    <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span><br>    <span class="token property">margin-left</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span><br>    <span class="token property">margin-right</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span><br><br>    <span class="token selector">> * </span><span class="token punctuation">{</span><br>      <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span><br>      <span class="token property">flex-basis</span><span class="token punctuation">:</span> 46%<span class="token punctuation">;</span><br>      <span class="token property">margin</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@media</span><span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 1200px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">.container </span><span class="token punctuation">{</span><br><br>    <span class="token selector">> * </span><span class="token punctuation">{</span><br>      <span class="token property">flex-basis</span><span class="token punctuation">:</span> 47%<span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Please note: this is 22 lines of code that I hope I will be able to remove from the project at some point. If not, it isn't doing any harm where it's not used.</p>
+<p>Now, below that I use an <code>@supports</code> rule to scope the grid layouts:</p>
+<pre class="language-scss"><code class="language-scss"><span class="token atrule"><span class="token rule">@supports</span> <span class="token punctuation">(</span><span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br><br>  <span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>    <span class="token selector">.container </span><span class="token punctuation">{</span><br>      <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>      <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>2<span class="token punctuation">,</span> 50fr<span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token property">grid-gap</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span><br><br>      <span class="token selector">> * </span><span class="token punctuation">{</span><br>        <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>This is only 11 lines of code (not counting the lack of a <code>&lt;div class=&quot;row&quot;&gt;</code> etc, and doesn't use hacks like negative margins. Much better.</p>
+<p>This works in 97% of browsers <em>today</em>, <a href="https://caniuse.com/#search=flexbox">even Internet Explorer</a>.</p>
+<p>Now, in both layouts, you get 2 columns of content, each item on a row has the same height, and they can expand to the content that you put into them.</p>
+<p>One thing to note: I'm not replacing my floated grid in this project. I'm complementing them at this stage for when floats are inadequate.</p>
+<p>But in the near future, I'm really looking forward to swapping out this approach for more semantic, web-native code.</p>
+<p>I hope this little demonstratons helps you to see how CSS grid works, is faster, less costly to maintain, and great for the web.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/5-steps-speed-up-slow-website/">Published Article: 5 Steps To Speed Up a Slow Website</a></li><li>Previous: <a href="/posts/music-of-mike-oldfield/">The Music of Mike Oldfield</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

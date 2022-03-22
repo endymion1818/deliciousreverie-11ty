@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2018 Review / 2019 Aims</title>
+    <meta name="description" content="Wow. 2018 was a real rollercoaster for me. This is a brief review so that I can look back on what I achieved, and set out what I hope I can achieve in web development this year.">
+    <meta property="og:site_name" content="2018 Review / 2019 Aims">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Wow. 2018 was a real rollercoaster for me. This is a brief review so that I can look back on what I achieved, and set out what I hope I can achieve in web development this year.">
+    <meta property="og:title" content="2018 Review / 2019 Aims" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="2018 Review / 2019 Aims" />
+    <meta
+      name="twitter:description"
+      content="Wow. 2018 was a real rollercoaster for me. This is a brief review so that I can look back on what I achieved, and set out what I hope I can achieve in web development this year."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "2018 Review / 2019 Aims",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-01-03T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>2018 Review / 2019 Aims</h1>
+
+<time datetime="2019-01-03">03 Jan 2019</time><a href="/tags/year-in-review/" class="post-tag">year in review</a>
+
+<p>Twenty Eighteen was a whirlwind of changes for me professionally. I went from working in an agency to working for a FinTech, and the difference in those two roles and the tech stacks involved have brought me many new skills as a developer. But I still suffer anxiety with all the things I want to learn.</p>
+<h2 id="what-i-learned" tabindex="-1">What I Learned <a class="direct-link" href="#what-i-learned" aria-hidden="true">#</a></h2>
+<h3 id="1.-moved-to-javascript" tabindex="-1">1. Moved to JavaScript <a class="direct-link" href="#1.-moved-to-javascript" aria-hidden="true">#</a></h3>
+<p>I've already blogged about this before, but I moved from a PHP / JS role to a fullstack JS role. That was great, but it was very hard initially. I had to put in many hours outside of work to bring myself up to speed on certain core JS concepts I'd missed before, as well as learn some of the key React APIs. But I went from not knowing how to pass props down to rebuilding a fairly complex calculator. That felt like a big achievement.</p>
+<h3 id="2.-learned-the-value-of-qa-engineers" tabindex="-1">2. Learned The Value of QA Engineers <a class="direct-link" href="#2.-learned-the-value-of-qa-engineers" aria-hidden="true">#</a></h3>
+<p>The QA process in my current workplace is much more rigid. Every ticket is defined, has parameters, and is approved / rejected by a QA engineer before it goes into production. For someone who is obsessive about quality, and takes it hard when I get things wrong, having a QA Engineer has meant very few issues are raised once the code is in production. Those I answer to in the organisation have much more confidence in the development process in its entirety because of this.</p>
+<h3 id="3.-learned-about-ci-tools" tabindex="-1">3. Learned about CI Tools <a class="direct-link" href="#3.-learned-about-ci-tools" aria-hidden="true">#</a></h3>
+<p>I'd used Netlify to build my static sites before, but in this new role I was able to get visibility of the pipelines that were set up by our SRE (site reliability engineering) team that built the site in a Docker container, and also ran a feature CI on our PRs. This way, we could see straight away whether code was good enough for production. I'm still fascinated by this complex world and want to learn more.</p>
+<h3 id="4.-learned-the-value-of-a-good-code-review" tabindex="-1">4. Learned the Value of a Good Code review <a class="direct-link" href="#4.-learned-the-value-of-a-good-code-review" aria-hidden="true">#</a></h3>
+<p>I've had some very smart people review my code, and I've learned a lot. For example, why destructuring is a good thing, why you wouldn't use the <code>index</code> as the <code>key</code> value in a React map function, and loads more.</p>
+<h3 id="5.-learned-how-to-use-github-properly" tabindex="-1">5. Learned how to Use GitHub Properly <a class="direct-link" href="#5.-learned-how-to-use-github-properly" aria-hidden="true">#</a></h3>
+<p>I made a grand mistake of merging to master at my new job ... but I only made it once. I broke loads of stuff and caused a world of pain for my team. Now even with personal projects it goes against the grain to commit anything to Master, even if it's a tiny change.</p>
+<h3 id="6.-learned-the-value-of-jira" tabindex="-1">6. Learned the value of JIRA <a class="direct-link" href="#6.-learned-the-value-of-jira" aria-hidden="true">#</a></h3>
+<p>I used to believe JIRA was this unwieldy tool that only crackpots would use. But it's so useful. We have strict definitions of where the responsibility lies for each step of the process, we can't release code into production unless is the process has been properly followed, and we also have an &quot;expedite&quot; lane so developers can focus exactly on what they need to do. Honestly it's transformed the way I work and made shipping code so much faster.</p>
+<h2 id="what-i-want-to-learn" tabindex="-1">What I Want to Learn <a class="direct-link" href="#what-i-want-to-learn" aria-hidden="true">#</a></h2>
+<h3 id="typescript" tabindex="-1">TypeScript <a class="direct-link" href="#typescript" aria-hidden="true">#</a></h3>
+<p>I had never seen the reason for type checking before, but now realise that a lot of the issues I've been having all along with JavaScript can be resolved by using TypeScript. The verbosity puts me off, but I can't wait to TypeScript all my projects.</p>
+<h3 id="unit-and-integration-testing" tabindex="-1">Unit &amp; Integration Testing <a class="direct-link" href="#unit-and-integration-testing" aria-hidden="true">#</a></h3>
+<p>I've never written tests before, but I want to get to the stage where I could say I would be happy to undertake a role that involved Test-Driven Development.</p>
+<h3 id="docker" tabindex="-1">Docker <a class="direct-link" href="#docker" aria-hidden="true">#</a></h3>
+<p>Still don't understand that thing. I want to learn this dark art so that I can set up feature CI tools and production pipelines myself.</p>
+<h3 id="more-logic-based-development" tabindex="-1">More Logic Based Development <a class="direct-link" href="#more-logic-based-development" aria-hidden="true">#</a></h3>
+<p>I enjoy being the Fronted Developer, but I'd also like to build a few microservices and become more comfortable with the thought process of building for stuff that isn't going to be displayed in a browser.</p>
+<h3 id="advocate-for-younger-developers" tabindex="-1">Advocate for Younger Developers <a class="direct-link" href="#advocate-for-younger-developers" aria-hidden="true">#</a></h3>
+<p>As I see how skewed the whole development industry has become, I want to use my privilege to help others from different backgrounds to get into writing code.</p>
+<p>Okay, I think that's it! I have still got a long way to go, but I'm pleased that this year ends with a new baby in the family, and with more career choices open to me than I've ever had before.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/reusable-components-in-react/">Published Article: Reusable Components with Atomic Design</a></li><li>Previous: <a href="/posts/react-accessibility/">Published Article: React Accessibility</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

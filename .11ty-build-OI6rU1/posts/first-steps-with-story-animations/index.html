@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Steps with Story Animations</title>
+    <meta name="description" content="For a while now I&#39;ve really enjoyed tinkering with animations as a way to bring a lot more quality to my projects. But as well as providing interactivity, I was curious to explore another way animations can be used in a project: to tell  a story.">
+    <meta property="og:site_name" content="First Steps with Story Animations">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="For a while now I&#39;ve really enjoyed tinkering with animations as a way to bring a lot more quality to my projects. But as well as providing interactivity, I was curious to explore another way animations can be used in a project: to tell  a story.">
+    <meta property="og:title" content="First Steps with Story Animations" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="First Steps with Story Animations" />
+    <meta
+      name="twitter:description"
+      content="For a while now I&#39;ve really enjoyed tinkering with animations as a way to bring a lot more quality to my projects. But as well as providing interactivity, I was curious to explore another way animations can be used in a project: to tell  a story."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "First Steps with Story Animations",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2017-07-15T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>First Steps with Story Animations</h1>
+
+<time datetime="2017-07-15">15 Jul 2017</time><a href="/tags/animation/" class="post-tag">animation</a><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/svg/" class="post-tag">svg</a><a href="/tags/greensock/" class="post-tag">greensock</a><a href="/tags/scrollmagic/" class="post-tag">scrollmagic</a>
+
+<p><strong>For a while now I've really enjoyed tinkering with animations as a way to bring a lot more quality to my projects. But as well as providing interactivity, I was curious to explore another way animations can be used in a project: to tell a story.</strong></p>
+<p>I've discovered that animations can really make a project stand out from the competition, and I find myself driven to this field more and more. Partly, I want to do this to showcase what the web is really capable of in difference to other mediums. But, being practical about it, it's also a great way of getting users to stay on your site more and for it to be memorable.</p>
+<p>The style I adopted for this site was heavily influenced by my love of the English and Welsh countryside. I've also been thinking a lot about the animation film &quot;Watership Down&quot; lately. I watched that film as a kid and it seems to have made a lasting impression on me. So I took the idea from those influences.</p>
+<h2 id="drawing-the-svgs" tabindex="-1">Drawing the SVGs <a class="direct-link" href="#drawing-the-svgs" aria-hidden="true">#</a></h2>
+<p>I used both Affinity Designer and Sublime Text to manipulate some SVGs I shamefully got free from the internet. I'm sorry, I'm not proud of that fact, but time was not on my side.</p>
+<p>Although you percieve there to be one tree that transitions from winter to summer, and one rabbit that moves across from one side of the screen to the other, there are actually 2 trees and 8 rabbits.</p>
+<p>This is because the easiest way to create the perception of movement I have found is to change the opacity.</p>
+<h2 id="animating" tabindex="-1">Animating <a class="direct-link" href="#animating" aria-hidden="true">#</a></h2>
+<p>Each element is changed by modifying the opacity in GreenSock Animation Platform, which is tied to ScrollMagic, in order to perform the animations not on a timeline, but on scroll.</p>
+<pre class="language-javascript"><code class="language-javascript">window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br><br>  <span class="token comment">// smController = new ScrollMagic.Controller();</span><br>  smTreeController <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Controller</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  smRabbitController <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Controller</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// getters</span><br>  <span class="token keyword">var</span> trigger <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">var</span> treeSummer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'tree-summer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> treeWinter <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'tree-winter'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">var</span> rabbit0 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> rabbit1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> rabbit3 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> rabbit4 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-4'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> rabbit5 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> rabbit6 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-6'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">var</span> rabbit8 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'rabbit-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// from winter to summer</span><br>  <span class="token keyword">var</span> treeWinterToSummer1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">triggerElement</span><span class="token operator">:</span> trigger<span class="token punctuation">,</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token string">'100%'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">offset</span><span class="token operator">:</span> <span class="token string">'400%'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">setTween</span><span class="token punctuation">(</span>treeSummer<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0.6</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">addTo</span><span class="token punctuation">(</span>smTreeController<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">var</span> treeWinterToSummer2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">triggerElement</span><span class="token operator">:</span> trigger<span class="token punctuation">,</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token string">'100%'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">offset</span><span class="token operator">:</span> <span class="token string">'500%'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">setTween</span><span class="token punctuation">(</span>treeWinter<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">addTo</span><span class="token punctuation">(</span>smTreeController<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// 0</span><br>  <span class="token keyword">var</span> heyRabbit0 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">triggerElement</span><span class="token operator">:</span> trigger<span class="token punctuation">,</span><br>    <span class="token literal-property property">offset</span><span class="token operator">:</span> <span class="token string">'500%'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token string">'15%'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">setTween</span><span class="token punctuation">(</span>rabbit0<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0.6</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">addTo</span><span class="token punctuation">(</span>smRabbitController<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">var</span> byeRabbit0 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">triggerElement</span><span class="token operator">:</span> trigger<span class="token punctuation">,</span><br>    <span class="token literal-property property">offset</span><span class="token operator">:</span> <span class="token string">'600%'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token string">'15%'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">setTween</span><span class="token punctuation">(</span>rabbit0<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">addTo</span><span class="token punctuation">(</span>smRabbitController<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token comment">// 1</span><br>  <span class="token keyword">var</span> heyRabbit1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">triggerElement</span><span class="token operator">:</span> trigger<span class="token punctuation">,</span><br>    <span class="token literal-property property">offset</span><span class="token operator">:</span> <span class="token string">'650%'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token string">'15%'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">setTween</span><span class="token punctuation">(</span>rabbit1<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0.6</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">addTo</span><span class="token punctuation">(</span>smRabbitController<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">var</span> byeRabbit1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScrollMagic<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">triggerElement</span><span class="token operator">:</span> trigger<span class="token punctuation">,</span><br>    <span class="token literal-property property">offset</span><span class="token operator">:</span> <span class="token string">'750%'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token string">'15%'</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">setTween</span><span class="token punctuation">(</span>rabbit1<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">addTo</span><span class="token punctuation">(</span>smRabbitController<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// and so on...</span><br><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>There were actually 2 versions of this animation. I played with greensock to tween the appearance and disappearance of the rabbits. However, I decided against this approach beacuse in order to make the last-but-one rabbit stay in view for longer, I would have to set a pin, and release it later.</p>
+<p>I didn't think this approach was robust enough, especially since I want to build on this animation in the future. Having lots of spurious divs positioned around my dom didn't feel right.</p>
+<h2 id="performance-considerations" tabindex="-1">Performance Considerations <a class="direct-link" href="#performance-considerations" aria-hidden="true">#</a></h2>
+<p>Loading up these libraries does have a performance cost of course. A cost that is most noticeable on mobile devices. So instead of enqueueing my Javascript in the normal way, I've been working on a script that writes the tag into the DOM once you're at a certain breakpoint:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'querySelector'</span> <span class="token keyword">in</span> document <span class="token operator">&amp;&amp;</span> <span class="token string">'addEventListener'</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">var</span> windowWidth <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span><br>    <span class="token keyword">if</span><span class="token punctuation">(</span>windowWidth <span class="token operator">></span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br><br>        <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token constant">H</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token constant">H</span><span class="token punctuation">.</span>className<span class="token operator">=</span><span class="token constant">H</span><span class="token punctuation">.</span>className<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\bno-js\b</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span class="token string">'js'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>        document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token function">unescape</span><span class="token punctuation">(</span><span class="token string">"%3Cscript src='/js/deliciousreverie-noncriticalscripts.min.js' type='text/javascript' defer%3E%3C/script%3E"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>I further scoped this hit by adding a partial to the footer in hugo, so that the partial containing the SVG would only load on the home page.</p>
+<p>The home page loading time hovers around 3 seconds on desktop now. I know it could be better, but frankly, I feel the hit is worth it for something that I think will add plenty of value to my site.</p>
+<h2 id="accessibility" tabindex="-1">Accessibility <a class="direct-link" href="#accessibility" aria-hidden="true">#</a></h2>
+<p>I don' think there are accessibility concerns with this project. The animation is purely illustrative and shouldn't affect screen readers or sight impaired ... I hope!</p>
+<p>Please don't hesitate to let me know if it does.</p>
+<h2 id="future-plans" tabindex="-1">Future Plans <a class="direct-link" href="#future-plans" aria-hidden="true">#</a></h2>
+<p>I already have plans for similarly-themed animations on other pages on the site, and have started building a bird that will fly across the screen, circle near the tree, and disappear off-screen.</p>
+<p>These I'll hopefully get done before the kids leave home.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/jamstack-web-technology/">Published Article: What Is JAMStack Web Technology</a></li><li>Previous: <a href="/posts/5-steps-speed-up-slow-website/">Published Article: 5 Steps To Speed Up a Slow Website</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

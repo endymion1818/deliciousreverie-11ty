@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: Better Performance with the React Context API</title>
+    <meta name="description" content="Build for complexity and performance in this deep dive into React&#39;s Context API. This article was originally published in Net Magazine.">
+    <meta property="og:site_name" content="Published Article: Better Performance with the React Context API">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Build for complexity and performance in this deep dive into React&#39;s Context API. This article was originally published in Net Magazine.">
+    <meta property="og:title" content="Published Article: Better Performance with the React Context API" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: Better Performance with the React Context API" />
+    <meta
+      name="twitter:description"
+      content="Build for complexity and performance in this deep dive into React&#39;s Context API. This article was originally published in Net Magazine."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: Better Performance with the React Context API",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-04-08T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: Better Performance with the React Context API</h1>
+
+<time datetime="2019-04-08">08 Apr 2019</time><a href="/tags/performance/" class="post-tag">performance</a><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/published-articles/" class="post-tag">published articles</a>
+
+<p><strong>People are demanding more and more out of their online services, and businesses strive to excel these demands, leading to more and more complex sites ... and larger JavaScript bundles too!</strong></p>
+<p>How can we continue to deliver a first-class experience for users whilst still building for these levels of complexity? One good way of doing this - whilst at the same time as delivering more performant apps - is by using React's Context API.</p>
+<p>This article was first published in Net Magazine. However, the Context API has been updated since. Please visit the React docs for a more up to date version of how to use Context.</p>
+<h2 id="what-is-context-and-why-use-it" tabindex="-1">What is Context and Why Use It? <a class="direct-link" href="#what-is-context-and-why-use-it" aria-hidden="true">#</a></h2>
+<p>Sharing data and other properties across multiple React components previously required either an additional library (popular ones include Redux or Apollo GraphQL) or a lot of &quot;prop drilling&quot;. &quot;Prop drilling&quot; means passing data up and down multiple layers of components which could be labourious, difficult to change when new requirements are built, and lead to confusing code. The Context API, released in React 16.3, aims to reduce our dependency on prop drilling and external libraries.</p>
+<p>Apps can perform faster because changes made to properties no longer require a huge amount of re-rendering on a parent component, since the changes can be made in a separate component and handed down to child components from there.</p>
+<h2 id="how-to-use-context" tabindex="-1">How to Use Context <a class="direct-link" href="#how-to-use-context" aria-hidden="true">#</a></h2>
+<p>I have set up a demo of Context in use on Code Sandbox: <a href="https://codesandbox.io/s/0pl62xq030">https://codesandbox.io/s/0pl62xq030</a>. Let's walk through this  code.</p>
+<p>Context consists of 2 components:</p>
+<ol>
+<li>A &quot;Provider&quot;</li>
+<li>A &quot;Consumer&quot;</li>
+</ol>
+<p>The easiesy way I can think of explaining this relationship is that the &quot;Consumer&quot; is what will be using features &quot;Provided&quot; by our Context.</p>
+<h3 id="initial-setup" tabindex="-1">Initial Setup <a class="direct-link" href="#initial-setup" aria-hidden="true">#</a></h3>
+<p>Create a new module called &quot;Context.js&quot; adding the following code:</p>
+<p><img src="images/using-context-1.png" alt="using context 1"></p>
+<p>You might be able to see that on lines 2 &amp; 3, we're calling on our core library, React, not some external dependency. That's the first benefit already!</p>
+<p>I like to set up the <code>Consumer</code> in this file, even though we don't use it here. It helps me keep track of the logic when it's all in one place.</p>
+<p>Inside our <code>class</code> I've set up a few items in state to demonstrate what's going on here.</p>
+<p>Next, create a module containing a few items the user can interact with:</p>
+<p><img src="images/using-context-2.png" alt="using context 2"></p>
+<p>In this component, we can loop over an array in our <code>context.state</code> to create a few checkboxes, and a text description of the output.</p>
+<p>In the next module we're basically going to duplicate this code but leave out the loop. This module is so we can demonstrate how context can be passed down.</p>
+<p>Next we can create our main app.js file, or index.js if you like:</p>
+<p><img src="images/using-context-3.png" alt="using context 3"></p>
+<p>As you can see, the two modules we've created don't have any props passed down from the parent. Instead you get this functionality with the Context provider and children inside that.</p>
+<p>But wait! There's more we can do to boost performance here.</p>
+<div class="boxout">
+<h2 id="boxout:-analyse-performance-with-react-developer-tools" tabindex="-1">Boxout: Analyse Performance with React Developer Tools <a class="direct-link" href="#boxout:-analyse-performance-with-react-developer-tools" aria-hidden="true">#</a></h2>
+<p>React Developer Tools, an extension available on both Firefox and Chrome browsers, is a tool provided by Facebook to help debug your React apps.</p>
+<p>It can also be pretty helpful at identifying where re-renders are happening in your app, allowing you the opportunity to refactor the code if you think it's necessary.</p>
+<p>To find out where re-renders are occuring in your app, open the developer tools. Along the top of the pane you should see a number of options, including &quot;Elements&quot;, &quot;console&quot; and other tools you've probably used before. Once you've installed the React Developer Tools you should see a new item labeled &quot;React&quot; Near the far end of this list.</p>
+<p>If you click on the cog icon, you'll see some additional settings, including &quot;Hilight Updates&quot;.</p>
+<p>Try interacting with your site when &quot;Hilight Updates&quot; is ticked. You might be surprised at how much re-rendering is happening, slowing down the experience for users and having a negative impact on your conversions.</p>
+<p>Now you know where to start fixing the problem!</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="boxout:-reducing-re-rendering" tabindex="-1">Boxout: Reducing Re-rendering <a class="direct-link" href="#boxout:-reducing-re-rendering" aria-hidden="true">#</a></h2>
+<p>First of all, let's explain that term. Re-rensweing is what happens when the component you're using is updated. This has performance implications especially for interactions like dragging (think sliders), and inputting text. Without proper care users could notice lagginess and be put off from using your site. And the potential for laggy or unresponsiveness increases with complexity (because more re-rendering will happen).</p>
+<p>I have found this to be especially true on devices that aren't the most expensive on the market. JavaScript parsing times can increase horiffically on low- and mid-range devices that don't run recent versions of Chrome or Firefox. A huge group of people could be impacted, severely affecting your conversions.</p>
+<p>One way I've been able to reduce re-renders if by using my context's state to hold functions as well.</p>
+<p>By moving <code>onItemSelect</code> out of the class and into the state object, we can call it in a similar way (<code>context.onItemSelect</code> becomes <code>context.state.onItemSelect</code> in our modules), and avoid a component update.</p>
+</div>
+<h2 id="try-using-context-today" tabindex="-1">Try Using Context Today <a class="direct-link" href="#try-using-context-today" aria-hidden="true">#</a></h2>
+<p>Have you found yourself writing <code>props={props}</code> all over the place, or using the spread operator to pass props down anonymously (like this: <code>&lt;MyModule {...props}/&gt;</code>)? Then perhaps Context is a way out of the hole you could have drilled yourself into.</p>
+<p>If you're looking for a way to reduce the potential for complexity in a project, or reduce performance bottlenecks and you don't need the extra features that a dedicated state management tool or client-side GraphQL server would provide, chances are Context could equally be your tool for the job.</p>
+<p>Context isn't going to fit everyone's use case, nor was it meant to. But it is a  very useful API with some practical features that you might find give your code a little more ... well, context.</p>
+<p>Check out the working code on CodeSandbox: <a href="https://codesandbox.io/s/0pl62xq030">https://codesandbox.io/s/0pl62xq030</a></p>
+<hr>
+<h1 id="resources" tabindex="-1">Resources <a class="direct-link" href="#resources" aria-hidden="true">#</a></h1>
+<p>You can learn more about how to use the Context API by using the following resources:</p>
+<h2 id="official-documentation" tabindex="-1">Official Documentation <a class="direct-link" href="#official-documentation" aria-hidden="true">#</a></h2>
+<p>The official React documentation is a great place to start especially if you want to understand new APIs like Context, because they're written so well and shows real world examples that are easy to follow.</p>
+<h2 id="courses-and-blog-posts" tabindex="-1">Courses &amp; Blog posts <a class="direct-link" href="#courses-and-blog-posts" aria-hidden="true">#</a></h2>
+<p>I used these docs to get started using Context, as well as Flavio Copes' guide to the Context API (<a href="https://flaviocopes.com/react-context-api/">https://flaviocopes.com/react-context-api/</a>) and Kent C Dodds' course &quot;Advanced React Component Patterns&quot; on <a href="http://egghead.io">egghead.io</a> (<a href="https://egghead.io/courses/advanced-react-component-patterns">https://egghead.io/courses/advanced-react-component-patterns</a>).</p>
+<p>Those resources are great. But there's nothing like diving in and trying it for yourself. It'll be challenging to begin with but that's the best way to learn! I freely admit to getting frustrated, writing poor implementations, and having to start over many times before I understood Context well enough to use it in a project. But if you give up, you only have to come back to it one more time ... until you finally crack it!</p>
+<p>To do that, you could use two fantastic resources that have recently become available:</p>
+<h2 id="codesandbox" tabindex="-1">Codesandbox <a class="direct-link" href="#codesandbox" aria-hidden="true">#</a></h2>
+<p>Codesandbox (<a href="http://codesandbox.io">codesandbox.io</a>) is an online editor for creating apps in many languages, with built-in support for React. It's like codesandbox but with support for javascript modules</p>
+<h2 id="spectrum.chat" tabindex="-1">Spectrum.chat <a class="direct-link" href="#spectrum.chat" aria-hidden="true">#</a></h2>
+<p><a href="Spectrum.chat">Spectrum.chat</a>, built by the creator of styled-components and recently acquired by GitHub, is rapidly becoming a lively community. I've found it a great place to share ideas, ask for help and chat about the latest developments in JavaScript, React and other tools I use every day. Hope to see you there!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/developers-guide-professional-development/">A Developer&#39;s Guide to Professional Development</a></li><li>Previous: <a href="/posts/capture-minimise-errors-in-react-applications/">Published Article: Capture and Minimise Errors in your React Applications</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

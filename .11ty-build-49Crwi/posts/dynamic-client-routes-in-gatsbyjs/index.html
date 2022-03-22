@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic client side routes in GatsbyJS</title>
+    <meta name="description" content="Would you use GatsbyJS for a dynamic app? Yes I would. The reason is that I can make good use of Gatsby&#39;s great developer experience, as well as do everything I would normally do in a React application. Here&#39;s how I recently implemented dynamic routing.">
+    <meta property="og:site_name" content="Dynamic client side routes in GatsbyJS">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Would you use GatsbyJS for a dynamic app? Yes I would. The reason is that I can make good use of Gatsby&#39;s great developer experience, as well as do everything I would normally do in a React application. Here&#39;s how I recently implemented dynamic routing.">
+    <meta property="og:title" content="Dynamic client side routes in GatsbyJS" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Dynamic client side routes in GatsbyJS" />
+    <meta
+      name="twitter:description"
+      content="Would you use GatsbyJS for a dynamic app? Yes I would. The reason is that I can make good use of Gatsby&#39;s great developer experience, as well as do everything I would normally do in a React application. Here&#39;s how I recently implemented dynamic routing."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Dynamic client side routes in GatsbyJS",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-07-18T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Dynamic client side routes in GatsbyJS</h1>
+
+<time datetime="2020-07-18">18 Jul 2020</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/gatsbyjs/" class="post-tag">gatsbyjs</a>
+
+<p><strong>Would you use GatsbyJS for a dynamic app? Yes I would. The reason is that I can make good use of Gatsby's great developer experience, as well as do everything I would normally do in a React application. Here's how I recently implemented dynamic routing.</strong></p>
+<p><em>Disclaimer: My colleage Romina Moya originally discovered how Gatsby could do this, and showed it to me afterwards.</em></p>
+<p>I've been learning more about Amazon Web Services recently, and found an excellent tutorial written by the makers of Seed, a sort of CI pipeline for serverless applications. You can find the tutorial at <a href="https://serverless-stack.com">https://serverless-stack.com</a>.</p>
+<p>I wanted to diverge from the tutorial a little on the frontend, especially since I really enjoy working with GatsbyJS and wanted to use it's static rendering where I could.</p>
+<p>One of the lessons uses React Router to render routes for notes like this:</p>
+<pre><code>/notes/2074d6b0-c5d7-11ea-bd39-5f447bbc7b39
+</code></pre>
+<p>where the last part of the url (the &quot;pathname&quot;) needs to be generated client-side only. The reason is that the component would resolve to any number of records in the database, and needs be accessible only to the logged-in user.</p>
+<p>To achieve this in Gatsby I referred to their excellent documentation (<a href="https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/">https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/</a>), but there's a lot of information in that documentation, and it can be a little difficult to see what you need to do. So here's some extra pointers that I thought might be useful:</p>
+<h2 id="setup" tabindex="-1">Setup <a class="direct-link" href="#setup" aria-hidden="true">#</a></h2>
+<p>In my applications as in most Gatsby sites, I use a wrapping component that I name &quot;layout&quot; or &quot;entry&quot;. If you don't have that, you could effectively do the same thing by adding a file in the root of your project named &quot;gatsby-browser.js&quot; and using the <code>onClientEntry()</code> api (<a href="https://www.gatsbyjs.org/docs/browser-apis/#onClientEntry">https://www.gatsbyjs.org/docs/browser-apis/#onClientEntry</a>).</p>
+<p>In that file I needed to first <code>import { Router } from &quot;@reach-router&quot;</code>, and also <code>import { navigate } from &quot;gatsby&quot;</code> then in the <code>render</code> function add this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>Router<span class="token operator">></span><br>  <span class="token operator">&lt;</span>BounceToHome <span class="token keyword">default</span> <span class="token operator">/</span><span class="token operator">></span><br><span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span></code></pre>
+<p>The <code>BounceToHome</code> function is for any path the router comes across that isn't defined (as you can see from the <code>default</code> prop I passed to it). This is useful for if the user types anything That function uses <code>navigate()</code> that I imported earlier:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">BounceToHome</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">navigate</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">replace</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>As you can see I use the <code>useEffect</code> hook to navigate the user home on the first render.</p>
+<h2 id="rendering-client-only-component" tabindex="-1">Rendering client-only component <a class="direct-link" href="#rendering-client-only-component" aria-hidden="true">#</a></h2>
+<p>At the top of the file I've imported the functionality I already defined for rendering, editing and deleting notes:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> Notes <span class="token keyword">from</span> <span class="token string">"./Notes"</span><span class="token punctuation">;</span></code></pre>
+<p>Now as a child of the Router component I'm going to add in my Notes component:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>Notes path<span class="token operator">=</span><span class="token string">"/notes/:noteId/"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Notes<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<p>The <code>path</code> tells Reach Router that I want to accept paths with a prefix &quot;/notes&quot;, and the colon after that is a variable that will be passed to your component. It could be called anything you like, I thought <code>noteId</code> was the most relevant name for what I was building.</p>
+<p>On the following line I've passed to the router which component I want to render on that path.</p>
+<p>Now I can use that component in the page in this way:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Notes</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>noteId<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token keyword">function</span> <span class="token function">loadNote</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">return</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"notes"</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/notes/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>noteId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">onLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token keyword">try</span> <span class="token punctuation">{</span><br>        <span class="token keyword">const</span> note <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">loadNote</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token function">setContent</span><span class="token punctuation">(</span>note<span class="token punctuation">.</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token function">setNote</span><span class="token punctuation">(</span>note<span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token function">onError</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br>    <span class="token function">onLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>noteId<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span><span class="token punctuation">(</span><br>    <span class="token operator">...</span><br>  <span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>Whenever the <code>noteId</code> changes the <code>useEffect</code> hook runs and <code>loadNote()</code> gets the note using functionality available in the <strong>aws-amplify</strong> package.</p>
+<h2 id="gatsby-is-ready-for-apps!" tabindex="-1">Gatsby is ready for Apps! <a class="direct-link" href="#gatsby-is-ready-for-apps!" aria-hidden="true">#</a></h2>
+<p>If React is &quot;just JavaScript&quot;, then Gatsby is &quot;just a javascript framework&quot;, with all of the benefits that brings you, as well as some significant other things like better accessibility, static rendering, and loads of other cool stuff.</p>
+<p>Let's not be too quick to pigeon-hole Gatsby into a certain corner: it's a versatile set of tools that allows us to jump start our projects and create any number of really cool things.</p>
+<h2 id="update:-don't-put-this-in-your-layout-entry-file!" tabindex="-1">Update: don't put this in your Layout / Entry file! <a class="direct-link" href="#update:-don't-put-this-in-your-layout-entry-file!" aria-hidden="true">#</a></h2>
+<p>After playing with this a little more, I realised that client only routes override file routes ... so if you have the dynamic routing on the root path (usually &quot;/&quot;), it'll override everything else and you won't be able to navigate to any other page you have defined in the <strong>pages</strong> folder.</p>
+<p>So it's best to scope your client routes to a folder (such as <strong>app</strong>), and avoid overriding your other pages!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/comparing-redux-setup/">Comparing two redux setups</a></li><li>Previous: <a href="/posts/favourite-books/">Some of my favourite books</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

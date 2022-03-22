@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowest tech first</title>
+    <meta name="description" content="Should I use CSS or JavaScript to perform this task? If you&#39;re asking yourself this question, I have an answer for you: use the lowest technology available to you which can complete the task.">
+    <meta property="og:site_name" content="Lowest tech first">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Should I use CSS or JavaScript to perform this task? If you&#39;re asking yourself this question, I have an answer for you: use the lowest technology available to you which can complete the task.">
+    <meta property="og:title" content="Lowest tech first" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Lowest tech first" />
+    <meta
+      name="twitter:description"
+      content="Should I use CSS or JavaScript to perform this task? If you&#39;re asking yourself this question, I have an answer for you: use the lowest technology available to you which can complete the task."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Lowest tech first",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2021-06-23T10:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Lowest tech first</h1>
+
+<time datetime="2021-06-23">23 Jun 2021</time><a href="/tags/javascript/" class="post-tag">javascript</a>
+
+<p><strong>Should I use CSS or JavaScript to perform this task? If you're asking yourself this question, I have an answer for you: use the lowest technology available to you which can complete the task.</strong></p>
+<p>I did a lot of prop threading the other day. I was updating our navigation section so that the last dropdown in the navigation would be positioned better.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>NavList isLastItem<span class="token operator">=</span><span class="token punctuation">{</span>index<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<p>My colleague pointed out that I was threading this through 3 successive components so I could apply some CSS to the menu, which is OK sometimes, but there could be a better way of doing it.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">&amp;:last-of-type</span> <span class="token punctuation">{</span><br>  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Why is this better?</p>
+<p>Because it's using the lowest tech first principle. I'm setting the property in CSS which means there's less overhead for the browser to maintain, less prop threading going on, and it's arguably easier to see what's going on in the styles of this component.</p>
+<p>I think we should strive to do things this way more. It's less overhead and easier to maintain.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/react-data-fetching-typerror-object-is-not-a-function/">React: data fetching results in type error: object is not a function</a></li><li>Previous: <a href="/posts/monorepos/">monorepos.</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

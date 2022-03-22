@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React: data fetching results in type error: object is not a function</title>
+    <meta name="description" content="Sometimes I get frustrated with React, there can still sometimes be obscure errors that are a result of it&#39;s component lifecycle methods. But at least it means I can tell you about how to avoid them ...">
+    <meta property="og:site_name" content="React: data fetching results in type error: object is not a function">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Sometimes I get frustrated with React, there can still sometimes be obscure errors that are a result of it&#39;s component lifecycle methods. But at least it means I can tell you about how to avoid them ...">
+    <meta property="og:title" content="React: data fetching results in type error: object is not a function" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="React: data fetching results in type error: object is not a function" />
+    <meta
+      name="twitter:description"
+      content="Sometimes I get frustrated with React, there can still sometimes be obscure errors that are a result of it&#39;s component lifecycle methods. But at least it means I can tell you about how to avoid them ..."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "React: data fetching results in type error: object is not a function",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2021-07-12T10:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>React: data fetching results in type error: object is not a function</h1>
+
+<time datetime="2021-07-12">12 Jul 2021</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/indigotree/" class="post-tag">indigotree</a>
+
+<p><strong>Sometimes I get frustrated with React, there can still sometimes be obscure errors that are a result of it's component lifecycle methods. But at least it means I can tell you about how to avoid them ...</strong></p>
+<p>Take a look at this code a second. There's nothing wrong with the fetch() resolution, the API works fine. There's nothing wrong with the render method either.</p>
+<p>But if you try to run this code you'll get some error like <code>Error: Objects are not valid as a React child (found: [object Promise])</code>.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getFacts</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://cat-fact.herokuapp.com/facts/random?amount=10"</span><span class="token punctuation">)</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>‘error’<span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">const</span> facts <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token keyword">return</span> facts<br><span class="token punctuation">}</span><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> facts <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getFacts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>div<span class="token operator">></span><br>    <span class="token punctuation">{</span>facts <span class="token operator">&amp;&amp;</span> facts<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">fact</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>      <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span>fact<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">></span>test<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>  <span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>The problem is that the data you fetched isn't consumed by the components' lifecycle. Yet there's nothing to tell you that in the error. Here's what you need to do to resolve it:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><br><br><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getFacts</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://cat-fact.herokuapp.com/facts/random?amount=10"</span><span class="token punctuation">)</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>‘error’<span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">const</span> facts <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token keyword">return</span> facts<br><span class="token punctuation">}</span><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>facts<span class="token punctuation">,</span> setFacts<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token function">getFacts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">facts</span> <span class="token operator">=></span> <span class="token function">setFacts</span><span class="token punctuation">(</span>facts<span class="token punctuation">)</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>  <span class="token keyword">return</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>div<span class="token operator">></span><br>    <span class="token punctuation">{</span>facts <span class="token operator">&amp;&amp;</span> facts<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">fact</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>      <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span>fact<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">></span>test<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><br>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>  <span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>You see that we imported the <code>useEffect</code> and <code>useState</code> hooks, then when the component mounts, we fetch the data, and pass it to state using <code>setFacts</code>.</p>
+<p>Now, once the data has been retrieved, you won't get that error any more.</p>
+<p>It's a simple fix for an issue that wouldn't have occurred except for the fact that we're in React, and we need to respect the React component lifecycle, and it's way of handling data. We can't fetch data and assume we can just use it.</p>
+<p>When in Rome ...</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/why-astro-matters/">Why Astro matters</a></li><li>Previous: <a href="/posts/lowest-tech-first/">Lowest tech first</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

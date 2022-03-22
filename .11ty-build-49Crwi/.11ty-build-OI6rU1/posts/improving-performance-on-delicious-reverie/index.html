@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improving Performance on Deliciousreverie.co.uk</title>
+    <meta name="description" content="I can&#39;t possibly think I could get away with a post about performance when my own site wasn&#39;t as spot-on as I could get. So I&#39;ve been spending a bit of time investigating how to reduce my load times. This is what I found out and how I implemented it">
+    <meta property="og:site_name" content="Improving Performance on Deliciousreverie.co.uk">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I can&#39;t possibly think I could get away with a post about performance when my own site wasn&#39;t as spot-on as I could get. So I&#39;ve been spending a bit of time investigating how to reduce my load times. This is what I found out and how I implemented it">
+    <meta property="og:title" content="Improving Performance on Deliciousreverie.co.uk" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Improving Performance on Deliciousreverie.co.uk" />
+    <meta
+      name="twitter:description"
+      content="I can&#39;t possibly think I could get away with a post about performance when my own site wasn&#39;t as spot-on as I could get. So I&#39;ve been spending a bit of time investigating how to reduce my load times. This is what I found out and how I implemented it"
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Improving Performance on Deliciousreverie.co.uk",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-10-06T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Improving Performance on Deliciousreverie.co.uk</h1>
+
+<time datetime="2015-10-06">06 Oct 2015</time><a href="/tags/performance/" class="post-tag">performance</a>
+
+<p><strong>I can't possibly think I could get away with <a href="https://deliciousreverie.co.uk/post/why-performance-matters" title="Why Performance Matters on deliciousreverie.co.uk">a post about performance</a> when my own site wasn't as spot-on as I could get. So I've been spending a bit of time investigating how to reduce my load times. This is what I found out and how I implemented it.</strong></p>
+<p>I built this site in December 2014 when I was on paternity leave. Now that my little bairn is finally sleeping through the night I can look at my code again through significantly less zombified eyes. I found a few things I'd like to improve on, namely:</p>
+<ol>
+<li>Reduce unused DOM elements</li>
+<li>Use non-blocking HTTP requests (at least on the home page)</li>
+<li>Streamline my CSS</li>
+</ol>
+<p>Let's break down each of these and see what can be done to improve them.</p>
+<h3 id="reducing-unused-dom-elements" tabindex="-1">Reducing unused DOM elements <a class="direct-link" href="#reducing-unused-dom-elements" aria-hidden="true">#</a></h3>
+<p>When I built this site, I originally envisioned a main (central) content area, with sidebars of supplementary content. But at the time, I was beginning to realise <a href="https://deliciousreverie.co.uk/blog/post.php?s=2015-03-23-normal-people-dont-understand-sidebars" title="Normal People Don't Understand Sidebars on deliciousreverie.co.uk">that normal people don't understand sidebars</a>.</p>
+<p>I have since decided to just focus on delivering good content in a branded experience. That's the core of what I wanted to achieve here.</p>
+<p>So the sidebar elements are gone, along with their CSS.</p>
+<h3 id="use-non-blocking-http-requests" tabindex="-1">Use non-blocking HTTP requests <a class="direct-link" href="#use-non-blocking-http-requests" aria-hidden="true">#</a></h3>
+<p>My CSS is pretty important to the experience of the site, but I'm aware that by linking to an external stylesheet in the header was creating an extra round-trip for the browser before the content could be rendered.</p>
+<p>Since my CSS is pretty lean on this project (119 lines, 2kb uncompressed or minified), I opted not to use a Taskrunner tool but instead use a PHP include instead:</p>
+<pre class="language-php"><code class="language-php"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">include</span> <span class="token string single-quoted-string">'assets/css/deliciousreverie.min.css'</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<p>I have a unique header file for the home page, so on my other pages, the header still renders via 'perch_get_css' as normal.</p>
+<p>If my CSS code was much larger, I would find a tool to identify all necessary &quot;above-the-fold&quot; css and abstract that out into a separate CSS file for inclusion.</p>
+<h3 id="3.-streamline-css" tabindex="-1">3. Streamline CSS <a class="direct-link" href="#3.-streamline-css" aria-hidden="true">#</a></h3>
+<p>I have tended to use normalize.css to standardise delivery of my site across different browsers, just because I thought that's what everybody else did.</p>
+<p>However, after having a chat to someone I admire, I realised that following the crowd in this instance was costing me in terms of performance.</p>
+<p>When you include something like normalise.css, you're adding extra work for the browser to parse, often without rendering much of it. And you're potentially adding an extra CSS overwrite to your styles. For instance, if you want a unique checkbox input style, normalise already includes one extra style. So now we have 3 different renders: 1) The User Agent (browser) styles, 2) Normalize styles, 3) Your styles.</p>
+<p>I've made a promise with myself to look at the source code of these libraries before I make any assumptions about what I should include in my builds in the future!</p>
+<h3 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h3>
+<p>I've gained some great results from these excercises:</p>
+<p><img src="/img/straight-a.png" alt="Web Page Test shows many 'A's"></p>
+<p>Seeing this result on <a href="www.webpagetest.org/" title="Web Page Test speed testing site">Web Page Test</a> was a big encouragement to me:- I had achieved much of what I wanted to.</p>
+<p>I'm especially proud of the fact that I have no images at all on my home page. The render chart is similarly encouraging:</p>
+<p><img src="/img/onesecond.png" alt="My site loads in 1.1 seconds!!"></p>
+<p><img src="/img/bytesized.png" alt="Fonts make up 92% of the size of my site. Wow."></p>
+<p>As you can see here, I have made some huge sacrifices for including three Google fonts. On the other hand, I have had a big win with regards to images, it feels nice to splash out a bit on this form of branding.</p>
+<p>So, great. For my next challenge I want to see what I can do to streamline Wordpress. Whilst I don't think you can ever get as good results from that CMS as Perch allows you to, I'm sure I can think of some ways of getting better results.</p>
+<p>What results have you had from taking a closer look at the performance of your site? I'd love to hear what you come up with - please tweet me on <a href="https://twitter.com/muzzlehatch_" title="Ben Read on Twitter">@muzzlehatch_</a>!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/why-performance-matters/">Why Performance Matters</a></li><li>Previous: <a href="/posts/what-i-learned-this-year/">What I learned this year</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

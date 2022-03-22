@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The JavaScript CMS Landscape</title>
+    <meta name="description" content="I&#39;ve been keenly interested in a specific subset of CMSes since about 2 years ago, when it became clear that Zopa would soon need to invest in one, and that I would be involved in choosing something that would be a good fit for the company. This post is a roundup of some of the great products available, and is the result of some of the research and proofs-of-concept I have made.">
+    <meta property="og:site_name" content="The JavaScript CMS Landscape">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;ve been keenly interested in a specific subset of CMSes since about 2 years ago, when it became clear that Zopa would soon need to invest in one, and that I would be involved in choosing something that would be a good fit for the company. This post is a roundup of some of the great products available, and is the result of some of the research and proofs-of-concept I have made.">
+    <meta property="og:title" content="The JavaScript CMS Landscape" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="The JavaScript CMS Landscape" />
+    <meta
+      name="twitter:description"
+      content="I&#39;ve been keenly interested in a specific subset of CMSes since about 2 years ago, when it became clear that Zopa would soon need to invest in one, and that I would be involved in choosing something that would be a good fit for the company. This post is a roundup of some of the great products available, and is the result of some of the research and proofs-of-concept I have made."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "The JavaScript CMS Landscape",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-11-23T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>The JavaScript CMS Landscape</h1>
+
+<time datetime="2020-11-23">23 Nov 2020</time><a href="/tags/javascript/" class="post-tag">javascript</a><a href="/tags/cms/" class="post-tag">cms</a><a href="/tags/content-management/" class="post-tag">content management</a>
+
+<p><strong>I've been keenly interested in a specific subset of CMSes since about 2 years ago, when it became clear that Zopa would soon need to invest in one, and that I would be involved in choosing something that would be a good fit for the company. This post is a roundup of some of the great products available, and is the result of some of the research and proofs-of-concept I have made.</strong></p>
+<p>The requirements I had for my search were:</p>
+<ul>
+<li>Has to be self-hosted, open source, so we can secure our perimeter</li>
+<li>Needs to be maintainable by an internal team of JavaScript developers</li>
+<li>Needs to be headless (in order to render the frontend in an existing JavaScript application)</li>
+</ul>
+<p>I had a separate search for a hosted platform-as-a-service which I executed in parallel, but my personal interest is more towards the open source community, hence the focus of this blog post.</p>
+<h2 id="1.-ghost" tabindex="-1">1. Ghost <a class="direct-link" href="#1.-ghost" aria-hidden="true">#</a></h2>
+<p>Ghost seems like the grandaddy of JavaScript CMSes. Their version 3, which was launched about a year ago, was fully API-enabled, allowing it to be used as a headless CMS.</p>
+<p>Ghost was built out of dissatisfaction with the WordPress technology stagnation if I remember correctly, but it's grown far past that to become a slick, comfortable and beautiful interface for building simple blogs.</p>
+<p><strong>Pros:</strong> Wonderful editing experience<br>
+<strong>Cons:</strong> Not very extendable in terms of custom fields and content types<br>
+<strong>Link:</strong> <a href="https://ghost.org">https://ghost.org</a></p>
+<h2 id="2.-strapi" tabindex="-1">2. Strapi <a class="direct-link" href="#2.-strapi" aria-hidden="true">#</a></h2>
+<p>I've watched Strapi go from an early Alpha state to a mature product with an international team, and that's been very rewarding to see. The UI is really great with a lot of integrations, and they're constantly working on new plugins and features that enrich your experience.</p>
+<p>I was particularly pleased that they continue to improve on their Gatsby integrations, but there's one thing that I hope they're able to resolve in the short term: transforming data in their Gatsby examples is done on the frontend, when it can be done in the Node process.</p>
+<p><strong>Pros:</strong> Very adaptable and customizable<br>
+<strong>Cons:</strong> You only get 3 roles on the free tier (unless your OSS or a student), their GatsbyJS examples don't demonstrate how to transform data on the server<br>
+<strong>Link:</strong> <a href="https://strapi.io">https://strapi.io</a></p>
+<h2 id="3:-webiny" tabindex="-1">3: Webiny <a class="direct-link" href="#3:-webiny" aria-hidden="true">#</a></h2>
+<p>Webiny is a lot more than a CMS, in fact, the CMS aspect is just one of the plugins for this incredible serverless framework. And honestly, Webiny does showcase some of the fancy things that become possible with serverless, and also levels out a lot of that road for newer developers.</p>
+<p>If you're interested in serverless architecture, definitely give Webiny a look.</p>
+<p><strong>Pros:</strong> Serverless, so expect a lot of free hosting. A great way to learn the serverless architecture paradigm<br>
+<strong>Cons:</strong> Recommends use of gatsby-source-graphql plugin, which doesn't have access to nodes at build time. As a result, data transforming must be done on the frontend :-(<br>
+<strong>Link:</strong> <a href="https://webiny.com">https://webiny.com</a></p>
+<h2 id="4:-keystone" tabindex="-1">4: Keystone <a class="direct-link" href="#4:-keystone" aria-hidden="true">#</a></h2>
+<p>I haven't spent any time with Keystone, but Wes Bos hails it's solid role-based access and easy deployment features. I'll update this post when I've had a chance to play with it.</p>
+<p><strong>Pros:</strong> Role based access, easy deployment<br>
+<strong>Cons:</strong> // TODO: try this app and update this blog post<br>
+<strong>Link:</strong> <a href="https://www.keystonejs.com">https://www.keystonejs.com</a></p>
+<h2 id="5.-apostrophe" tabindex="-1">5. Apostrophe <a class="direct-link" href="#5.-apostrophe" aria-hidden="true">#</a></h2>
+<p>Apostrophe only just fits onto this list because it's a full-stack CMS with a Headless plugin ... which is just fine, but it's an interesting choice. The presence of plugins like this one gives me confidence this is a mature app that has a solid future. Again, I haven't tried it out, but I will report back when I have.</p>
+<p>The marketing talks about &quot;in-context editing&quot;, but I'm not sure this refers to headless mode or not (edit: it's not) ... if it is, this could be a killer feature.</p>
+<p><strong>Pros:</strong> // TODO: try this app and update this blog post<br>
+<strong>Cons:</strong> // TODO: try this app and update this blog post<br>
+<strong>Link:</strong> <a href="https://apostrophecms.com">https://apostrophecms.com</a></p>
+<h2 id="6.-payload" tabindex="-1">6. Payload <a class="direct-link" href="#6.-payload" aria-hidden="true">#</a></h2>
+<p>I heard about this newcomer on the scene only a few days ago, but the value proposition made sense to me. The UI is very minimal, on the basis that you'll want to customize it significantly. Their strongest feature is that there are hooks for every action, so you can extend the functionality very easily, and the initial codebase you see is <em>extremely</em> minimal.</p>
+<p><strong>Pros:</strong> // TODO: try this app and update this blog post<br>
+<strong>Cons:</strong> // TODO: try this app and update this blog post<br>
+<strong>Link:</strong> <a href="https://payloadcms.com">https://payloadcms.com</a></p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h2>
+<p>JavaScript, particularly on the server, is still a new language, but it's incredible that we have so much variety in tooling available to us already.</p>
+<p>I've been keenly interested in how the CMS market has developed: I was initially afraid that hosted platforms would gobble up all of the market share and there would be no room left for open-source options. I'm glad to say this hasn't happened, and we have the freedom to choose between hosted platforms and these more maintenance-heavy but intrinsically open apps.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/2020-review-2021-aims/">2020 Review / 2021 Aims</a></li><li>Previous: <a href="/posts/three-ui-component-conundrums/">Three UI Component Conundrums</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+/post/*  /posts/:splat 301
+/post  /posts 301
+
+https://jsenabled.deliciousreverie.co.uk/* https://deliciousreverie.co.uk/:splat 301!

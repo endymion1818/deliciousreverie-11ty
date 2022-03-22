@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: React Accessibility</title>
+    <meta name="description" content="In the recent past, I&#39;ve heard React being criticised for not being accessible, or for allowing practices that don&#39;t help developers think about accessibility. I have to disagree.">
+    <meta property="og:site_name" content="Published Article: React Accessibility">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="In the recent past, I&#39;ve heard React being criticised for not being accessible, or for allowing practices that don&#39;t help developers think about accessibility. I have to disagree.">
+    <meta property="og:title" content="Published Article: React Accessibility" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: React Accessibility" />
+    <meta
+      name="twitter:description"
+      content="In the recent past, I&#39;ve heard React being criticised for not being accessible, or for allowing practices that don&#39;t help developers think about accessibility. I have to disagree."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: React Accessibility",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-12-24T11:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: React Accessibility</h1>
+
+<time datetime="2018-12-24">24 Dec 2018</time><a href="/tags/accessibility/" class="post-tag">accessibility</a><a href="/tags/react/" class="post-tag">react</a><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/published-articles/" class="post-tag">published articles</a>
+
+<p><strong>In the recent past, I've heard React being criticised for not being accessible, or for allowing practices that don't help developers think about accessibility.</strong></p>
+<p>I have to disagree.</p>
+<p>Just like any other frontend code, working with React in an accessible way requires some forethought.</p>
+<p>One of the common mistakes I've seen is that we sometimes put click events on non-semantic elements. It's true, React makes it very easy to put a click event on any dom element.</p>
+<p>I think one of the reasons for this is that with React, our JavaScript is our single source of truth, so we tend to think in JavaScript. One DOM element is like any other DOM element, and they all can be manipulated in much the same way.</p>
+<p>However, if we're thinking about accessibility, we're committing ourselves <em>before we start coding</em>, that we're going to do things the right way, including using semantic elements. If we do this, we'll ensure we assign a click event to a semantic element to start with - a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> tag - or we'll do all the extra legwork that's required to make up for it.</p>
+<h2 id="encourage-accessibility-in-components" tabindex="-1">Encourage Accessibility in Components <a class="direct-link" href="#encourage-accessibility-in-components" aria-hidden="true">#</a></h2>
+<p>Another way to encourage others using your components to think in an accessible way is to compose components to include accessibility features. For example, this component passes down a prop that's an image source.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>prop<span class="token punctuation">.</span>imgurl<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span></code></pre>
+<p>What are we missing here? The <code>alt</code> attribute. How do we encourage accessibility in this instance? Wrap the component in a conditional, so that it doesn't render without the alt tag:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>imgalt <span class="token operator">?</span> <span class="token punctuation">(</span><br>    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>prop<span class="token punctuation">.</span>imgurl<span class="token punctuation">}</span> alt<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>imgalt<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><br>  <span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">null</span><br><span class="token punctuation">}</span></code></pre>
+<p>You could go a bit further with this, and check that the <code>length</code> of <code>imgalt</code> is greater than 0.</p>
+<h2 id="it-starts-and-ends-with-accessibility" tabindex="-1">It Starts &amp; Ends With Accessibility <a class="direct-link" href="#it-starts-and-ends-with-accessibility" aria-hidden="true">#</a></h2>
+<p>Just as our thinking process starts with the commitment to code with accessibility in mind, our launched product should finish with accessibility. So test your assumptions:- did you really build an accessible site or app?</p>
+<p>Use software to test what you can. But better than that: connect with people you know. Take your product to your friends and relatives or your audience. How do they get on using it?</p>
+<p>React has plenty of built-in support for building things in an accessible way. Check out the documentation at <a href="https://reactjs.org/docs/accessibility.html">https://reactjs.org/docs/accessibility.html</a>.</p>
+<p>The question is, will you make that commitment to yourself, and the people who will use your site?</p>
+<p>This article was first published in Net Magazine.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/2018-review-2019-aims/">2018 Review / 2019 Aims</a></li><li>Previous: <a href="/posts/send-your-blogs/">Send Your Blogs!</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

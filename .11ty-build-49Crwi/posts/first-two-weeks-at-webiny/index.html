@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First 2 weeks at Webiny</title>
+    <meta name="description" content="I&#39;ve been at Webiny two weeks now. I have had the most fun I&#39;ve had in a long time career wise. Here&#39;s what I&#39;ve learned and what my objectives are going to be for the coming few weeks.">
+    <meta property="og:site_name" content="First 2 weeks at Webiny">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;ve been at Webiny two weeks now. I have had the most fun I&#39;ve had in a long time career wise. Here&#39;s what I&#39;ve learned and what my objectives are going to be for the coming few weeks.">
+    <meta property="og:title" content="First 2 weeks at Webiny" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="First 2 weeks at Webiny" />
+    <meta
+      name="twitter:description"
+      content="I&#39;ve been at Webiny two weeks now. I have had the most fun I&#39;ve had in a long time career wise. Here&#39;s what I&#39;ve learned and what my objectives are going to be for the coming few weeks."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "First 2 weeks at Webiny",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2022-03-11T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>First 2 weeks at Webiny</h1>
+
+<time datetime="2022-03-11">11 Mar 2022</time><a href="/tags/career-development/" class="post-tag">career development</a><a href="/tags/personal-goals/" class="post-tag">personal goals</a>
+
+<p><strong>I've been at Webiny two weeks now. I have had the most fun I've had in a long time career wise. Here's what I've learned and what my objectives are going to be for the coming few weeks.</strong></p>
+<p>The first week at any company is always difficult. There's so much to learn, there's a new culture to adopt, and new personal dynamics to interact with. First steps always falter. But now, two weeks in, I'm beginning to feel more confident. I've made some contributions that I'm happy with, and I'm already feeling more settled with my decision to move.</p>
+<p>I don't quite know what I was expecting from Webiny. I already knew the people here a little, and the reason I joined was because I could see such potential in the project. But looking in from the outside you can never get the whole picture.</p>
+<p>I went in with ideas about organising campaigns, streamlining delivery of content across multiple platforms, doing SWOT analyses, doing some video content ... but when I stepped aboard, I found out that this is a really focused company. They have one product, one target market, and they want to fulfil the requirements of that market well. Through experimenting they'd already found out what works, and have a good idea of what is going to drive engagement, adoption and growth. Which is really reassuring for me: I don't have to start at &quot;why&quot;, nor do I need to define &quot;how&quot;, I only have to &quot;do&quot;.</p>
+<p>My first task was outlined pretty quickly: Build some starter kits with popular frontend frameworks. This would help me get used to using the Headless CMS part of Webiny (Webiny is much more than that, but we'll get to that later), give the company some more inbound links from authoritative domains, and help with user onboarding. It also would leverage my familiarity with these frameworks.</p>
+<p>I quickly found a bug: we have a custom rich text renderer package for React, which didn't compile to common javascript, which meant I couldn't use it in Next. This was a great opportunity to make my first contribution to Webiny!</p>
+<p>I struggled with figuring out how to customise our babel configuration, and Pavel, the CTO, helped me get through some silly misunderstanding I had about how to do that: how do you customise this babel configuration so that it overrides just this package, not any of the others in our monorepo?</p>
+<pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"../../babel.react"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">path</span><span class="token operator">:</span> __dirname<span class="token punctuation">,</span><br> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>The answer is simply this:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> defaults <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"../../.babel.react"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">path</span><span class="token operator">:</span> __dirname<span class="token punctuation">,</span><br> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><br> module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>     <span class="token operator">...</span>defaults<span class="token punctuation">,</span><br>     <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>         <span class="token operator">...</span>defaults<span class="token punctuation">.</span>plugins<span class="token punctuation">,</span><br>         <span class="token string">"@babel/plugin-transform-modules-commonjs"</span><span class="token punctuation">,</span><br>     <span class="token punctuation">]</span><br> <span class="token punctuation">}</span></code></pre>
+<p>Pavel and I laughed about how this got me, and thats pretty indicative of the whole team; they've been welcoming, supportive and not critical of my mistakes. Of course, if I was a burden on the team I would expect there to be some further discussions, but you can anticipate a few teething problems from new team mates.</p>
+<h2 id="contributing-to-open-source-again" tabindex="-1">Contributing to open source again <a class="direct-link" href="#contributing-to-open-source-again" aria-hidden="true">#</a></h2>
+<p>Contributing to open source is just ... so satisfying. I built something I was pretty proud of at Purplebricks, but it's something I can't even show you, and the code is lost to me. I'm pretty sad about that situation.</p>
+<p>On the other hand, I've already made contributions to 2 Webiny repos, and have a draft PR open on NextJS docs. Because it's all public, it seems to me that this code is going to endure and be useful to other people. That is a great motivator for me.</p>
+<h2 id="community-interaction" tabindex="-1">Community interaction <a class="direct-link" href="#community-interaction" aria-hidden="true">#</a></h2>
+<p>The other thing I've been excited about is getting more involved in the community via the Slack channel, it's been great to chat to other developers interested in Webiny, and it's helped me build my domain knowledge too.</p>
+<p>But much more than that, I've been engaging on Discord servers, on Slack via <a href="https://www.tnd.dev/">The New Dynamic</a>'s community, as well as HackerNews, Reddit and in other places too.</p>
+<p>This has been great fun so far. I know I can't expect every interaction to be positive, but most are. This kind of community engagement scratches the itch I had before, when I wasn't just helping developers out with specific problems but seeing if I could raise a few eyes to the horizon, to see potential where they hadn't before, and to try new things.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h2>
+<p>First two weeks, as you see here, has been extremely positive. I'm really excited to see where Webiny as a product goes. Also, I'm blogging again ... which means things are looking up for my mental health.</p>
+
+<hr>
+<ul><li>Previous: <a href="/posts/testing-apollo-client-mock-provider/">Testing with Apollo Client mock provider</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

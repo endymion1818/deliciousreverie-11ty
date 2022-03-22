@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning serverless with Webiny</title>
+    <meta name="description" content="Webiny is a new CMS in the market, one that seeks to compete with other well-established headless CMS platforms and existing apps. But I&#39;ve also come to enjoy using it for another reason...">
+    <meta property="og:site_name" content="Learning serverless with Webiny">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Webiny is a new CMS in the market, one that seeks to compete with other well-established headless CMS platforms and existing apps. But I&#39;ve also come to enjoy using it for another reason...">
+    <meta property="og:title" content="Learning serverless with Webiny" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Learning serverless with Webiny" />
+    <meta
+      name="twitter:description"
+      content="Webiny is a new CMS in the market, one that seeks to compete with other well-established headless CMS platforms and existing apps. But I&#39;ve also come to enjoy using it for another reason..."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Learning serverless with Webiny",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-04-03T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Learning serverless with Webiny</h1>
+
+<time datetime="2020-04-03">03 Apr 2020</time><a href="/tags/serverless/" class="post-tag">serverless</a><a href="/tags/cms/" class="post-tag">cms</a>
+
+<p><strong>Webiny is a new CMS in the market, one that seeks to compete with other well-established headless CMS platforms and existing apps. But I've also come to enjoy using it for another reason: it's helping me learn how to apply principles of Serverless application architecture.</strong></p>
+<p>I've spent a great deal of time over the past 2 years around the CMS space. I am particularly focused in self-hosted, javascript-based CMSes. I had already created sites with both Ghost and Strapi, two very competent systems with content APIs.</p>
+<p>Very recently, I came across Webiny, a hosted platform which recently pivoted to become a self-hosted product, and which has the interesting selling proposition of being a &quot;serverless&quot; CMS.</p>
+<h2 id="why-i-think-serverless-matters" tabindex="-1">Why I think serverless matters <a class="direct-link" href="#why-i-think-serverless-matters" aria-hidden="true">#</a></h2>
+<p>There's a lot of buzz around the word &quot;serverless&quot; in my world recently, and for good reasons. Although some are keen to point out that the term doesn't technically mean you're not using servers, it does have the strong advantage that you only pay for what you use, and if you don't exceed often generous free initial offerings, you don't pay for the product ... at all.</p>
+<p>This is how Heroku got so popular. It can afford to give you the space to create an app, knowing that past a certain point it can be destroyed, saving on computing expenses. Your app can then be spun up at some point in the future when called upon at the cost of a minute of two of time.</p>
+<p>Companies today spend a huge amount of money running servers constantly, even when there's nobody using their services. Imagine if you didn't have to pay for that downtime?</p>
+<p>That's why I think serverless is going to become an increasingly large player in the devops space in the next few years.</p>
+<h2 id="webiny:-truly-&quot;serverless&quot;" tabindex="-1">Webiny: truly &quot;serverless&quot;? <a class="direct-link" href="#webiny:-truly-&quot;serverless&quot;" aria-hidden="true">#</a></h2>
+<p>Unless your CMS is git-based tool, such as NetlifyCMS, Tina or Forestry, your content needs to be stored on a database somewhere. And therein lies a weakness of any CMS: it depends on writes to one single database, which you could argue doesn't scale hugely well.</p>
+<p>Webiny is no exception: it has connectors for different databases, and I've used Mongo's hosted service &quot;Atlas&quot; for mine. However does that mean it doesn't truly fit into the &quot;serverless&quot; paradigm?</p>
+<p>I would argue that it does. And this reveals some of the underlying arguments around the semantics of what &quot;serverless&quot; means. To some people, the term only refers to lambda functions, and not to other things like the authentication service, or the file storage system.</p>
+<p>However, for me, &quot;serverless&quot; means a disparate collection of interrelated services, tied together by common use. By this definition, the file storage system, the authentication service, the database, and everything else, constitutes a serverless application ... i mean, tool ... I mean, whatever.</p>
+<h2 id="how-webiny-helped-me-learn-about-serverless" tabindex="-1">How Webiny helped me learn about serverless <a class="direct-link" href="#how-webiny-helped-me-learn-about-serverless" aria-hidden="true">#</a></h2>
+<p>Although you can create serverless applications using the online interfaces given to you by different providers, it's real strength is in allowing you to programmatically create your services as you go.</p>
+<p>This is incredibly powerful. Here's my Webiny application code:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> webiny<span class="token punctuation">-</span>apps<span class="token punctuation">-</span>xxxxxxx<br><br><span class="token key atrule">vars</span><span class="token punctuation">:</span><br>  <span class="token key atrule">region</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>env.AWS_REGION<span class="token punctuation">}</span><br><br><span class="token key atrule">site</span><span class="token punctuation">:</span><br>  <span class="token key atrule">component</span><span class="token punctuation">:</span> <span class="token string">"@webiny/serverless-app"</span><br>  <span class="token key atrule">inputs</span><span class="token punctuation">:</span><br>    <span class="token key atrule">description</span><span class="token punctuation">:</span> Webiny Site<br>    <span class="token key atrule">region</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>vars.region<span class="token punctuation">}</span><br>    <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token number">128</span><br>    <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">30</span><br>    <span class="token key atrule">code</span><span class="token punctuation">:</span> ./site/build<br>    <span class="token key atrule">env</span><span class="token punctuation">:</span><br>      <span class="token key atrule">SSR_FUNCTION</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>ssr.name<span class="token punctuation">}</span><br><br><span class="token key atrule">ssr</span><span class="token punctuation">:</span><br>  <span class="token key atrule">component</span><span class="token punctuation">:</span> <span class="token string">"@webiny/serverless-function"</span><br>  <span class="token key atrule">inputs</span><span class="token punctuation">:</span><br>    <span class="token key atrule">description</span><span class="token punctuation">:</span> Site SSR<br>    <span class="token key atrule">region</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>vars.region<span class="token punctuation">}</span><br>    <span class="token key atrule">hook</span><span class="token punctuation">:</span> yarn build<span class="token punctuation">:</span>$<span class="token punctuation">{</span>cli.env<span class="token punctuation">}</span><br>    <span class="token key atrule">root</span><span class="token punctuation">:</span> ./site<br>    <span class="token key atrule">code</span><span class="token punctuation">:</span> ./site/build<span class="token punctuation">-</span>ssr<br>    <span class="token key atrule">handler</span><span class="token punctuation">:</span> handler.handler<br>    <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token number">2048</span><br>    <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">30</span><br><br><span class="token key atrule">admin</span><span class="token punctuation">:</span><br>  <span class="token key atrule">component</span><span class="token punctuation">:</span> <span class="token string">"@webiny/serverless-app"</span><br>  <span class="token key atrule">inputs</span><span class="token punctuation">:</span><br>    <span class="token key atrule">region</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>vars.region<span class="token punctuation">}</span><br>    <span class="token key atrule">description</span><span class="token punctuation">:</span> Webiny Admin<br>    <span class="token key atrule">hook</span><span class="token punctuation">:</span> yarn build<span class="token punctuation">:</span>$<span class="token punctuation">{</span>cli.env<span class="token punctuation">}</span><br>    <span class="token key atrule">root</span><span class="token punctuation">:</span> ./admin<br><br><span class="token key atrule">api</span><span class="token punctuation">:</span><br>  <span class="token key atrule">component</span><span class="token punctuation">:</span> <span class="token string">"@webiny/serverless-api-gateway"</span><br>  <span class="token key atrule">inputs</span><span class="token punctuation">:</span><br>    <span class="token key atrule">name</span><span class="token punctuation">:</span> Apps Gateway<br>    <span class="token key atrule">binaryMediaTypes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"*/*"</span><span class="token punctuation">]</span><br>    <span class="token key atrule">description</span><span class="token punctuation">:</span> Serverless React Apps<br>    <span class="token key atrule">endpoints</span><span class="token punctuation">:</span><br>      <span class="token punctuation">-</span> <span class="token key atrule">path</span><span class="token punctuation">:</span> /admin/<span class="token punctuation">{</span>key+<span class="token punctuation">}</span><br>        <span class="token key atrule">method</span><span class="token punctuation">:</span> GET<br>        <span class="token key atrule">function</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>admin<span class="token punctuation">}</span><br>      <span class="token punctuation">-</span> <span class="token key atrule">path</span><span class="token punctuation">:</span> /admin<br>        <span class="token key atrule">method</span><span class="token punctuation">:</span> GET<br>        <span class="token key atrule">function</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>admin<span class="token punctuation">}</span><br>      <span class="token punctuation">-</span> <span class="token key atrule">path</span><span class="token punctuation">:</span> /<span class="token punctuation">{</span>key+<span class="token punctuation">}</span><br>        <span class="token key atrule">method</span><span class="token punctuation">:</span> GET<br>        <span class="token key atrule">function</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>site<span class="token punctuation">}</span><br>      <span class="token punctuation">-</span> <span class="token key atrule">path</span><span class="token punctuation">:</span> /<br>        <span class="token key atrule">method</span><span class="token punctuation">:</span> GET<br>        <span class="token key atrule">function</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>site<span class="token punctuation">}</span><br><br><span class="token key atrule">cdn</span><span class="token punctuation">:</span><br>  <span class="token key atrule">component</span><span class="token punctuation">:</span> <span class="token string">"@webiny/serverless-aws-cloudfront"</span><br>  <span class="token key atrule">inputs</span><span class="token punctuation">:</span><br>    <span class="token key atrule">origins</span><span class="token punctuation">:</span><br>      <span class="token punctuation">-</span> <span class="token key atrule">url</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>api.url<span class="token punctuation">}</span><br></code></pre>
+<p>I'm not going to break down everything, but you might be able to recognise different services for &quot;site&quot;, &quot;ssr&quot;, &quot;admin&quot;, &quot;api&quot; and &quot;cdn&quot;, etc, which are variously the API gateway, the admin interface, the frontend static site, and some lambda functions.</p>
+<p>They all tie together to make the backend interface work, and to compile a static site hosted on S3.</p>
+<p>And if I log into my AWS dashboard, I can see these services there too ... I mention that just because I have a visual kind of brain.</p>
+<p>This idea, of &quot;infrastructure as code&quot; means your applications are truly portable: you can destroy it and re-create it from its blueprint using the code you've written.</p>
+<p>And with the amount I use my Webiny CMS, I'm probably not going to ever pay a thing for it.</p>
+<h2 id="try-it-out!" tabindex="-1">Try it out! <a class="direct-link" href="#try-it-out!" aria-hidden="true">#</a></h2>
+<p>I highly recommend giving Webiny a spin. The product is in early stages but is already quite promising. It's nice that as JavaScript developers, we have a good range of choice between this, the rising star Strapi, and the very mature Ghost.</p>
+<p>What do you think of it? Let me know!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/writing-tests-for-js-api-calls/">How to test JavaScript API Calls</a></li><li>Previous: <a href="/posts/website-longevity/">On website longevity</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

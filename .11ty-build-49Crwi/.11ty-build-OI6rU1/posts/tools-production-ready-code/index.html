@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools for Production Ready Code</title>
+    <meta name="description" content="Websites are great tools for communication, but it&#39;s remarkably easy to take them offline. For those organisations in which there&#39;s a huge financial investment and thousands — perhaps millions - of customers, reliability is a huge concern. The strategies and tools we are looking at here cover both prevention and resolution of problems that could occur to any website.">
+    <meta property="og:site_name" content="Tools for Production Ready Code">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Websites are great tools for communication, but it&#39;s remarkably easy to take them offline. For those organisations in which there&#39;s a huge financial investment and thousands — perhaps millions - of customers, reliability is a huge concern. The strategies and tools we are looking at here cover both prevention and resolution of problems that could occur to any website.">
+    <meta property="og:title" content="Tools for Production Ready Code" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Tools for Production Ready Code" />
+    <meta
+      name="twitter:description"
+      content="Websites are great tools for communication, but it&#39;s remarkably easy to take them offline. For those organisations in which there&#39;s a huge financial investment and thousands — perhaps millions - of customers, reliability is a huge concern. The strategies and tools we are looking at here cover both prevention and resolution of problems that could occur to any website."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Tools for Production Ready Code",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2020-10-14T11:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Tools for Production Ready Code</h1>
+
+<time datetime="2020-10-14">14 Oct 2020</time><a href="/tags/tools-and-processes/" class="post-tag">tools and processes</a><a href="/tags/devops/" class="post-tag">devops</a>
+
+<p><em><strong>A note about this article</strong>: This was a feature I wrote for Net magazine which was sadly closed down before it was published, so I published it on <a href="http://dev.to">dev.to</a> initially. It's aimed at people who want to get into devOps, or product owners who want to understand what it is they're getting themselves into. I hope it proves to be useful.</em></p>
+<p>Websites are great tools for communication, but it's remarkably easy to take them offline. One of the most panic-inducing moments for any operation can be that first call from a customer informing you that the site is down ... and then the next call, and then fifty more ... suddenly the company grinds to a halt until the problem can be fixed.</p>
+<p>Downtime might not be much of a problem for every site out there. If you take down your own personal blog for a few hours, it probably doesn't matter a huge amount. However, most companies and other organisations now depend upon their web sites being accessible 24 hours a day, 7 days a week. Any downtime for these organisations results in loss: the company could be losing money, critical information might not be reaching the right people in a disaster zone, or at the very least, the organisation's reputation is being eroded, minute by minute.</p>
+<p>For those organisations in which there's a huge financial investment and thousands — perhaps millions - of customers, reliability is a huge concern. There are now a large range of tools, products and - above all - strategies - for ensuring that if (or rather, <em>when</em>) something untoward happens, the right people can resolve the situation as quickly as possible.</p>
+<p>In this article we're going to provide some answers to these questions:</p>
+<ul>
+<li>How can we as development teams continue to offer high levels of confidence?</li>
+<li>How can we trust that new features are going to work as expected?</li>
+<li>What can we do to minimise issues that do occur?</li>
+<li>What steps can we take to make sure any unwanted surprises can be fixed quickly?</li>
+<li>How can we make sure that the duration of any downtime is as short as possible?</li>
+</ul>
+<p>We have at our fingertips a wealth of tools that can be added to a code base, and a process flow, to catch issues before they reach production ... and if they do reach production, to minimise the impact.</p>
+<p>The strategies and tools we're looking at here cover both prevention and resolution of problems that could occur to any web site, but with a focus on full-stack JavaScript.</p>
+<h2 id="situation:-when-javascript-fails" tabindex="-1"><strong>Situation:</strong> When JavaScript fails <a class="direct-link" href="#situation:-when-javascript-fails" aria-hidden="true">#</a></h2>
+<p>JavaScript is a dynamic language. It's great for coercing strings into numbers and back again. But sometimes this causes issues. We have to make sure that the values we're working with are of the same type, otherwise one error in the JavaScript code could break the site entirely.</p>
+<p>There have been a number of notable projects that make an effort to deal with this kind of problem by turning JavaScript from a <em>dynamic</em> to a <em>statically</em> typed language:</p>
+<h3 id="typescript-flow-or-reason" tabindex="-1">TypeScript, Flow or Reason <a class="direct-link" href="#typescript-flow-or-reason" aria-hidden="true">#</a></h3>
+<p>TypeScript and Flow are the two most popular ways of turning JavaScript into a statically-typed language. Both approaches are a superscript of JavaScript, which means your code needs to be transpiled back into normal JavaScript in order to work on the web.</p>
+<p><strong>TypeScript</strong> is run by Microsoft and is developed for building applications at scale. <strong>Flow</strong> is a great alternative with a similar api.</p>
+<p><strong>Reason</strong> is a more interpretive system that allows you to write very succinct type-safe code. There are a lot of features to this language that mean it can appear quite different to the JavaScript developers are used to writing.</p>
+<p>Neither tool is perfect: each of these languages still needs to be compiled to the kind of JavaScript that runs in browsers. Developers need to also adopt strategies to ensure that compiled code still coerces values correctly by writing functions that check types where it could be of an unexpected type, for example data being requested from a 3rd party via an API.</p>
+<h2 id="situation:-when-things-aren't-working-as-expected" tabindex="-1"><strong>Situation:</strong> When things aren't working as expected <a class="direct-link" href="#situation:-when-things-aren't-working-as-expected" aria-hidden="true">#</a></h2>
+<p>The development team stand back proudly, showing you the work they've done over the last three months. Their pride quickly melts into dismay as the stakeholders say, &quot;It wasn't supposed to work like that...!&quot; Suddenly, the team has some costly refactoring work to do.</p>
+<p>Assumptions are a development project's worst enemy. The more assumptions we make about how something is meant to work, the more risk we are creating. The best way to avoid assumptions is by investing time in gathering requirements and writing up clear documentation before any development work starts. If the documentation is loose, unclear or even non-existent, there will be a higher chance of something not working as expected.</p>
+<blockquote>
+<p>&quot;“Hell is other people’s undocumented assumptions.” — Nicole Fenton</p>
+</blockquote>
+<h3 id="project-management-tools" tabindex="-1">Project Management Tools <a class="direct-link" href="#project-management-tools" aria-hidden="true">#</a></h3>
+<p>Project management tools such as <strong>Trello</strong>, <strong>JIRA</strong>, <strong>Monday</strong> and others can be set up so that requirements can be clearly documented before project work can begin, and work can be broken down into manageable chunks. Some things that should be included in the documentation should include:</p>
+<ul>
+<li>Feature requirements</li>
+<li>Scope (what it should <em>not</em> include)</li>
+<li>UI Mockups</li>
+<li>Testing approach</li>
+</ul>
+<p>Documenting the features as a team can be instrumental in reducing undocumented assumptions, allowing the developer to write code relevant to solving the task in scope.</p>
+<p>For more information on this strategy, see the box &quot;Documenting Features&quot; below.</p>
+<div class="boxout">
+<h2 id="supplementary-info:-documenting-features" tabindex="-1"><strong>Supplementary info:</strong> Documenting Features <a class="direct-link" href="#supplementary-info:-documenting-features" aria-hidden="true">#</a></h2>
+<p>If you are able to find an issue early in the process then it costs far less time to fix than if you found it later on. For this reason, good documentation is key to having production ready code.</p>
+<p>Documenting a feature should include acceptance criteria, which forms the basis for integration or E2E tests, and can be written in the form of given - when - then statements, for example:</p>
+<p><strong>Given</strong> I am using the website<br>
+<strong>When</strong> I visit the signup page<br>
+<strong>Then</strong> I can create an account</p>
+<p>Here's another:</p>
+<p><strong>Given</strong> I am using the website<br>
+<strong>When</strong> I visit the signup page and have forgotten my password<br>
+<strong>Then</strong> I can reset my password</p>
+<p>The first part of the statement, <em>Given</em>, may sound a bit redundant at first, and it could be tempting to miss it out altogether. But it really helps to frame the feature and can become very useful as a reference point further on in the process.</p>
+<p>If the E2E tests fail against these acceptance criteria, the feature can be fixed or rethought.</p>
+</div>
+<h3 id="unit-tests" tabindex="-1">Unit tests <a class="direct-link" href="#unit-tests" aria-hidden="true">#</a></h3>
+<p>Unit tests using a testing library (such as <strong>Jest</strong>, <strong>Mocha</strong>, <strong>Chai</strong>, <strong>Jasmine</strong> or perhaps something else) are the foundation of developers being able to ensure things are working as they should. How you adopt this approach can vary, but production-ready code means there are at least tests for each possible outcome of the component.</p>
+<p>TDD, or test-driven development, means that a developer will write tests <em>before</em> they write the component they are building. This helps with conceptual thinking because the developer can have each outcome clearly in mind before they start writing code. This often results in less code refactors, and more optimal code that doesn't have as much legacy or unnecessary lines.</p>
+<p>For TDD to be effective, the component to be built needs to be planned carefully first.</p>
+<h2 id="situation:-when-your-users-do-something-you-didn't-expect" tabindex="-1"><strong>Situation:</strong> When your users do something you didn't expect <a class="direct-link" href="#situation:-when-your-users-do-something-you-didn't-expect" aria-hidden="true">#</a></h2>
+<p>The phrase &quot;expect the unexpected&quot; is most apt when used in connection with software and those who use it! Quite often, people using your software will be able to use things in a way you didn't anticipate. The best way to avoid this is to invite people to use the software before it's released to everyone.</p>
+<h3 id="quality-assurance-testing" tabindex="-1">Quality Assurance testing <a class="direct-link" href="#quality-assurance-testing" aria-hidden="true">#</a></h3>
+<p>QA Engineers can be viewed as the secret superpower of a development team. It's surprising how many times a good QA Engineer has saved a developer from themselves, or saved the development team from its own assumptions ... or even saved an entire business from its own good intentions. An on-hand QA Engineer is invaluable to a development team, but there are organisations you can contract who will run through your app and uncover issues you would never have been able to think up.</p>
+<p>Two of those companies are <strong>Global App Testing</strong> and <strong>User Testing</strong>. Both only have subscription plans. There might be others who can offer a one-off test of your app on a single payment basis.</p>
+<h3 id="user-acceptance-testing" tabindex="-1">User acceptance testing <a class="direct-link" href="#user-acceptance-testing" aria-hidden="true">#</a></h3>
+<p>Some companies have a &quot;UAT&quot; environment that serves as a staging ground for code that is a candidate for release to the production site. They can then use that environment to organise a group of people to come in from the public to give their opinions on a feature to be released. This gives some qualitative assurance that the feature works and is going to benefit the intended audience. There are a number of companies who organise the individuals to come and test the software, which would involve a fee for their time.</p>
+<p>To be safest, it's best that everything in the stack - the database, the external functions, the frontend, the authentication server, is duplicated for UAT. That way, the complete user journey can be tested in isolation from production. The result is that any errors in the code won't accidentally knock out a production service. UAT should be a safer environment for developers to take necessary risks.</p>
+<h3 id="multivariate-or-ab-testing" tabindex="-1">Multivariate, or A/B, Testing <a class="direct-link" href="#multivariate-or-ab-testing" aria-hidden="true">#</a></h3>
+<p>As well as qualitative testing (validating by quality), quantitative testing (validating by quantity) is also a good way of decreasing risk that a new feature could be causing a problem. Once <strong>Google Optimize</strong>, <strong>Optimizely</strong> or a similar tool are integrated with your site, you can release a new feature to a segment of your potential customers for a set period of time.</p>
+<p>Once there has been a significant enough amount of traffic, you can analyse the results and check if conversions are increasing, decreasing, or have stopped altogether, and if the results aren't positive, you can turn it off so that no further losses occur.</p>
+<h3 id="user-behaviour-monitoring" tabindex="-1">User behaviour monitoring <a class="direct-link" href="#user-behaviour-monitoring" aria-hidden="true">#</a></h3>
+<p>Getting an insight into user behaviour is invaluable to any experience. Tools like <strong>Hotjar</strong>, <strong>sessioncam</strong>, <strong>CrazyEgg</strong> and others record where the user clicks, and what journey they took through your site, which is particularly useful when introducing new user flows or features. However, these tools have a performance cost, and in my view shouldn't be left on indefinitely.</p>
+<p>Analytics tools such as <strong>Fathom</strong>, <strong>Google Analytics</strong> and others can also be a good source of insight into what could be breaking user flow. Some can even be set up to report activity you want to be monitored, for example if the number of 404 or 500 errors increases above a certain amount in a day or hour.</p>
+<h2 id="situation:-when-components-clash" tabindex="-1"><strong>Situation:</strong> When components clash <a class="direct-link" href="#situation:-when-components-clash" aria-hidden="true">#</a></h2>
+<p>The components we build for our websites might be perfectly built in themselves ... but what happens when we mix them with other components? This can often cause unexpected side effects that can crash your site or result in other issues or errors.</p>
+<p>For this reason, it's best to check beforehand how they integrate with other components, and whether your visitors can actually complete the tasks you want them to.</p>
+<h3 id="integration-testing" tabindex="-1">Integration testing <a class="direct-link" href="#integration-testing" aria-hidden="true">#</a></h3>
+<p>Often written in the same way as unit tests (see above), integration tests can be written for several components that are known to be used together, for example: input fields and a submit button.</p>
+<h3 id="end-to-end-testing" tabindex="-1">End-to-end testing <a class="direct-link" href="#end-to-end-testing" aria-hidden="true">#</a></h3>
+<p>Tools like <strong>Selenium</strong> (which is cross-platform) and <strong>Cypress</strong> (JavaScript) can test a user flow from beginning to end (hence the name). This type of tool is critical to ensuring users can complete their journey from first visiting a site, to checking out and paying for a product, or any other journey you might want someone to take.</p>
+<p>End-to-end tests can often be written by the developers but the journey, and each possible outcome, need to be planned by the development team.</p>
+<h2 id="situation:-when-you-need-to-roll-back-quickly" tabindex="-1"><strong>Situation:</strong> When you need to roll back quickly <a class="direct-link" href="#situation:-when-you-need-to-roll-back-quickly" aria-hidden="true">#</a></h2>
+<p>Exceptions in an application that are not caused by malicious intent or load are often caused by new releases. Debugging in production isn't something you ever want to do, so once the cause has been identified it's wise to roll back to the previous release. Then the development team can continue to work on a fix without impeding the business.</p>
+<p>Tools that store each built version of an application, such as <strong>JFrog's Artifactory</strong>, can ensure that the time to rollback is kept to the absolute minimum. When this has been configured, you don't need to rebuild the version you're rolling back to, which could take from several minutes to potentially hours.</p>
+<h2 id="situation:-when-you-need-to-understand-what-the-problem-is" tabindex="-1"><strong>Situation:</strong> When you need to understand what the problem is <a class="direct-link" href="#situation:-when-you-need-to-understand-what-the-problem-is" aria-hidden="true">#</a></h2>
+<p>The development team won't be able to fix the issue unless they clearly understand the problem ... that's why it's important to implement different types of monitoring, both on the app, and separately too.</p>
+<h3 id="application-reporting" tabindex="-1">Application Reporting <a class="direct-link" href="#application-reporting" aria-hidden="true">#</a></h3>
+<p>Logging errors to the browser console is the most basic kind of application reporting, but that limits debugging to only the issue that occur on one person's machine ... what if you want to see what happened on someone else's?</p>
+<p>Tools such as <strong>Sentry</strong>, <strong>LogRocket</strong>, <strong>BugSnag</strong> and a plethora of others, allow you to send errors to their platform, and from there to Slack, Email or to a telephone system.</p>
+<p>This way, whenever there is a serious error in production, the appropriate people can be notified immediately.</p>
+<p>However, some issues are not immediately obvious and require more monitoring over longer time periods.</p>
+<h3 id="application-monitoring" tabindex="-1">Application Monitoring <a class="direct-link" href="#application-monitoring" aria-hidden="true">#</a></h3>
+<p>Tools like <strong>Splunk</strong>, <strong>DataDog</strong>, <strong>Honeycomb</strong> or <strong>AWS X-Ray</strong> allow you to log other useful data so that you can closely monitor the activity of your application or distributed systems.</p>
+<p>A word of caution: it's important to be careful that no personal data is being logged without users being informed and consent obtained.</p>
+<p>Knowing what needs to be logged and what doesn't takes time to discover: be prepared to keep adapting your strategy until you log useful data ... and <em>only</em> the useful data!</p>
+<h3 id="health-reporting" tabindex="-1">Health reporting <a class="direct-link" href="#health-reporting" aria-hidden="true">#</a></h3>
+<p>Of course, if your site is throwing a server error (HTTP 500 code), no amount of in-app logging is going to inform you of that: your web app is down! For that reason, external services can help monitor the health of your app, and inform you when something happens.</p>
+<p>One of the most basic of these is Uptime Monitor, which pings a site at regular intervals. There are more sophisticated tools like <strong>AWS Cloudwatch</strong>, <strong>Pingdom</strong>, <strong>Retrace</strong> and others which allow you to analyse your site in real time and send out alerts to your team.</p>
+<p>Some also take the view that automated QA tests should run in production too, so that you can fully grasp the state of the production app. This is really helpful especially if you can't replicate your testing environment identically like your production environment. But we need to be careful: if we have a monolithic app, the extra load created by the automated tests could cause crashes at peak times. If it's a serverless app, you could find you've incurred extra costs for runtime.</p>
+<h2 id="situation:-when-you're-under-attack" tabindex="-1"><strong>Situation:</strong> When you're under attack <a class="direct-link" href="#situation:-when-you're-under-attack" aria-hidden="true">#</a></h2>
+<p>This kind of issue is out of scope for this article, but I feel it's worth mentioning a valuable resource that has become <em>the</em> go-to handbook for modern DevOps teams, and is highly valued for its insights into the way Google manages applications at vast scale: the <strong>Site Reliability Handbook</strong>, published by O'Reilly Media. It's available to read online here: <a href="https://landing.google.com/sre/sre-book/toc/index.html">https://landing.google.com/sre/sre-book/toc/index.html</a></p>
+<div class="boxout">
+<h2 id="supplementary-info:-how-to-manage-incidents" tabindex="-1"><strong>Supplementary info:</strong> How to Manage Incidents <a class="direct-link" href="#supplementary-info:-how-to-manage-incidents" aria-hidden="true">#</a></h2>
+<p>Despite everyone's best efforts, failures in production will occur. There are strategies and tools to help reduce the downtime and get your services back up and running more quickly:</p>
+<h3 id="step-1.-define-a-severity-level" tabindex="-1"><strong>Step 1.</strong> Define a severity level <a class="direct-link" href="#step-1.-define-a-severity-level" aria-hidden="true">#</a></h3>
+<p>When an incident occurs, it's everyone's first priority to get things working again. However, defining different levels of severity helps everyone understand the impact it's having on customers and the organisation: some incidents will naturally have higher impact than others; some will have no immediate impact but could still require an incident level response.</p>
+<h3 id="step-2.-delegate-and-manage-communication" tabindex="-1"><strong>Step 2.</strong> Delegate and manage communication <a class="direct-link" href="#step-2.-delegate-and-manage-communication" aria-hidden="true">#</a></h3>
+<p>Having a dedicated incident management team is invaluable when there are issues in production. Otherwise, someone should be assigned to keep stakeholders and other interested parties up to date with what's happening. Splitting this responsibility away frees the developers to focus on fixing the problem and informs other developers who are not involved to stop them from jumping in with well-meaning patches — patches that could make the situation worse.</p>
+<h3 id="step-3.-arrange-post-mortem-meetings" tabindex="-1"><strong>Step 3.</strong> Arrange post mortem meetings <a class="direct-link" href="#step-3.-arrange-post-mortem-meetings" aria-hidden="true">#</a></h3>
+<p>Once a situation has been resolved, post mortem meetings can be very helpful to identify what the problem was and put things in place to avoid a similar issue from arising again. Such meetings aren't focused on blame; rather they should be about understanding the problem and how to avoid it happening in future.</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="supplementary-info:-a-word-about-code-reviews" tabindex="-1"><strong>Supplementary info:</strong> A word about code reviews <a class="direct-link" href="#supplementary-info:-a-word-about-code-reviews" aria-hidden="true">#</a></h2>
+<p>One of the best ways of catching a range of potential issues early on in the development process is by the use of effective code reviews. Having two or more developers that are familiar with a codebase and that use it regularly review each other's code means it's going to reflect a more well-thought out and well-structured project. Good code reviews can also point out flaws in logic and gaps in tests that might easily slip through without notice if there was just one developer looking after a project.</p>
+</div>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h2>
+<p>The web is still a new frontier, the boundaries of which we may never fully define. Its great strength is in diversity and potential to be used in a variety of ways: from just one individual to a small family unit; for a community or enterprise, to a tool for the betterment of humankind.</p>
+<p>But with great power comes great responsibility. I hope some of the strategies we've looked at, and the tools to mitigate them, help your organisation to provide stable, predictable production-ready code in the face of ever-changing challenges of the expanding, mutating and growing world wide web.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/three-ui-component-conundrums/">Three UI Component Conundrums</a></li><li>Previous: <a href="/posts/publishing-both-js-non-js-sites/">Publishing both JS and non-JS sites</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Using SASS: Rebellion in the ranks</title>
+    <meta name="description" content="A little while ago, I had a telephone interview in which the lead developer customarily dismissed my application because I didn&#39;t know how to write SASS or LESS. He was very born again about the whole thing, and I resolved to learn at least one of these frameworks in response.">
+    <meta property="og:site_name" content="Not Using SASS: Rebellion in the ranks">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="A little while ago, I had a telephone interview in which the lead developer customarily dismissed my application because I didn&#39;t know how to write SASS or LESS. He was very born again about the whole thing, and I resolved to learn at least one of these frameworks in response.">
+    <meta property="og:title" content="Not Using SASS: Rebellion in the ranks" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Not Using SASS: Rebellion in the ranks" />
+    <meta
+      name="twitter:description"
+      content="A little while ago, I had a telephone interview in which the lead developer customarily dismissed my application because I didn&#39;t know how to write SASS or LESS. He was very born again about the whole thing, and I resolved to learn at least one of these frameworks in response."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Not Using SASS: Rebellion in the ranks",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-02-11T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Not Using SASS: Rebellion in the ranks</h1>
+
+<time datetime="2015-02-11">11 Feb 2015</time><a href="/tags/css/" class="post-tag">css</a><a href="/tags/sass/" class="post-tag">sass</a><a href="/tags/professional-development/" class="post-tag">professional development</a>
+
+<p><strong>A little while ago, I had a telephone interview in which the lead developer customarily dismissed my application because I didn't know how to write SASS or LESS. He was very &quot;born again&quot; about the whole thing, and I resolved to learn at least one of these frameworks in response.</strong></p>
+<p>Whilst I'm very glad I did learn SASS, I have to say there are a number of drawbacks I've noticed ...</p>
+<h3 id="drawback-1:-increase-code-stack" tabindex="-1">Drawback 1: Increase Code Stack <a class="direct-link" href="#drawback-1:-increase-code-stack" aria-hidden="true">#</a></h3>
+<p>SASS is written in Ruby. Whilst I would love to get into coding in Ruby, it's not something I wanted to learn as a priority—I'm having enough trouble picking up enough other skills more pertinent to frontend development.</p>
+<p>I do use Grunt in my workflow, because I'm a performance freak and hate to see unminified scripts and multiple HTTP calls when there could be one. So that's already added Node.js to my workflow.</p>
+<p>But the problem I ran into when developing in SASS was that I had to leave the code base alone for a few months ... and when I came back to it, it wasn't doing what I expected. I had to seriously dig around to find out that I needed to update to the latest version of Ruby (which of the several package manager solutions had I used again??!) and Node.js before it would run again.</p>
+<p>I was working on this site, as it happens, so it wasn't all that important. But I have heard too much experience of developers who spend a greater portion of their time fixing their environments instead of contributing to the project at hand, to not take this seriously.</p>
+<h3 id="drawback-2:-it-does't-run-on-your-server" tabindex="-1">Drawback 2: It Does't Run On Your Server <a class="direct-link" href="#drawback-2:-it-does't-run-on-your-server" aria-hidden="true">#</a></h3>
+<p>Okay, so developing your project whilst its on the staging server might not be the best route to take ... but who hasn't had that last-minute code change that the client wants to see just before their conference call—or you just want to try something live to see if your hunch is correct.</p>
+<p>But of course you can't do that with SASS unless you happen to have Node.js running on your server. With this project, I didn't, and so was ham strung once again.</p>
+<p>Actually, that's my currently roadblock with this site as I write this: I have in mind some CSS changes, but my dev environment is on my Mac at work ... and with a small child the only time I get to mess with my Macbook is when he's asleep (like right now).</p>
+<h3 id="don't-knock-a-good-thing" tabindex="-1">Don't Knock A Good Thing <a class="direct-link" href="#don't-knock-a-good-thing" aria-hidden="true">#</a></h3>
+<p>These drawbacks notwithstanding, I do love SASS. It's so handy having variables, and being able to split down your stylesheets into easily-manageable parts has saved me lines of code and not a few headaches.</p>
+<p>It's fantastic to see If Only the CSS specification was a little more ahead of the curve, instead of way behind where it currently is. I can't wait to see the wonderful tools we use in SASS freed from their current shackles.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/why-delicious-reverie/">Why &#39;Delicious Reverie&#39;?</a></li><li>Previous: <a href="/posts/maintaining-goodwill/">Maintaining Goodwill on Difficult Projects</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

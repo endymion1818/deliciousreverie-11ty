@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Atomic Design Makes Sense</title>
+    <meta name="description" content="Although I&#39;ve really gotten into the SASS revolution, I haven&#39;t yet adopted a method for structuring elements of CSS. I guess it&#39;s because none of them strike me as particularly visual, and being a former print designer, I tend to think in those terms. But something about Brad Frost&#39;s Atomic Design principles makes sense to me. Here&#39;s why.">
+    <meta property="og:site_name" content="Why Atomic Design Makes Sense">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Although I&#39;ve really gotten into the SASS revolution, I haven&#39;t yet adopted a method for structuring elements of CSS. I guess it&#39;s because none of them strike me as particularly visual, and being a former print designer, I tend to think in those terms. But something about Brad Frost&#39;s Atomic Design principles makes sense to me. Here&#39;s why.">
+    <meta property="og:title" content="Why Atomic Design Makes Sense" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Why Atomic Design Makes Sense" />
+    <meta
+      name="twitter:description"
+      content="Although I&#39;ve really gotten into the SASS revolution, I haven&#39;t yet adopted a method for structuring elements of CSS. I guess it&#39;s because none of them strike me as particularly visual, and being a former print designer, I tend to think in those terms. But something about Brad Frost&#39;s Atomic Design principles makes sense to me. Here&#39;s why."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Why Atomic Design Makes Sense",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-11-23T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Why Atomic Design Makes Sense</h1>
+
+<time datetime="2015-11-23">23 Nov 2015</time><a href="/tags/design-thinking/" class="post-tag">design thinking</a><a href="/tags/tools-and-processes/" class="post-tag">tools and processes</a>
+
+<p><strong>Although I've really gotten into the SASS revolution, I haven't yet adopted a method for structuring elements of CSS. I guess it's because none of them strike me as particularly visual, and being a former print designer, I tend to think in those terms. But something about Brad Frost's Atomic Design principles makes sense to me. Here's why.</strong></p>
+<p>When we're designing, we tend to think more about design principles instead of build principles. What I mean is that we think about rhythm, white space, alignment and these types of things. These are very necessary components of great web design as they are of design in other mediums.</p>
+<p>But the web is still a unique animal. If we're truly going to design for the web, we need to think about the medium itself, much as a printer considers the stock, the inks, and the situation artwork is going to be displayed in.</p>
+<p><img src="/img/screen-shot-2015-12-18-at-08.19.57.png" alt="atomic design : a book by Brad Frost"></p>
+<h5 id="https:atomicdesign.bradfrost.com" tabindex="-1"><a href="https://atomicdesign.bradfrost.com" title="Link to Brad's website where he's writing the book">https://atomicdesign.bradfrost.com</a> <a class="direct-link" href="#https:atomicdesign.bradfrost.com" aria-hidden="true">#</a></h5>
+<p>Atomic design really helps at this level: it helps us design repeatable elements that can be coded and re-used on different parts of our site. I don't intend to re-hash Atomic principles here, but take a look around, <a href="https://blog.invisionapp.com/atomic-design-principles/" title="Using Atomic Design at InVision">perhaps at this post</a>, or <a href="https://atomicdesign.bradfrost.com/chapter-2/#atomic-design-is-for-user-interfaces" title="atomic design is for user interfaces">read a pertinent excerpt from the book</a>, to see what I mean.</p>
+<p>This is going to really help us when it comes to building things out in code, especially if it's someone else building it.</p>
+<h2 id="thinking-like-developers" tabindex="-1">Thinking Like Developers <a class="direct-link" href="#thinking-like-developers" aria-hidden="true">#</a></h2>
+<p>This is important. I don't personally think it's a requirement for designers to be able to code — but I do believe we need to think like developers. If we comprehend the way a developer approaches a project, we'll see that system-based thinking (rather than individual page-based thinking) actually helps us get a product that reflects our design intentions more completely.</p>
+<p>And we'll also be able to empathise with our developers, which means greater understanding, greater cooperation and - again - much better result, not just in appearance but in cleaner, more efficient code that has performance benefits.</p>
+<p>And website performance is part of our job too, right?</p>
+<h2 id="atomic-design-as-a-developer" tabindex="-1">Atomic Design as a Developer <a class="direct-link" href="#atomic-design-as-a-developer" aria-hidden="true">#</a></h2>
+<p>As a developer, I'm wondering if I use SASS partials to structure my code. Perhaps defining files this way:</p>
+<p>for atoms:</p>
+<ul>
+<li>a-type</li>
+<li>a-colors</li>
+<li>a-inputs</li>
+</ul>
+<p>for molecules:</p>
+<ul>
+<li>m-card</li>
+<li>m-navbar</li>
+<li>m-lists</li>
+<li>m-formfields</li>
+</ul>
+<p>for organisms:</p>
+<ul>
+<li>o-navbar</li>
+<li>o-contactform</li>
+<li>o-banner</li>
+</ul>
+<p>and so on..</p>
+<p>Hm, ok I'm going to try this. Hope to give you a development update in due course.</p>
+<p>In the meantime, I really think atomic design makes sense - for designers, for developers, and to meet the diversifying needs of our users and project stakeholders.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/do-we-need-industry-regulation/">Do We Need Industry Regulation?</a></li><li>Previous: <a href="/posts/to-rome-a-poem/">To Rome, a Poem</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

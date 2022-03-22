@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let Browsers be Browsers</title>
+    <meta name="description" content="I&#39;ve been hearing a lot of different, seemingly contradictory messages from the industry in recent weeks regarding frontend frameworks and progressive enhancement. I got so frustrated that I started a discussion on Web Freelancers Hub about it. I felt the answers that came back were worth documenting.">
+    <meta property="og:site_name" content="Let Browsers be Browsers">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;ve been hearing a lot of different, seemingly contradictory messages from the industry in recent weeks regarding frontend frameworks and progressive enhancement. I got so frustrated that I started a discussion on Web Freelancers Hub about it. I felt the answers that came back were worth documenting.">
+    <meta property="og:title" content="Let Browsers be Browsers" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Let Browsers be Browsers" />
+    <meta
+      name="twitter:description"
+      content="I&#39;ve been hearing a lot of different, seemingly contradictory messages from the industry in recent weeks regarding frontend frameworks and progressive enhancement. I got so frustrated that I started a discussion on Web Freelancers Hub about it. I felt the answers that came back were worth documenting."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Let Browsers be Browsers",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-11-23T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Let Browsers be Browsers</h1>
+
+<time datetime="2015-11-23">23 Nov 2015</time><a href="/tags/industry-thought/" class="post-tag">industry thought</a>
+
+<p><strong>I've been hearing a lot of different, seemingly contradictory messages from the industry in recent weeks regarding frontend frameworks and progressive enhancement. I got so frustrated that I started a discussion on Web Freelancers Hub about it. I felt the answers that came back were worth documenting.</strong></p>
+<p>My original post to the group:</p>
+<p>So, I'm really confused.</p>
+<p>There's been a huge demand for people who can work with Frontend frameworks especially Angular.js in recent months. For a while, it seemed like I was turning down 5 contracts a week that required this skill.. which I'm now learning.</p>
+<p>But now the industry seems to be eating is tail &amp; saying this is bad practice because what if users don't have Javascript enabled on their browser (for whatever reason)... and I agree with them.</p>
+<p>I'm a bit confused / frustrated with these mixed messages — I really agree with recent posts from <a href="https://adactio.com/journal/9963" title="Where to Start? on Adactio.com">Jeremy Keith</a> and <a href="https://alistapart.com/article/interaction-is-an-enhancement" title="Interaction is an Enhancement on A List Apart">Aaron Gustaffson</a> but don't know the best route to take to</p>
+<p>a) stay ahead of the game</p>
+<p>b) provide the best experience for users.</p>
+<p>Anyone else thinking this / have a take on it?</p>
+<hr>
+<p>Although there were a few developers who argued that when developing apps, you have to stipulate to users that JS must be enabled, Nick Bramwell was quick to comment in a way that resonated with me: &quot;I’ve been burnt too many times in the past learning things that quickly vanish.&quot;</p>
+<p>This is one thing that I've been afraid of, since it takes a lot of time to learn frameworks ... and I have a young baby to take care of!</p>
+<p>Rachel Andrew mentioned a use case that I don't think we consider enough: &quot;I travel a lot, end up on terrible wifi. At least once per trip I find myself unable to use a site because bits of their JavaScript haven't made it.&quot; This is also what motivated <a href="https://abookapart.com/products/responsible-responsive-design" title="Responsible Responsive Design on A Book Apart">Scott Jehl to write his book &quot;Responsible Responsive Design&quot;</a>.</p>
+<h3 id="browsers-are-browsers" tabindex="-1">Browsers Are Browsers <a class="direct-link" href="#browsers-are-browsers" aria-hidden="true">#</a></h3>
+<p>So I guess my position is that there may be certain cases we would justifiably use fronted frameworks to enhance the experience for the user, we shouldn't make it a requirement of our site. Browsers are meant to be used to view and interact with data, and largely cannot be 'exploited' — partly because users need protection from such things.</p>
+<p>I guess that if responsive design has taught me one thing, it's that we <em>can't know</em> the conditions under which our site will be served up to someone, and that we shouldn't try to know, or to stipulate conditions unless there is a very good reason for doing so.</p>
+<p>I'm grateful to be part of a community that I can go to when issues like this come up. For now, I'm going to stick with what I've learned with regard to fronted frameworks. Perhaps I might start learning server-side (universal, or isomorphic) JavaScript, because I seem to enjoy seeing what's possible with the language.</p>
+<p>On the other hand, it seems that my gut feeling is that I need to stick to my principles and not be swayed by lucrative offers that I might receive that could result in a dead end.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/to-rome-a-poem/">To Rome, a Poem</a></li><li>Previous: <a href="/posts/my-workflow-today/">My Workflow Today</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

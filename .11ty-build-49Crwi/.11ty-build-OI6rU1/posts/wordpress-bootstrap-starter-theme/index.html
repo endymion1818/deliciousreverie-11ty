@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Built A Wordpress Bootstrap starter theme</title>
+    <meta name="description" content="I&#39;ve been using the esteemed Rachel Baker&#39;s BootstrapWP theme for a while, but recently I decided to build my own Wordpress / Bootstrap starter theme. Here&#39;s why I took this step and what I plan to do with it in the future.">
+    <meta property="og:site_name" content="I Built A Wordpress Bootstrap starter theme">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="I&#39;ve been using the esteemed Rachel Baker&#39;s BootstrapWP theme for a while, but recently I decided to build my own Wordpress / Bootstrap starter theme. Here&#39;s why I took this step and what I plan to do with it in the future.">
+    <meta property="og:title" content="I Built A Wordpress Bootstrap starter theme" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="I Built A Wordpress Bootstrap starter theme" />
+    <meta
+      name="twitter:description"
+      content="I&#39;ve been using the esteemed Rachel Baker&#39;s BootstrapWP theme for a while, but recently I decided to build my own Wordpress / Bootstrap starter theme. Here&#39;s why I took this step and what I plan to do with it in the future."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "I Built A Wordpress Bootstrap starter theme",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-06-26T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>I Built A Wordpress Bootstrap starter theme</h1>
+
+<time datetime="2015-06-26">26 Jun 2015</time><a href="/tags/php/" class="post-tag">php</a><a href="/tags/wordpress/" class="post-tag">wordpress</a>
+
+<p><strong>I've been using the esteemed <a href="https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/tree/bootstrap3" title="Rachel Baker's BootstrapWP on GitHub">Rachel Baker's BootstrapWP</a> theme for a while, but recently I decided to build my own Wordpress / Bootstrap starter theme. Here's why I took this step and what I plan to do with it in the future.</strong></p>
+<p>There's still an argument raging about whether or not web developers should use Bootstrap or Foundation as a UI starting point for their projects. I don't want to undermine the very valid and extremely important role of UX / UI design. We do want to avoid every site looking the same (current trends notwithstanding).</p>
+<h3 id="once-more-unto-the-breach-dear-friends-..." tabindex="-1">Once More Unto The Breach, Dear Friends ... <a class="direct-link" href="#once-more-unto-the-breach-dear-friends-..." aria-hidden="true">#</a></h3>
+<p>At the same time, I really think that Bootstrap, Foundation and the rest have raised the bar for good UI design significantly.</p>
+<p>For example, where I work we do a lot of work for smaller clients who don't have the budget for a developer to work on a site for over a month, doing everything from scratch. To better serve this range of client, and to avoid going the route of using someone elses potentially un-semantic, bloated and non-extensible paid-for theme, we decided to construct a Wordpress Bootstrap starter theme.</p>
+<p>This way, we can have more control over our code, we can keep more projects in-house, and still raise the standard of production for these smaller clients.</p>
+<h3 id="crafting-a-theme-with-wordpress-and-bootstrap" tabindex="-1">Crafting a Theme with Wordpress and Bootstrap <a class="direct-link" href="#crafting-a-theme-with-wordpress-and-bootstrap" aria-hidden="true">#</a></h3>
+<p>It's not the purpose of this post to list everything the theme contains. In fact, it's far from complete and as I use it on live projects in the coming months, I'll no doubt add functionality I find useful / desireable. But I have started off by adding the following:</p>
+<ul>
+<li>Menu item CSS styles (replaced Bootstrap's .active with Wordpress' .current-menu-item etc)</li>
+<li>Breadcrumb support</li>
+<li>Better pagination (the page will display a UL list of pages, instead of just &quot;older&quot; and &quot;newer&quot; links)</li>
+<li>Uncompressed and deregistered Jetpack's CSS file by default (because there's just no need for bloat).</li>
+</ul>
+<p>You might see that I'm on a personal mission to end needless bloat as much as I reasonably can.</p>
+<h3 id="other-nice-things" tabindex="-1">Other Nice Things <a class="direct-link" href="#other-nice-things" aria-hidden="true">#</a></h3>
+<p>I've also added a sample <code>wp-config.php</code> file that allows you to add your local, development environment and live database information all in one, so you don't have to worry about overwriting the file when you commit a change or upload a batch of files.</p>
+<p>There's a sample <code>htaccess</code> file too, adding support for <code>svg</code> files. I frequently encountered that this was turned off by default on the servers I've been working on. Because SVGs are so useful especially for logos, I've enabled this on Apache / NGIX servers using this code snippet.</p>
+<p>The <code>htaccess</code> file also adds support for <code>mod_deflate</code> too, so gZipping can be enabled easily. This is something I found I was forgetting to do once a project was going live, so this helped me to streamline my processes.</p>
+<h3 id="what's-not-there" tabindex="-1">What's not there <a class="direct-link" href="#what's-not-there" aria-hidden="true">#</a></h3>
+<p>Template files are virtually non-existant in this theme, outside of the Wordpress standard pages <code>index</code>, <code>page</code>, <code>post</code>, <code>front-page</code>. I have included a template for a <code>sitemap</code> page.</p>
+<p>More templates will follow when I have the time, possibly <a href="https://getbootstrap.com/getting-started/#examples" title="example pages constructed with Bootstrap">using the existing starter templates</a> or when I've worked on a project that contains some particularly useful, challenging or interesting templates.</p>
+<h3 id="updates" tabindex="-1">Updates <a class="direct-link" href="#updates" aria-hidden="true">#</a></h3>
+<p>This project will be updated and maintained regularly. I'm particularly interested by <a href="https://blog.getbootstrap.com/2014/10/29/bootstrap-3-3-0-released/" title="Bootstrap blog post containing info about Bootstrap 4">the roadmap to Bootstrap 4</a>, and can't wait to incorporate it here (although I personally might wait until 4.1 before I use it in production).</p>
+<h3 id="there-you-have-it." tabindex="-1">There you have it. <a class="direct-link" href="#there-you-have-it." aria-hidden="true">#</a></h3>
+<p>There you go, <a href="https://github.com/endymion1818/blazebase/" title="Link to Blaze Base starter Wordpress theme">feel free to download this starter theme</a>. If you notice any bugs, please report them via <a href="https://github.com/endymion1818/blazebase" title="GitHub repository for this theme">Github Issues</a>, or just get in touch via <a href="https://twitter.com/muzzlehatch_" title="Benjamin Read on Twitter">Twitter</a>.</p>
+<p>Have fun!</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/the-future-is-headless/">The Future is Headless</a></li><li>Previous: <a href="/posts/advanced-custom-fields-bootstrap-tabs/">Advanced Custom Fields and Bootstrap Tabs</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

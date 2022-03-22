@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using WSL (BASH for Windows)</title>
+    <meta name="description" content="At a new job I&#39;ve been tasked with moving to Windows as my main production environment. At first approaching this idea with some trepidation, I have since discovered and been able to install the new Windows Subsystem for Linux on my PC, and it&#39;s proven to be a really useful tool.">
+    <meta property="og:site_name" content="Using WSL (BASH for Windows)">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="At a new job I&#39;ve been tasked with moving to Windows as my main production environment. At first approaching this idea with some trepidation, I have since discovered and been able to install the new Windows Subsystem for Linux on my PC, and it&#39;s proven to be a really useful tool.">
+    <meta property="og:title" content="Using WSL (BASH for Windows)" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Using WSL (BASH for Windows)" />
+    <meta
+      name="twitter:description"
+      content="At a new job I&#39;ve been tasked with moving to Windows as my main production environment. At first approaching this idea with some trepidation, I have since discovered and been able to install the new Windows Subsystem for Linux on my PC, and it&#39;s proven to be a really useful tool."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Using WSL (BASH for Windows)",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2016-11-01T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Using WSL (BASH for Windows)</h1>
+
+<time datetime="2016-11-01">01 Nov 2016</time><a href="/tags/tools-and-processes/" class="post-tag">tools and processes</a>
+
+<p><strong>At a new job I've been tasked with moving to Windows as my main production environment. At first approaching this idea with some trepidation, I have since discovered and been able to install the new Windows Subsystem for Linux on my PC, and it's proven to be a really useful tool.</strong></p>
+<p>&quot;Bash on Windows&quot; isn't really what it says it is. It's not simply the terminal, but linux commands for the whole of the windows subsystem. <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about" title="About Bash on Ubuntu on Windows (Microsoft Developer Network)">There's a video here</a> that demonstrates what's possible, but as a &quot;normal-ish&quot; developer with the sole aim of developing websites, and no special knowledge of Linux or Windows, I thought it would be interesting to share what I found to be most helpful, and most challenging, about using it.</p>
+<h3 id="the-problem" tabindex="-1">The Problem <a class="direct-link" href="#the-problem" aria-hidden="true">#</a></h3>
+<p>I was pleased that I was able to install WSL without a hitch <a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/" title="how to install and use the linux bash shell on Windows 10 from How To Geek">using this guide on how-to geek</a>,  but that's where it stopped being easy for me.</p>
+<p>Problems arose because the build process my new employer had established required using a command-line php script which was a wrapper for <a href="https://wp-cli.org" title="Command line interface for Wordpress">WP-CLI, the command-line interface for Wordpress</a>. This script ran through a few steps that would be essential to me getting up and running and developing new sites:</p>
+<ol>
+<li>Download Wordpress Core</li>
+<li>Add build plugins and remove existing dummy content</li>
+<li>Create a <code>wp-config</code> file</li>
+<li>Connect to MySQL, add and configure a database</li>
+<li>Download plugins and themes from a private Git repository</li>
+</ol>
+<p>As you can see, this required a <em>number</em> of connecting services, which were not already installed on either Windows, or WSL. I made the decision that I would install these first inside WSL, and see if that would be more useable. I figured that it would be more difficult to configure everything I needed using the more unfamiliar Windows Command line.</p>
+<h3 id="command-line-php-and-wp-cli" tabindex="-1">Command-line PHP and WP-CLI <a class="direct-link" href="#command-line-php-and-wp-cli" aria-hidden="true">#</a></h3>
+<p>I found installing these two tools was fairly easy using wget, and adding to my BASH profile. The only hitch (that I discovered later) was that the php user didn't have the necessary permissions to create the <code>wp-config.php</code> file. I discovered that by changing ownership of the folder I was using for my web projects to <code>www-data</code> was the key.</p>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">chown</span> -R www-data /var/www/html/</code></pre>
+<h3 id="amp-(apache-mysql-and-php)" tabindex="-1">AMP (Apache, MySQL and PHP) <a class="direct-link" href="#amp-(apache-mysql-and-php)" aria-hidden="true">#</a></h3>
+<p>This was the most difficult step out of all of them. I discovered quickly that my regular tools of choice (<a href="https://www.mamp.info" title="Mac Apache Mysql and PHP application for Windows and Mac">MAMP</a> or <a href="https://www.wampserver.com/en/" title="WAMP Server">WAMP</a>) meant that MYSQL was a Windows executable, and so not useable in bash. My heart sorta sank at this point. However, configuring my own AMP stack is something that I had wanted to do so ...</p>
+<p>I quickly found this excellent tutorial on <a href="https://community.linuxmint.com/tutorial/view/486" title="Linux Mint Community Forum Tutorial: Installing LAMP on Linux Mint">Linux Mint community forum</a> which takes you step-by-step through nearly everything I needed to download and install the AMP stack.</p>
+<p>One major hitch that occurred was when I did get my website up and running, but all links on the site were 404ing. Turns out that I needed to configure <code>MOD_REWRITE</code> on Apache. <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04" title="Digital Ocean: How to set up Mod Rewrite for Apache">This tutorial on Digital Ocean</a> and <a href="https://stackoverflow.com/questions/23665064/project-links-do-not-work-on-wamp-server" title="Project Links do not work on WAMP server">this question on Stack Overflow</a> helped immensely.</p>
+<p>Once I had gone through all this and changed a few things, I found that links still weren't working. Then, I noticed that Wordpress was telling me that it couldn't write to <code>.htaccess</code>, and gave me a snippet to paste there. Voilá, working websites.</p>
+<h3 id="git-access" tabindex="-1">GIT Access <a class="direct-link" href="#git-access" aria-hidden="true">#</a></h3>
+<p>The final piece in this particular puzzle was GIT. I needed to set up global credentials and store them in the system memory so that the build script could use them when it required. I eventually discovered that you can use a credential helper to store your user and pass in memory:</p>
+<pre class="language-bash"><code class="language-bash">$ <span class="token function">git</span> config --global credential.helper cache</code></pre>
+<p>Once these were configured, I was able to run my company's build script, and all was well with the world.</p>
+<h3 id="why-i'm-not-using-it-now" tabindex="-1">Why I'm Not Using It Now <a class="direct-link" href="#why-i'm-not-using-it-now" aria-hidden="true">#</a></h3>
+<p>So, after going through all this pain, I eventually <em>did</em> manage to get over my particular hurdle and configure my Windows environment to use our in-house script and WP-CLI, although it was a challenge.</p>
+<p>Why?</p>
+<p>The principle reason was that there is a barrier between WSL and the Windows environment. It's not always perceptible, but it's there.</p>
+<p>The main thing is that the file system is still in flux. I found that the Linux filesystem <a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/" title="Using WSL on How To Geek">aforementioned tutorial on How-To Geek</a> has moved location in latest builds of WSL, and I couldn't locate it. This means that opening files in my text editor (Sublime Text or Atom) was an impossibility.</p>
+<p>Even if I had pursued it, I found out that there are <a href="https://blogs.msdn.microsoft.com/wsl/2016/06/15/wsl-file-system-support/" title="WSL File System Support at Windows Developers">incompatibilities in the filesystem</a> which could mean that files might not be compatible after opening. Some have reported that files become invisible in WSL after being opened using a Windows application.</p>
+<p>I did start using the venerable Vim to edit my files, and actually, it's something I want to go back to one day. But I'm pretty sure in the short term at least, with looming project deadlines, it would frustrate me very much.</p>
+<p>There are also currently some issues with MySQL which the WSL team are looking into, and I did find it to be buggy. Hey, this is an early release, there's bound to be glitches that need ironing out.</p>
+<h3 id="what-i-learned" tabindex="-1">What I Learned <a class="direct-link" href="#what-i-learned" aria-hidden="true">#</a></h3>
+<p>I still use WSL every day to navigate around my file system and to run build scripts, and that isn't going to change. For me, it's far more intuitive and I'm comfortable with it.</p>
+<p>Although it's really nice to have it, but actually I don't think it's an essential. Being able to use BASH to open folders, or open folders in .exe apps, now that would be incredible.</p>
+<p>Windows Subsystem for Linux is a bold move by Microsoft, and its something I'm going to follow closely regardless of how I use it in the future. In the current climate I'm less inclined to be loyal to Apple, and Microsoft is slowly turning into a viable alternative. That's if I don't ditch both of them and go to Linux.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/frontier-conference-2016/">Frontier Conference 2016</a></li><li>Previous: <a href="/posts/switching-to-bem-syntax-for-css/">Switching to BEM Syntax for CSS</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Article: Getting Started with TypeScript</title>
+    <meta name="description" content="TypeScript. You either love it, or hate it ... or are terrified of it. But it could be a valuable tool that benefits your workflow. This article, originally published in Net magazine, shows you how to get started with TypeScript">
+    <meta property="og:site_name" content="Published Article: Getting Started with TypeScript">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="TypeScript. You either love it, or hate it ... or are terrified of it. But it could be a valuable tool that benefits your workflow. This article, originally published in Net magazine, shows you how to get started with TypeScript">
+    <meta property="og:title" content="Published Article: Getting Started with TypeScript" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Published Article: Getting Started with TypeScript" />
+    <meta
+      name="twitter:description"
+      content="TypeScript. You either love it, or hate it ... or are terrified of it. But it could be a valuable tool that benefits your workflow. This article, originally published in Net magazine, shows you how to get started with TypeScript"
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Published Article: Getting Started with TypeScript",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2019-08-22T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Published Article: Getting Started with TypeScript</h1>
+
+<time datetime="2019-08-22">22 Aug 2019</time><a href="/tags/netmag-articles/" class="post-tag">netmag articles</a><a href="/tags/published-articles/" class="post-tag">published articles</a><a href="/tags/javascript/" class="post-tag">javascript</a>
+
+<p>Mention TypeScript to a developer who works with JavaScript and you'll probably get one of two responses: they will either struggle to understand why someone would NOT want to use TypeScript, or they will struggle to see why someone WOULD use it.</p>
+<p>I think this sometimes depends on where you started your journey to JavaScript. Often people come to the language from a server-side language such as C or Java, which are statically typed. In these languages, dynamic typing is seen as a real hazard, an unsafe practice.</p>
+<p>But if you've started your journey as a developer from HTML and CSS, you've probably been more used to the generally more ... dynamic ... world of the frontend.</p>
+<p>If this is the case, but you hate the fact that your application is blowing up in production, and the cause is often a typeError, or you want to improve communication between developers working on a project, TypeScript can be a good solution.</p>
+<p>In this article we're going to introduce some of the concepts of TypeScript using Styled Components. I've chosen this route because I think it gives us a good insight into how certain features can be used without introducing more complicated concepts too soon.</p>
+<h2 id="let's-get-started!" tabindex="-1">Let's Get Started! <a class="direct-link" href="#let's-get-started!" aria-hidden="true">#</a></h2>
+<p>For this tutorial, we're going to take a react template that uses styled components and move it to TypeScript.</p>
+<p>The original code we're going to use is here: <a href="https://codesandbox.io/s/netmag-react-typescript-4l4cj">https://codesandbox.io/s/netmag-react-typescript-4l4cj</a></p>
+<p>Fork this code, and open on the <strong>Container.js</strong> module. We'll work through it together to convert it to TypeScript.</p>
+<p>The project on CodeSandbox already has a compiler set up for TypeScript. So we can start by renaming our file. Instead of <code>.js</code> at the end, change it to <code>.tsx</code>.</p>
+<p>Don't forget the x! This tells the compiler to use JSX, the templating language often used with React. If you didn't have an x at the end, you would start to see some very verbose errors very quickly.</p>
+<p>Already, TypeScript is working for us. By forcing us to have an x at the end of the file, we can see that this module contains a JSX template. So it's easier to see at a glance what's going on in each file.</p>
+<h2 id="what-is-an-interface" tabindex="-1">What is an Interface? <a class="direct-link" href="#what-is-an-interface" aria-hidden="true">#</a></h2>
+<p>TypeScript works by forcing us to tell it what properties are going into, and coming out of, our functions. Since styled components are functions, we have to type these as well.</p>
+<p>Let's add our first interface!</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ISContainerProps</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<p>Here we're declaring what will interface with our function. As a convention we should use a capital I at the start of the name so that we can more easily see later that it is an interface, instead of anything else (more about what else it could be in a bit ...)</p>
+<p>Let's add our first property:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ISContainerProps</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">bgColor</span><span class="token operator">:</span> string<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>I've given <code>bgColor</code> the type &quot;string&quot; here. This means that it can only be a <code>string</code> value. If someone comes to use our component and writes <code>bgColor={42}</code>, they'll see a red underline, indicating an invalid type has been used! Usually this means a PR won't pass quality checks or you will be prevented from pushing code to a branch in the repo.</p>
+<p>I want to restrict the use of the next property, text colour, a little more than that. I want them to have the choice between only black and gray text. Because of this, I'm going to rename <code>textColour</code> to <code>lighterText</code>:</p>
+<pre class="language-javascript"><code class="language-javascript">    lighterText<span class="token operator">?</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span></code></pre>
+<p>The question mark (<code>?</code>) tells the compiler that lighterText is an optional property. If nothing is declared, it'll be false by defaut. Within my styled component, I can output grey or black based on this boolean value:</p>
+<pre class="language-javascript"><code class="language-javascript">    <span class="token literal-property property">color</span><span class="token operator">:</span> $<span class="token punctuation">{</span>props<span class="token punctuation">.</span><span class="token parameter">lighterText</span> <span class="token operator">=></span> <span class="token punctuation">(</span>props<span class="token punctuation">.</span>lighterText <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">black</span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gray</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>This can be shortened a little bit by some destructuring:</p>
+<pre class="language-javascript"><code class="language-javascript">    <span class="token literal-property property">color</span><span class="token operator">:</span> $<span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> lighterText <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>lighterText <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">black</span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gray</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="introducing-enums:-a-type-of-types" tabindex="-1">Introducing Enums: A Type of Types <a class="direct-link" href="#introducing-enums:-a-type-of-types" aria-hidden="true">#</a></h2>
+<p>For my final property, I want to introduce you to the humble <code>enum</code>. enums, I'm told by reliable sources (wikipedia), have been around for a while. Instead of a normal type, say a <code>boolean</code>, <code>string</code> or <code>number</code>, an <code>enum</code> is it's own type.</p>
+<p>My <code>enum</code> is going to declare the container widths I want people to have access to:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">enum</span> EContainerWidth <span class="token punctuation">{</span><br>  <span class="token constant">SMALL</span> <span class="token operator">=</span> <span class="token string">"36rem"</span><span class="token punctuation">,</span><br>  <span class="token constant">MEDIUM</span> <span class="token operator">=</span> <span class="token string">"48rem"</span><span class="token punctuation">,</span><br>  <span class="token constant">LARGE</span> <span class="token operator">=</span> <span class="token string">"64rem"</span><br><span class="token punctuation">}</span></code></pre>
+<p>Can you see the name I've given the <code>enum</code> starts with a capital <code>E</code>? This is the equivalent of using a capital <code>I</code> for the interface.</p>
+<p>Now I'm going to declare that my <code>containerWidth</code> property is a type of <code>EContainerWidth</code>:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ISContainerProps</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">bgColor</span><span class="token operator">:</span> string<span class="token punctuation">;</span><br>  <span class="token literal-property property">lighterText</span><span class="token operator">:</span> boolean<span class="token punctuation">;</span><br>  <span class="token literal-property property">containerWidth</span><span class="token operator">:</span> EContainerWidth<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This makes sure someone can only use these values for the container width. In this way, how a developer uses this module can be controlled more tightly. So, no more accidentally setting the container width to something that doesn't match the design. It also helps a developer to stop and think more carefully about their choices.</p>
+<p>So, now, how do I tell my styled component about my interface? By adding chevrons after the tag declaration, but before the body of the function (inside the backticks), and writing the name of my interface there:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ISContainerProps</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">containerWidth</span><span class="token operator">:</span> EContainerWidth<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">const</span> SContainer <span class="token operator">=</span><br>  styled<span class="token punctuation">.</span>div <span class="token operator">&lt;</span><br>  ISContainerProps <span class="token operator">></span><br>  <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"><br>    max-width: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> containerWidth <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> containerWidth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"><br></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code></pre>
+<h2 id="typing-the-template" tabindex="-1">Typing the Template <a class="direct-link" href="#typing-the-template" aria-hidden="true">#</a></h2>
+<p>Now we need to tell the compiler what the type is for our JSX template. I'm using a React functional component (<code>FC</code>) for this project. The type for this can be imported directly from React at the top of our module:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">FC</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span><br><br><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token literal-property property">Container</span><span class="token operator">:</span> <span class="token constant">FC</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span></code></pre>
+<p>Now we need to pass in our properties. They're the same as the ones we've used above, with one addition: the children, other react nodes we want to render inside the template.</p>
+<pre><code>export interface IContainerProps {}
+
+export const Container: FC&lt;IContainerProps&gt; = ({
+    ...
+})
+</code></pre>
+<p>Interfaces can be re-used and extended by other interfaces. This is going to be particularly useful when it comes to our JSX template:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">IContainerProps</span> <span class="token keyword">extends</span> <span class="token class-name">ISContainerProps</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<p>Now the template has the same types as our styled component. Now let's add the additional property. We mentioned that this was a React node, and that's another type we can import from react:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">FC</span><span class="token punctuation">,</span> ReactNode<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><br><br><span class="token operator">...</span><br><br><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">IContainerProps</span> <span class="token keyword">extends</span> <span class="token class-name">ISContainerProps</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">children</span><span class="token operator">:</span> ReactNode<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>We are ready to use our template!</p>
+<h2 id="using-the-template" tabindex="-1">Using the Template <a class="direct-link" href="#using-the-template" aria-hidden="true">#</a></h2>
+<p>We've declared an <code>enum</code> for our container width. We need other developers to have access to this when using our template.</p>
+<p>Because we have already exported our <code>enum</code>, we can import it along with our component:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> Container<span class="token punctuation">,</span> <span class="token punctuation">{</span> EContainerWidth <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./Container"</span><span class="token punctuation">;</span></code></pre>
+<p>I have a global file in my <strong>src/</strong> folder (usually I call it &quot;tokens&quot;) where all of my project's enums are kept. This is much better for helping others discover what properties they have access to, and it's much easier to re-use them.</p>
+<p>Now, instead of assigning properties to the template at will, every time you or another developer comes to use it, you or they will have reason to pause and make sure they're using it in the way it was intended:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>Container<br>  bgColor<span class="token operator">=</span><span class="token string">"red"</span><br>  lighterText<span class="token operator">=</span><span class="token punctuation">{</span><span class="token boolean">true</span><span class="token punctuation">}</span><br>  containerWidth<span class="token operator">=</span><span class="token punctuation">{</span>EContainerWidth<span class="token punctuation">.</span><span class="token constant">MEDIUM</span><span class="token punctuation">}</span><br><span class="token operator">></span><br>  JavaScript Container<br><span class="token operator">&lt;</span><span class="token operator">/</span>Container<span class="token operator">></span></code></pre>
+<p>If you got this far and followed along, congratulations on making your first TypeScript component!</p>
+<hr>
+<h2 id="start-using-typescript-today" tabindex="-1">Start Using TypeScript today <a class="direct-link" href="#start-using-typescript-today" aria-hidden="true">#</a></h2>
+<p>TypeScript is one of the fastest growing trends in JavaScript. Reinforcing types in your application can help you avoid making fatal errors in production, especially when working with teams of developers. By using TypeScript we can lean on our IDEs more and simplify our workflow, introduce self-documentation and better code hinting.</p>
+<div class="boxout">
+<h2 id="boxout:-what-is-typescript" tabindex="-1">BOXOUT: What is TypeScript? <a class="direct-link" href="#boxout:-what-is-typescript" aria-hidden="true">#</a></h2>
+<p>TypeScript was developed by Google specifically for the frontend framework AngularJS. It's not a separate language to JavaScript, but a superset, it adds to the existing language. You can write in normal JavaScript, but you add special syntax to identify types for functions, variables etc.</p>
+<p>TypeScript needs to be compiled to normal JavaScript to be used on a browser. But this is an advantage: errors that are generated can be caught and mitigated before anything goes into production.</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="boxout:-static-vs-dynamic-typing" tabindex="-1">BOXOUT: Static vs Dynamic Typing <a class="direct-link" href="#boxout:-static-vs-dynamic-typing" aria-hidden="true">#</a></h2>
+<p>One of the most powerful features of any programming language is the ability to store things in allocated memory, often called a variable, the value of which can be updated or changed by the program.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// define a variable</span><br><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><br><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span><br><br><span class="token comment">// define a function which will change it's value</span><br><span class="token keyword">function</span> <span class="token function">updateAVariable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  a <span class="token operator">=</span> <span class="token string">"a is now a string"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// call the function</span><br><span class="token function">updateAVariable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "a is now a string"</span></code></pre>
+<p>This demonstrates how powerful JavaScript's dynamic typing is. The variable a can be anything: a string of letters, a number, whatever you want.</p>
+<p>The problem with that is it can easily break stuff:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">addOneToA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  a <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token function">addOneToA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// 'a is now a string1'</span></code></pre>
+<p>By contrast, static typing means that you'll only use one type of thing, and if that changes, you will know about it before you even run the code:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> <span class="token literal-property property">a</span><span class="token operator">:</span> number <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><br><br><span class="token keyword">function</span> <span class="token function">updateAVariable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  a <span class="token operator">=</span> <span class="token string">"a is now a string"</span><span class="token punctuation">;</span><br>  <span class="token comment">// typeError!</span><br><span class="token punctuation">}</span></code></pre>
+<p>Imagine our variable comes from another location, which is written or controlled by another team. Imagine that variable, somehow and without your knowledge, starts returning a string instead of a number.</p>
+<p>In that case, we now have a failure in the application. It could be crashing in production. The only way to check it might be to manually go through the checkout process, add something to your cart and try to purchase an item.</p>
+<p>Instead, your code editor, terminal or CI tool lets you know, potentially before even running the code that there could be the possibility of a failure like this in your application.</p>
+<p>That's one reason why I like using Typescript: my code editor tells me where I've made a mistake, and it won't let me push code to my Git repo unless some TypeScript rules I've given it are followed.</p>
+</div>
+<br/><br/>
+<div class="boxout">
+<h2 id="boxout:-resources" tabindex="-1">BOXOUT: Resources <a class="direct-link" href="#boxout:-resources" aria-hidden="true">#</a></h2>
+<p>There are some great resources for TypeScript out there, and they're growing as more people write about their experience with the language. Here are some places to start:</p>
+<ul>
+<li><a href="https://www.typescriptlang.org/">https://www.typescriptlang.org/</a></li>
+<li><a href="https://definitelytyped.org/guides/best-practices.html">https://definitelytyped.org/guides/best-practices.html</a></li>
+<li><a href="https://github.com/dzharii/awesome-typescript">https://github.com/dzharii/awesome-typescript</a></li>
+</ul>
+<p>The main problem I have with TypeScript is that people writing about it assume you've got good conceptual programming understanding to begin with, so it's hard to pick up for newer developers.</p>
+<p>If you want a good beginner level course on TypeScript, I can really recommend this one by Scott Tolinski. Scott is great at explaining things simply and clearly without assuming too much:</p>
+<p><a href="https://www.leveluptutorials.com/tutorials/level-1-typescript">https://www.leveluptutorials.com/tutorials/level-1-typescript</a></p>
+</div>
+
+<hr>
+<ul><li>Next: <a href="/posts/2019-review-2020-aims/">2019 Review / 2020 Aims</a></li><li>Previous: <a href="/posts/the-art-of-compromise/">The Art of Compromise</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

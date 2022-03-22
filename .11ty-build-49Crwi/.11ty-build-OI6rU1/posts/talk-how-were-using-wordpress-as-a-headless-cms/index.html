@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk: How Were Using WordPress as a Headless CMS</title>
+    <meta name="description" content="At a recent WordPress conference in London I gave this talk. It was a terrifying and yet validating experience!">
+    <meta property="og:site_name" content="Talk: How Were Using WordPress as a Headless CMS">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="At a recent WordPress conference in London I gave this talk. It was a terrifying and yet validating experience!">
+    <meta property="og:title" content="Talk: How Were Using WordPress as a Headless CMS" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Talk: How Were Using WordPress as a Headless CMS" />
+    <meta
+      name="twitter:description"
+      content="At a recent WordPress conference in London I gave this talk. It was a terrifying and yet validating experience!"
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Talk: How Were Using WordPress as a Headless CMS",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2018-04-24T14:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Talk: How Were Using WordPress as a Headless CMS</h1>
+
+<time datetime="2018-04-24">24 Apr 2018</time><a href="/tags/performance/" class="post-tag">performance</a><a href="/tags/indigotree/" class="post-tag">indigotree</a><a href="/tags/wordpress/" class="post-tag">wordpress</a><a href="/tags/talks/" class="post-tag">talks</a>
+
+<p><strong>I'm not a stranger to public speaking. But speaking on a technical subject? To people who are smarter than me? Not something I relish. Yet, I felt I had something to offer the WordPress community, so I volunteered to speak at one of the UK's biggest WordPress meetups, WordCamp London.</strong></p>
+<p>UPDATE: Here's the talk hosted on <a href="http://Wordpress.tv">Wordpress.tv</a>:</p>
+<div class="responsive-iframe-container">
+  <iframe width="560" height="315" src="https://videopress.com/embed/XXuKwsPC" frameborder="0" allowfullscreen></iframe>
+<script src="https://videopress.com/videopress-iframe.js"></script>
+</div>
+<p>Ever since starting my web development career I've wanted to be in the place where I could help other developers out with their development dilemmas. It's taken me a long time to get to this stage, and it's only because of some great help from the following people:</p>
+<ul>
+<li>Chris Geary</li>
+<li>David Hewitt</li>
+<li>Steve Woodall</li>
+<li>Louise Towler</li>
+</ul>
+<p>It's thanks to them imparting their knowledge and expertise (and sometimes their time), as well as others, that I have anything that might be considered worthy of sharing.</p>
+<h2 id="the-talk" tabindex="-1">The Talk <a class="direct-link" href="#the-talk" aria-hidden="true">#</a></h2>
+<p>There's a <a href="https://indigotree.co.uk/how-use-wordpress-headless-cms/">full writeup on the Indigo Tree website</a>. I'll update this post with the video on WordPress TV when it's uploaded there.</p>
+<p>My talk covered these main points:</p>
+<ol>
+<li>What is a headless (or decoupled) CMS</li>
+<li>Why use WordPress as a headless CMS</li>
+<li>Tools and process of building a headless site</li>
+<li>A basic example and some gotchas we found</li>
+<li>The Future is (probably) headless</li>
+</ol>
+<p><a href="https://2018.london.wordcamp.org/session/how-were-using-wordpress-as-a-headless-cms/">You can find it on the conference website too.</a></p>
+<h2 id="the-slides" tabindex="-1">The Slides <a class="direct-link" href="#the-slides" aria-hidden="true">#</a></h2>
+<p>Indigo Tree have <a href="https://wpheadless.indigotree.co.uk/1">kindly published the slides I made here</a>. The slides are a case in point, because it's a GatsbyJS site with a WordPress backend! How's that for recursion ha ha!</p>
+<h2 id="the-experience" tabindex="-1">The experience <a class="direct-link" href="#the-experience" aria-hidden="true">#</a></h2>
+<p>... was terrifying, to say the least! I rattled through it all in less than 30 mins (I had been given 35 minutes), but there were some really great comments &amp; questions from the audience that I found fascinating. I'm currently planning a series of blog posts on some of the questions that were raised.</p>
+<p>Overall, even though this kind of thing doesn't come naturally to me, it's a way of creating a dialog with other great people in communities, and gives others a chance to think about new ways of working. And I enjoy that, as well as to think that maybe I'm helping a few people to solve their development dilemmas.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/more-questions-better-answers/">More Questions, Better Answers</a></li><li>Previous: <a href="/posts/deserializing-data-in-gatsbyjs/">Deserializing Data in GatsbyJS</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

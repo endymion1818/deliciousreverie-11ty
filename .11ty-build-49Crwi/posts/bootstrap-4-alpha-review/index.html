@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 4 Alpha Review</title>
+    <meta name="description" content="Bootstrap 4 was released last week, and I downloaded it straight away, plugging it into my Wordpress base theme. Some things that have been added to the project are really good ... but the team have made some interesting design choices in what they&#39;ve changed ...">
+    <meta property="og:site_name" content="Bootstrap 4 Alpha Review">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Bootstrap 4 was released last week, and I downloaded it straight away, plugging it into my Wordpress base theme. Some things that have been added to the project are really good ... but the team have made some interesting design choices in what they&#39;ve changed ...">
+    <meta property="og:title" content="Bootstrap 4 Alpha Review" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Bootstrap 4 Alpha Review" />
+    <meta
+      name="twitter:description"
+      content="Bootstrap 4 was released last week, and I downloaded it straight away, plugging it into my Wordpress base theme. Some things that have been added to the project are really good ... but the team have made some interesting design choices in what they&#39;ve changed ..."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Bootstrap 4 Alpha Review",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2015-09-10T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Bootstrap 4 Alpha Review</h1>
+
+<time datetime="2015-09-10">10 Sep 2015</time><a href="/tags/css/" class="post-tag">css</a><a href="/tags/bootstrap/" class="post-tag">bootstrap</a>
+
+<p><strong>Bootstrap 4 was released last week, and I downloaded it straight away, plugging it into my Wordpress base theme. Some things that have been added to the project are really good ... but the team have made some interesting design choices in what they've changed ...</strong></p>
+<p>I'm starting to get away from Bootstrap in production sites. I have become a bit more fussy about what freedom I have with what I develop in recent months. However, even if I never used them again, I would still look towards Bootstrap and Foundation as a sort of a 'benchmark' for what is currently best practice in the industry.</p>
+<p>For example, I stopped supporting IE8 when Bootstrap stopped. It was clearly time to let it go. Now with Bootstrap 4 ... what do I need to let go of, or take hold of?</p>
+<h3 id="get-it:-es6" tabindex="-1">Get it: ES6 <a class="direct-link" href="#get-it:-es6" aria-hidden="true">#</a></h3>
+<p>The world is finally ready for ES6 implementation of JavaScript. All of Bootstrap's plugins have been written in the updated spec. This means that support for IE9 has been dropped too.</p>
+<p>Goodbye, IE9.</p>
+<h3 id="get-it:-sass" tabindex="-1">Get it: SASS <a class="direct-link" href="#get-it:-sass" aria-hidden="true">#</a></h3>
+<p>Unfortunately, LESS seems to have lost the battle when it comes to CSS preprocessors. The syntax is just that bit easier IMHO, even though the ease of use (the possibility of compiling on the front end with JavaScript) was a good idea, it just proved too slow.</p>
+<p>SASS is the way forward ... well, at least until PostCSS is ready for the main stage... but that's another story.</p>
+<h3 id="drop-it:-sub-navs" tabindex="-1">Drop it: Sub Navs <a class="direct-link" href="#drop-it:-sub-navs" aria-hidden="true">#</a></h3>
+<p>It's too easy to create sub navs in Wordpress, and generally users are finding them harder to use.</p>
+<p>Also, I'm beginning to think that if you can't understand and convey your red routes in 3 - 6 links then you might be doing it wrong. Or your clients could benefit from a training session on information architecture.</p>
+<h3 id="change-it:-hamburger-implementation" tabindex="-1">Change it: Hamburger Implementation <a class="direct-link" href="#change-it:-hamburger-implementation" aria-hidden="true">#</a></h3>
+<p>There's been a lot more talk about hamburgers, and how they don't convert so well lately. Facebook have dropped theirs in favour of tab icons. Many other sites have changed how they implement the &quot;hamburger&quot;, and I have to say, I like it.</p>
+<p>I'm going to try to use the hamburger to contain more &quot;discoverable&quot; content in future, stuff that's put there for regular visitors. This makes learning the site more fun as you get to know it, without penalising first-time or infrequent visitors who just need to finish their journey really fast.</p>
+<p>See Luke Wroblewski's article <a href="https://www.lukew.com/ff/entry.asp?1945" title="LukeW: Obvious Always Wins">Obvious Always Wins</a>.</p>
+<h3 id="get-it:-cards" tabindex="-1">Get it: Cards <a class="direct-link" href="#get-it:-cards" aria-hidden="true">#</a></h3>
+<p>&quot;Cards&quot; — an interface element that splits relevant content up into visual containers — are everywhere. Not that ubiquity is necessarily a good thing, but they certainly are a useful design tool and really good for reducing cognitive load.</p>
+<p>Cards clearly segment content into more easily digestible areas so that users can process what they're seeing faster, again reducing cognitive load. They also can provide a sense of visual depth to your site design.</p>
+<p>I like them, and think this is a good design pattern which I'll be using more.</p>
+<h3 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h3>
+<p>Lots of nice things. Yay. Can't wait to see how this project pans out, and always maintain a sense of gratitute to @fat and @mdo who have raised the bar for web design in general.</p>
+<p>Here's my implementation of v4 Alpha in a Wordpress theme:</p>
+<p><a href="https://github.com/endymion1818/blazebase/tree/bootstrap4">https://github.com/endymion1818/blazebase/tree/bootstrap4</a></p>
+
+<hr>
+<ul><li>Next: <a href="/posts/what-i-learned-this-year/">What I learned this year</a></li><li>Previous: <a href="/posts/the-future-is-headless/">The Future is Headless</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

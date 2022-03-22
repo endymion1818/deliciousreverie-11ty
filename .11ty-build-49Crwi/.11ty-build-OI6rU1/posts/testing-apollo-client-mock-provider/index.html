@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing with Apollo Client mock provider</title>
+    <meta name="description" content="Apollo&#39;s MockProvider is a great tool for testing mutations, however it&#39;s a little bit magical, making errors a little difficult to find. If your testing your error state, this might come in handy.">
+    <meta property="og:site_name" content="Testing with Apollo Client mock provider">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Apollo&#39;s MockProvider is a great tool for testing mutations, however it&#39;s a little bit magical, making errors a little difficult to find. If your testing your error state, this might come in handy.">
+    <meta property="og:title" content="Testing with Apollo Client mock provider" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="Testing with Apollo Client mock provider" />
+    <meta
+      name="twitter:description"
+      content="Apollo&#39;s MockProvider is a great tool for testing mutations, however it&#39;s a little bit magical, making errors a little difficult to find. If your testing your error state, this might come in handy."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Testing with Apollo Client mock provider",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2022-01-02T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>Testing with Apollo Client mock provider</h1>
+
+<time datetime="2022-01-02">02 Jan 2022</time><a href="/tags/react/" class="post-tag">react</a><a href="/tags/graphql/" class="post-tag">graphql</a><a href="/tags/apollo/" class="post-tag">apollo</a>
+
+<p><strong>Apollo's MockProvider is a great tool for testing mutations, however it's a little bit magical, making errors a little difficult to find. If your testing your error state, this might come in handy.</strong></p>
+<p>I'm currently building a UI for a messages app, but encountered issues when testing sending new messages. Here's my component:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">SubmitForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> <span class="token punctuation">[</span>message<span class="token punctuation">,</span> setMessage<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">const</span> <span class="token punctuation">[</span>submitMessage<span class="token punctuation">,</span> <span class="token punctuation">{</span> loading<span class="token punctuation">,</span> error <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useMutation</span><span class="token punctuation">(</span><span class="token constant">MESSAGE_MUTATION</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token keyword">return</span> <span class="token punctuation">(</span><br>        <span class="token operator">&lt;</span>form<br>            onSubmit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>                event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>                <span class="token keyword">try</span> <span class="token punctuation">{</span><br>                    <span class="token function">submitMessage</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>                        <span class="token literal-property property">variables</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                            <span class="token literal-property property">SendMessageInput</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                                <span class="token literal-property property">body</span><span class="token operator">:</span> message<span class="token punctuation">,</span><br>                            <span class="token punctuation">}</span><span class="token punctuation">,</span><br>                        <span class="token punctuation">}</span><span class="token punctuation">,</span><br>                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>                    <span class="token function">setMessage</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">{</span><br>                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span><br>                <span class="token punctuation">}</span><br>            <span class="token punctuation">}</span><span class="token punctuation">}</span><br>        <span class="token operator">></span><br>            <span class="token punctuation">{</span>error <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><br>                <span class="token operator">&lt;</span>div<span class="token operator">></span>Sorry<span class="token punctuation">,</span> there was a problem submitting your message<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><br>            <span class="token punctuation">)</span><span class="token punctuation">}</span><br>            <span class="token operator">&lt;</span>fieldset<span class="token operator">></span><br>                <span class="token operator">&lt;</span>label htmlFor<span class="token operator">=</span><span class="token string">"input"</span><span class="token operator">></span>Compose message<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">></span><br>                <span class="token operator">&lt;</span>input<br>                    type<span class="token operator">=</span><span class="token string">"text"</span><br>                    id<span class="token operator">=</span><span class="token string">"input"</span><br>                    value<span class="token operator">=</span><span class="token punctuation">{</span>message<span class="token punctuation">}</span><br>                    onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">event</span> <span class="token operator">=></span> <span class="token function">setMessage</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">}</span><br>                <span class="token operator">/</span><span class="token operator">></span><br>            <span class="token operator">&lt;</span><span class="token operator">/</span>fieldset<span class="token operator">></span><br>            <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">"submit"</span><span class="token operator">></span>Send message <span class="token punctuation">{</span>loading <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>Spinner <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span><br>        <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span><br>    <span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>I wrote a test suite for this component, all of which worked correctly, until I got to the stage when I was testing the error state:</p>
+<pre class="language-javascript"><code class="language-javascript">    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should render the error state UI'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>        <span class="token keyword">const</span> mockErrorMutation <span class="token operator">=</span> <span class="token punctuation">{</span><br>            <span class="token literal-property property">request</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token constant">MESSAGE_MUTATION</span><span class="token punctuation">,</span><br>                <span class="token literal-property property">variables</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                    <span class="token literal-property property">SendMessageInput</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                        <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span><br>                    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>                <span class="token punctuation">}</span><span class="token punctuation">,</span><br>            <span class="token punctuation">}</span><span class="token punctuation">,</span><br>            <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'drat'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>        <span class="token punctuation">}</span><span class="token punctuation">;</span><br><br>        <span class="token function">render</span><span class="token punctuation">(</span><br>            <span class="token operator">&lt;</span>ThemeProvider theme<span class="token operator">=</span><span class="token punctuation">{</span>defaultTheme<span class="token punctuation">}</span><span class="token operator">></span><br>                <span class="token operator">&lt;</span>MockedProvider mocks<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>mockErrorMutation <span class="token keyword">as</span> any<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token operator">></span><br>                    <span class="token operator">&lt;</span>SubmitForm <span class="token operator">/</span><span class="token operator">></span><br>                <span class="token operator">&lt;</span><span class="token operator">/</span>MockedProvider<span class="token operator">></span><br>            <span class="token operator">&lt;</span><span class="token operator">/</span>ThemeProvider<span class="token operator">></span><br>        <span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>        <span class="token keyword">const</span> inputField <span class="token operator">=</span> screen<span class="token punctuation">.</span><span class="token function">getByLabelText</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">compose message</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">const</span> button <span class="token operator">=</span> screen<span class="token punctuation">.</span><span class="token function">getByText</span><span class="token punctuation">(</span><span class="token string">'Send message'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>        userEvent<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        fireEvent<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span>button<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>        <span class="token keyword">await</span> <span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>            <span class="token function">expect</span><span class="token punctuation">(</span><br>                screen<span class="token punctuation">.</span><span class="token function">getByText</span><span class="token punctuation">(</span><br>                    <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">sorry, there was a problem submitting your message</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><br>                <span class="token punctuation">)</span><br>            <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>This test consistently failed, because all we ever got was the loading state. Yet manual testing passed fine.</p>
+<p>The solution? Async the <code>submitMessage()</code> function:</p>
+<pre class="language-javascript"><code class="language-javascript">            onSubmit<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">async</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>                event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>                <span class="token keyword">try</span> <span class="token punctuation">{</span><br>                    <span class="token keyword">await</span> <span class="token function">submitMessage</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>                        <span class="token literal-property property">variables</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                            <span class="token literal-property property">SendMessageInput</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>                                <span class="token literal-property property">body</span><span class="token operator">:</span> message<span class="token punctuation">,</span><br>                            <span class="token punctuation">}</span><span class="token punctuation">,</span><br>                        <span class="token punctuation">}</span><span class="token punctuation">,</span><br>                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>                    <span class="token function">setMessage</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">{</span><br>                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span><br>                <span class="token punctuation">}</span><br>            <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+<p>Without making this asynchronous it would always fail. Ah well. All's well that ends well.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/first-two-weeks-at-webiny/">First 2 weeks at Webiny</a></li><li>Previous: <a href="/posts/2021-review-2022-aims/">2021 Review / 2022 Aims</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

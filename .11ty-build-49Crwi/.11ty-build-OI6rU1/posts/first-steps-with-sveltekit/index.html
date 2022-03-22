@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First steps with Sveltekit</title>
+    <meta name="description" content="SvelteKit is great for one reason: performance. And it&#39;s this above everything else (except accessibility) that I&#39;m excited about.">
+    <meta property="og:site_name" content="First steps with Sveltekit">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="SvelteKit is great for one reason: performance. And it&#39;s this above everything else (except accessibility) that I&#39;m excited about.">
+    <meta property="og:title" content="First steps with Sveltekit" />
+    <meta property="og:image" content="/img/sharecard-default.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@muzzlehatch_" />
+    <meta name="twitter:title" content="First steps with Sveltekit" />
+    <meta
+      name="twitter:description"
+      content="SvelteKit is great for one reason: performance. And it&#39;s this above everything else (except accessibility) that I&#39;m excited about."
+    />
+    <meta name="twitter:image" content="/img/sharecard-default.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "First steps with Sveltekit",
+        "author": {
+          "@type": "Person",
+          "name": "Benjamin Read"
+        },
+        "datePublished": "2021-05-27T15:21:21+01:00",
+        "image": "/img/sharecard-default.png"
+      }
+    </script>
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Delicious Reverie">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Delicious Reverie">
+  </head>
+  <body>
+    <a id="skiplinks" href="#main">Skip to main content</a>
+    <p class="themeswitcher">Choose theme:</p>
+    <label class="themeswitcher" for="dark">Light</label>
+    <input class="themeswitcher" type="radio" id="light" name="colors" value="light">
+    <label  class="themeswitcher" for="dark">Dark</label>
+    <input  class="themeswitcher" type="radio" id="dark" name="colors" value="dark">
+    <header>
+      <div class="container">
+        <div class="title home"><a href="/">Delicious Reverie</a></div>
+        <p class="subtitle">blog of developer &amp; bookworm benjamin read</p>
+        <nav>
+          <ul class="list-inline">
+            <li class="nav-item">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/links/">Links</a>
+            </li>
+            <li class="nav-item">
+              <a href="/posts/">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main tmpl-post">
+      
+      <div class="container">
+        <h1>First steps with Sveltekit</h1>
+
+<time datetime="2021-05-27">27 May 2021</time><a href="/tags/svelte/" class="post-tag">svelte</a><a href="/tags/javascript/" class="post-tag">javascript</a>
+
+<p><strong>Svelte is a new framework for JavaScript ... hear me out! It does seem to some people that there's a new JavaScript framework out every day. And there are a lot of new ones at the minute. But SvelteKit is great for one reason: performance. And it's this above everything else (except accessibility) that I'm excited about.</strong></p>
+<p>Svelte does have a lot of things going for it. It's as nice (if not nicer) to develop with than React, and getting started is a lot, lot quicker.</p>
+<p>These days, if you're going to build a site with React, you either go with the slightly walled garden of create-react-app, or something like Next or Gatsby. Vue has it's own set of these problems too.</p>
+<p>However Svelte ... isn't just a framework. It's a compiler too. This facilitates much smaller bundle sizes:</p>
+<p><img src="/img/moviano-jsframeworkcomparison.png" alt="Here's a comparison of some common JS frameworks" title="Chart showing popular JS frameworks as of today: React is hugely popular, but also much larger in size than others. Svelte has the smallest bundle size."></p>
+<p>React is 42.2kb including react-dom. By comparison, Preact is 4kb. By contrast, Svelte is 1.6kb. That blows my mind.</p>
+<p>In our day of multi-megabyte downloads for some websites (that I've seen), Svelte could really turn the tide.</p>
+<h2 id="developer-experience" tabindex="-1">Developer experience <a class="direct-link" href="#developer-experience" aria-hidden="true">#</a></h2>
+<p>The other thing I want to talk about is the developer experience of Svelte. It's very pleasant to work with. Writing components <em>feels</em> a lot more like writing native HTML and CSS. There were certainly some unusual (to me) augmentations, for example writing conditional blocks has an unusual syntax, with <code>{ #if }</code> and <code>{ /if}</code> either side of the condition.</p>
+<p>I have to say, I do kinda prefer React's slightly more JavaScript-y approach.</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token punctuation">{</span><br>  condition <span class="token operator">&amp;&amp;</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>conditional item<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>However, when it comes to rendering HTML content, it's much more succinct.</p>
+<pre class="language-javascript"><code class="language-javascript">    <span class="token punctuation">{</span>@html htmlContent<span class="token punctuation">}</span></code></pre>
+<p>Don't get me wrong, that reminder is pretty useful. However once you're familiar with the concept, it's not exactly a big deal any more.</p>
+<h2 id="sveltekit-vs-nextjs-vs-gatsby" tabindex="-1">SvelteKit vs NextJS vs Gatsby <a class="direct-link" href="#sveltekit-vs-nextjs-vs-gatsby" aria-hidden="true">#</a></h2>
+<p>SvelteKit is definitely going more the route of NextJS rather than Gatsby. Gatsby is a little more prescriptive and great for newer developers (or those short on time), but NextJS allows much more freedom.</p>
+<p>Similar to NextJS, SvelteKit will have options for rendering with SSG / SSR or on the client, and different adapters for interfacing with serverless functions from different providers.</p>
+<p>This means you have to fetch data your own way, either on the client or server, and that means you have to be a bit more aware of the performance costs involved.</p>
+<p>However, I couldn't find any reference to how you build a NextJS that compiles at build time, that doesn't send any JavaScript to the client. Yet, that's one of the excellent things about SvelteKit: I easily configured my site to send exactly <em>no clientside javascript</em> to the browser, and it works perfectly!</p>
+<h2 id="my-project" tabindex="-1">My project <a class="direct-link" href="#my-project" aria-hidden="true">#</a></h2>
+<p>You can take a look at my live project at <a href="https://promatt.co.uk">https://promatt.co.uk</a>.</p>
+<p>I wrote this small site using a starter built by <a href="https://scottspence.com/2021/05/06/graphcms-svelte-strter/">Scott Spence</a>. It fetches data from <a href="https://graphcms.com">GraphCMS</a> and is hosted on <a href="https://vercel.com">Vercel</a>. I've used <a href="https://formspree.io">Formspree</a> to forward emails from the /contact page to my friend's email address, but I could have just as easily done that with a serverless function.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="direct-link" href="#conclusion" aria-hidden="true">#</a></h2>
+<p>There's one other project I've got my eye on that will trump SvelteKit for my tool of choice. I think it's a great challenge to other frameworks, and I really hope it starts some kind of &quot;performance war&quot; where the performance costs of frameworks are driven down by competition in the space.</p>
+<p>Even if that doesn't happen, SvelteKit is a wonderful addition to the JavaScript developers' tool belt.</p>
+
+<hr>
+<ul><li>Next: <a href="/posts/monorepos/">monorepos.</a></li><li>Previous: <a href="/posts/towards-better-rehydration/">Towards better hydration</a></li>
+</ul>
+
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+          <div class="container">
+            <blockquote>
+              <span class="title">“Wisest are they who know they do not know.”</span>
+              <attr>
+                &mdash; Jostein Gaarder
+              </attr>
+            </blockquote>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <h2>About This Site</h2>
+            <p><a href="/">Delicious Reverie</a> is the blog of developer & bookworm <span class="h-card">benjamin read</span>. Set in Lovechild and your system font. Built with <a href="https://www.11ty.dev">Eleventy</a> and <a href="https://slinkity.dev">Slinkity</a>, hosted by Netlify. &copy; Some rights are reserved. This site doesn't use any cookies or other session storage and has no tracking scripts.</p>
+          <h3>Where you can find me:</h3>
+            <ul class="list-inline">
+              <li><a href="https://twitter.com/muzzlehatch_">twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/benjaminread1980/">linkedin</a></li>
+              <li><a href="https://github.com/endymion1818/">github</a></li>
+              <li><a href="/feed.xml">RSS Feed</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>
