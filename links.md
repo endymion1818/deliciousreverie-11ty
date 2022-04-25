@@ -27,8 +27,8 @@ I don't believe it is. I've seen the world wide web morph from AOL and eWorld to
 
 ### This Website
 
-- Typeface for titles: Skybird by [PhitraDesign](https://phitradesign-fonts.com/)
-- CMS: [Gatsby](https://gatsbyjs.org)
+- Typeface for titles: LoveChild by [Beasts of England](http://beastsofengland.co)
+- Frontend: [Eleventy]http://11ty.dev)
 - Hosting: [Netlify](https://www.netlify.com)
 
 ### My Projects
@@ -39,15 +39,16 @@ I don't believe it is. I've seen the world wide web morph from AOL and eWorld to
 - [My Gatsby Starter (gatsby-starter-carraway)](https://www.gatsbyjs.org/starters/endymion1818/gatsby-starter-carraway/)
 
 ### Uses
-- [Hyper Terminal](https://hyper.is)
 - [Pure prompt](https://github.com/sindresorhus/pure)
-- [React](https://reactjs.org/)
-- [Gatsby](https://www.gatsbyjs.org/)
 - [TypeScript](https://www.typescriptlang.org)
 - [Testing Library](https://testing-library.com/react/)
 - [Sentry](https://sentry.io/welcome/)
 - [CircleCI](https://circleci.com)
 - [Netlify](https://netlify.com)
+- [VS Code](https://code.visualstudio.com)
+  - [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+  - [Or sometimes Monokai Pro](https://monokai.pro)
+  - [Font: Dank Mono](https://dank.sh)
 - [Spotify](https://www.spotify.com/uk/) (yeah, of course it's a _tool_)
 
 ### Literature
