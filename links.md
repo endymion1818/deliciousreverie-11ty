@@ -28,7 +28,7 @@ I don't believe it is. I've seen the world wide web morph from AOL and eWorld to
 ### This Website
 
 - Typeface for titles: LoveChild by [Beasts of England](http://beastsofengland.co)
-- Frontend: [Eleventy]http://11ty.dev)
+- Frontend: [Eleventy](http://11ty.dev)
 - Hosting: [Netlify](https://www.netlify.com)
 
 ### My Projects
