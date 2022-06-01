@@ -10,9 +10,11 @@ tags:
   - resources
 title: I launched a YouTube channel
 ---
-Time flies, as they say, and as I'm getting older (reached 42 this year) I find I have as much to say but less time to say it. I'm thinking people who are interested in my content are likely to be in the same position.
+**Time flies, as they say, and as I'm getting older (reached 42 this year) I find I have as much to say but less time to say it. I'm thinking people who are interested in my content are likely to be in the same position.**
 
-With that in mind, I [opened my own YouTube channel](https://www.youtube.com/channel/UCzbL3ZYvJWzJbrbHCgZLDJQ). Here's some of the things I plan to talk about:
+With that in mind, I [opened my own YouTube channel](https://www.youtube.com/channel/UCzbL3ZYvJWzJbrbHCgZLDJQ).
+
+Here's some of the things I plan to talk about:
 
 I opened the channel mostly because I wanted to [teach my kids and others how to code, for which I've created a playlist](https:9//www.youtube.com/playlist?list=PLB3rPzXxlZBdnaRBZ-5bwoRA3Hrisdvmk).
 
