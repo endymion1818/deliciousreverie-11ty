@@ -46,7 +46,7 @@ Sit through this video, if it blows your mind like it did mine, then we have an 
 
 <blockquote>
 <h1>“... in the technology industry, where revolutionary ideas drive the next big growth areas, you need to be a bit uncomfortable to stay relevant.”</h1>
-<attr>—Larry Page, [Alphabet](https://abc.xyz/ "Alphabet (formerly Google) home page")</attr>
+<attr><a href="https://abc.xyz/">—Larry Page, Alphabet</a></attr>
 </blockquote>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GX9z5M9mz30" frameborder="0" allowfullscreen></iframe>

@@ -24,10 +24,9 @@ Swaying the opinions of stakeholders is vitally important. But I argue there are
 
 It doesn't take much for a client to feel let down. Unmet expectations are a slippery slope.
 
-<blockquote>
-"Talking with @nicoleslaw, and this came up: “Hell is other people’s undocumented assumptions.”
-===============================================================================================
-<small>[—Frank Chimero](https://twitter.com/frank_chimero/status/573907847978811392 "Link to original tweet")</small>
+<blockquote class="boxout">
+"Talking with <a href="https://twitter.com/nicoleslaw">@nicoleslaw</a>, and this came up: “Hell is other people’s undocumented assumptions.”
+<small><a href="https://twitter.com/frank_chimero/status/573907847978811392">—Frank Chimero</a></small>
 </blockquote>
 
 So take time to get to know their assumptions. Ask these kinds of questions:

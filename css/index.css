@@ -342,3 +342,14 @@ blockquote > span {
 .footer-bottom a:visited {
   color: var(--gray);
 }
+/* horizontal rule */
+hr {
+  border: 1px dashed var(--accent);
+}
+/* boxouts */
+.boxout {
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid white;
+}

@@ -38,7 +38,10 @@ Great, innit? It'll probably never happen but I can dream, can't I?
 
 Take a look at this tweet from Evan You, the creator of Vue:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I just tried this in a Vite SSRed app and this approach totally works... a plugin can simply remove the script tags for the actual bundle and let petite-vue &quot;sprinkle&quot; the parts.<br><br>aka &quot;Island Architecture&quot; 🏝️ <a href="https://t.co/Oe9KRvFsrd">https://t.co/Oe9KRvFsrd</a> <a href="https://t.co/KV7SvCwyn8">pic.twitter.com/KV7SvCwyn8</a></p>&mdash; Evan You (@youyuxi) <a href="https://twitter.com/youyuxi/status/1411405615369539590?ref_src=twsrc%5Etfw">July 3, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="boxout">
+I just tried this in a Vite SSRed app and this approach totally works... a plugin can simply remove the script tags for the actual bundle and let petite-vue &quot;sprinkle&quot; the parts.<br><br>aka &quot;Island Architecture&quot; 🏝️
+<small><a href="https://twitter.com/youyuxi/status/1411405615369539590">&mdash; Evan You (@youyuxi)</a></small>
+</blockquote>
 
 Is it a coincidence that Vue now can do a similar thing to Astro? did Astro get Evan to start thinking more about this problem? Could the same be said for the other frameworks too?
 

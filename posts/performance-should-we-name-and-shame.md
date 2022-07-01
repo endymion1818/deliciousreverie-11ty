@@ -48,11 +48,11 @@ I'm hoping this could be a way of motivating people who should know better to do
 
 What I'm also hoping to suggest is that we as an industry reward good performance. I reached out to a number of organisations that I thought might be interested in following this up, including Awwards, an organisation that celebrates beautiful and interesting website UIs.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I&#39;m wondering if <a href="https://twitter.com/AWWWARDS">@AWWWARDS</a>, <a href="https://twitter.com/webawards">@webawards</a> or <a href="https://twitter.com/WebGuildSeal">@WebGuildSeal</a> would ever get involved to promote / reward good performance practice <a href="https://twitter.com/hashtag/perfmatters?src=hash">#perfmatters</a></p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874657130367913984">June 13, 2017</a></blockquote>
+<blockquote class="boxout" data-lang="en"><p lang="en" dir="ltr">I&#39;m wondering if <a href="https://twitter.com/AWWWARDS">@AWWWARDS</a>, <a href="https://twitter.com/webawards">@webawards</a> or <a href="https://twitter.com/WebGuildSeal">@WebGuildSeal</a> would ever get involved to promote / reward good performance practice <a href="https://twitter.com/hashtag/perfmatters?src=hash">#perfmatters</a></p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874657130367913984">June 13, 2017</a></blockquote>
 
 And Awwards replied!
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We 100 % agree it&#39;s our responsibility to promote good performance practice, see our developer jury guidelines <a href="https://t.co/Yzxo6FxwIx">https://t.co/Yzxo6FxwIx</a></p>&mdash; Awwwards (@AWWWARDS) <a href="https://twitter.com/AWWWARDS/status/874896069024509954">June 14, 2017</a></blockquote>
+<blockquote class="boxout" data-lang="en"><p lang="en" dir="ltr">We 100 % agree it&#39;s our responsibility to promote good performance practice, see our developer jury guidelines <a href="https://t.co/Yzxo6FxwIx">https://t.co/Yzxo6FxwIx</a></p>&mdash; Awwwards (@AWWWARDS) <a href="https://twitter.com/AWWWARDS/status/874896069024509954">June 14, 2017</a></blockquote>
 
 If you're interested in web performance, I think this document could be a good place to start making yourself aware of what could to be done. Awwards further replied saying that they had something in the pipeline about this topic.
 
@@ -62,7 +62,7 @@ Like I said, I tend to work in a sector of the web industry that is pretty stuck
 
 But there are things we can do within our industry to promote better practices, to raise the bar for web development by educating ourselves, our PMs and our business owners to promote better performance practices:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Main things I would say: educate dev teams &amp; clients. Read <a href="https://twitter.com/ResponsibleRWD">@ResponsibleRWD</a> &amp; act on it wherever possible. Use <a href="https://t.co/288vNrRuYJ">https://t.co/288vNrRuYJ</a>.</p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874617990653890560">June 13, 2017</a></blockquote>
+<blockquote class="boxout"><p>Main things I would say: educate dev teams &amp; clients. Read <a href="https://twitter.com/ResponsibleRWD">@ResponsibleRWD</a> &amp; act on it wherever possible. Use <a href="https://t.co/288vNrRuYJ">https://t.co/288vNrRuYJ</a>.</p>&mdash; Benjamin Read (@muzzlehatch_) <a href="https://twitter.com/muzzlehatch_/status/874617990653890560">June 13, 2017</a></blockquote>
 
 I haven't acted on this league table idea. But I am gathering a catalogue of the worst sites I find, and may publish it at some point.
 
