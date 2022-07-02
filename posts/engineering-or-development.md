@@ -7,7 +7,8 @@ date: "2022-07-01T10:21:21+01:00"
 description: "Do you describe yourself as a web developer or software engineer? There's no general consensus about what those terms mean, however my understanding has recently shifted."
 draft: false
 tags:
-  - resources
+  - career development
+  - personal goals
 title: "Am I a software engineer or a web developer?"
 ---
 **Do you describe yourself as a web developer or software engineer? There's no general consensus about what those terms mean, but how I think about them has recently shifted.**
