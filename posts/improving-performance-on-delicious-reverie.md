@@ -24,7 +24,7 @@ I built this site in December 2014 when I was on paternity leave. Now that my li
 Let's break down each of these and see what can be done to improve them.
 
 ### Reducing unused DOM elements
-When I built this site, I originally envisioned a main (central) content area, with sidebars of supplementary content. But at the time, I was beginning to realise [that normal people don't understand sidebars](https://deliciousreverie.co.uk/blog/post.php?s=2015-03-23-normal-people-dont-understand-sidebars "Normal People Don't Understand Sidebars on deliciousreverie.co.uk").
+When I built this site, I originally envisioned a main (central) content area, with sidebars of supplementary content. But at the time, I was beginning to realise [that normal people don't understand sidebars](https://deliciousreverie.co.uk/posts/normal-people-dont-understand-sidebars "Normal People Don't Understand Sidebars on deliciousreverie.co.uk").
 
 I have since decided to just focus on delivering good content in a branded experience. That's the core of what I wanted to achieve here.
 
@@ -61,7 +61,7 @@ I've gained some great results from these excercises:
 
 ![Web Page Test shows many 'A's](/img/straight-a.png)
 
-Seeing this result on [Web Page Test](www.webpagetest.org/ "Web Page Test speed testing site") was a big encouragement to me:- I had achieved much of what I wanted to.
+Seeing this result on [Web Page Test](https://www.webpagetest.org/ "Web Page Test speed testing site") was a big encouragement to me:- I had achieved much of what I wanted to.
 
 I'm especially proud of the fact that I have no images at all on my home page. The render chart is similarly encouraging:
 

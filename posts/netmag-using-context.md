@@ -129,4 +129,4 @@ To do that, you could use two fantastic resources that have recently become avai
 Codesandbox (codesandbox.io) is an online editor for creating apps in many languages, with built-in support for React. It's like codesandbox but with support for javascript modules
 
 ## Spectrum.chat
-[Spectrum.chat](Spectrum.chat), built by the creator of styled-components and recently acquired by GitHub, is rapidly becoming a lively community. I've found it a great place to share ideas, ask for help and chat about the latest developments in JavaScript, React and other tools I use every day. Hope to see you there!
+[Spectrum.chat](https://spectrum.chat), built by the creator of styled-components and recently acquired by GitHub, is rapidly becoming a lively community. I've found it a great place to share ideas, ask for help and chat about the latest developments in JavaScript, React and other tools I use every day. Hope to see you there!
