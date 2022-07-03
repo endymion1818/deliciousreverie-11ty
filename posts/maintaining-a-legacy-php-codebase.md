@@ -86,7 +86,6 @@ As we only had one plan, and we were running out of time, I used an `if` stateme
 Here's my code for the page you're redirected to on Stripe success (because sometimes it's harder to explain code than actually show it):
 
 ```php
-<?php
 // Stripe library
 require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/stripe-php-5.7.0/init.php');
 // private token (so that its not available if the repo becomes compromised)

@@ -25,6 +25,5 @@ What I take away from this experience is that I need to "stay foolish", and inst
 
 And that, I think, can count for something.
 
-<blockquote>
-<h1>"If your pride is hurt, let it be hurt. You don't need pride."</h1>
-<small>Matt Briars</small>
+> # If your pride is hurt, let it be hurt. You don't need pride.
+> — Matt Briars
