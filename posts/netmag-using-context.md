@@ -41,7 +41,7 @@ The easiesy way I can think of explaining this relationship is that the "Consume
 
 Create a new module called "Context.js" adding the following code:
 
-![using context 1](images/using-context-1.png)
+![using context 1](img/using-context-1.png)
 
 You might be able to see that on lines 2 & 3, we're calling on our core library, React, not some external dependency. That's the first benefit already!
 
@@ -51,7 +51,7 @@ Inside our `class` I've set up a few items in state to demonstrate what's going 
 
 Next, create a module containing a few items the user can interact with:
 
-![using context 2](images/using-context-2.png)
+![using context 2](img/using-context-2.png)
 
 In this component, we can loop over an array in our `context.state` to create a few checkboxes, and a text description of the output.
 
@@ -59,7 +59,7 @@ In the next module we're basically going to duplicate this code but leave out th
 
 Next we can create our main app.js file, or index.js if you like:
 
-![using context 3](images/using-context-3.png)
+![using context 3](img/using-context-3.png)
 
 As you can see, the two modules we've created don't have any props passed down from the parent. Instead you get this functionality with the Context provider and children inside that.
 

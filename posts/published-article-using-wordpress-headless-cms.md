@@ -153,7 +153,7 @@ For this next step we're going to use the `gatsby-node.js` file.
 
 We're going to write some instructions here to tell Gatsby what to do with our data:
 
-![using wordpress as a headless cms 2](using-wordpress-headless-cms-2.png)
+![using wordpress as a headless cms 2](img/using-wordpress-headless-cms-2.png)
 
 This code creates pages from our GraphQL query, and for each page it'll use a template we've defined (`/src/templates/post.js`). So next, we need to create that file!
 
@@ -161,7 +161,7 @@ This code creates pages from our GraphQL query, and for each page it'll use a te
 
 Inside the /src/ folder, create a folder called templates, and a file inside that called `post.js`. Add to it this code:
 
-![using wordpress as a headless cms 3](using-wordpress-headless-cms-3.png)
+![using wordpress as a headless cms 3](img/using-wordpress-headless-cms-3.png)
 
 This uses a different GraphQL query to get data about the specific post it's been fed by the `gatsby-node.js` file, then uses React to render that out into the browser.
 
