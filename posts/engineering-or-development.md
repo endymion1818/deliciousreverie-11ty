@@ -33,7 +33,7 @@ For example, although developers might work with a monorepo, who maintains that 
 
 Now I'm working at this level, or at least trying to, Ive seen a huge difference in the ways of thinking about, and writing code.
 
-I also watched a [Clean Coder](http://cleancoder.com/products) video, where Bob Martin stipulates that writing code is only the first 50% of our job. Once we've written code, we need to ensure it's efficient and readable, so the next person coming into the project can modify it without having to jump through too many mental hoops in order to understand what we've written.
+I also watched a [Clean Coder](https://cleancoder.com/products) video, where Bob Martin stipulates that writing code is only the first 50% of our job. Once we've written code, we need to ensure it's efficient and readable, so the next person coming into the project can modify it without having to jump through too many mental hoops in order to understand what we've written.
 
 In my previous roles, there was a lot more pressure on delivering, which meant sacrificing quality to meet business objectives. This of course led to a messy codebase that slowed down development teams to a crawl.
 
