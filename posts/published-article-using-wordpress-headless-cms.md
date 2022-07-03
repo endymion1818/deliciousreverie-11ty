@@ -54,17 +54,17 @@ This will create a new folder called 'blog' and install Gatsby and its dependenc
 
 ---
 
-<small>
+<div class="boxout">
+
 ### Why Headless?
 
 I first heard about this approach from a talk I watched from Twin Cities Drupal (https://www.youtube.com/watch?v=GX9z5M9mz30). I liked the idea of a seperation of concerns between authoring content and viewing that content.
 
 I had also already experienced how easily one server can go down, taking out all of the sites on it, leading to minutes or hours of heart-stopping panic (there were 24 hours on mine). I had also seen how a monolithic CMS-based site could suffer a security compromise and take a lot of effort to repair (that took me more than 2 days of unpaid work).
 
-I had also seen the benefits of CDNs (content delivery networks) that can store your image, audio and video files on servers optimized for fast delivery, and can duplicate those files across the world for speedy delivery to those regions if needed. What if your entire website could benefit from this approach?
+I had also seen the benefits of CDNs (content delivery networks) that can store your image, audio and video files on servers optimized for fast delivery, and can duplicate those files across the world for speedy delivery to those regions if needed. What if your entire website could benefit from this approach? I gave a talk at WordCamp London 2018 about this subject, you can find the slides and more references here: https://wpheadless.indigotree.co.uk
 
-I gave a talk at WordCamp London 2018 about this subject, you can find the slides and more references here: https://wpheadless.indigotree.co.uk
-</small>
+</div>
 
 ---
 
@@ -153,7 +153,7 @@ For this next step we're going to use the `gatsby-node.js` file.
 
 We're going to write some instructions here to tell Gatsby what to do with our data:
 
-![using wordpress as a headless cms 2](using-wordpress-headless-cms-2.png)
+![using wordpress as a headless cms 2](img/using-wordpress-headless-cms-2.png)
 
 This code creates pages from our GraphQL query, and for each page it'll use a template we've defined (`/src/templates/post.js`). So next, we need to create that file!
 
@@ -161,7 +161,7 @@ This code creates pages from our GraphQL query, and for each page it'll use a te
 
 Inside the /src/ folder, create a folder called templates, and a file inside that called `post.js`. Add to it this code:
 
-![using wordpress as a headless cms 3](using-wordpress-headless-cms-3.png)
+![using wordpress as a headless cms 3](img/using-wordpress-headless-cms-3.png)
 
 This uses a different GraphQL query to get data about the specific post it's been fed by the `gatsby-node.js` file, then uses React to render that out into the browser.
 
@@ -179,7 +179,8 @@ Please, keep in touch with me via those channels and on Twitter to hear more exc
 
 ---
 
-<small>
+<div class="boxout">
+
 ### Why use a Static Site Generator?
 
 Traditionally, when a user visits a site, some code where the website lives kicks into action, getting data from a database, inserting it into templates, and stitches page pieces together before sending that code down to the user. This can take quite a bit of time.
@@ -191,6 +192,7 @@ Static Sites can be hosted entirely on CDN services like Netlify (https://www.ne
 I prefer Gatsby (https://www.gatsbyjs.org/) because of its' healthy plugin ecosystem, adaptable approach to data and because it uses React, my favourite JavaScript framework. In fact, I didn't _get_ why so many people loved React until I started working with Gatsby.
 
 ![Static site generator Gatsby is a really useful tool built on JavaScript and React.](/img/netmag-wpheadless-4-gatsbyjs.png "Gatsby JS logo")
-</small>
+
+</div>
 
 ---

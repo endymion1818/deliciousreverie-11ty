@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
+const slinkity = require('slinkity')
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
@@ -96,6 +97,11 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("_redirects");
+
+  eleventyConfig.addPlugin(slinkity.plugin, slinkity.defineConfig({
+    // optional: use slinkity.defineConfig
+    // for some handy autocomplete in your editor
+  }))
 
   return {
     // Control which files Eleventy will process

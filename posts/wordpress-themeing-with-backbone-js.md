@@ -51,7 +51,5 @@ These are some of the things I can't do yet. It really bothers me but until I fi
 
 [Here's the theme if you want to pick over my code.](https://github.com/endymion1818/questingtheair "My Backbone.js Wordpress theme on Github.com")
 
-<blockquote>
-<h1>I have not failed. I've just found 10,000 ways that won't work.</h1>
-<attr>Thomas Edison</attr>
-<blockquote>
+> # I have not failed. I've just found 10,000 ways that won't work.
+> - Thomas Edison
