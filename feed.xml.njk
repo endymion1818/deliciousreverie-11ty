@@ -1,0 +1,36 @@
+---json
+{
+  "permalink": "feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Delicious Reverie",
+    "subtitle": "blog of developer and bookworm benjamin read.",
+    "url": "https://deliciousreverie.co.uk/",
+    "feedUrl": "https://deliciousreverie.co.uk/feed.xml",
+    "author": {
+      "name": "Benjamin Read",
+      "email": "endymion1818@gmail.com"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url }}">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.url }}</link>
+    <description>{{ metadata.subtitle }}</description>
+    <language>en</language>
+    {%- for post in collections.posts | reverse %}
+        {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+        <item>
+            <title>{{ post.data.title }}</title>
+            <link>{{ absolutePostUrl }}</link>
+            <description>{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</description>
+            <pubDate>{{ post.date  }}</pubDate>
+            <dc:creator>{{ metadata.author.name }}</dc:creator>
+            <guid>{{ absolutePostUrl }}</guid>
+        </item>
+    {%- endfor %}
+  </channel>
+</rss>
