@@ -3,15 +3,15 @@ layout: layouts/post.njk
 categories:
   - personal
 date: "2022-07-28T15:21:21+01:00"
-description: "I've tried several recipes for crispy beef, and have finally gotten gained confidence enough to make it on my own terms. Here's a simplified version that I now follow. It's quite rough, and it's meant to be adapted."
+description: "I've tried several recipes for crispy beef, and have finally gained confidence enough to make it on my own terms. Here's a simplified version that I now follow. It's quite rough, and it's meant to be adapted."
 draft: false
 tags:
   - food
 title: My Recipe for Crispy Beef
 ---
-**I've tried several recipes for crispy beef, and have finally gotten gained confidence enough to make it on my own terms. Here's a simplified version that I now follow. It's quite rough, and it's meant to be adapted.**
+**I've tried several recipes for crispy beef, and have finally gained confidence enough to make it on my own terms. Here's a simplified version that I now follow. It's quite rough, and it's meant to be adapted.**
 
-The trick with crispy beef is to keep it dry enough so that it will firm up on cooking. This also depends on getting enough heat to caramelise.
+The trick with crispy beef is to keep it dry enough so that it will firm up on cooking. This also depends on getting enough heat for it to caramelise.
 
 Ingredients:
 1. Minced beef
