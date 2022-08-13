@@ -17,7 +17,7 @@ I'd like to explain why.
 
 ## In decline?
 
-I'm sure I was one of the earliest users of Gatsby. I was introduced to it and Netlify before v1 was released, and started experimenting with fetching data from a content source pretty soon after that.
+I feel sure I was one of the earlier users of Gatsby. I was introduced to it and Netlify before v1 was released, and started experimenting with fetching data from a content source pretty soon after that.
 
 I've since had a chance to work extensively with Next.js, and can see why people like it's lower-level API. I agree that for a lot of use cases, Next.js is a great tool to use. I particularly like how easy [`getServerSideProps()`](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) is to build an isomorphic application that runs in a container.
 
@@ -37,15 +37,21 @@ This might also benefit newer users to the JavaScript ecosystem, who need a way 
 
 Where Gatsby does particularly well is with the "content mesh". You might have heard this referred to as "composable commerce" or something similar. But Gatsby had the concept very early on. The idea is that you source data from a variety of APIs which are then compiled into a [single GraphQL API](https://www.gatsbyjs.com/docs/tutorial/part-4/) which you can then use to build up components, then pages, and built into a website.
 
-Gatsby really excels at this. I can confidently fetch loads data from a REST backend, query the rest in pages, components or templates, and chuck away the data I don't want when the application is built.
+Gatsby really excels at this. I can confidently fetch loads data from REST and GraphQL backends, query the rest in pages, components or templates, and chuck away the data I don't want when the application is built.
 
 ### 3. Applications that don't need specialist environments
 
-Gatsby has the [`gatsby-ssr`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) and [`gatsby-browser`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) files that both wrap the application, one that runs at build time and one on the client, as the names suggest). I think this is far superior to Next.js' [`_App.js`](https://nextjs.org/docs/advanced-features/custom-app), which is run a build time. If you want relevant environment variables in the `<head>` of your document, you'd better be using Vercel or Netlify.
+Gatsby has the [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) and [`gatsby-browser.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) files that both wrap the application, one that runs at build time and one on the client, as the names suggest). I think this is far superior to Next.js' [`_App.js`](https://nextjs.org/docs/advanced-features/custom-app), which is run a build time. If you want relevant environment variables in the `<head>` of your document, you'd better be using Vercel or Netlify.
 
 It also leverages the open source react router, instead of including it's own. Next.js has admittedly [made strides in this direction](https://nextjs.org/blog/layouts-rfc) but until recently I had real issues when trying to render components on nested routes in a Next.js application.
 
 Also, I find the [Gatsby `<Image />` element](https://www.gatsbyjs.com/plugins/gatsby-image/) superior to Next.js, because it works statically, whereas you again need [specialist infrastructure (or a containerized application)](https://nextjs.org/docs/advanced-features/static-html-export#unsupported-features) for Next.js' to work.
+
+### 4. Where you need custom data in headers, footers etc
+
+Ever tried fetching data from an API at build time (or on a server) in a component with Next.js? You either need a context object or prop drilling, which isn't always possible or desireable.
+
+Gatsby's [`staticQuery()`](https://www.gatsbyjs.com/docs/how-to/querying-data/static-query/) on the other hand works in components and makes this really easy.
 
 ## Conclusion
 
@@ -53,6 +59,6 @@ Don't get me wrong, there's a huge amount going for Next.js, and I love building
 
 If I need an application that requires React or a heavy amount of client-side JavaScript, I'll assess whether Gatsby is best or Next.js is.
 
-All in all, I think there was an explosion in users when Gatsby first launched, and although there are other valuable tools like Next.js and Astro, it still has a valuable place in a JavaScript developers' toolbox.
+All in all, I think there was an explosion in users when Gatsby first launched, and although there are other great tools like Next.js and Astro, I think it still has a valuable place in a JavaScript developers' toolbox.
 
 Don't be too quick to dismiss it.
