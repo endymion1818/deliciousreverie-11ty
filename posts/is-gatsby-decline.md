@@ -41,7 +41,7 @@ Gatsby really excels at this. I can confidently fetch loads data from REST and G
 
 ### 3. Applications that don't need specialist environments
 
-Gatsby has the [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) and [`gatsby-browser.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) files that both wrap the application, one that runs at build time and one on the client, as the names suggest). I think this is far superior to Next.js' [`_App.js`](https://nextjs.org/docs/advanced-features/custom-app), which is run a build time. If you want relevant environment variables in the `<head>` of your document, you need to be using Vercel or Netlify, or you should think about building your application for each environment it's in.
+Gatsby has the [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) and [`gatsby-browser.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) files that both wrap the application, one that runs at build time and one on the client, as the names suggest). I think this is far superior separation of concerns than Next.js' [`_App.js`](https://nextjs.org/docs/advanced-features/custom-app).
 
 It also leverages the open source react router, instead of including it's own. Next.js has admittedly [made strides in this direction](https://nextjs.org/blog/layouts-rfc) but until recently I had real issues when trying to render components on nested routes in a Next.js application.
 
