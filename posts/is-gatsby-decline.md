@@ -19,7 +19,7 @@ I'd like to explain why.
 
 I feel sure I was one of the earlier users of Gatsby. I was introduced to it and Netlify before v1 was released, and started experimenting with fetching data from a content source pretty soon after that.
 
-I've since had a chance to work extensively with Next.js, and can see why people like it's lower-level API. I agree that for a lot of use cases, Next.js is a great tool to use. I particularly like how easy [`getServerSideProps()`](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) is to build an isomorphic application that runs in a container.
+I've since had a chance to work extensively with both Gatsby and Next.js, and can see why people like the Next.js lower-level API. I agree that for a lot of use cases, Next.js is a great tool to use. I particularly like how easy [`getServerSideProps()`](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) is to build an isomorphic application that runs in a container.
 
 However, when I need to build an application, there's always going to be some assessment in my head about which tool is better.
 
@@ -41,7 +41,7 @@ Gatsby really excels at this. I can confidently fetch loads data from REST and G
 
 ### 3. Applications that don't need specialist environments
 
-Gatsby has the [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) and [`gatsby-browser.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) files that both wrap the application, one that runs at build time and one on the client, as the names suggest). I think this is far superior to Next.js' [`_App.js`](https://nextjs.org/docs/advanced-features/custom-app), which is run a build time. If you want relevant environment variables in the `<head>` of your document, you'd better be using Vercel or Netlify.
+Gatsby has the [`gatsby-ssr.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) and [`gatsby-browser.js`](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) files that both wrap the application, one that runs at build time and one on the client, as the names suggest). I think this is far superior separation of concerns than Next.js' [`_App.js`](https://nextjs.org/docs/advanced-features/custom-app).
 
 It also leverages the open source react router, instead of including it's own. Next.js has admittedly [made strides in this direction](https://nextjs.org/blog/layouts-rfc) but until recently I had real issues when trying to render components on nested routes in a Next.js application.
 
