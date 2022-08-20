@@ -173,7 +173,7 @@ If you want to quickly see a list of all your posts, you can type `https://local
 
 We've scratched the surface of how to use WordPress as a headless CMS, and I hope I've introduced you to some interesting concepts and tools that you might be able to use and experiment with in the future.
 
-There's a lot more to this story, and my colleagues and I have blogged about it extensively at Indigo Tree - https://indigotree.co.uk/, and I've also written more on my personal blog, Delicious Reverie (https://deliciousreverie.co.uk/).
+There's a lot more to this story, and my colleagues and I have blogged about it extensively, and I've also written more on my personal blog, Delicious Reverie (https://deliciousreverie.co.uk/).
 
 Please, keep in touch with me via those channels and on Twitter to hear more exciting developments in the world of headless CMS!
 
