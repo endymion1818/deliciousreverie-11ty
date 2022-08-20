@@ -62,7 +62,7 @@ I first heard about this approach from a talk I watched from Twin Cities Drupal 
 
 I had also already experienced how easily one server can go down, taking out all of the sites on it, leading to minutes or hours of heart-stopping panic (there were 24 hours on mine). I had also seen how a monolithic CMS-based site could suffer a security compromise and take a lot of effort to repair (that took me more than 2 days of unpaid work).
 
-I had also seen the benefits of CDNs (content delivery networks) that can store your image, audio and video files on servers optimized for fast delivery, and can duplicate those files across the world for speedy delivery to those regions if needed. What if your entire website could benefit from this approach? I gave a talk at WordCamp London 2018 about this subject, you can find the slides and more references here: https://wpheadless.indigotree.co.uk
+I had also seen the benefits of CDNs (content delivery networks) that can store your image, audio and video files on servers optimized for fast delivery, and can duplicate those files across the world for speedy delivery to those regions if needed. What if your entire website could benefit from this approach? [I gave a talk at WordCamp London 2018 about this subject](/talk-how-were-using-wordpress-as-a-headless-cms)
 
 </div>
 

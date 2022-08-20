@@ -11,7 +11,6 @@ description: The last 6 months has been a bit of a whirlwind for me. I have gone
 draft: false
 tags:
 - zopa
-- indigotree
 - gatsbyjs
 - serverless
 title: 'From PHP to JavaScript: How I Switched Stacks'

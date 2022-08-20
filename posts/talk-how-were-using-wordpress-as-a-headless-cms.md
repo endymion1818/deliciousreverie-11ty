@@ -8,7 +8,6 @@ description: At a recent WordPress conference in London I gave this talk. It was
 draft: false
 tags:
 - performance
-- indigotree
 - wordpress
 - talks
 title: 'Talk: How Were Using WordPress as a Headless CMS'
