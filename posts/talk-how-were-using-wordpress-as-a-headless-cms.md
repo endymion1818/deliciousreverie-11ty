@@ -8,7 +8,6 @@ description: At a recent WordPress conference in London I gave this talk. It was
 draft: false
 tags:
 - performance
-- indigotree
 - wordpress
 - talks
 title: 'Talk: How Were Using WordPress as a Headless CMS'
@@ -34,8 +33,6 @@ It's thanks to them imparting their knowledge and expertise (and sometimes their
 
 ## The Talk
 
-There's a [full writeup on the Indigo Tree website](https://indigotree.co.uk/how-use-wordpress-headless-cms/). I'll update this post with the video on WordPress TV when it's uploaded there.
-
 My talk covered these main points:
 
 1. What is a headless (or decoupled) CMS
@@ -45,10 +42,6 @@ My talk covered these main points:
 5. The Future is (probably) headless
 
 [You can find it on the conference website too.](https://2018.london.wordcamp.org/session/how-were-using-wordpress-as-a-headless-cms/)
-
-## The Slides
-
-Indigo Tree have [kindly published the slides I made here](https://wpheadless.indigotree.co.uk/1). The slides are a case in point, because it's a GatsbyJS site with a WordPress backend! How's that for recursion ha ha!
 
 ## The experience
 

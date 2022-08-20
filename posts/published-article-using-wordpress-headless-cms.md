@@ -62,7 +62,7 @@ I first heard about this approach from a talk I watched from Twin Cities Drupal 
 
 I had also already experienced how easily one server can go down, taking out all of the sites on it, leading to minutes or hours of heart-stopping panic (there were 24 hours on mine). I had also seen how a monolithic CMS-based site could suffer a security compromise and take a lot of effort to repair (that took me more than 2 days of unpaid work).
 
-I had also seen the benefits of CDNs (content delivery networks) that can store your image, audio and video files on servers optimized for fast delivery, and can duplicate those files across the world for speedy delivery to those regions if needed. What if your entire website could benefit from this approach? I gave a talk at WordCamp London 2018 about this subject, you can find the slides and more references here: https://wpheadless.indigotree.co.uk
+I had also seen the benefits of CDNs (content delivery networks) that can store your image, audio and video files on servers optimized for fast delivery, and can duplicate those files across the world for speedy delivery to those regions if needed. What if your entire website could benefit from this approach? [I gave a talk at WordCamp London 2018 about this subject](/talk-how-were-using-wordpress-as-a-headless-cms)
 
 </div>
 
@@ -173,7 +173,7 @@ If you want to quickly see a list of all your posts, you can type `https://local
 
 We've scratched the surface of how to use WordPress as a headless CMS, and I hope I've introduced you to some interesting concepts and tools that you might be able to use and experiment with in the future.
 
-There's a lot more to this story, and my colleagues and I have blogged about it extensively at Indigo Tree - https://indigotree.co.uk/, and I've also written more on my personal blog, Delicious Reverie (https://deliciousreverie.co.uk/).
+There's a lot more to this story, and my colleagues and I have blogged about it extensively, and I've also written more on my personal blog, Delicious Reverie (https://deliciousreverie.co.uk/).
 
 Please, keep in touch with me via those channels and on Twitter to hear more exciting developments in the world of headless CMS!
 

@@ -27,11 +27,11 @@ It was also my first introduction to using a slew of new technologies, including
 
 ## Moving on from Ech
 
-Until late in October I was still contracting at Ech, a great team with some exciting ambitions. I'm looking forward to hearing what they achieve in the future. I was sad to say farewell after almost a year there to go and work at Indigo Tree, a move which was conducive to a better work / life balance (because it's a much shorter commute).
+Until late in October I was still contracting at Ech, a great team with some exciting ambitions. I'm looking forward to hearing what they achieve in the future. I was sad to say farewell after almost a year there to go and work at an agency, a move which was conducive to a better work / life balance (because it's a much shorter commute).
 
 Looking back, I certainly was pushed to move my skills forwards, at times much further than I believed I could. I also was able to leave Ech having imparted to them some useful processes that I had acquired already (kanban boards for project management, git for version control, and working locally instead of via ftp).
 
-I also moved to Indigo Tree for the chance to work with the current team and their excellent in-house Wordpress theme. This theme has many fantastic features, including the fact that it uses OO PHP and has command-line interface similar to Laravel's Artisan tool for making meta fields, widgets and custom settings area.
+I also moved to an agency for the chance to work with the current team and their excellent in-house Wordpress theme. This theme has many fantastic features, including the fact that it uses OO PHP and has command-line interface similar to Laravel's Artisan tool for making meta fields, widgets and custom settings area.
 
 ```
 $ origin make:metabox mymetabox
@@ -55,7 +55,7 @@ I really believe SVGs and animations are the future of the web. There's an insan
 
 ### 3. Graduate to Laravel
 
-I've already had the opportunity at Indigo Tree to start learning Laravel, and already love it. I think this could quickly develop into a standalone blog post (umm, yep, it probably will) so I won't say anything more about it, other than I know I'm going to love the framework. A colleague has already told me "learning laravel will make you a better Wordpress developer". I can already see the truth of that statement.
+I've already had the opportunity at an agency to start learning Laravel, and already love it. I think this could quickly develop into a standalone blog post (umm, yep, it probably will) so I won't say anything more about it, other than I know I'm going to love the framework. A colleague has already told me "learning laravel will make you a better Wordpress developer". I can already see the truth of that statement.
 
 ### 4. Design More
 

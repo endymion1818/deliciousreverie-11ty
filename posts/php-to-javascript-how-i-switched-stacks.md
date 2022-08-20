@@ -11,7 +11,6 @@ description: The last 6 months has been a bit of a whirlwind for me. I have gone
 draft: false
 tags:
 - zopa
-- indigotree
 - gatsbyjs
 - serverless
 title: 'From PHP to JavaScript: How I Switched Stacks'
@@ -20,7 +19,7 @@ I've been working in web development for the past 8 years or so. Traditionally, 
 
 During that time I've had the opportunity to work with JavaScript too. But understanding the language well seemed a bit beyond my grasp. One of the reasons for this was, I think, that I was trying to juggle several languages at once. I spent a lot of time understanding design patterns in PHP. Then, after I interviewed at Google, I decided to focus more deeply on CSS and HTML. And with these PHP projects, a lot was done in that language, leaving JavaScript as a vehicle for presentational enhancement only.
 
-But then, because of concerns about WordPress' future, Indigo Tree, the agency I was working for, invested time for its developers into finding a possible alternative to that popular platform. Lead developer Chris Geary saw an opportunity here. Instead of trying to replace WordPress with another platform in a 1:1 comparison, he realised we could deliver serverless sites using some cutting-edge tools that were emerging.
+But then, because of concerns about WordPress' future, the agency I was working for invested time for its developers into finding a possible alternative to that popular platform. Lead developer Chris Geary saw an opportunity here. Instead of trying to replace WordPress with another platform in a 1:1 comparison, he realised we could deliver serverless sites using some cutting-edge tools that were emerging.
 
 ## Investigating Serverless
 
