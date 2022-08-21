@@ -61,4 +61,4 @@ Along with that I want to work more heavily with organisation that solve real wo
 
 [Let's meet on Twitter](https://twitter.com/muzzlehatch_ "Twitter profile of Benjamin Read")
 
-[Or contact me directly](https://deliciousreverie.co.uk/contact "Contact Benjamin Read")
+[Or contact me directly](https://deliciousreverie.co.uk/contact/ "Contact Benjamin Read")
