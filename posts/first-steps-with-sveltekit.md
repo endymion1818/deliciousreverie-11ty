@@ -60,7 +60,7 @@ However, I couldn't find any reference to how you build a NextJS that compiles a
 
 You can take a look at my live project at [https://promatt.co.uk](https://promatt.co.uk).
 
-I wrote this small site using a starter built by [Scott Spence](https://scottspence.com/2021/05/06/graphcms-svelte-strter/). It fetches data from [GraphCMS](https://graphcms.com) and is hosted on [Vercel](https://vercel.com). I've used [Formspree](https://formspree.io) to forward emails from the /contact page to my friend's email address, but I could have just as easily done that with a serverless function.
+I wrote this small site using a starter built by [Scott Spence](https://scottspence.com/posts/graphcms-svelte-starter). It fetches data from [Hygraph](: https://hygraph.com/) and is hosted on [Vercel](https://vercel.com). I've used [Formspree](https://formspree.io) to forward emails from the /contact page to my friend's email address, but I could have just as easily done that with a serverless function.
 
 ## Conclusion
 
