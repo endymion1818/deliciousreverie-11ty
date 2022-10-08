@@ -176,3 +176,5 @@ Going the extra mile in normalising this object isn't a challenge I relished, ho
 I learned that trying to do a faster job didn't yield the correct results, so my fastest solution was by far the best.
 
 Sometimes you've just got to knuckle down, go in for the long haul, and you'll find you've come out the other end similarly restructured (in a good way!)
+
+Edit: I realize this article doesn't really show you enough about how to use `reduce`, but it's still coming up in my keywords quite frequently. So here's a more thorough article on the topic: https://dev.to/ra1nbow1/5-ways-to-use-the-reduce-method-in-js-1k8h
