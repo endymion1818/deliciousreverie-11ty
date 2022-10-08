@@ -15,6 +15,8 @@ title: Normalizing data using array.prototype.reduce
 
 **reduce() has terrified me for some time! I hadn't wanted to touch this new array method because I couldn't quite follow what each of it's properties meant. But recently I had an opportunity to deep dive into this function. Here's how I refactored an object to get the results I needed:**
 
+*Edit:* I realize this article doesn't really show you enough about how to use `reduce`, but it's still coming up in my SEO keywords quite frequently. So here's a more thorough article on the topic: https://dev.to/ra1nbow1/5-ways-to-use-the-reduce-method-in-js-1k8h
+
 I'm beginning to realise how important good API design is. One API I call for a project has only one endpoint: a list of items. Each item is quite large, with loads of tags and categories. Yet I can't query the API by any of those.
 
 This became an issue when I had a requirement to display them by categories. The real trick was that the category was inside a nested object. AND it had to be matched and replaced by a different value before I displayed it.
